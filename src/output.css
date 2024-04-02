@@ -561,36 +561,20 @@ video {
   height: 0px;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
-.h-16 {
-  height: 4rem;
-}
-
-.h-9 {
-  height: 2.25rem;
+.h-5 {
+  height: 1.25rem;
 }
 
 .min-h-screen {
   min-height: 100vh;
 }
 
+.w-5 {
+  width: 1.25rem;
+}
+
 .w-full {
   width: 100%;
-}
-
-.w-3 {
-  width: 0.75rem;
-}
-
-.w-16 {
-  width: 4rem;
-}
-
-.w-9 {
-  width: 2.25rem;
 }
 
 .basis-1 {
@@ -614,16 +598,16 @@ video {
   justify-content: space-between;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-3 {
   gap: 0.75rem;
 }
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .gap-7 {
@@ -760,20 +744,47 @@ code {
 }
 
 @media (min-width: 640px) {
+  .sm\:h-12 {
+    height: 3rem;
+  }
+
   .sm\:h-9 {
     height: 2.25rem;
   }
 
-  .sm\:h-16 {
-    height: 4rem;
+  .sm\:w-12 {
+    width: 3rem;
   }
 
   .sm\:w-9 {
     width: 2.25rem;
   }
 
-  .sm\:w-16 {
-    width: 4rem;
+  .sm\:gap-5 {
+    gap: 1.25rem;
+  }
+
+  .sm\:gap-\[21\.38px\] {
+    gap: 21.38px;
+  }
+
+  .sm\:p-\[21\.38px\] {
+    padding: 21.38px;
+  }
+
+  .sm\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .sm\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .sm\:text-3xl {
@@ -785,32 +796,28 @@ code {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
+}
 
-  .sm\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+@media (min-width: 768px) {
+  .md\:h-16 {
+    height: 4rem;
   }
 
-  .sm\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .md\:w-16 {
+    width: 4rem;
   }
 
-  .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
+  .md\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
 
-  .sm\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
+  .md\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
 
-  .sm\:marker\:h-9 *::marker {
-    height: 2.25rem;
-  }
-
-  .sm\:marker\:h-9::marker {
-    height: 2.25rem;
+  .md\:text-\[58\.86px\] {
+    font-size: 58.86px;
   }
 }
