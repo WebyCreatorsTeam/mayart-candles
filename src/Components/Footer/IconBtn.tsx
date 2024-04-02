@@ -8,7 +8,7 @@ const IconBtn = ({
   children: React.ReactNode;
 }) => {
   return (
-    <a href={href} className="flex items-center gap-3 p-[10px]" target="_blank">
+    <a href={href} rel="noreferrer" className="flex items-center gap-3 p-[10px]" target="_blank">
       {children}
     </a>
   );
