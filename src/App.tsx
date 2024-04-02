@@ -5,7 +5,7 @@ import NavBar from "./Components/NavBar";
 
 function App() {
   return (
-    <div className="h-0 min-h-fit">
+    <div className="flex h-0 min-h-screen flex-col justify-between">
       <NavBar />
       <Footer />
     </div>

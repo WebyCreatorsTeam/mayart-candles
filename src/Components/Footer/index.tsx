@@ -1,15 +1,14 @@
 import React from "react";
 import IconBtn from "./IconBtn";
 
-
 const index = () => {
   return (
-    <div className="flex w-full flex-col items-center gap-9 bg-red-500 px-4 py-20">
+    <div className="flex w-full flex-col items-center gap-9 bg-red-200 px-4 py-11 text-lg font-normal">
       {/* <img src={"/images/ellipse15.svg"} alt="ellipse15" id="image2" /> */}
 
       <h3 className="">!בואו נשמור על קשר</h3>
       <a
-        className="bg-primary-pink focus:bg-secondary-pink hover:bg-secondary-pink flex gap-4 rounded-full px-14 py-3 align-middle text-2xl font-semibold text-white items-center"
+        className="flex items-center gap-4 rounded-full bg-primary-pink px-[60px] py-[15px] align-middle text-2xl font-semibold text-white hover:bg-secondary-pink focus:bg-secondary-pink"
         href="tel:+972 50-8122000"
       >
         <img src={"/icons/phone-icon.svg"} alt="phone-icon" />
@@ -29,7 +28,9 @@ const index = () => {
           Email
         </IconBtn>
       </div>
-      <p className="">created by weby</p>
+      <p className="text-xs">
+        created by <a href="https://weby.team/">WEBY</a>
+      </p>
 
       {/* <img src={"/images/ellipse16.svg"} alt="ellipse16" id="image1" /> */}
     </div>
