@@ -1,5 +1,6 @@
 import React from "react";
-import "./Footer.css";
+import IconBtn from "./IconBtn";
+
 
 const index = () => {
   return (
@@ -14,19 +15,19 @@ const index = () => {
         <img src={"/icons/phone-icon.svg"} alt="phone-icon" />
         050-8122000
       </a>
-      <div className="">
-        <a href="">
+      <div className="flex gap-5">
+        <IconBtn href={"https://instagram.com"}>
           <img src={"/icons/instagram-icon.svg"} alt="instagram-icon" />
           Instagram
-        </a>
-        <a href="">
+        </IconBtn>
+        <IconBtn href="https://whatsapp.com">
           <img src={"/icons/whatsapp-icon.svg"} alt="whatsapp-icon" />
           Whatsapp
-        </a>
-        <a href="">
+        </IconBtn>
+        <IconBtn href="https://gmail.com">
           <img src={"/icons/mail-icon.svg"} alt="mail-icon" />
           Email
-        </a>
+        </IconBtn>
       </div>
       <p className="">created by weby</p>
 
