@@ -1,11 +1,11 @@
-import React from 'react';
-import Logo from './Logo';
-import MenuButton from './MenuButton';
-import ActionButtons from './ActionButtons';
+import React from "react";
+import Logo from "./Logo";
+import MenuButton from "./MenuButton";
+import ActionButtons from "./ActionButtons";
 
 const NavBar = () => {
   return (
-    <div className='w-full flex justify-between items-center basis-1 px-6 py-5 bg-white'>
+    <div className="flex w-full basis-1 items-center justify-between bg-white px-6 py-5">
       <ActionButtons />
       <Logo />
       <MenuButton />
