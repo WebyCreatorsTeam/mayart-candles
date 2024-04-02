@@ -1,37 +1,36 @@
 import React from "react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { BsTelephone } from "react-icons/bs";
 import "./Footer.css";
 
 const index = () => {
   return (
-    <div className="flex w-full bg-red-500 px-4 py-20">
+    <div className="flex w-full flex-col items-center gap-9 bg-red-500 px-4 py-20">
       {/* <img src={"/images/ellipse15.svg"} alt="ellipse15" id="image2" /> */}
+
+      <h3 className="">!בואו נשמור על קשר</h3>
+      <a
+        className="bg-primary-pink focus:bg-secondary-pink hover:bg-secondary-pink flex gap-4 rounded-full px-14 py-3 align-middle text-2xl font-semibold text-white items-center"
+        href="tel:+972 50-8122000"
+      >
+        <img src={"/icons/phone-icon.svg"} alt="phone-icon" />
+        050-8122000
+      </a>
       <div className="">
-        <h3 className="">!בואו נשמור על קשר</h3>
-        <a href="" id="btn">
-          <BsTelephone />
-          050-8122000
+        <a href="">
+          <img src={"/icons/instagram-icon.svg"} alt="instagram-icon" />
+          Instagram
         </a>
-        <div className="">
-          <a href="" id="icon">
-            <FaInstagram size={30} />
-            Instagram
-          </a>
-          <a href="" id="icon">
-            <FaWhatsapp size={30} />
-            Whatsapp
-          </a>
-          <a href="" id="icon">
-            <MdOutlineMailOutline size={30} />
-            Email
-          </a>
-        </div>
-        <p className="">created by weby</p>
+        <a href="">
+          <img src={"/icons/whatsapp-icon.svg"} alt="whatsapp-icon" />
+          Whatsapp
+        </a>
+        <a href="">
+          <img src={"/icons/mail-icon.svg"} alt="mail-icon" />
+          Email
+        </a>
       </div>
+      <p className="">created by weby</p>
+
       {/* <img src={"/images/ellipse16.svg"} alt="ellipse16" id="image1" /> */}
-      <br />
     </div>
   );
 };
