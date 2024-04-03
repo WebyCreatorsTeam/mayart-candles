@@ -1,6 +1,6 @@
 import React from "react";
 
-const MenuButton = () => {
+const MenuToggle = () => {
   return (
     <button>
       <img src="/menu-icon.svg" alt="menu icon" />
@@ -8,4 +8,4 @@ const MenuButton = () => {
   );
 };
 
-export default MenuButton;
+export default MenuToggle;
