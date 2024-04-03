@@ -5,9 +5,9 @@ import TelBtn from "./TelBtn";
 const index = () => {
   return (
     <div className="flex w-full flex-col items-center gap-9 bg-red-200 px-4 py-11 text-lg font-normal sm:text-4xl">
-      {/* <img src={"/images/ellipse15.svg"} alt="ellipse15" id="image2" /> */}
+      <img src={"/images/ellipse15.svg"} alt="ellipse15" id="image2" className="hidden lg:flex"/>
 
-      <h3 className="">!בואו נשמור על קשר</h3>
+      <h3 className="lg:text-[32px]">!בואו נשמור על קשר</h3>
       <TelBtn />
       <div className="flex gap-1">
         <IconBtn href={"https://instagram.com"}>
@@ -35,11 +35,11 @@ const index = () => {
           Email
         </IconBtn>
       </div>
-      <p className="text-xs sm:text-2xl">
+      <p className="text-xs sm:text-2xl lg:text-[32px]">
         created by <a href="https://weby.team/">WEBY</a>
       </p>
 
-      {/* <img src={"/images/ellipse16.svg"} alt="ellipse16" id="image1" /> */}
+      <img src={"/images/ellipse16.svg"} alt="ellipse16" className="hidden lg:flex"  />
     </div>
   );
 };

@@ -11,7 +11,7 @@ const IconBtn = ({
     <a
       href={href}
       rel="noreferrer"
-      className="flex items-center gap-3 p-[10px] sm:gap-[21.38px] sm:p-[21.38px]"
+      className="flex items-center gap-3 p-[10px] sm:gap-[21.38px] sm:p-[21.38px] lg:text-[32px]"
       target="_blank"
     >
       {children}
