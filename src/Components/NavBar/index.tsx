@@ -5,14 +5,19 @@ import ActionButtons from "./ActionButtons";
 import NavBarMenu from "./NavBarMenu";
 
 const NavBar = () => {
+  const [navBarMenuIsOpen, setNavBarMenuIsOpen] = React.useState(false);
+  const toggleNavBarMenu = () => setNavBarMenuIsOpen(!navBarMenuIsOpen);
   return (
     <>
       {/* header */}
       <div className="relative flex w-full basis-1 items-center justify-between bg-white px-6 py-5">
         <ActionButtons />
         <Logo />
-        <MenuToggle />
-        <NavBarMenu />
+        <MenuToggle toggleNavBarMenu={toggleNavBarMenu} />
+        <NavBarMenu
+          navBarMenuIsOpen={navBarMenuIsOpen}
+          setNavBarMenuIsOpen={setNavBarMenuIsOpen}
+        />
       </div>
     </>
   );

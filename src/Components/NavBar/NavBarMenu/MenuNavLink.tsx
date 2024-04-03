@@ -1,11 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const MenuNavLink = ({ to, text }: { to: string; text: string }) => {
+const MenuNavLink = ({
+  to,
+  text,
+  onClick,
+}: {
+  to: string;
+  text: string;
+  onClick?: () => void;
+}) => {
   return (
     <NavLink
+      onClick={onClick}
       end
-      className={({ isActive }) => (isActive ? "bg-slate-300" : "")}
+      className={({ isActive }) =>
+        `w-full px-7 py-5 ${isActive ? "bg-[#B0C4B1]/30" : ""}`
+      }
       to={to}
     >
       {text}

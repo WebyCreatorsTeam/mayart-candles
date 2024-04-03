@@ -1,8 +1,8 @@
 import React from "react";
 
-const MenuToggle = () => {
+const MenuToggle = ({ toggleNavBarMenu }: { toggleNavBarMenu: () => void }) => {
   return (
-    <button>
+    <button onClick={toggleNavBarMenu}>
       <img src="/menu-icon.svg" alt="menu icon" />
     </button>
   );

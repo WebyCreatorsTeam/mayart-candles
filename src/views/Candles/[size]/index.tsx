@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const BySize = () => {
-  return <div>BySize</div>;
+  const { size } = useParams<{ size: string }>();
+  return <div>Size: {size}</div>;
 };
 
 export default BySize;
