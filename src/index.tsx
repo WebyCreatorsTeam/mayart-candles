@@ -10,6 +10,7 @@ import BySize from "./views/Candles/[size]";
 import Designed from "./views/Candles/Designed";
 import InVessel from "./views/Candles/InVessel";
 import Contact from "./views/Contact";
+import ErrorComponent from "./Components/Error";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorComponent />,
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
