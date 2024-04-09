@@ -14,7 +14,7 @@ const index = () => {
           <img
             src={"/icons/instagram-icon.svg"}
             alt="instagram-icon"
-            className="sm:h-9 sm:w-9"
+            className="sm:h-9 sm:w-9 hover:stroke-2"
           />
           Instagram
         </IconBtn>
@@ -22,7 +22,7 @@ const index = () => {
           <img
             src={"/icons/whatsapp-icon.svg"}
             alt="whatsapp-icon"
-            className="h-5 w-5 sm:h-9 sm:w-9"
+            className="h-5 w-5 sm:h-9 sm:w-9 hover:stroke-2"
           />
           Whatsapp
         </IconBtn>
@@ -30,7 +30,7 @@ const index = () => {
           <img
             src={"/icons/mail-icon.svg"}
             alt="mail-icon"
-            className="h-5 w-5 sm:h-9 sm:w-9"
+            className="h-5 w-5 sm:h-9 sm:w-9 hover:stroke-2"
           />
           Email
         </IconBtn>
