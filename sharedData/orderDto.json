@@ -1,0 +1,17 @@
+{
+    "phoneNo": "0543333333",
+    "customerName": "Yonatan Kalma",
+    "address": "Tel Aviv",
+    "candleItems": [
+        {
+            "candleName": "Red velvet",
+            "quantity": 2,
+            "price": 100
+        },
+        {
+            "candleName": "Red velvet2",
+            "quantity": 1,
+            "price": 200
+        }
+    ]
+}
