@@ -569,6 +569,46 @@ video {
   top: 100%;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-11 {
+  margin-top: 2.75rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
 .block {
   display: block;
 }
@@ -601,6 +641,92 @@ video {
   height: 591px;
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+.h-\[\] {
+  height: ;
+}
+
+.h-\[506px\] {
+  height: 506px;
+}
+
+.h-\[20vc\] {
+  height: 20vc;
+}
+
+.h-\[20vw\] {
+  height: 20vw;
+}
+
+.h-\[20vh\] {
+  height: 20vh;
+}
+
+.h-\[vh\] {
+  height: vh;
+}
+
+.h-\[30vh\] {
+  height: 30vh;
+}
+
+.h-\[15vh\] {
+  height: 15vh;
+}
+
+.h-\[420px\] {
+  height: 420px;
+}
+
+.h-\[350px\] {
+  height: 350px;
+}
+
+.h-\[370px\] {
+  height: 370px;
+}
+
+.h-\[360px\] {
+  height: 360px;
+}
+
+.h-\[355px\] {
+  height: 355px;
+}
+
+.h-\[3px\] {
+  height: 3px;
+}
+
+.h-\[30px\] {
+  height: 30px;
+}
+
+.h-\[380px\] {
+  height: 380px;
+}
+
+.h-\[358px\] {
+  height: 358px;
+}
+
+.h-\[400px\] {
+  height: 400px;
+}
+
+.h-\[320px\] {
+  height: 320px;
+}
+
+.h-\[340px\] {
+  height: 340px;
+}
+
+=======
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
 .min-h-screen {
   min-height: 100vh;
 }
@@ -627,6 +753,80 @@ video {
   width: 713px;
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+.w-\[\] {
+  width: ;
+}
+
+.w-\[1921px\] {
+  width: 1921px;
+}
+
+.w-\[100\] {
+  width: 100;
+}
+
+.w-\[100vw\] {
+  width: 100vw;
+}
+
+.w-\[400x\] {
+  width: 400x;
+}
+
+.w-\[400px\] {
+  width: 400px;
+}
+
+.w-\[600px\] {
+  width: 600px;
+}
+
+.w-\[550px\] {
+  width: 550px;
+}
+
+.w-\[430px\] {
+  width: 430px;
+}
+
+.w-\[420px\] {
+  width: 420px;
+}
+
+.w-\[425px\] {
+  width: 425px;
+}
+
+.w-\[500px\] {
+  width: 500px;
+}
+
+.w-\[480px\] {
+  width: 480px;
+}
+
+.w-\[4px\] {
+  width: 4px;
+}
+
+.w-\[460px\] {
+  width: 460px;
+}
+
+.w-\[455px\] {
+  width: 455px;
+}
+
+.w-\[450px\] {
+  width: 450px;
+}
+
+=======
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
 .basis-1 {
   flex-basis: 0.25rem;
 }
@@ -682,6 +882,18 @@ video {
 
 .gap-9 {
   gap: 2.25rem;
+}
+
+.gap-\[\] {
+  gap: ;
+}
+
+.gap-\[40px\] {
+  gap: 40px;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .overflow-x-hidden {
@@ -945,44 +1157,155 @@ code {
     display: block;
   }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  .lg\:flex {
+    display: flex;
+  }
+
+=======
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
   .lg\:h-9 {
     height: 2.25rem;
   }
 
+<<<<<<< Updated upstream
   .lg\:h-11 {
     height: 2.75rem;
+=======
+<<<<<<< HEAD
+  .lg\:h-\[\] {
+    height: ;
+  }
+
+  .lg\:h-\[20vh\] {
+    height: 20vh;
+  }
+
+  .lg\:h-\[400p\] {
+    height: 400p;
+  }
+
+  .lg\:h-\[400px\] {
+    height: 400px;
+=======
+  .lg\:h-11 {
+    height: 2.75rem;
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
   }
 
   .lg\:h-\[73px\] {
     height: 73px;
   }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  .lg\:h-\[43px\] {
+    height: 43px;
+  }
+
+=======
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
   .lg\:w-9 {
     width: 2.25rem;
   }
 
+<<<<<<< Updated upstream
   .lg\:w-11 {
     width: 2.75rem;
+=======
+<<<<<<< HEAD
+  .lg\:w-\[\] {
+    width: ;
+  }
+
+  .lg\:w-\[1000\] {
+    width: 1000;
+  }
+
+  .lg\:w-\[1000px\] {
+    width: 1000px;
+  }
+
+  .lg\:w-\[100\] {
+    width: 100;
+  }
+
+  .lg\:w-\[100vw\] {
+    width: 100vw;
+  }
+
+  .lg\:w-\[20px\] {
+    width: 20px;
+  }
+
+  .lg\:w-\[100px\] {
+    width: 100px;
+=======
+  .lg\:w-11 {
+    width: 2.75rem;
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
   }
 
   .lg\:w-\[379px\] {
     width: 379px;
   }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  .lg\:w-\[43px\] {
+    width: 43px;
+=======
+>>>>>>> Stashed changes
   .lg\:items-center {
     align-items: center;
   }
 
   .lg\:text-center {
     text-align: center;
+<<<<<<< Updated upstream
+=======
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
   }
 
   .lg\:text-\[32px\] {
     font-size: 32px;
   }
 
+<<<<<<< Updated upstream
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+=======
+<<<<<<< HEAD
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-\[43px\] {
+    font-size: 43px;
+  }
+
+  .lg\:text-\[20px\] {
+    font-size: 20px;
+  }
+
+  .lg\:text-\[\] {
+    color: ;
+=======
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+>>>>>>> 20947ea038efabff1abe317cdf3dfb3c7e0ca006
+>>>>>>> Stashed changes
   }
 }
