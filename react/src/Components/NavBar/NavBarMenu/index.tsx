@@ -1,6 +1,7 @@
 import React from "react";
 import MenuNavLink from "./MenuNavLink";
 import CandlesBySizeMenu from "./CandlesBySizeMenu";
+import NavBarMenuSocials from "./NavBarMenuSocials";
 
 const NavBarMenu = ({
   navBarMenuIsOpen,
@@ -46,6 +47,7 @@ const NavBarMenu = ({
         />
         <MenuNavLink onClick={closeMenus} to="/about" text="אודות" />
         <MenuNavLink onClick={closeMenus} to="/contact" text="צור קשר" />
+        <NavBarMenuSocials />
       </div>
     </div>
   );

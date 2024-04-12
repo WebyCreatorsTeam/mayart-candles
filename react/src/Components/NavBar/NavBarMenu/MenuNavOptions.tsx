@@ -14,8 +14,16 @@ const MenuNavOptions = ({
       onClick={(e) => e.stopPropagation()}
       className="flex w-full flex-col divide-y overflow-hidden"
     >
-      <button className="z-40 bg-white w-full text-start px-7 py-5" onClick={toggleSizeMenu}>
-        נרות לפי גודל
+      <button
+        className="z-40 flex w-full gap-4 bg-white px-7 py-5 text-start"
+        onClick={toggleSizeMenu}
+      >
+        <p>נרות לפי גודל</p>
+        <div
+          className={`h-fit w-fit transition-all duration-300 ${sizeMenuIsOpen ? "rotate-90" : "-rotate-90"}`}
+        >
+          &#10217;
+        </div>
       </button>
       <div
         className={`z-10 flex  w-full flex-col divide-y text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "" : "hidden"}`}
