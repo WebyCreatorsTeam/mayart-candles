@@ -15,7 +15,7 @@ const MenuNavLink = ({
       onClick={onClick}
       end
       className={({ isActive }) =>
-        `w-full px-7 py-5 ${isActive ? "bg-[#B0C4B1]/30" : ""}`
+        `w-full px-7 py-5 ${isActive ? "bg-[#B0C4B1]/30" : "bg-white"}`
       }
       to={to}
     >
