@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <>
       {/* header */}
-      <div className="relative flex w-full basis-1 items-center justify-between bg-white px-6 py-5">
+      <div className="relative flex w-full basis-1 items-center justify-between bg-white px-6 py-5 sm:py-14 sm:px-11">
         <ActionButtons />
         <Logo />
         <MenuToggle toggleNavBarMenu={toggleNavBarMenu} />
