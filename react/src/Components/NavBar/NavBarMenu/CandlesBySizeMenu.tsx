@@ -13,13 +13,12 @@ const CandlesBySizeMenu = ({
 }) => {
   return (
     <MenuNavOptions
-      // text="נרות לפי גודל"
       sizeMenuIsOpen={sizeMenuIsOpen}
       toggleSizeMenu={toggleSizeMenu}
     >
-      <MenuNavLink onClick={closeMenus} to="/candles/large" text="גדול" />
-      <MenuNavLink onClick={closeMenus} to="/candles/medium" text="בינוני" />
-      <MenuNavLink onClick={closeMenus} to="/candles/small" text="קטן" />
+      <MenuNavLink className="font-normal" onClick={closeMenus} to="/candles/large" text="גדול" />
+      <MenuNavLink className="font-normal" onClick={closeMenus} to="/candles/medium" text="בינוני" />
+      <MenuNavLink className="font-normal" onClick={closeMenus} to="/candles/small" text="קטן" />
     </MenuNavOptions>
   );
 };

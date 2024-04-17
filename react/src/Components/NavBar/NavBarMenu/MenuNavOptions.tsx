@@ -26,7 +26,7 @@ const MenuNavOptions = ({
         </div>
       </button>
       <div
-        className={`z-10 flex  w-full flex-col divide-y text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "" : "hidden"}`}
+        className={`z-10 flex text-center w-full flex-col text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "" : "hidden"}`}
       >
         {children}
       </div>
