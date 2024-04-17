@@ -1,5 +1,6 @@
 import React from "react";
 import MenuNavLink from "./MenuNavLink";
+import MenuNavOptions from "./MenuNavOptions";
 
 const CandlesBySizeMenu = ({
   closeMenus,
@@ -11,16 +12,15 @@ const CandlesBySizeMenu = ({
   toggleSizeMenu: () => void;
 }) => {
   return (
-    <div className="px-7 py-5">
-      <button onClick={toggleSizeMenu}>נרות לפי גודל</button>
-      <div
-        className={`flex flex-col text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "block" : "hidden"}`}
-      >
-        <MenuNavLink onClick={closeMenus} to="/candles/large" text="גדול" />
-        <MenuNavLink onClick={closeMenus} to="/candles/medium" text="בינוני" />
-        <MenuNavLink onClick={closeMenus} to="/candles/small" text="קטן" />
-      </div>
-    </div>
+    <MenuNavOptions
+      // text="נרות לפי גודל"
+      sizeMenuIsOpen={sizeMenuIsOpen}
+      toggleSizeMenu={toggleSizeMenu}
+    >
+      <MenuNavLink onClick={closeMenus} to="/candles/large" text="גדול" />
+      <MenuNavLink onClick={closeMenus} to="/candles/medium" text="בינוני" />
+      <MenuNavLink onClick={closeMenus} to="/candles/small" text="קטן" />
+    </MenuNavOptions>
   );
 };
 
