@@ -23,7 +23,7 @@ const NavBarMenu = ({
       className={`absolute right-1/2 top-0 h-screen w-screen translate-x-1/2 bg-black/50 transition-all duration-500
     ${navBarMenuIsOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
     >
-      <div
+      <nav
         dir="rtl"
         className={`absolute top-0 flex w-72 flex-col items-start divide-y-[1px] border-[[#B0C4B1]/30] bg-white text-xl font-semibold transition-all duration-500
         ${navBarMenuIsOpen ? "left-0" : "-left-full"}`}
@@ -48,7 +48,7 @@ const NavBarMenu = ({
         <MenuNavLink onClick={closeMenus} to="/about" text="אודות" />
         <MenuNavLink onClick={closeMenus} to="/contact" text="צור קשר" />
         <NavBarMenuSocials />
-      </div>
+      </nav>
     </div>
   );
 };

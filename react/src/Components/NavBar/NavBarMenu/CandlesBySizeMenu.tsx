@@ -13,6 +13,7 @@ const CandlesBySizeMenu = ({
 }) => {
   return (
     <MenuNavOptions
+      // text="נרות לפי גודל"
       sizeMenuIsOpen={sizeMenuIsOpen}
       toggleSizeMenu={toggleSizeMenu}
     >
