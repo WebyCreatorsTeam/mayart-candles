@@ -33,7 +33,7 @@ const DesktopNavLink = ({
         </p>
       )}
       <span
-        className={`h-[1px] w-full bg-black transition-all duration-150 opacity-0  group-hover:translate-y-0.5 ${hoverEffect ? "group-hover:opacity-100 " : ""} `}
+        className={`h-[1px] w-full bg-black opacity-0 transition-all duration-150  group-hover:translate-y-0.5 ${hoverEffect ? "group-hover:opacity-100 " : ""} `}
       ></span>
     </NavLink>
   );

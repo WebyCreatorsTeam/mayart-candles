@@ -19,7 +19,7 @@ const tabletActionButtonArray = [
 const ActionButtons = () => {
   return (
     <>
-{/* mobile */}
+      {/* mobile */}
       <div className="flex gap-7 sm:hidden">
         {mobileActionButtonArray.map((actionButton, index) => (
           <button key={index + 1}>

@@ -2,8 +2,7 @@ import React from "react";
 import DesktopNavLink from "./DesktopNavLink";
 import DesktopMenuOptions from "./DesktopMenuOptions";
 
-
-const DesktopCandlesBySizeMenu = ({}: {}) => {
+const DesktopCandlesBySizeMenu = () => {
   const [sizeMenuIsOpen, setSizeMenuIsOpen] = React.useState(false);
   const toggleSizeMenu = () => setSizeMenuIsOpen(!sizeMenuIsOpen);
   return (

@@ -14,7 +14,7 @@ const Header = ({
   toggleNavBarMenu: () => void;
 }) => {
   return (
-    <header className="relative flex w-full z-10 basis-1 items-center justify-between bg-white px-6 py-5 sm:px-11 sm:py-14">
+    <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-6 py-5 sm:px-11 sm:py-14">
       <ActionButtons />
       <Logo />
       <MenuToggle toggleNavBarMenu={toggleNavBarMenu} />

@@ -1,8 +1,4 @@
 import React from "react";
-import Logo from "./Logo";
-import MenuToggle from "./MenuToggle";
-import ActionButtons from "./ActionButtons";
-import NavBarMenu from "./NavBarMenu";
 import DesktopMenu from "./DesktopMenu";
 import Header from "./Header";
 
