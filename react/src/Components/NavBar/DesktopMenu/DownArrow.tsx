@@ -1,9 +1,15 @@
 import React from "react";
 
-const DownArrow = ({ sizeMenuIsOpen }: { sizeMenuIsOpen: boolean }) => {
+const DownArrow = ({
+  sizeMenuIsOpen,
+  className,
+}: {
+  sizeMenuIsOpen: boolean;
+  className?: string;
+}) => {
   return (
     <svg
-      className={`transition-all group-hover:stroke-white duration-300 [&>path]:stroke-black ${sizeMenuIsOpen ? "rotate-180" : "rotate-0"}`}
+      className={`transition-all duration-300 group-hover:stroke-white [&>path]:stroke-black ${sizeMenuIsOpen ? "rotate-180" : "rotate-0"} ${className}`}
       width="20"
       height="11"
       viewBox="0 0 20 11"

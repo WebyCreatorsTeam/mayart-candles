@@ -16,9 +16,9 @@ const CandlesBySizeMenu = ({
       sizeMenuIsOpen={sizeMenuIsOpen}
       toggleSizeMenu={toggleSizeMenu}
     >
-      <MenuNavLink className="font-normal" onClick={closeMenus} to="/candles/large" text="גדול" />
-      <MenuNavLink className="font-normal" onClick={closeMenus} to="/candles/medium" text="בינוני" />
-      <MenuNavLink className="font-normal" onClick={closeMenus} to="/candles/small" text="קטן" />
+      <MenuNavLink className="font-normal lg:text-2xl" onClick={closeMenus} to="/candles/large" text="גדול" />
+      <MenuNavLink className="font-normal lg:text-2xl" onClick={closeMenus} to="/candles/medium" text="בינוני" />
+      <MenuNavLink className="font-normal lg:text-2xl" onClick={closeMenus} to="/candles/small" text="קטן" />
     </MenuNavOptions>
   );
 };
