@@ -4,7 +4,10 @@ import TelBtn from "./TelBtn";
 
 const index = () => {
   return (
-    <div className="flex w-full flex-row items-center justify-center gap-9 bg-red-200 px-4 py-11 text-lg font-normal sm:text-4xl">
+    <div
+      id="contact_us"
+      className="flex w-full flex-row items-center justify-center gap-9 overflow-x-clip bg-red-200 px-4 py-11 text-lg font-normal sm:text-4xl"
+    >
       <img
         src={"/images/ellipse15.svg"}
         alt="ellipse15"

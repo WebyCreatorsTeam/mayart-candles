@@ -1,4 +1,5 @@
 import React from "react";
+import DownArrow from "./DownArrow";
 
 const DesktopMenuOptions = ({
   children,
@@ -18,17 +19,33 @@ const DesktopMenuOptions = ({
     >
       <button
         onClick={toggleSizeMenu}
-        className={`group flex w-fit flex-col items-center py-5 text-center text-4xl font-light`}
+        className={`group flex h-fit w-fit flex-col items-center px-6 py-2.5 text-center text-4xl font-light hover:bg-primary-pink hover:text-white`}
       >
-        <div className="z-40 flex flex-row-reverse justify-center gap-4  transition-all duration-150 group-hover:-translate-y-1">
+        <div className="z-40 flex flex-row-reverse items-center justify-center gap-2  transition-all duration-150">
           <p className="">{text}</p>
-          <div
-            className={`h-fit w-fit transition-all duration-300 ${sizeMenuIsOpen ? "rotate-90" : "-rotate-90"}`}
+          {/* <DownArrow sizeMenuIsOpen={sizeMenuIsOpen} /> */}
+          <svg
+            className={`
+            transition-all duration-300
+            ${sizeMenuIsOpen ? "rotate-180" : "rotate-0"}
+            [&>path]:stroke-black
+            group-hover:[&>path]:stroke-white 
+            `}
+            width="20"
+            height="11"
+            viewBox="0 0 20 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            &#10217;
-          </div>
+            <path
+              d="M18.5 1.25L10 9.75L1.5 1.25"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-        <span className="h-[1px] w-full bg-black opacity-0 transition-all duration-150 group-hover:translate-y-0.5 group-hover:opacity-100"></span>
+        {/* <span className="h-[1px] w-full bg-black opacity-0 transition-all duration-150 group-hover:translate-y-0.5 group-hover:opacity-100"></span> */}
       </button>
       <div
         className={`absolute top-full z-10 flex w-full flex-col items-center divide-y text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "" : "hidden"}`}

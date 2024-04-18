@@ -35,15 +35,15 @@ const NavBarMenu = ({
           to="/candles/designed"
           text="נרות מעוצבים"
         />
-        <MenuNavLink
-          onClick={closeMenus}
-          to="/candles/in-vessel"
-          text="נרות בכלי"
-        />
         <CandlesBySizeMenu
           closeMenus={closeMenus}
           sizeMenuIsOpen={sizeMenuIsOpen}
           toggleSizeMenu={toggleSizeMenu}
+        />
+        <MenuNavLink
+          onClick={closeMenus}
+          to="/candles/in-vessel"
+          text="נרות בכלי"
         />
         <MenuNavLink onClick={closeMenus} to="/about" text="אודות" />
         <MenuNavLink onClick={closeMenus} to="/contact" text="צור קשר" />

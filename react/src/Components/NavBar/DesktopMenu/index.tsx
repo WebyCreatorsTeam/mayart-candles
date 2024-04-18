@@ -4,7 +4,7 @@ import DesktopCandlesBySizeMenu from "./DesktopCandlesBySizeMenu";
 
 const DesktopMenu = () => {
   return (
-    <nav className="hidden w-full flex-row-reverse items-center justify-evenly bg-white/50 backdrop-blur-sm lg:flex">
+    <nav className="absolute top-full hidden w-full flex-row-reverse items-center justify-evenly bg-white/50 py-[51px] backdrop-blur-sm lg:flex">
       <DesktopNavLink
         to="/"
         text="ראשי"
@@ -12,10 +12,10 @@ const DesktopMenu = () => {
       />
       <DesktopNavLink to="/candles" text="כל הנרות" />
       <DesktopNavLink to="/candles/designed" text="נרות מעוצבים" />
-      <DesktopNavLink to="/candles/in-vessel" text="נרות בכלי" />
       <DesktopCandlesBySizeMenu />
+      <DesktopNavLink to="/candles/in-vessel" text="נרות בכלי" />
       <DesktopNavLink to="/about" text="אודות" />
-      <DesktopNavLink to="/contact" text="צור קשר" />
+      <DesktopNavLink aTag to="#contact_us" text="צור קשר" />
     </nav>
   );
 };
