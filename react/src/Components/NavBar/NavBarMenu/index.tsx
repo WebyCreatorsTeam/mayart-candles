@@ -3,6 +3,7 @@ import MenuNavLink from "./MenuNavLink";
 import CandlesBySizeMenu from "./CandlesBySizeMenu";
 import NavBarMenuSocials from "./NavBarMenuSocials";
 import Logo from "../Logo";
+import { Link } from "react-router-dom";
 
 const NavBarMenu = ({
   navBarMenuIsOpen,
@@ -26,10 +27,12 @@ const NavBarMenu = ({
     >
       <span
         dir="rtl"
-        className={`absolute top-0  w-72  bg-white text-xl font-semibold transition-all lg:w-[543px] lg:py-5 duration-500 
+        className={`absolute top-0  w-72  bg-white text-xl font-semibold transition-all duration-500 lg:w-[543px] lg:py-5 
         ${navBarMenuIsOpen ? "left-0" : "-left-full"}`}
       >
-        <Logo />
+        <div className="hidden lg:block">
+          <Logo />
+        </div>
         <nav className="flex flex-col items-start divide-y-[1px] border-[[#B0C4B1]/30] lg:items-center lg:pt-20">
           <MenuNavLink onClick={closeMenus} to="/" text="ראשי" />
           <MenuNavLink onClick={closeMenus} to="/candles" text="כל הנרות" />

@@ -5,12 +5,14 @@ import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
-import Candles from "./views/Candles";
-import BySize from "./views/Candles/[size]";
-import Designed from "./views/Candles/Designed";
-import InVessel from "./views/Candles/InVessel";
+import Candles from "./views/Candles/page";
+import BySize from "./views/Candles/sized/[size]/page";
+import Designed from "./views/Candles/Designed/page";
+import InVessel from "./views/Candles/InVessel/page";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
+import Candle from "./views/Candles/[id]/page";
+import AllCandles from "./views/Candles/AllCandles";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -29,7 +31,9 @@ const router = createBrowserRouter([
         path: "/candles",
         element: <Candles />,
         children: [
-          { path: "/candles/:size", element: <BySize /> },
+          { index: true, element: <AllCandles /> },
+          { path: "/candles/:id", element: <Candle /> },
+          { path: "/candles/sized/:size", element: <BySize /> },
           { path: "/candles/designed", element: <Designed /> },
           { path: "/candles/in-vessel", element: <InVessel /> },
         ],

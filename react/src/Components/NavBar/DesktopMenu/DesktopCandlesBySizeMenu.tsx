@@ -15,22 +15,22 @@ const DesktopCandlesBySizeMenu = () => {
         onClick={toggleSizeMenu}
         hoverEffect={false}
         className="text-2xl font-light"
-        to="/candles/large"
+        to="/candles/sized/large"
         text="נרות גדולים"
       />
       <DesktopNavLink
         onClick={toggleSizeMenu}
         hoverEffect={false}
         className="text-2xl font-light"
-        to="/candles/medium"
+        to="/candles/sized/medium"
         text="נרות בגודל בינוני"
       />
       <DesktopNavLink
         onClick={toggleSizeMenu}
         hoverEffect={false}
         className="text-2xl font-light"
-        to="/candles/small"
-        text="נרות קנים"
+        to="/candles/sized/small"
+        text="נרות קטנים"
       />
     </DesktopMenuOptions>
   );

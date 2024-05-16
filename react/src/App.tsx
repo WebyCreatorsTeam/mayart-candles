@@ -6,16 +6,9 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="flex relative scrollbar-none h-screen flex-col justify-between overflow-y-scroll">
-      <NavBar  />
-      <div className="h-fit flex w-full">
-        <img
-          src="/images/hero-image.jpeg"
-          alt="hero"
-          className="absolute z-[-1]"
-        />
-        <Outlet />
-      </div>
+    <div className="flex h-0 min-h-screen flex-col justify-between overflow-x-hidden">
+      <NavBar />
+      <Outlet />
       <Footer />
     </div>
   );
