@@ -15,7 +15,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
         alt={currentCandle.name}
         className="min-h-96 w-full object-cover"
       />
-      <div className=" flex gap-3 py-5">
+      <div className="flex justify-center gap-3 py-5">
         {useMemo(
           () =>
             currentCandle.pictures.map((picture, index) => {

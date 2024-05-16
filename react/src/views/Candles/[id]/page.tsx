@@ -19,7 +19,7 @@ const Candle = () => {
           <h1 className="text-xl font-semibold">{currentCandle.name}</h1>
           <p className="text-base font-normal ">
             {currentCandle.salePrice}₪{" "}
-            <span className="line-through opacity-50">
+            <span className="line-through text-black/50">
               {currentCandle.price}₪
             </span>
           </p>
