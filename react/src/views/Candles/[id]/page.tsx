@@ -3,6 +3,7 @@ import { CandleType } from "../../../types/candles";
 import CandlePictures from "../../../Components/Candles/CandlePictures";
 import ColorsMenu from "../../../Components/Candles/menus/ColorMenu";
 import FragranceMenu from "../../../Components/Candles/menus/FragranceMenu";
+import MobileTabletCandleInfo from "../../../Components/Candles/MobileTabletCandleInfo";
 
 const Candle = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,28 +12,23 @@ const Candle = () => {
   if (!currentCandle) throw new Error("Candle not found");
 
   return (
-    <div dir="rtl" className="h-fit w-full  px-5">
-      <CandlePictures currentCandle={currentCandle} />
-      <div className="flex w-full flex-col items-center gap-7">
-        {/* name and price */}
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="text-xl font-semibold sm:text-[42.77px] sm:leading-[56.89px]">
-            {currentCandle.name}
-          </h1>
-          <p className="flex gap-2 text-base font-normal sm:text-[34.22px] sm:leading-[45.51px]">
-            {currentCandle.salePrice}₪
-            <span className="text-black/50 line-through">
-              {currentCandle.price}₪
-            </span>
-          </p>
-        </div>
-        {/* divider */}
-        <div className="h-fit w-[calc(100%-34px)] border border-[#CFCFCF]"></div>
-        <p className="text-balance text-center text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px]">
+    <div className="h-fit w-full">
+      <div dir="rtl" className="flex h-fit w-full flex-col px-5 xl:flex-row">
+        <CandlePictures currentCandle={currentCandle} />
+        <MobileTabletCandleInfo currentCandle={currentCandle}>
+          {/* divider */}
+          <div className="h-fit w-full xl:hidden">
+            <div className="h-fit w-[calc(100%-34px)] border border-[#CFCFCF]"></div>
+            <p className="text-balance text-center text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px]">
+              {currentCandle.description}
+            </p>
+          </div>
+        </MobileTabletCandleInfo>
+      </div>
+      <div>
+        <p className="hidden text-balance text-center text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:block">
           {currentCandle.description}
         </p>
-        <ColorsMenu currentCandle={currentCandle} />
-        <FragranceMenu currentCandle={currentCandle} />
       </div>
     </div>
   );
