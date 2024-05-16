@@ -12,16 +12,14 @@ const ColorsMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
   return (
     <div className="flex flex-col items-center gap-3">
       <span>צבע: {currentCandleColor}</span>
-      <div className="flex flex-wrap justify-center w-64 gap-6">
-        {currentCandleColorOptions.map((color)=> (
+      <div className="flex w-64 flex-wrap justify-center gap-6">
+        {currentCandleColorOptions.map((color) => (
           <ColorOption
             key={color}
             color={color}
             chooseCandleColor={chooseCandleColor}
-            colorClass={`bg-candle-${color}`}
           />
         ))}
-      
       </div>
     </div>
   );
@@ -30,16 +28,31 @@ const ColorsMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
 const ColorOption = ({
   color,
   chooseCandleColor,
-  colorClass,
 }: {
   color: CandleColorT;
   chooseCandleColor: (color: CandleColorT) => void;
-  colorClass: string;
 }) => {
+  const generateColorClass = (color: CandleColorT) => {
+    switch (color) {
+      case "כחול":
+        return "bg-[#BACEFF]";
+      case "ירוק":
+        return "bg-[#B0C4B1]";
+      case "לבן":
+        return "bg-[#FFFFFF]";
+      case "שחור":
+        return "bg-[#121515]";
+      case "גוף":
+        return "bg-[#F7E1D7]";
+      case "ורוד":
+        return "bg-[#EAAFF9]";
+    }
+  };
+  const colorClass = generateColorClass(color);
   return (
     <div
       onClick={() => chooseCandleColor(color)}
-      className={`h-16 w-16 rounded-full border-[#121515] border-[0.88px] ${colorClass}`}
+      className={`h-16 w-16 rounded-full border-[0.88px] border-[#121515] ${colorClass}`}
     ></div>
   );
 };

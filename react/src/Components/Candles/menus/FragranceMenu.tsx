@@ -5,7 +5,6 @@ const FragranceMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
   const [currentCandleFragrance, setCurrentCandleFragrance] = useState(
     currentCandle.fragrances[0],
   );
-  const currentCandleFragranceOptions = currentCandle.fragrances;
   const chooseCandleFragrance = (fragrance: CandleFragranceT) => {
     setCurrentCandleFragrance(fragrance);
   };
