@@ -11,8 +11,10 @@ const ColorsMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
   };
   return (
     <div className="flex flex-col items-center gap-3">
-      <span>צבע: {currentCandleColor}</span>
-      <div className="flex w-64 flex-wrap justify-center gap-6">
+      <span className="sm:text-[38.49px] sm:leading-[76.98px]">
+        צבע: {currentCandleColor}
+      </span>
+      <div className="flex w-64 sm:w-fit flex-wrap justify-center gap-6">
         {currentCandleColorOptions.map((color) => (
           <ColorOption
             key={color}
@@ -52,7 +54,7 @@ const ColorOption = ({
   return (
     <div
       onClick={() => chooseCandleColor(color)}
-      className={`h-16 w-16 rounded-full border-[0.88px] border-[#121515] ${colorClass}`}
+      className={`h-16 w-16 rounded-full border-[0.88px] border-[#121515] sm:h-32 sm:w-32 ${colorClass}`}
     ></div>
   );
 };
