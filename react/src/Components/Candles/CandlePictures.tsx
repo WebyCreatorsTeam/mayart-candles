@@ -9,11 +9,11 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
     setCurrentCandlePicture(picture);
   };
   return (
-    <>
+    <div className="flex flex-col">
       <img
         src={currentCandlePicture}
         alt={currentCandle.name}
-        className="min-h-96 w-full object-cover"
+        className="min-h-96 w-full  object-cover"
       />
       <div className="flex justify-center gap-3 py-5">
         {useMemo(
@@ -33,7 +33,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
           [currentCandle.pictures],
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -12,8 +12,11 @@ const Candle = () => {
   if (!currentCandle) throw new Error("Candle not found");
 
   return (
-    <div className="h-fit w-full">
-      <div dir="rtl" className="flex h-fit w-full flex-col px-5 xl:flex-row">
+    <div className="h-fit w-full px-5 xl:px-32 xl:py-10">
+      <div
+        dir="rtl"
+        className="flex h-fit w-full flex-col xl:flex-row xl:gap-8"
+      >
         <CandlePictures currentCandle={currentCandle} />
         <MobileTabletCandleInfo currentCandle={currentCandle}>
           {/* divider */}
@@ -26,9 +29,10 @@ const Candle = () => {
         </MobileTabletCandleInfo>
       </div>
       <div>
-        <p className="hidden text-balance text-center text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:block">
-          {currentCandle.description}
-        </p>
+        <span dir="rtl" className="text-start hidden text-balance text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:block">
+          <h4 className="font-semibold">תיאור מוצר:</h4>
+          <p>{currentCandle.description}</p>
+        </span>
       </div>
     </div>
   );
