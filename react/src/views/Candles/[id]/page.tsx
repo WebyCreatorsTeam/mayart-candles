@@ -12,7 +12,7 @@ const Candle = () => {
   if (!currentCandle) throw new Error("Candle not found");
 
   return (
-    <div className="h-fit w-full px-5 xl:px-32 xl:py-10">
+    <div className="h-fit w-full px-5 xl:mt-40 xl:px-32 xl:py-10">
       <div
         dir="rtl"
         className="flex h-fit w-full flex-col xl:flex-row xl:gap-8"

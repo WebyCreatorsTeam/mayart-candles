@@ -6,7 +6,7 @@ const NavBar = () => {
   const [navBarMenuIsOpen, setNavBarMenuIsOpen] = React.useState(false);
   const toggleNavBarMenu = () => setNavBarMenuIsOpen(!navBarMenuIsOpen);
   return (
-    <span className="flex  top-0 w-full flex-col">
+    <span className="flex sticky top-0 w-full flex-col">
       <Header
         navBarMenuIsOpen={navBarMenuIsOpen}
         setNavBarMenuIsOpen={setNavBarMenuIsOpen}
