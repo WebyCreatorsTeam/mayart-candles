@@ -10,7 +10,6 @@ const CandleThumbnail = ({
   price,
   salePrice,
   pictures,
-  description,
   size,
 }: CandleType) => {
   const priceToShow = salePrice ? salePrice : price;

@@ -1,8 +1,6 @@
 import { useOutletContext, useParams } from "react-router-dom";
 import { CandleType } from "../../../types/candles";
 import CandlePictures from "../../../Components/Candles/CandlePictures";
-import ColorsMenu from "../../../Components/Candles/menus/ColorMenu";
-import FragranceMenu from "../../../Components/Candles/menus/FragranceMenu";
 import MobileTabletCandleInfo from "../../../Components/Candles/MobileTabletCandleInfo";
 
 const Candle = () => {
@@ -29,7 +27,10 @@ const Candle = () => {
         </MobileTabletCandleInfo>
       </div>
       <div>
-        <span dir="rtl" className="text-start hidden text-balance text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:block">
+        <span
+          dir="rtl"
+          className="hidden text-balance text-start text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:block"
+        >
           <h4 className="font-semibold">תיאור מוצר:</h4>
           <p>{currentCandle.description}</p>
         </span>

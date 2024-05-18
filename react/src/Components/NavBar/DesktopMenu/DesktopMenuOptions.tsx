@@ -1,5 +1,4 @@
 import React from "react";
-import DownArrow from "./DownArrow";
 
 const DesktopMenuOptions = ({
   children,

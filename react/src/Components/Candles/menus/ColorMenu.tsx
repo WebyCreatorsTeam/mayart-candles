@@ -14,7 +14,7 @@ const ColorsMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
       <span className="sm:text-[38.49px] sm:leading-[76.98px]">
         צבע: {currentCandleColor}
       </span>
-      <div className="flex w-64 sm:w-fit flex-wrap justify-center gap-6">
+      <div className="flex w-64 flex-wrap justify-center gap-6 sm:w-fit">
         {currentCandleColorOptions.map((color) => (
           <ColorOption
             key={color}

@@ -9,14 +9,16 @@ const FragranceMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
     setCurrentCandleFragrance(fragrance);
   };
   return (
-    <div className="sm:text-[38.49px] sm:leading-[76.98px] flex flex-col items-center gap-3">
-      <span className="sm:text-[38.49px] sm:leading-[76.98px]">ריח: {currentCandleFragrance}</span>
+    <div className="flex flex-col items-center gap-3 sm:text-[38.49px] sm:leading-[76.98px]">
+      <span className="sm:text-[38.49px] sm:leading-[76.98px]">
+        ריח: {currentCandleFragrance}
+      </span>
       <div className="flex gap-3">
         {currentCandle.fragrances.map((fragrance) => (
           <div
             onClick={() => chooseCandleFragrance(fragrance)}
             key={fragrance}
-            className={`py-5 px-8 ${currentCandleFragrance === fragrance && "border"}`}
+            className={`px-8 py-5 ${currentCandleFragrance === fragrance && "border"}`}
           >
             {fragrance}
           </div>

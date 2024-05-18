@@ -6,7 +6,7 @@ import CandleThumbnail from "../../Components/Candles/CandleThumbnail";
 const AllCandles = () => {
   const [candleArray] = useOutletContext<Array<CandleType>[]>();
   return (
-    <div>
+    <div className="h-fit">
       {candleArray.map((candle) => (
         <CandleThumbnail key={candle.id} {...candle} />
       ))}
