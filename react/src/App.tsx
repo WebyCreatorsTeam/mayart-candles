@@ -3,7 +3,7 @@ import "./output.css";
 import Footer from "./Components/Footer";
 import NavBar from "./Components/NavBar";
 import { Outlet } from "react-router-dom";
-import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
+
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
         />
         <Outlet />
       </div>
-        <CandllesAll />
       <Footer />
     </div>
   );

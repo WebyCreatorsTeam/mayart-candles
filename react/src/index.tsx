@@ -11,6 +11,7 @@ import Designed from "./views/Candles/Designed";
 import InVessel from "./views/Candles/InVessel";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
+import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
-        element: <Candles />,
+        element: <CandllesAll />,
         children: [
           { path: "/candles/:size", element: <BySize /> },
           { path: "/candles/designed", element: <Designed /> },
