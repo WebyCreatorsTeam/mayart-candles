@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const uri: string = process.env.MONGO_URI || ""
+const uri: string = process.env.MONGODB_URI || ""
 
 export const dbconnect = () => {
     try {
