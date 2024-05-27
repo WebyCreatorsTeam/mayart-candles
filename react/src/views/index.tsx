@@ -2,6 +2,7 @@ import React from "react";
 import AllCandles from "./Candles/AllCandles";
 import SideNavBarMenu from "../Components/NavBar/SideNavBar/SideNavBarMenu";
 import HeroImageSection from "../Components/HeroImageSection";
+import CandlesAll from "./Candles/CandlesAll/CandlesAll";
 
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
         sizeMenuIsOpen={sizeMenuIsOpen}
         toggleSizeMenu={toggleSizeMenu}
       />
-      <AllCandles />
+      <CandlesAll />
     </div>
   );
 };
