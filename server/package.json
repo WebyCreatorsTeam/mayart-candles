@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "build": "rimraf js && tsc",
+    "ts.check": "tsc --project tsconfig.json"
   },
+  "pre-commit": [
+    "ts.check",
+    "build"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,6 +21,8 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.12",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
