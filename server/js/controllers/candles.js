@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllCandles = void 0;
+exports.getOneCandle = exports.getAllCandles = void 0;
 const getAllCandles = (req, res) => {
     try {
         return res.send("All ccccc");
@@ -10,4 +10,13 @@ const getAllCandles = (req, res) => {
     }
 };
 exports.getAllCandles = getAllCandles;
+const getOneCandle = (req, res) => {
+    try {
+        return res.send("One Candle");
+    }
+    catch (error) {
+        return res.send(error);
+    }
+};
+exports.getOneCandle = getOneCandle;
 //# sourceMappingURL=candles.js.map
