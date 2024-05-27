@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./views";
+import Home from "./Components/Home/index";
 import About from "./views/About";
 import Candles from "./views/Candles/page";
 import BySize from "./views/Candles/sized/[size]/page";
@@ -13,6 +13,7 @@ import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Candle from "./views/Candles/[id]/page";
 import AllCandles from "./views/Candles/AllCandles";
+import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
-        element: <Candles />,
+        element: <CandllesAll />,
         children: [
           { index: true, element: <AllCandles /> },
           { path: "/candles/:id", element: <Candle /> },

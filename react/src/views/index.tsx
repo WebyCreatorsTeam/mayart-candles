@@ -3,6 +3,7 @@ import AllCandles from "./Candles/AllCandles";
 import SideNavBarMenu from "../Components/NavBar/SideNavBar/SideNavBarMenu";
 import HeroImageSection from "../Components/HeroImageSection";
 
+
 const Home = () => {
   const [sizeMenuIsOpen, setSizeMenuIsOpen] = React.useState(false);
   const toggleSizeMenu = () => setSizeMenuIsOpen(!sizeMenuIsOpen);
@@ -18,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Contact;
