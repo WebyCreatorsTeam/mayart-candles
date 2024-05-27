@@ -26,12 +26,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-<<<<<<< HEAD
 const dotenv = __importStar(require("dotenv"));
 dotenv.config({ path: __dirname + '/.env' });
-=======
-require("dotenv/config");
->>>>>>> parent of d21d014 (Revert "Merge branch 'server-side'")
 const express_1 = __importDefault(require("express"));
 const candles_1 = __importDefault(require("./routers/candles/candles"));
 const dbconnect_1 = require("./DBconnect/dbconnect");
