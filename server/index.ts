@@ -1,4 +1,5 @@
-import 'dotenv/config'
+import * as dotenv from 'dotenv'
+dotenv.config({ path: __dirname + '/.env' })
 import express, { Request, Response } from 'express'
 import candlesRout from './routers/candles/candles'
 import { dbconnect } from './DBconnect/dbconnect'
