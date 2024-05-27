@@ -6,7 +6,8 @@ import { Outlet } from "react-router-dom";
 
 import { candles } from "./types/candles";
 
-import Contact from "./views";
+
+import Contact from "./views/Contact";
 
 
 
@@ -17,10 +18,9 @@ function App() {
     <div className="flex relative scrollbar-none h-screen flex-col justify-between overflow-y-scroll">
       <NavBar  />
       <div className="h-fit flex w-full">
-      <Contact />
       <Outlet context={[candlesArray, setCandlesArray]} />
+      <Contact />
       </div>
-
       <Footer />
     </div>
   );

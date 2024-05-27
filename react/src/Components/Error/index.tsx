@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 
 const ErrorComponent = () => {
+  let error = useRouteError();
+  console.error(`error:${error}`);
   return (
     <div className="flex w-full flex-col items-center text-center">
       התרחשה שגיאה{" "}

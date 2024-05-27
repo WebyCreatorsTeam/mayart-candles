@@ -7,6 +7,7 @@ import HeroImageSection from "../Components/HeroImageSection";
 const Home = () => {
   const [sizeMenuIsOpen, setSizeMenuIsOpen] = React.useState(false);
   const toggleSizeMenu = () => setSizeMenuIsOpen(!sizeMenuIsOpen);
+  
   return (
     <div className="scrollbar-none flex flex-col">
       <HeroImageSection />

@@ -13,7 +13,7 @@ import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Candle from "./views/Candles/[id]/page";
 import AllCandles from "./views/Candles/AllCandles";
-import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
+import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
-        element: <CandllesAll />,
+        element: <CandlesAll />,
         children: [
           { index: true, element: <AllCandles /> },
           { path: "/candles/:id", element: <Candle /> },
