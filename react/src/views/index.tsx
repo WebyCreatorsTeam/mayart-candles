@@ -20,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Contact;
+export default Home;
