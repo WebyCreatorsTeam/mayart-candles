@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 import * as dotenv from 'dotenv'
 dotenv.config({ path: __dirname + '/.env' })
+=======
+import 'dotenv/config'
+>>>>>>> parent of d21d014 (Revert "Merge branch 'server-side'")
 import express, { Request, Response } from 'express'
 import candlesRout from './routers/candles/candles'
-
+import { dbconnect } from './DBconnect/dbconnect'
 const app = express()
 const PORT = process.env.PORT || 7575
+
+dbconnect()
+app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
     try {
