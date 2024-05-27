@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./views";
+import Home from "./Components/Home/index";
 import About from "./views/About";
 import Candles from "./views/Candles";
 import BySize from "./views/Candles/[size]";
