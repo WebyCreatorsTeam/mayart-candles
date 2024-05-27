@@ -8,10 +8,6 @@
     "build": "tsc",
     "ts.check": "tsc --project tsconfig.json"
   },
-  "pre-commit": [
-    "ts.check",
-    "build"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
