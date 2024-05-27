@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "build": "rimraf js && tsc",
+    "build": "tsc",
     "ts.check": "tsc --project tsconfig.json"
   },
   "pre-commit": [
