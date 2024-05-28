@@ -31,7 +31,11 @@ const CandleSchema = new Schema({
     description: {
         type: String,
         require: [true, "נא למלא תיאור המוצר"]
-    }
+    },
+    size: {
+        type: String,
+        require: [true, "נא לבחור גודל הנר"]
+    },
 })
 
 export const Candle = model("Candle", CandleSchema)

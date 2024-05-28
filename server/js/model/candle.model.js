@@ -33,7 +33,11 @@ const CandleSchema = new mongoose_1.Schema({
     description: {
         type: String,
         require: [true, "נא למלא תיאור המוצר"]
-    }
+    },
+    size: {
+        type: String,
+        require: [true, "נא לבחור גודל הנר"]
+    },
 });
 exports.Candle = (0, mongoose_1.model)("Candle", CandleSchema);
 //# sourceMappingURL=candle.model.js.map
