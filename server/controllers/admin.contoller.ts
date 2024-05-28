@@ -34,7 +34,7 @@ export const loginAdmin = async (req: Request, res: Response) => {
     try {
         const data = req.body
 
-        console.log(data)
+        // console.log(data)
         const { error } = loginValid.validate(data)
 
         if (error) {
@@ -43,7 +43,7 @@ export const loginAdmin = async (req: Request, res: Response) => {
         }
 
         const existAdmin = await Admin.findOne({ email: data.email })
-        console.log(existAdmin)
+        // console.log(existAdmin)
 
         if (!existAdmin) {
             console.log("admin.controller user not exist loginAdmin");

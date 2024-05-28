@@ -42,14 +42,14 @@ exports.registAdmin = registAdmin;
 const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
-        console.log(data);
+        // console.log(data)
         const { error } = adminValidation_1.loginValid.validate(data);
         if (error) {
             console.error("admin.controller validation error of loginAdmin:", error.message);
             return res.status(httpCodes_1.httpCodes.UNAUTHORIZED).json({ continueWork: false, message: error.message });
         }
         const existAdmin = yield admin_model_1.Admin.findOne({ email: data.email });
-        console.log(existAdmin);
+        // console.log(existAdmin)
         if (!existAdmin) {
             console.log("admin.controller user not exist loginAdmin");
             return res.status(httpCodes_1.httpCodes.NOT_FOUND).json({ continueWork: false, message: "משתמש לא קיים" });
