@@ -19,7 +19,7 @@ const DownArrow = ({
       <path
         d="M18.5 1.25L10 9.75L1.5 1.25"
         stroke="#121515"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />

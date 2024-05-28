@@ -1,7 +1,33 @@
 import React from "react";
 
 const Contact = () => {
-  return <div>Contact us</div>;
+  return (
+    <div className="absolute mt-96 flex h-[180px] w-[60px] flex-col items-center rounded-2xl bg-red-300 p-4">
+      <a href="instagram.com">
+        <img
+          src={"/icons/instagram-icon.svg"}
+          alt="instagram-icon"
+          className="h-[34px] w-[34px]"
+        />
+        <br />
+      </a>
+      <a href="whatsapp.com">
+        <img
+          src={"/icons/whatsapp-icon.svg"}
+          alt="whatsapp-icon"
+          className="h-[34px] w-[34px]"
+        />
+        <br />
+      </a>
+      <a href=" mail.com">
+        <img
+          src={"/icons/mail-icon.svg"}
+          alt="mail-icon"
+          className="h-[34px] w-[34px]"
+        />
+      </a>
+    </div>
+  );
 };
 
 export default Contact;

@@ -18,7 +18,7 @@ const CandllesAll = () => {
 
   return (
     <div className='flex flex-col mt-40 w-[100%]'>
-        <p className='ml-[32%] mt-8 text-[32px] lg:ml-[41%] lg:text-[64px] font-normal'>כל הנרות</p>
+        <p className='ml-[32%] text-[32px] lg:ml-[41%] lg:text-[64px] font-normal'>כל הנרות</p>
     <div className='flex justify-center items-center mt-6 flex-wrap'>
       {dataCandlles.map((item, i) => (
         <div key={i} className='flex flex-col items-center'> 
