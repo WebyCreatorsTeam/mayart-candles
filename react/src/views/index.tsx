@@ -1,35 +1,22 @@
 import React from "react";
+import SideNavBarMenu from "../Components/NavBar/SideNavBar/SideNavBarMenu";
+import HeroImageSection from "../Components/HeroImageSection";
+import CandlesAll from "./Candles/CandlesAll/CandlesAll";
 
-const Contact = () => {
+const Home = () => {
+  const [sizeMenuIsOpen, setSizeMenuIsOpen] = React.useState(false);
+  const toggleSizeMenu = () => setSizeMenuIsOpen(!sizeMenuIsOpen);
+
   return (
-    <div className="bg-red-300 mt-96 flex flex-col absolute w-[60px] h-[180px] items-center p-4 rounded-2xl">
-<a href="">
-              <img
-                src={"/icons/instagram-icon.svg"}
-                alt="instagram-icon"
-                className="w-[34px] h-[34px]"
-              /><br />
-
-</a>
-<a href="">
-
-              <img
-                src={"/icons/whatsapp-icon.svg"}
-                alt="whatsapp-icon"
-                className="w-[34px] h-[34px]"
-
-              /><br />
-</a>
-<a href="">
-
-              <img
-                src={"/icons/mail-icon.svg"}
-                alt="mail-icon"
-                className="w-[34px] h-[34px]"
-              />
-</a>
+    <div className="scrollbar-none flex flex-col">
+      <HeroImageSection />
+      <SideNavBarMenu
+        sizeMenuIsOpen={sizeMenuIsOpen}
+        toggleSizeMenu={toggleSizeMenu}
+      />
+      <CandlesAll />
     </div>
   );
 };
 
-export default Contact;
+export default Home;

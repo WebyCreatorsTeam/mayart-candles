@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import ActionButtons from "../ActionButtons";
 import Logo from "../Logo";
 import MenuToggle from "../MenuToggle";
-import NavBarMenu from "../NavBarMenu";
+import SideNavBar from "../SideNavBar";
 
 const Header = ({
   navBarMenuIsOpen,
@@ -18,7 +18,7 @@ const Header = ({
       <ActionButtons />
       <Logo />
       <MenuToggle toggleNavBarMenu={toggleNavBarMenu} />
-      <NavBarMenu
+      <SideNavBar
         navBarMenuIsOpen={navBarMenuIsOpen}
         setNavBarMenuIsOpen={setNavBarMenuIsOpen}
       />
