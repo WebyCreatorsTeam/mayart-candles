@@ -4,13 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
-//import * as dotenv from 'dotenv'
-//dotenv.config({ path: __dirname + '/.env' })
 const express_1 = __importDefault(require("express"));
 const candles_1 = __importDefault(require("./routers/candles/candles"));
 const dbconnect_1 = require("./DBconnect/dbconnect");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 7575;
+const cors_1 = __importDefault(require("cors"));
+app.use((0, cors_1.default)({
+    origin: "http://localhost:3000", // process.env.NODE_ENV === 'production' ? "" :
+    methods: ["POST", "GET", "DELETE", "PATCH"],
+}));
 (0, dbconnect_1.dbconnect)();
 app.use(express_1.default.json());
 app.get('/', (req, res) => {
