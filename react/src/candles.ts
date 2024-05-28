@@ -1,15 +1,22 @@
-type CandleType = {
+export type CandleType = {
+  id: string;
   name: string;
   shape: string;
-  colors: string[];
-  fragrances: string[];
+  colors: CandleColorT[];
+  fragrances: CandleFragranceT[];
   price: number;
   salePrice: number;
   pictures: string[];
   description: string;
+  size: CandleSizeT;
 };
+export type CandleFragranceT = "וניל" | "ורדים" | "לבנדר";
+export type CandleSizeT = "קטן" | "גדול" | "בינוני";
+export type CandleColorT = "ורוד" | "ירוק" | "לבן" | "שחור" | "כחול" | "גוף";
 export const candles: CandleType[] = [
   {
+    id: "1",
+    size: "גדול",
     name: "נר בועות",
     shape: "קוביה",
     colors: ["ורוד", "ירוק", "לבן", "שחור"],
@@ -22,6 +29,8 @@ export const candles: CandleType[] = [
     description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
   },
   {
+    id: "2",
+    size: "בינוני",
     name: "נר בועות",
     shape: "קוביה",
     colors: ["ורוד", "ירוק", "לבן", "שחור"],
@@ -34,6 +43,8 @@ export const candles: CandleType[] = [
     description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
   },
   {
+    id: "3",
+    size: "גדול",
     name: "נר בועות",
     shape: "קוביה",
     colors: ["ורוד", "ירוק", "לבן", "שחור"],
@@ -46,6 +57,8 @@ export const candles: CandleType[] = [
     description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
   },
   {
+    id: "4",
+    size: "בינוני",
     name: "נר בועות",
     shape: "קוביה",
     colors: ["ורוד", "ירוק", "לבן", "שחור"],
@@ -58,6 +71,8 @@ export const candles: CandleType[] = [
     description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
   },
   {
+    id: "4",
+    size: "קטן",
     name: "נר בועות",
     shape: "קוביה",
     colors: ["ורוד", "ירוק", "לבן", "שחור"],
@@ -70,6 +85,8 @@ export const candles: CandleType[] = [
     description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
   },
   {
+    id: "5",
+    size: "גדול",
     name: "נר בועות",
     shape: "קוביה",
     colors: ["ורוד", "ירוק", "לבן", "שחור"],
