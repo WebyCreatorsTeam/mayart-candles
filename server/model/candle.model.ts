@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+
 const CandleSchema = new Schema({
     name: {
         type: String,

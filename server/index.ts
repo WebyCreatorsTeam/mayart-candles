@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import express, { Request, Response } from 'express'
-import candlesRout from './routers/candles/candles'
+import candlesRout from './routers/candles/candles.route'
+import adminRout from './routers/admin/admin.route'
 import { dbconnect } from './DBconnect/dbconnect'
 const app = express()
 const PORT = process.env.PORT || 7575
@@ -23,6 +24,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use("/candles", candlesRout)
+app.use("/admin", adminRout)
 
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);

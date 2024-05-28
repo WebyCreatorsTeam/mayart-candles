@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const express_1 = __importDefault(require("express"));
-const candles_1 = __importDefault(require("./routers/candles/candles"));
+const candles_route_1 = __importDefault(require("./routers/candles/candles.route"));
+const admin_route_1 = __importDefault(require("./routers/admin/admin.route"));
 const dbconnect_1 = require("./DBconnect/dbconnect");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 7575;
@@ -24,7 +25,8 @@ app.get('/', (req, res) => {
         return res.send(error);
     }
 });
-app.use("/candles", candles_1.default);
+app.use("/candles", candles_route_1.default);
+app.use("/admin", admin_route_1.default);
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);
 });
