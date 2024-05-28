@@ -17,7 +17,7 @@ function App() {
 
     <div className="flex relative scrollbar-none h-screen flex-col justify-between overflow-y-scroll">
       <NavBar  />
-      <div className="h-fit flex w-full">
+      <div className="h-fit flex flex-col w-full">
       <Outlet context={[candlesArray, setCandlesArray]} />
       <Contact />
       </div>
