@@ -60,6 +60,8 @@ export const loginAdmin = async (req: Request, res: Response) => {
         const cookiesData = { userID: existAdmin._id! };
         const token = jwt.encode(cookiesData, process.env.SECRET!);
 
+        console.log(token)
+
         return res.status(httpCodes.OK).json({ continueWork: true, token })
     } catch (error) {
         console.log(`admin.controller cont error loginAdmin`)

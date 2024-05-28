@@ -61,6 +61,7 @@ const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         }
         const cookiesData = { userID: existAdmin._id };
         const token = jwt_simple_1.default.encode(cookiesData, process.env.SECRET);
+        console.log(token);
         return res.status(httpCodes_1.httpCodes.OK).json({ continueWork: true, token });
     }
     catch (error) {
