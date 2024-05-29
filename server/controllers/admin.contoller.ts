@@ -24,7 +24,7 @@ export const registAdmin = async (req: Request, res: Response) => {
         await newAdmin.save()
         return res.status(httpCodes.OK).json({ continueWork: true, message: "משתמש חדש נשמר" })
     } catch (error) {
-        console.log(`admin.controller cont error addAdmin`)
+        console.log(`admin.controller cont error registAdmin`)
         console.error(error);
         return res.status(httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" })
     }
@@ -63,6 +63,18 @@ export const loginAdmin = async (req: Request, res: Response) => {
         return res.status(httpCodes.OK).json({ continueWork: true, token })
     } catch (error) {
         console.log(`admin.controller cont error loginAdmin`)
+        console.error(error);
+        return res.status(httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" })
+    }
+}
+
+export const getAllAdmins = async (req: Request, res: Response) => {
+    try {
+        const allAdmins = await Admin.find({})
+        const admins = allAdmins.map(ad => ({ name: ad.name, _id: ad._id }))
+        return res.status(httpCodes.OK).json({ continueWork: true, admins })
+    } catch (error) {
+        console.log(`admin.controller cont error getAllAdmins`)
         console.error(error);
         return res.status(httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" })
     }
