@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginAdmin = exports.registAdmin = void 0;
+exports.getAllAdmins = exports.loginAdmin = exports.registAdmin = void 0;
 const admin_model_1 = require("../model/admin.model");
 const adminValidation_1 = require("../utils/validation/adminValidation");
 const httpCodes_1 = require("../utils/httpCodes");
@@ -33,7 +33,7 @@ const registAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         return res.status(httpCodes_1.httpCodes.OK).json({ continueWork: true, message: "משתמש חדש נשמר" });
     }
     catch (error) {
-        console.log(`admin.controller cont error addAdmin`);
+        console.log(`admin.controller cont error registAdmin`);
         console.error(error);
         return res.status(httpCodes_1.httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" });
     }
@@ -70,4 +70,17 @@ const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.loginAdmin = loginAdmin;
+const getAllAdmins = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const allAdmins = yield admin_model_1.Admin.find({});
+        const admins = allAdmins.map(ad => ({ name: ad.name, _id: ad._id }));
+        return res.status(httpCodes_1.httpCodes.OK).json({ continueWork: true, admins });
+    }
+    catch (error) {
+        console.log(`admin.controller cont error getAllAdmins`);
+        console.error(error);
+        return res.status(httpCodes_1.httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" });
+    }
+});
+exports.getAllAdmins = getAllAdmins;
 //# sourceMappingURL=admin.contoller.js.map
