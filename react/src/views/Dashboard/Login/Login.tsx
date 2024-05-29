@@ -30,9 +30,9 @@ const Login = () => {
       <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
     {/*<form onSubmit={hendleGetUserData}>*/}
     <form>
-        <p>דואר אלקטרוני</p>
+        <label htmlFor="email" >דואר אלקטרוני</label>
       <input className="email" type="text" name="email" />
-      <p>סיסמה</p>
+      <label htmlFor="password">סיסמה</label>
       <input className="password" type="password" name="password"/>
       <button type="submit">כניסה</button>
     </form>

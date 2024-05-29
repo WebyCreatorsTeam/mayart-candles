@@ -1,6 +1,7 @@
 .background{
+
     text-align: center;
-    align-items: center;
+    margin: 3% auto;
     background-color: white;
     width: 1502px;
     height: 780px;
@@ -9,16 +10,13 @@
         font-size: 53px;
         font-weight: 400;
     }
-    p{
-      
+    form{
+        display: grid;
+      grid-row: 1;
+    }
+    label{  
       font-size: 32px;
       font-weight: 400;  
-      .email{
-       margin-left: 42%; 
-      }
-      .password{
-        
-      }
     }
     input{
        background-color: #EBDBFF;

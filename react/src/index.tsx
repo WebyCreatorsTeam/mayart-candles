@@ -13,7 +13,8 @@ import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
 import Login from "./views/Dashboard/Login/Login";
-import './style/global.scss'
+import "./views/Dashboard/style/global.scss";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
