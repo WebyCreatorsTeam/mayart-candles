@@ -1,19 +1,24 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { Admin } from '../model/admin.model'
 import { loginValid, regValid } from '../utils/validation/adminValidation';
 import { httpCodes } from '../utils/httpCodes';
 import bcrypt from "bcryptjs";
 import jwt from "jwt-simple";
+import BadRequestError from '../utils/errors/BadRequestError';
 
-export const registAdmin = async (req: Request, res: Response) => {
+export const registAdmin = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const data = req.body
 
         const { error } = regValid.validate(data)
 
         if (error) {
-            console.error("admin.controller validation error of RegistAdmin:", error.message);
-            return res.status(httpCodes.UNAUTHORIZED).json({ continueWork: false, message: error.message });
+            throw new BadRequestError({code: httpCodes.UNAUTHORIZED, message: error.message, continueWork: true});
+
+            // return next(new Error(error.message));
+            // throw new Error(error.message);
+            // console.error("admin.controller validation error of RegistAdmin:", error.message);
+            // return res.status(httpCodes.UNAUTHORIZED).json({ continueWork: false, message: error.message });
         }
 
         const hashpass = await bcrypt.hash(data.password, 10);
@@ -24,9 +29,10 @@ export const registAdmin = async (req: Request, res: Response) => {
         await newAdmin.save()
         return res.status(httpCodes.OK).json({ continueWork: true, message: "משתמש חדש נשמר" })
     } catch (error) {
-        console.log(`admin.controller cont error registAdmin`)
-        console.error(error);
-        return res.status(httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" })
+        next(error);
+        // console.log(`admin.controller cont error registAdmin`)
+        // console.error(error);
+        // return res.status(httpCodes.SERVER_ERROR).json({ continueWork: false, message: "שגיא בסרבר, נא לנסות שנית" })
     }
 }
 
