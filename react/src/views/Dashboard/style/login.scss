@@ -1,24 +1,43 @@
-
-    .background{
-        text-align: center;
-        background-color: white;
-        box-shadow: 3px black;
-        ::placeholder {
-           background-color: #EBDBFF;
-           .email{
-           width: 763px;
-           height: 60px;
-        }
-        .password{
-            width: 522px;
-            height: 60px;  
-        }
-          }
-        button{
-            color: #EBDBFF;
-            background-color: #8524FF;
-            width: 422px;
-            height: 73px;
-            border-radius: 15%;
-        }
+.background{
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    width: 1502px;
+    height: 780px;
+    box-shadow: 3px black;
+    h1{
+        font-size: 53px;
+        font-weight: 400;
     }
+    p{
+      
+      font-size: 32px;
+      font-weight: 400;  
+      .email{
+       margin-left: 42%; 
+      }
+      .password{
+        
+      }
+    }
+    input{
+       background-color: #EBDBFF;
+       border-radius: 10px;
+       border: none;
+       .email{
+       width: 763px;
+       height: 60px;
+    }
+    .password{
+        width: 522px;
+        height: 60px;  
+    }
+      }
+    button{
+        color: #EBDBFF;
+        background-color: #8524FF;
+        width: 422px;
+        height: 73px;
+        border-radius: 20px;
+    }
+}

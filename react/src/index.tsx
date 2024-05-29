@@ -12,7 +12,8 @@ import InVessel from "./views/Candles/InVessel";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
-
+import Login from "./views/Dashboard/Login/Login";
+import './style/global.scss'
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
@@ -37,6 +38,24 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"login",
+    element: <Login/>
+  },
+  {
+    path:"dashboard",
+    // element: <Dashboard/> //הראשי - מכניסה לייואט עם תפריט עליון 
+    // error Elemrnt
+    // loader
+    children:[
+      {
+        index: true,
+        // element: <Dashboard/> //הראשי
+  
+        // ...
+      },
+    ]
+  }
 ]);
 
 root.render(

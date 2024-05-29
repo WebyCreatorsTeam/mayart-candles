@@ -3,7 +3,7 @@ const User= () => {
     <div className="background">
         <div className="navBar">
         <p className="user">משתמשים</p>
-        <p className="userName">{.name}</p>
+        <p className="userName">name</p>
         </div>
         <div className="addPerson">
         <h1>משתמשים עם גישה</h1>
