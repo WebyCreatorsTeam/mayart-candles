@@ -13,6 +13,7 @@ app.use(cors<Request>({
     origin: "http://localhost:3000", // process.env.NODE_ENV === 'production' ? "" :
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
+
 app.use(morgan('dev'))
 app.use(express.json());
 
@@ -20,16 +21,16 @@ app.use(express.json());
 dbconnect()
 
 // status check points
-app.get("/status", (req, res)=> {res.sendStatus(200)})
+// app.get("/status", (req, res)=> {res.sendStatus(200)})
 
 // routes
 app.use("/", router)
 
 // 404 handler
-app.use(NotFoundHandler)
+// app.use(NotFoundHandler)
 
 // Global Error Handler
-app.use(GlobalErrorHandler)
+// app.use(GlobalErrorHandler)
 
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);

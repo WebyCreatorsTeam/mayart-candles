@@ -11,7 +11,6 @@ const app = (0, express_1.default)();
 const PORT = process.env.PORT || 7575;
 const cors_1 = __importDefault(require("cors"));
 const index_1 = __importDefault(require("./routers/index"));
-const error_handles_mw_1 = require("./middlewares/error-handles.mw");
 // middlewares
 app.use((0, cors_1.default)({
     origin: "http://localhost:3000", // process.env.NODE_ENV === 'production' ? "" :
@@ -22,13 +21,13 @@ app.use(express_1.default.json());
 // database connection
 (0, dbconnect_1.dbconnect)();
 // status check points
-app.get("/status", (req, res) => { res.sendStatus(200); });
+// app.get("/status", (req, res)=> {res.sendStatus(200)})
 // routes
 app.use("/", index_1.default);
 // 404 handler
-app.use(error_handles_mw_1.NotFoundHandler);
+// app.use(NotFoundHandler)
 // Global Error Handler
-app.use(error_handles_mw_1.GlobalErrorHandler);
+// app.use(GlobalErrorHandler)
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);
 });

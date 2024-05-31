@@ -8,10 +8,11 @@ const router = (0, express_1.Router)();
 const candles_route_1 = __importDefault(require("../candles/candles.route"));
 const admin_route_1 = __importDefault(require("../admin/admin.route"));
 const category_route_1 = __importDefault(require("../category/category.route"));
-router.get('/status', (req, res) => res.sendStatus(200));
 router
     .use("/admin", admin_route_1.default)
     .use("/candles", candles_route_1.default)
     .use('/categories', category_route_1.default);
+// status check points
+router.get('/status', (req, res) => res.sendStatus(200));
 exports.default = router;
 //# sourceMappingURL=index.js.map
