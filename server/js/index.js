@@ -23,7 +23,16 @@ app.use(express_1.default.json());
 // status check points
 // app.get("/status", (req, res)=> {res.sendStatus(200)})
 // routes
-app.use("/", index_1.default);
+// app.use("/", router)
+const candles_route_1 = __importDefault(require("./routers/candles/candles.route"));
+const admin_route_1 = __importDefault(require("./routers/admin/admin.route"));
+const category_route_1 = __importDefault(require("./routers/category/category.route"));
+app
+    .use("/admin", admin_route_1.default)
+    .use("/candles", candles_route_1.default)
+    .use('/categories', category_route_1.default);
+// status check points
+index_1.default.get('/status', (req, res) => res.sendStatus(200));
 // 404 handler
 // app.use(NotFoundHandler)
 // Global Error Handler

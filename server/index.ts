@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import morgan from 'morgan';
-import express, { Request } from 'express'
+import express, { Request, Response } from 'express'
 import { dbconnect } from './DBconnect/dbconnect'
 const app = express()
 const PORT = process.env.PORT || 7575
@@ -24,7 +24,20 @@ dbconnect()
 // app.get("/status", (req, res)=> {res.sendStatus(200)})
 
 // routes
-app.use("/", router)
+// app.use("/", router)
+
+
+import candlesRout from './routers/candles/candles.route'
+import adminRout from './routers/admin/admin.route'
+import categoriesRoute from './routers/category/category.route'
+
+app
+.use("/admin", adminRout)
+.use("/candles", candlesRout)
+.use('/categories', categoriesRoute)
+
+// status check points
+router.get('/status', (req: Request, res: Response) => res.sendStatus(200))
 
 // 404 handler
 // app.use(NotFoundHandler)

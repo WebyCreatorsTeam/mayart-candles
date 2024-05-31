@@ -6,12 +6,12 @@ import adminRout from '../admin/admin.route'
 import categoriesRoute from '../category/category.route'
 
 
-router
-.use("/admin", adminRout)
-.use("/candles", candlesRout)
-.use('/categories', categoriesRoute)
+// router
+// .use("/admin", adminRout)
+// .use("/candles", candlesRout)
+// .use('/categories', categoriesRoute)
 
 // status check points
-router.get('/status', (req: Request, res: Response) => res.sendStatus(200))
+// router.get('/status', (req: Request, res: Response) => res.sendStatus(200))
 
 export default router
