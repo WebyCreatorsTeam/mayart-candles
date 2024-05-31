@@ -37,13 +37,13 @@ app
     .use('/categories', categoriesRoute)
 
 // status check points
-router.get('/status', (req: Request, res: Response) => res.sendStatus(200))
+app.get('/status', (req: Request, res: Response) => res.sendStatus(200))
 
 // 404 handler
-// app.use(NotFoundHandler)
+app.use(NotFoundHandler)
 
 // Global Error Handler
-// app.use(GlobalErrorHandler)
+app.use(GlobalErrorHandler)
 
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);

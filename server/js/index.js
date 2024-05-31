@@ -10,7 +10,7 @@ const dbconnect_1 = require("./DBconnect/dbconnect");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 7575;
 const cors_1 = __importDefault(require("cors"));
-const index_1 = __importDefault(require("./routers/index"));
+const error_handles_mw_1 = require("./middlewares/error-handles.mw");
 // middlewares
 app.use((0, cors_1.default)({
     origin: "http://localhost:3000", // process.env.NODE_ENV === 'production' ? "" :
@@ -32,11 +32,11 @@ app
     .use("/candles", candles_route_1.default)
     .use('/categories', category_route_1.default);
 // status check points
-index_1.default.get('/status', (req, res) => res.sendStatus(200));
+app.get('/status', (req, res) => res.sendStatus(200));
 // 404 handler
-// app.use(NotFoundHandler)
+app.use(error_handles_mw_1.NotFoundHandler);
 // Global Error Handler
-// app.use(GlobalErrorHandler)
+app.use(error_handles_mw_1.GlobalErrorHandler);
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);
 });
