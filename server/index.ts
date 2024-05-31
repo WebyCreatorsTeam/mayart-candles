@@ -32,9 +32,9 @@ import adminRout from './routers/admin/admin.route'
 import categoriesRoute from './routers/category/category.route'
 
 app
-.use("/admin", adminRout)
-.use("/candles", candlesRout)
-.use('/categories', categoriesRoute)
+    .use("/admin", adminRout)
+    .use("/candles", candlesRout)
+    .use('/categories', categoriesRoute)
 
 // status check points
 router.get('/status', (req: Request, res: Response) => res.sendStatus(200))
