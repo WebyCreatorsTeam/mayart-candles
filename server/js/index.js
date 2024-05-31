@@ -4,29 +4,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
+const morgan_1 = __importDefault(require("morgan"));
 const express_1 = __importDefault(require("express"));
-const candles_route_1 = __importDefault(require("./routers/candles/candles.route"));
-const admin_route_1 = __importDefault(require("./routers/admin/admin.route"));
 const dbconnect_1 = require("./DBconnect/dbconnect");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 7575;
 const cors_1 = __importDefault(require("cors"));
+const index_1 = __importDefault(require("./routers/index"));
+const error_handles_mw_1 = require("./middlewares/error-handles.mw");
+// middlewares
 app.use((0, cors_1.default)({
     origin: "http://localhost:3000", // process.env.NODE_ENV === 'production' ? "" :
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
-(0, dbconnect_1.dbconnect)();
+app.use((0, morgan_1.default)('dev'));
 app.use(express_1.default.json());
-app.get('/', (req, res) => {
-    try {
-        return res.send("OK");
-    }
-    catch (error) {
-        return res.send(error);
-    }
-});
-app.use("/candles", candles_route_1.default);
-app.use("/admin", admin_route_1.default);
+// database connection
+(0, dbconnect_1.dbconnect)();
+// status check points
+app.get("/status", (req, res) => { res.sendStatus(200); });
+// routes
+app.use("/", index_1.default);
+// 404 handler
+app.use(error_handles_mw_1.NotFoundHandler);
+// Global Error Handler
+app.use(error_handles_mw_1.GlobalErrorHandler);
 app.listen(PORT, () => {
     console.log(`listen on http://localhost:${PORT}`);
 });

@@ -1,30 +1,31 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { Candle } from '../model/candle.model'
 
-export const getAllCandles = async (req: Request, res: Response) => {
+//      /candles/get-candles
+export const getAllCandles = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const allCandles = await Candle.find({})
-        return res.status(200).json({continueWork: true, allCandles})
+        return res.json({continueWork: true, allCandles})
     } catch (error) {
-        return res.send(error)
+        next(error)
     }
 }
 
-export const getOneCandle = (req: Request, res: Response) => {
+//      /candles/get-one-candle
+export const getOneCandle = (req: Request, res: Response, next: NextFunction) => {
     try {
         return res.send("One Candle")
     } catch (error) {
-        return res.send(error)
-    }
+        next(error)    }
 }
 
-export const addCandle = async (req: Request, res: Response) => {
+//      /candles/save-candle
+export const addCandle = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const data = req.body
         const newCandle = new Candle(data)
         await newCandle.save()
-        return res.status(200).json({ text: "candle saved" })
+        return res.json({ text: "candle saved" })
     } catch (error) {
-        return res.send(error)
-    }
+        next(error)    }
 }

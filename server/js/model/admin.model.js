@@ -12,7 +12,7 @@ const AdminSchema = new mongoose_1.Schema({
         require: [true, "נא למלא אימייל"],
         lowercase: true,
         trim: true,
-        unique: true,
+        unique: true
     },
     password: {
         type: String,
