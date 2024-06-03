@@ -10,7 +10,7 @@ const AdminSchema = new Schema({
         require: [true, "נא למלא אימייל"],
         lowercase: true,
         trim: true,
-        unique: true,
+        unique: true
     },
     password: {
         type: String,

@@ -21,7 +21,7 @@ const CandleSchema = new mongoose_1.Schema({
     },
     price: {
         type: Number,
-        require: [true, "נא למלא מחיר של הנר"]
+        require: [true, "נא למלא מחיר של המוצר"]
     },
     salePrice: {
         type: Number
@@ -33,6 +33,10 @@ const CandleSchema = new mongoose_1.Schema({
     description: {
         type: String,
         require: [true, "נא למלא תיאור המוצר"]
+    },
+    type: {
+        type: String,
+        require: [true, "נא לבחור קטיגוריה למוצר"]
     },
     size: {
         type: String,

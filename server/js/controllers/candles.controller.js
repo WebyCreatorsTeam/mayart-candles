@@ -11,34 +11,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
 const candle_model_1 = require("../model/candle.model");
-const getAllCandles = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//      /candles/get-candles
+const getAllCandles = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const allCandles = yield candle_model_1.Candle.find({});
-        return res.status(200).json(allCandles);
+        return res.json({ continueWork: true, allCandles });
     }
     catch (error) {
-        return res.send(error);
+        next(error);
     }
 });
 exports.getAllCandles = getAllCandles;
-const getOneCandle = (req, res) => {
+//      /candles/get-one-candle
+const getOneCandle = (req, res, next) => {
     try {
         return res.send("One Candle");
     }
     catch (error) {
-        return res.send(error);
+        next(error);
     }
 };
 exports.getOneCandle = getOneCandle;
-const addCandle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//      /candles/save-candle
+const addCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
         const newCandle = new candle_model_1.Candle(data);
         yield newCandle.save();
-        return res.status(200).json({ text: "candle saved" });
+        return res.json({ text: "candle saved" });
     }
     catch (error) {
-        return res.send(error);
+        next(error);
     }
 });
 exports.addCandle = addCandle;

@@ -1,6 +1,5 @@
 import { Schema, model } from "mongoose";
 
-
 const CandleSchema = new Schema({
     name: {
         type: String,
@@ -20,7 +19,7 @@ const CandleSchema = new Schema({
     },
     price: {
         type: Number,
-        require: [true, "נא למלא מחיר של הנר"]
+        require: [true, "נא למלא מחיר של המוצר"]
     },
     salePrice: {
         type: Number
@@ -32,6 +31,10 @@ const CandleSchema = new Schema({
     description: {
         type: String,
         require: [true, "נא למלא תיאור המוצר"]
+    },
+    type: {
+        type: String,
+        require: [true, "נא לבחור קטיגוריה למוצר"]
     },
     size: {
         type: String,
