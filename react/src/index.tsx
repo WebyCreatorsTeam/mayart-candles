@@ -12,8 +12,12 @@ import InVessel from "./views/Candles/InVessel";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
-import Login from "./views/Dashboard/Login/Login";
+import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
 import "./views/Dashboard/style/global.scss";
+import MainDashboard from "./views/Dashboard/MainDashboard";
+import LayoutDashboard from "./views/Dashboard/LayoutDashboard";
+import Regist, { formRegistAction } from "./views/Dashboard/Regist/Regist";
+import Users, { adminsLoader } from "./views/Dashboard/Users/Users";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -40,21 +44,30 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:"login",
-    element: <Login/>
+    path: "login",
+    element: <Login />,
+    action: formLoginAction,
+    errorElement: <ErrorComponent />
   },
   {
-    path:"dashboard",
-    // element: <Dashboard/> //הראשי - מכניסה לייואט עם תפריט עליון 
-    // error Elemrnt
-    // loader
-    children:[
+    path: "dashboard",
+    element: <LayoutDashboard />,//הראשי - מכניסה לייואט עם תפריט עליון 
+    errorElement: <ErrorComponent />,
+    children: [
       {
         index: true,
-        // element: <Dashboard/> //הראשי
-  
-        // ...
+        element: <MainDashboard />,
       },
+      {
+        path: "admins",
+        element: <Users/>,
+        loader: adminsLoader
+      },
+      {
+        path: "regist",
+        element: <Regist />,
+        action: formRegistAction
+      }
     ]
   }
 ]);

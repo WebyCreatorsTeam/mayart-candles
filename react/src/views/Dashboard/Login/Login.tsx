@@ -1,43 +1,81 @@
-import React from 'react'
-//import { useEffect } from "react";
-// import { useAppDispatch, useAppSelector } from "../../app/hooks";
-// import { getAllUser, sendUserData } from "./userAsync";
-// import { selectUser } from "./loginSlice";
+import { FC, useEffect, useState } from 'react'
+import { Form, redirect, useNavigation } from 'react-router-dom';
+import Input from '../UI/Input';
+import axios from 'axios';
 
-const Login = () => {
-  
-  // const dispatch = useAppDispatch();
-  // const users = useAppSelector(selectUser);
+/* {
+  "email":"admin@weby.com",
+  "password":"123ASD!@#" 
+} */
 
-  // console.log(users);
+export interface InputsList {
+  type: string
+  name: string
+  placeholder: string
+  autoComp: string
+}
 
-  // useEffect(() => {
-  //   dispatch(getAllUser());
-  // }, []);
+export const inputs: Array<InputsList> = [
+  { type: "text", name: "email", placeholder: "דואר אלקטרוני", autoComp: "email" },
+  { type: "text", name: "password", placeholder: "סיסמא", autoComp: "current-password" },
+];
 
-  // const hendleGetUserData = async (e: any) => {
-  //   e.preventDefault();
+const Login: FC = () => {
+  const [submitting, setSubmitting] = useState<boolean>(true);
+  const [userDetails, setUserDetails] = useState({ email: "", password: "" })
+  const navigation = useNavigation();
 
-  //   const username = e.target.elements.name.value;
-  //   const password = e.target.elements.password.value;
 
-  //   console.log(username, password);
+  useEffect(() => {
+    (() => {
+      return setSubmitting(Object.values(userDetails).every((a) => a.length > 0));
+    })()
+  }, [userDetails]);
 
-  //   dispatch(sendUserData({ username, password }));
-  // };
   return (
     <div className="background">
       <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
-    {/*<form onSubmit={hendleGetUserData}>*/}
-    <form>
-        <label htmlFor="email" >דואר אלקטרוני</label>
-      <input className="email" type="text" name="email" />
-      <label htmlFor="password">סיסמה</label>
-      <input className="password" type="password" name="password"/>
-      <button type="submit">כניסה</button>
-    </form>
-  </div>
+      <Form action='/login' method='post'>
+        {inputs.map((int, idx) => (
+          <Input key={idx} {...int} setUserDetails={setUserDetails} />
+        ))}
+        <button
+          type="submit"
+          disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
+          className={!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}
+        >
+          {navigation.state === "submitting" ? "הפרטים נשלחים" : "כניסה"}
+        </button>
+      </Form>
+    </div>
   )
 }
 
 export default Login
+
+const hendleLoginUser = async ({ email, password }: IUser) => {
+  const { data } = await axios.post(`https://mayart-candles-api.vercel.app/admin/login-admin`, { email, password })
+  return data
+}
+
+export interface IUser {
+  email: string, password: string
+}
+
+export const formLoginAction = async ({ request }: any) => {
+  const formData = await request.formData();
+
+  const user = {
+    email: formData.get("email"),
+    password: formData.get("password")
+  };
+
+  const { continueWork, token, message } = await hendleLoginUser(user)
+
+  if (continueWork) {
+    await sessionStorage.setItem('token', token)
+    return redirect("/dashboard");
+  }
+
+  if (!continueWork) return alert(message)
+}

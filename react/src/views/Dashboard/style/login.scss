@@ -1,41 +1,48 @@
-.background{
+.background {
 
-    text-align: center;
-    margin: 3% auto;
-    background-color: white;
-    width: 1502px;
-    height: 780px;
-    box-shadow: 3px black;
-    h1{
-        font-size: 53px;
-        font-weight: 400;
+  text-align: center;
+  margin: 3% auto;
+  background-color: white;
+  width: 1502px;
+  height: 780px;
+  box-shadow: 3px black;
+
+  h1 {
+    font-size: 53px;
+    font-weight: 400;
+  }
+
+  form {
+    display: grid;
+    grid-row: 1;
+  }
+
+  label {
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  input {
+    background-color: #EBDBFF;
+    border-radius: 10px;
+    border: none;
+
+    .email {
+      width: 763px;
+      height: 60px;
     }
-    form{
-        display: grid;
-      grid-row: 1;
+
+    .password {
+      width: 522px;
+      height: 60px;
     }
-    label{  
-      font-size: 32px;
-      font-weight: 400;  
-    }
-    input{
-       background-color: #EBDBFF;
-       border-radius: 10px;
-       border: none;
-       .email{
-       width: 763px;
-       height: 60px;
-    }
-    .password{
-        width: 522px;
-        height: 60px;  
-    }
-      }
-    button{
-        color: #EBDBFF;
-        background-color: #8524FF;
-        width: 422px;
-        height: 73px;
-        border-radius: 20px;
-    }
+  }
+
+  button {
+    color: #EBDBFF;
+    background-color: #8524FF;
+    width: 422px;
+    height: 73px;
+    border-radius: 20px;
+  }
 }
