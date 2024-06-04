@@ -5,6 +5,7 @@ const router = (0, express_1.Router)();
 const category_contoller_1 = require("../../controllers/category.contoller");
 router
     .get('/get-categories', category_contoller_1.getAllCategosies)
-    .post('/save-category', category_contoller_1.addCategory);
+    .post('/save-category', category_contoller_1.addCategory)
+    .delete('/remove-category', category_contoller_1.removeCategory);
 exports.default = router;
 //# sourceMappingURL=category.route.js.map

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addCategory = exports.getAllCategosies = void 0;
+exports.removeCategory = exports.addCategory = exports.getAllCategosies = void 0;
 const category_model_1 = require("../model/category.model");
 // /categories/get-categories
 const getAllCategosies = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -28,11 +28,23 @@ const addCategory = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         const data = req.body;
         const newCategory = new category_model_1.Category(data);
         yield newCategory.save();
-        return res.json({ continueWork: true, message: "קטיגוריה נשמרה" });
+        return res.json({ continueWork: true, message: "קטיגוריה נשמרה", newCategory });
     }
     catch (error) {
         next(error);
     }
 });
 exports.addCategory = addCategory;
+const removeCategory = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.body;
+        console.log(id);
+        // await Category.findByIdAndDelete(id)
+        return res.json({ continueWork: true, message: "קטיגוריה נמחקה" });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.removeCategory = removeCategory;
 //# sourceMappingURL=category.contoller.js.map
