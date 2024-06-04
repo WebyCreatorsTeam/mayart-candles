@@ -1,9 +1,7 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-const AboutDashboard:FC = () => {
-  return (
-    <div>AboutDashboard</div>
-  )
-}
+const AboutDashboard: FC = () => {
+  return <div>AboutDashboard</div>;
+};
 
 export default AboutDashboard;

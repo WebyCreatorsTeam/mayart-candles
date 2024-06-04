@@ -18,7 +18,7 @@ const MenuNavOptions = ({
       className={`flex  w-full flex-col divide-y overflow-hidden lg:w-7/12 ${className}`}
     >
       <button
-        className="z-40 flex w-full items-center justify-center gap-4 bg-white px-7 py-5 text-start active:bg-primary-pink lg:hover:bg-primary-pink lg:justify-evenly lg:gap-1 lg:px-3 lg:text-[32px] lg:font-normal"
+        className="z-40 flex w-full items-center justify-center gap-4 bg-white px-7 py-5 text-start active:bg-primary-pink lg:justify-evenly lg:gap-1 lg:px-3 lg:text-[32px] lg:font-normal lg:hover:bg-primary-pink"
         onMouseDown={toggleSizeMenu}
       >
         <p>נרות לפי גודל</p>
