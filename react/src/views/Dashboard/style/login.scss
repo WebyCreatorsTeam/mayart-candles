@@ -3,8 +3,8 @@ border-radius: 25px;
   text-align: center;
   margin: 3% auto;
   background-color: white;
-  width: 1502px;
-  height: 780px;
+  max-width: 1500px;
+  min-height: 780px;
   box-shadow:0 0 5px 5px #B2a7c0;
 
   h1 {
@@ -41,23 +41,23 @@ label[for=password]{
     border: none;
  }
     input#email {
-      width: 763px;
-      height: 55px; 
+      max-width: 763px;
+      max-height: 55px; 
       
     }
 
     input#password {
-      width: 522px;
-      height: 55px;
+      max-width: 522px;
+      max-height: 55px;
     }
- 
-
- // button {
-   // color: #EBDBFF;
-    //background-color: #8524FF;
-    //width: 422px;
-    //height: 73px;
-    //border-radius: 20px;
-    //margin: 2% auto;
-  //}
+}
+@media only screen and (max-width: 290px){
+    .background{
+      min-width: 320px;
+      min-height: 900px;
+      text-align: center;
+      margin: 10% auto;
+    }
+  
+   
 }

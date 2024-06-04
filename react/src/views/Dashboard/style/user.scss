@@ -2,7 +2,6 @@ h2{
     font-size: 40px;
     font-weight: 700;
  
-
 } 
 .user{
     margin: 8% auto;
@@ -65,4 +64,37 @@ h2{
     border-radius: 20px;
    
   }
+}
+@media only screen and (max-width: 290px){
+    h2{
+        font-size: 30px;
+        font-weight: 700;
+     
+    } 
+    .gridName{
+        gap: 5%;
+    }
+    .user{
+        margin: 8% auto;
+        grid-column: 1;
+        gap: 3px;
+    
+    } 
+    .userName{
+        margin: 3% auto;
+     display: flex;
+     flex-direction: column;
+        gap: 5px; 
+        justify-content: space-around;
+        max-width: 113px;
+         border: solid 1px;
+         border-width: 1px 0;
+     border-color: #8524FF;
+    }
+    .gridUserName{
+       
+     gap: 10%;
+    
+    
+    }
 }
