@@ -31,18 +31,23 @@ label[for="name"] {
 .addStyle {
   margin-left: 27%;
 }
-button {
-  color: #ebdbff;
-  width: 422px;
-  height: 73px;
-  border-radius: 20px;
-  margin: 2% auto;
+.form-btn_disable{
+    background-color: rgb(175, 171, 171);
+        color: #EBDBFF;
+    width: 422px;
+    height: 73px;
+    border-radius: 20px;
+    margin: 2% auto;
 }
-.form-btn_disable {
-  background-color: rgb(175, 171, 171);
-}
-.form-btn_active {
-  background-color: #8524ff;
+.form-btn_active{
+
+    background-color: #8524FF;
+    color: #EBDBFF;
+    width: 422px;
+    height: 73px;
+    border-radius: 20px;
+    margin: 2% auto;
+      
 }
 @media only screen and (max-width: 290px) {
   .addStyle {
@@ -59,46 +64,52 @@ button {
     margin-right: 6%;
   }
 
-  label[for="name"] {
-    font-size: 22px;
-    margin-left: 84%;
-  }
-  label[for="email"] {
-    font-size: 22px;
-    margin-right: -17%;
-  }
-  label[for="password"] {
-    font-size: 22px;
-    margin-right: -25%;
-  }
-  input#name {
-    width: 322px;
-    height: 35px;
-    margin-right: 3%;
-  }
-  input#email {
-    width: 363px;
-    height: 35px;
-    margin-right: 3%;
-  }
-
-  input#password {
-    width: 322px;
-    height: 35px;
-    margin-right: 3%;
-  }
-
-  button {
-    color: #ebdbff;
-    width: 222px;
-    height: 53px;
-    border-radius: 20px;
-    margin: 5% auto;
-  }
-  .form-btn_disable {
-    background-color: rgb(175, 171, 171);
-  }
-  .form-btn_active {
-    background-color: #8524ff;
-  }
+      label[for=name]{
+        font-size: 22px;
+        margin-left: 84%;
+      }
+      label[for=email]{
+        font-size: 22px;
+        margin-right: -17%;
+      }
+    label[for=password]{
+        font-size: 22px;
+      margin-right: -25%;
+    }
+      input#name{
+        width: 322px;
+        height: 35px; 
+       margin-right: 3%; 
+      }
+      input#email {
+        width: 363px;
+        height: 35px; 
+        margin-right: 3%;
+      }
+  
+      input#password {
+        width: 322px;
+        height: 35px;
+        margin-right: 3%;
+      }
+     
+   
+    .form-btn_disable{
+        background-color: rgb(175, 171, 171);
+          color: #EBDBFF;
+        width: 222px;
+        height: 53px;
+        border-radius: 20px;
+        margin: 5% auto;
+    }
+    .form-btn_active{
+    
+        background-color: #8524FF;
+        color: #EBDBFF;
+        width: 222px;
+        height: 53px;
+        border-radius: 20px;
+        margin: 5% auto;
+          
+    }
 }
