@@ -17,7 +17,7 @@ const SideNavBarMenu = ({
   return (
     <nav
       dir="rtl"
-      className={`flex flex-col items-start divide-y-[1px] border-[[#B0C4B1]/30] text-center lg:items-center lg:pt-20 ${homepage ? "lg:hidden sm:text-[40px] sm:leading-[53.2px] font-semibold py-12" : ""}`}
+      className={`flex flex-col items-start divide-y-[1px] border-[[#B0C4B1]/30] text-center lg:items-center lg:pt-20 ${homepage ? "py-12 font-semibold sm:text-[40px] sm:leading-[53.2px] lg:hidden" : ""}`}
     >
       {homepage ? null : (
         <MenuNavLink onClick={closeMenus} to="/" text="ראשי" />
@@ -36,7 +36,9 @@ const SideNavBarMenu = ({
       />
       <CandlesBySizeMenu
         className={homepage ? "text-xl sm:text-[40px] sm:leading-[53.2px]" : ""}
-        childrenClassName={homepage ? "text-xl sm:text-[40px] sm:leading-[53.2px]" : ""}
+        childrenClassName={
+          homepage ? "text-xl sm:text-[40px] sm:leading-[53.2px]" : ""
+        }
         closeMenus={closeMenus || toggleSizeMenu}
         sizeMenuIsOpen={sizeMenuIsOpen}
         toggleSizeMenu={toggleSizeMenu}

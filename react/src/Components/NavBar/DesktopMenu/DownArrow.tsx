@@ -9,7 +9,7 @@ const DownArrow = ({
 }) => {
   return (
     <svg
-      className={`transition-all sm:size-7 duration-300 group-hover:stroke-white [&>path]:stroke-black ${sizeMenuIsOpen ? "rotate-180" : "rotate-0"} ${className}`}
+      className={`transition-all duration-300 group-hover:stroke-white sm:size-7 [&>path]:stroke-black ${sizeMenuIsOpen ? "rotate-180" : "rotate-0"} ${className}`}
       width="20"
       height="11"
       viewBox="0 0 20 11"

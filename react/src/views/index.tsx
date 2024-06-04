@@ -11,7 +11,7 @@ const Home = () => {
     <div className="scrollbar-none flex flex-col">
       <HeroImageSection />
       <SideNavBarMenu
-      homepage={true}
+        homepage={true}
         sizeMenuIsOpen={sizeMenuIsOpen}
         toggleSizeMenu={toggleSizeMenu}
       />

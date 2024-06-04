@@ -1,100 +1,88 @@
-h2{
-    font-size: 40px;
-    font-weight: 700;
- 
-} 
-.user{
-    margin: 8% auto;
-    grid-column: 1;
-    gap: 5px;
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+.user {
+  margin: 8% auto;
+  grid-column: 1;
+  gap: 5px;
 
- 
-.userName{
+  .userName {
     margin: 3% auto;
- display: flex;
- flex-direction: column;
-    gap: 5px; 
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     justify-content: space-around;
     max-width: 413px;
-     border: solid 1px;
-     border-width: 1px 0;
- border-color: #8524FF;
-}
-.gridUserName{
+    border: solid 1px;
+    border-width: 1px 0;
+    border-color: #8524ff;
+  }
+  .gridUserName {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: baseline;
- gap: 70%;
-
-
-}
-.gridName{
+    gap: 70%;
+  }
+  .gridName {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: baseline;
     gap: 10%;
-}
-.iconName{
+  }
+  .iconName {
     justify-content: center;
-  padding: 15px;
+    padding: 15px;
     border-radius: 100%;
     background-image: linear-gradient(#ebdbff, #ffffff);
-}
-.delete{
+  }
+  .delete {
     color: rgb(212, 25, 25);
     background-color: transparent;
     width: 20px;
-
-}
-.addPerson{
+  }
+  .addPerson {
     border: 1px 0;
-    border-color: #8524FF;
+    border-color: #8524ff;
     margin: 3% auto;
     grid-column: 1;
     gap: 5%;
-}
+  }
 
-.link {
-   
-    color: #EBDBFF;
-    background-color: #8524FF;
+  .link {
+    color: #ebdbff;
+    background-color: #8524ff;
     padding: 10px 50px;
     border-radius: 20px;
-   
   }
 }
-@media only screen and (max-width: 290px){
-    h2{
-        font-size: 30px;
-        font-weight: 700;
-     
-    } 
-    .gridName{
-        gap: 5%;
-    }
-    .user{
-        margin: 8% auto;
-        grid-column: 1;
-        gap: 3px;
-    
-    } 
-    .userName{
-        margin: 3% auto;
-     display: flex;
-     flex-direction: column;
-        gap: 5px; 
-        justify-content: space-around;
-        max-width: 113px;
-         border: solid 1px;
-         border-width: 1px 0;
-     border-color: #8524FF;
-    }
-    .gridUserName{
-       
-     gap: 10%;
-    
-    
-    }
+@media only screen and (max-width: 290px) {
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .gridName {
+    gap: 5%;
+  }
+  .user {
+    margin: 8% auto;
+    grid-column: 1;
+    gap: 3px;
+  }
+  .userName {
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-around;
+    max-width: 113px;
+    border: solid 1px;
+    border-width: 1px 0;
+    border-color: #8524ff;
+  }
+  .gridUserName {
+    gap: 10%;
+  }
 }
