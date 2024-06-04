@@ -2,7 +2,7 @@ import React from "react";
 
 const MenuToggle = ({ toggleNavBarMenu }: { toggleNavBarMenu: () => void }) => {
   return (
-    <button onClick={toggleNavBarMenu}>
+    <button className="xl:hidden" onClick={toggleNavBarMenu}>
       <img
         className="sm:hidden"
         src="/icons/nav/mobile/menu-icon.svg"

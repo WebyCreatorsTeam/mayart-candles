@@ -24,12 +24,9 @@ const SideNavBar = ({
     >
       <span
         dir="rtl"
-        className={`absolute top-0  w-72  bg-white text-xl font-semibold transition-all duration-500 lg:w-[543px] lg:py-5 
+        className={`absolute top-0  w-72  bg-white text-xl font-semibold transition-all duration-500 
         ${navBarMenuIsOpen ? "left-0" : "-left-full"}`}
       >
-        <div className="hidden lg:block">
-          <Logo />
-        </div>
         <SideNavBarMenu
           closeMenus={closeMenus}
           sizeMenuIsOpen={sizeMenuIsOpen}
