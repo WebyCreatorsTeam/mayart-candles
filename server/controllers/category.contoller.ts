@@ -23,6 +23,7 @@ export const addCategory = async (req: Request, res: Response, next: NextFunctio
     }
 }
 
+// /categories/remove-category
 export const removeCategory = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const {id} = req.body

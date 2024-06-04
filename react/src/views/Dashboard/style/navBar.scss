@@ -1,0 +1,30 @@
+.nav{
+    padding-top: 3%;
+    grid-row: 1;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     flex-direction: row-reverse;
+    gap: 40px;
+}
+.navBar{
+   background-color: #EBDBFF;
+   border-radius: 50px;
+    padding: 0 2%;
+}
+.clicked{
+    color: #EBDBFF;
+    background-color: #8524FF;
+}
+@media only screen and (max-width: 290px){
+    .nav{
+        padding-top: 10%;
+        grid-row: 1;
+         text-align: center;
+         display: flex;
+         justify-content: center;
+         flex-direction: row-reverse;
+        gap: 10px;align-items: center;
+        font-size: 14px;
+    }
+}

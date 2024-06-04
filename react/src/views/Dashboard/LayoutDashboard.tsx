@@ -1,31 +1,32 @@
-import { FC } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { FC } from "react";
+import { Link, Outlet } from "react-router-dom";
+import "../../views/Dashboard/style/global.module.scss";
 
 const LayoutDashboard: FC = () => {
     return (
-        <>
-            <nav>
-                <Link to="/dashboard"> {/* Need to check how NavLink works */}
+        <div className="background">
+            <nav className='nav'>
+                <Link className="navBar" to="/dashboard"> {/* Need to check how NavLink works */}
                     ראשי
                 </Link>
-                <Link to="/dashboard/categories">
+                <Link className="navBar" to="/dashboard/categories">
                     קטיגוריות
                 </Link>
-                <Link to="/dashboard">
+                <Link className="navBar" to="/dashboard">
                     עמוד תשלום
                 </Link>
-                <Link to="/dashboard">
+                <Link className="navBar" to="/dashboard">
                     אודות
                 </Link>
-                <Link to="/dashboard/admins">
+                <Link className="navBar" to="/dashboard/admins">
                     משתמשים
                 </Link>
             </nav>
             <main>
                 <Outlet />
             </main>
-        </>
+        </div>
     )
 }
 
-export default LayoutDashboard
+export default LayoutDashboard;

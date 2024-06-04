@@ -1,41 +1,57 @@
 interface ValidReturn {
-    continueWork: boolean;
-    message: string;
+  continueWork: boolean;
+  message: string;
 }
 
-export const validateValues = (inputKey: string, inputValue: string): ValidReturn => {
-    switch (inputKey) {
-        case "name":
-            if (inputValue.length === 0) return { continueWork: false, message: "השם לא יכול להיות ריק" };
-            
-            break;
-        case "password":
-            if (inputValue.length === 0) return { continueWork: false, message: "נא למלא את הסיסמא" };
+export const validateValues = (
+  inputKey: string,
+  inputValue: string,
+): ValidReturn => {
+  switch (inputKey) {
+    case "name":
+      if (inputValue.length === 0)
+        return { continueWork: false, message: "השם לא יכול להיות ריק" };
 
-            const passwordRegEx: RegExp = new RegExp('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$')
-            const validPass = passwordRegEx.test(inputValue)
+      break;
+    case "password":
+      if (inputValue.length === 0)
+        return { continueWork: false, message: "נא למלא את הסיסמא" };
 
-            if (!validPass) return { continueWork: false, message: "הסיסמא חייבת לכלול מספרים ואותיות באנגלית, לפחות תו אחד מיוחד !@#$%^&* וללא רווחים ולא פחות מ6 תווים"  }
+      const passwordRegEx: RegExp = new RegExp(
+        "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$",
+      );
+      const validPass = passwordRegEx.test(inputValue);
 
-            break;
-        case "email":
-            const emailRegex: RegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
-            const validEmail = emailRegex.test(inputValue);
+      if (!validPass)
+        return {
+          continueWork: false,
+          message:
+            "הסיסמא חייבת לכלול מספרים ואותיות באנגלית, לפחות תו אחד מיוחד !@#$%^&* וללא רווחים ולא פחות מ6 תווים",
+        };
 
-            if (inputValue.length === 0) return {
-                continueWork: false, message: "אימייל לא יכול להיות ריק"
-            };
+      break;
+    case "email":
+      const emailRegex: RegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
+      const validEmail = emailRegex.test(inputValue);
 
-            if (!validEmail) return {
-                continueWork: false, message: "אימייל לא תקין"
-            };
+      if (inputValue.length === 0)
+        return {
+          continueWork: false,
+          message: "אימייל לא יכול להיות ריק",
+        };
 
-            break;
-        default:
-            return {
-                continueWork: false,
-                message: "ישנה שגיאה, נסא שנית",
-            };
-    }
-    return { continueWork: true, message: "" };
+      if (!validEmail)
+        return {
+          continueWork: false,
+          message: "אימייל לא תקין",
+        };
+
+      break;
+    default:
+      return {
+        continueWork: false,
+        message: "ישנה שגיאה, נסא שנית",
+      };
+  }
+  return { continueWork: true, message: "" };
 };
