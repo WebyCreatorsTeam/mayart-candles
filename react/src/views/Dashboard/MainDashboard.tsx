@@ -24,7 +24,7 @@ const MainDashboard: FC = () => {
       <Await resolve={candles}>
         <section>
           <img
-            src="/images/hero-image.jpeg"
+            src="/images/hero-image.webp"
             alt="תמונת רקע של הירו"
             width={1684}
             height={972}
@@ -53,7 +53,7 @@ const MainDashboard: FC = () => {
 
 export default MainDashboard;
 
-const hendleGetCandles = async () => {
+const handleGetCandles = async () => {
   const { data } = await axios.get(
     `https://mayart-candles-api.vercel.app/candles/get-candles`,
   );
@@ -64,6 +64,22 @@ const hendleGetCandles = async () => {
 
 export const candlesLoader = async () => {
   return defer({
-    candles: await hendleGetCandles(),
+    candles: await handleGetCandles(),
   });
 };
+
+// export const candleLoader = async ({ params }: any) => {
+//   const { id } = params
+//   return defer({
+//     project: await getCandle(id)
+//   })
+// }
+
+// const handleGetCandles = async () => {
+//   const { data } = await axios.get(
+//     `https://mayart-candles-api.vercel.app/candles/get-candle/${id}`,
+//   );
+//   const { continueWork, allCandles } = data;
+//   if (continueWork) return allCandles;
+//   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+// };

@@ -5,7 +5,7 @@ const HeroImageSection = () => {
     <div className="bg-[fit:`cover`] relative flex max-h-[201px] items-center justify-center overflow-hidden text-center sm:max-h-[429.83px] lg:max-h-[859px]">
       {/* background */}
       <img
-        src="/images/hero-image.png"
+        src="/images/hero-image.webp"
         alt="hero"
         className="-mb-3 object-cover"
       />
