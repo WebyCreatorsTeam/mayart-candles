@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { Form, redirect, useNavigation } from 'react-router-dom';
 import Input from '../UI/Input';
 import axios from 'axios';
-
+//import icon from '../ImageIcon/user-add-icon.svg'
 /* {
   "email":"admin@weby.com",
   "password":"123ASD!@#"
@@ -35,7 +35,7 @@ const Login: FC = () => {
   return (
     <div className="background">
       <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
-      <Form action='/login' method='post'>
+      <Form className='logForm' action='/login' method='post'>
         {inputs.map((int, idx) => (
           <Input key={idx} {...int} setUserDetails={setUserDetails} />
         ))}
@@ -44,6 +44,7 @@ const Login: FC = () => {
           disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
           className={!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}
         >
+
           {navigation.state === "submitting" ? "הפרטים נשלחים" : "כניסה"}
         </button>
       </Form>

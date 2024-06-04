@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 
 const LayoutDashboard: FC = () => {
     return (
-        <>
+        <div className="background">
             <nav>
                 <Link to="/dashboard">
                     ראשי
@@ -24,7 +24,7 @@ const LayoutDashboard: FC = () => {
             <main>
                 <Outlet />
             </main>
-        </>
+        </div>
     )
 }
 

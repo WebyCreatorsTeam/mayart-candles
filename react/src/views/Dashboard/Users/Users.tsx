@@ -15,20 +15,22 @@ const Users: FC = () => {
     return (
         <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
             <Await resolve={admins}>
+                <section className='user'>
                 <h2>משתמשים עם גישה</h2>
-                <div>
+                <div className='userName'>
                     {admins.map((adm, idx) => (
-                        <div>
-                            <div key={idx}>
-                                <p>{adm.name.slice(0, 2).toLocaleUpperCase()}</p> {/* בעיצוב של עמוד יוזרים, האותיות העיגול */}
+                        <div className='gridUserName'>
+                            <div className='gridName' key={idx}>
+                                <p className='iconName'>{adm.name.slice(0, 2).toLocaleUpperCase()}</p> {/* בעיצוב של עמוד יוזרים, האותיות העיגול */}
                                 <p>{adm.name}</p> {/* שם של משתמש */}
                                 {/* {adm.role && (<button>מחיקת משתמש</button>) } */} {/* Need to add in the model role of user */}
                             </div>
-                            <button><DeleteOutlineIcon/></button>
+                            <button className='delete'><DeleteOutlineIcon/></button>
                         </div>
                     ))}
                 </div>
-                <Link to="/dashboard/regist">הוספת משתמש</Link>
+                <Link className='link' to="/dashboard/regist"> הוספת משתמש</Link>
+                </section>
             </Await>
         </Suspense>
     )
