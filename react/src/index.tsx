@@ -11,7 +11,6 @@ import InVessel from "./views/Candles/InVessel/page";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Candle from "./views/Candles/[id]/page";
-import AllCandles from "./views/Candles/AllCandles";
 import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
 
 const root = ReactDOM.createRoot(
@@ -29,9 +28,8 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
-        element: <CandlesAll />,
         children: [
-          { index: true, element: <AllCandles /> },
+          { index: true, element: <CandlesAll /> },
           { path: "/candles/:id", element: <Candle /> },
           { path: "/candles/sized/:size", element: <BySize /> },
           { path: "/candles/designed", element: <Designed /> },
