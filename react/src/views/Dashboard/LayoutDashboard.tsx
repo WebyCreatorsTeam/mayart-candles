@@ -5,10 +5,10 @@ const LayoutDashboard: FC = () => {
     return (
         <div className="background">
             <nav>
-                <Link to="/dashboard"> {/* Need to check how NavLink works*/}
+                <Link to="/dashboard"> {/* Need to check how NavLink works */}
                     ראשי
                 </Link>
-                <Link to="/dashboard">
+                <Link to="/dashboard/categories">
                     קטיגוריות
                 </Link>
                 <Link to="/dashboard">

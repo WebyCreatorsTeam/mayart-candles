@@ -5,7 +5,7 @@ import axios from 'axios';
 //import icon from '../ImageIcon/user-add-icon.svg'
 /* {
   "email":"admin@weby.com",
-  "password":"123ASD!@#" 
+  "password":"123ASD!@#"
 } */
 
 export interface InputsList {
@@ -17,7 +17,7 @@ export interface InputsList {
 
 export const inputs: Array<InputsList> = [
   { type: "text", name: "email", placeholder: "דואר אלקטרוני", autoComp: "email" },
-  { type: "text", name: "password", placeholder: "סיסמא", autoComp: "current-password" },
+  { type: "password", name: "password", placeholder: "סיסמא", autoComp: "current-password" },
 ];
 
 const Login: FC = () => {

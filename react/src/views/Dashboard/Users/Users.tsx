@@ -1,9 +1,7 @@
 import axios from 'axios'
 import { FC, Suspense } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
-// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
 
 interface IAdmins {
     name: string,
@@ -15,7 +13,7 @@ const Users: FC = () => {
     const { admins } = useLoaderData() as { admins: Array<IAdmins> }
     console.log(admins)
     return (
-        <Suspense>
+        <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
             <Await resolve={admins}>
                 <section className='user'>
                 <h2>משתמשים עם גישה</h2>
