@@ -14,10 +14,13 @@ import ErrorComponent from "./Components/Error";
 import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
 import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
 import "./views/Dashboard/style/global.scss";
-import MainDashboard from "./views/Dashboard/MainDashboard";
+import MainDashboard, { candlesLoader } from "./views/Dashboard/MainDashboard";
 import LayoutDashboard from "./views/Dashboard/LayoutDashboard";
 import Regist, { formRegistAction } from "./views/Dashboard/Regist/Regist";
 import Users, { adminsLoader } from "./views/Dashboard/Users/Users";
+import DashcoardCandle from "./views/Dashboard/Candle/DashcoardCandle";
+import CategoriesDashboard, { categoriesLoader } from "./views/Dashboard/Categories/CategoriesDashboard";
+import OneCategoryDashboard from "./views/Dashboard/Categories/OneCategoryDashboard";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -43,31 +46,18 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "login",
-    element: <Login />,
-    action: formLoginAction,
-    errorElement: <ErrorComponent />
-  },
+  { path: "login", element: <Login />, action: formLoginAction, errorElement: <ErrorComponent /> },
   {
     path: "dashboard",
-    element: <LayoutDashboard />,//הראשי - מכניסה לייואט עם תפריט עליון 
+    element: <LayoutDashboard />,
     errorElement: <ErrorComponent />,
     children: [
-      {
-        index: true,
-        element: <MainDashboard />,
-      },
-      {
-        path: "admins",
-        element: <Users/>,
-        loader: adminsLoader
-      },
-      {
-        path: "regist",
-        element: <Regist />,
-        action: formRegistAction
-      }
+      { index: true, element: <MainDashboard />, loader: candlesLoader, },
+      { path: "candle/:candleID", element: <DashcoardCandle /> },
+      { path: "categories", element: <CategoriesDashboard />, loader: categoriesLoader },
+      { path: "categories/:categotyName", element: <OneCategoryDashboard />, loader: categoriesLoader },
+      { path: "admins", element: <Users />, loader: adminsLoader },
+      { path: "regist", element: <Regist />, action: formRegistAction },
     ]
   }
 ]);

@@ -17,7 +17,7 @@ export const addCategory = async (req: Request, res: Response, next: NextFunctio
         const data = req.body
         const newCategory = new Category(data)
         await newCategory.save()
-        return res.json({ continueWork: true, message: "קטיגוריה נשמרה" })
+        return res.json({ continueWork: true, message: "קטיגוריה נשמרה", newCategory })
     } catch (error) {
         next(error)
     }
