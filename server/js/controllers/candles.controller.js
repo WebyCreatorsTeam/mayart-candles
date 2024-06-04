@@ -38,7 +38,7 @@ const addCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function
         const data = req.body;
         const newCandle = new candle_model_1.Candle(data);
         yield newCandle.save();
-        return res.json({ text: "candle saved" });
+        return res.json({ continueWork: true, text: "candle saved" });
     }
     catch (error) {
         next(error);
