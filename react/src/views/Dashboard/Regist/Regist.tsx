@@ -34,7 +34,7 @@ const Regist: FC = () => {
                 {inputs.map((int, idx) => (
                     <Input key={idx} {...int} setUserDetails={setUserDetails} />
                 ))}
-                <button
+                <button 
                     type="submit"
                     disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
                     className={!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}

@@ -34,21 +34,22 @@ label {
 .addStyle{
     margin-left: 27%;
 }
-button{
-    color: #EBDBFF;
+.form-btn_disable{
+    background-color: rgb(175, 171, 171);
+        color: #EBDBFF;
     width: 422px;
     height: 73px;
     border-radius: 20px;
     margin: 2% auto;
 }
-.form-btn_disable{
-    background-color: rgb(175, 171, 171);
-    
-}
 .form-btn_active{
 
     background-color: #8524FF;
-   
+    color: #EBDBFF;
+    width: 422px;
+    height: 73px;
+    border-radius: 20px;
+    margin: 2% auto;
       
 }
 @media only screen and (max-width: 290px){
@@ -95,21 +96,23 @@ button{
         margin-right: 3%;
       }
      
-      button{
-        color: #EBDBFF;
+   
+    .form-btn_disable{
+        background-color: rgb(175, 171, 171);
+          color: #EBDBFF;
         width: 222px;
         height: 53px;
         border-radius: 20px;
         margin: 5% auto;
     }
-    .form-btn_disable{
-        background-color: rgb(175, 171, 171);
-        
-    }
     .form-btn_active{
     
         background-color: #8524FF;
-       
+        color: #EBDBFF;
+        width: 222px;
+        height: 53px;
+        border-radius: 20px;
+        margin: 5% auto;
           
     }
 }

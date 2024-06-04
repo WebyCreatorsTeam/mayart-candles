@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom'
 const LayoutDashboard: FC = () => {
     return (
         <div className="background">
-            <nav>
+            <nav className='nav'>
                 <Link className="navBar" to="/dashboard"> {/* Need to check how NavLink works */}
                     ראשי
                 </Link>
