@@ -5,7 +5,7 @@ const LayoutDashboard: FC = () => {
     return (
         <>
             <nav>
-                <Link to="/dashboard"> {/* Need to check how NavLink works */}
+                <Link to="/dashboard">
                     ראשי
                 </Link>
                 <Link to="/dashboard/categories">
@@ -14,7 +14,7 @@ const LayoutDashboard: FC = () => {
                 <Link to="/dashboard">
                     עמוד תשלום
                 </Link>
-                <Link to="/dashboard">
+                <Link to="/dashboard/about">
                     אודות
                 </Link>
                 <Link to="/dashboard/admins">
