@@ -22,15 +22,15 @@ const Regist: FC = () => {
     }, [userDetails]);
 
     return (
-        <>
-            <h2>
+        <section className='register'>
+            <h2 className='addStyle'>
                 הוספת גישה לאתר זה
             </h2>
-            <p>
+            <p className='title'>
                 הוספת גישה מאפשרת למשתמשים נוספים לצפות בדשבורד ולערוך את האתר.
                 תוכלי להוסיף ולמחוק משתמשים בכל עת.
             </p>
-            <Form action='/dashboard/regist' method='post'>
+            <Form className='regisForm' action='/dashboard/regist' method='post'>
                 {inputs.map((int, idx) => (
                     <Input key={idx} {...int} setUserDetails={setUserDetails} />
                 ))}
@@ -42,7 +42,7 @@ const Regist: FC = () => {
                     {navigation.state === "submitting" ? "הפרטים נשלחים" : "הוסף משתמש"}
                 </button>
             </Form>
-        </>
+        </section>
     )
 }
 

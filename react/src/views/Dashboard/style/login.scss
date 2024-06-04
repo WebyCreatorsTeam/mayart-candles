@@ -5,7 +5,7 @@ border-radius: 25px;
   background-color: white;
   width: 1502px;
   height: 780px;
-  box-shadow: 5px black;
+  box-shadow:0 0 5px 5px #B2a7c0;
 
   h1 {
     padding-top: 8%;
@@ -13,7 +13,7 @@ border-radius: 25px;
     font-weight: 400;
   }
 
-  form {
+  .logForm {
     padding-top: 5%;
     display: grid;
     grid-row: 1;
@@ -52,12 +52,12 @@ label[for=password]{
     }
  
 
-  button {
-    color: #EBDBFF;
-    background-color: #8524FF;
-    width: 422px;
-    height: 73px;
-    border-radius: 20px;
-    margin: 2% auto;
-  }
+ // button {
+   // color: #EBDBFF;
+    //background-color: #8524FF;
+    //width: 422px;
+    //height: 73px;
+    //border-radius: 20px;
+    //margin: 2% auto;
+  //}
 }

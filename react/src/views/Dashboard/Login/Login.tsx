@@ -35,7 +35,7 @@ const Login: FC = () => {
   return (
     <div className="background">
       <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
-      <Form action='/login' method='post'>
+      <Form className='logForm' action='/login' method='post'>
         {inputs.map((int, idx) => (
           <Input key={idx} {...int} setUserDetails={setUserDetails} />
         ))}
