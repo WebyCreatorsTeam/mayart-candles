@@ -16,7 +16,8 @@ export const getOneCandle = (req: Request, res: Response, next: NextFunction) =>
     try {
         return res.send("One Candle")
     } catch (error) {
-        next(error)    }
+        next(error)    
+    }
 }
 
 //      /candles/save-candle
@@ -25,7 +26,8 @@ export const addCandle = async (req: Request, res: Response, next: NextFunction)
         const data = req.body
         const newCandle = new Candle(data)
         await newCandle.save()
-        return res.json({ text: "candle saved" })
+        return res.json({ continueWork: true, text: "candle saved" })
     } catch (error) {
-        next(error)    }
+        next(error)    
+    }
 }
