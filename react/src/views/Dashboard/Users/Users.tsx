@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { FC, Suspense } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
+// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
 
 interface IAdmins {
     name: string,
@@ -10,17 +13,20 @@ interface IAdmins {
 
 const Users: FC = () => {
     const { admins } = useLoaderData() as { admins: Array<IAdmins> }
-console.log(admins)
+    console.log(admins)
     return (
         <Suspense>
             <Await resolve={admins}>
                 <h2>משתמשים עם גישה</h2>
                 <div>
                     {admins.map((adm, idx) => (
-                        <div key={idx}>
-                            <p>{adm.name.slice(0, 2).toLocaleUpperCase()}</p> {/* בעיצוב של עמוד יוזרים, האותיות העיגול */}
-                            <p>{adm.name}</p> {/* שם של משתמש */}
-                            {/* {adm.role && (<button>מחיקת משתמש</button>) } */} {/* Need to add in the model role of user */}
+                        <div>
+                            <div key={idx}>
+                                <p>{adm.name.slice(0, 2).toLocaleUpperCase()}</p> {/* בעיצוב של עמוד יוזרים, האותיות העיגול */}
+                                <p>{adm.name}</p> {/* שם של משתמש */}
+                                {/* {adm.role && (<button>מחיקת משתמש</button>) } */} {/* Need to add in the model role of user */}
+                            </div>
+                            <button><DeleteOutlineIcon/></button>
                         </div>
                     ))}
                 </div>
