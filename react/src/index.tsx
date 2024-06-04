@@ -10,7 +10,6 @@ import Designed from "./views/Candles/Designed/page";
 import InVessel from "./views/Candles/InVessel/page";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
-import CandllesAll from "./views/Candles/CandlesAll/CandllesAll";
 import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
 import "./views/Dashboard/style/global.scss";
 import MainDashboard, { candlesLoader } from "./views/Dashboard/MainDashboard";
