@@ -1,5 +1,4 @@
 import React from "react";
-import DownArrow from "./DownArrow";
 
 const DesktopMenuOptions = ({
   children,
@@ -39,7 +38,7 @@ const DesktopMenuOptions = ({
           >
             <path
               d="M18.5 1.25L10 9.75L1.5 1.25"
-              stroke-width="2"
+              strokeWidth="2"
               stroke-linecap="round"
               stroke-linejoin="round"
             />

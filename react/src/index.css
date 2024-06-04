@@ -26,7 +26,6 @@ code {
   font-family: "Pacifico", cursive;
 }
 
-
 @layer utilities {
   /* For Webkit-based browsers (Chrome, Safari and Opera) */
   .scrollbar-none::-webkit-scrollbar {
