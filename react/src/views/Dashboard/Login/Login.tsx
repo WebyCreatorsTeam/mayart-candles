@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { Form, redirect, useNavigation } from "react-router-dom";
 import Input from "../UI/Input";
 import axios from "axios";
+import { BASE_API } from "../../../utils/api-connect";
 
 //import icon from '../ImageIcon/user-add-icon.svg'
 /* {
@@ -80,7 +81,7 @@ export default Login;
 
 const hendleLoginUser = async ({ email, password }: IUser) => {
   const { data } = await axios.post(
-    `https://mayart-candles-api.vercel.app/admin/login-admin`,
+    `${BASE_API}/admin/login-admin`,
     { email, password },
   );
   return data;

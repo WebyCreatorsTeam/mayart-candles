@@ -4,6 +4,7 @@ import { Await, Link, defer, useLoaderData } from "react-router-dom";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CategoryAdd from "./CategoryAdd";
 import CategoryRemove from "./CategoryRemove";
+import { BASE_API } from "../../../utils/api-connect";
 
 export interface ICategories {
   _id: string;
@@ -80,7 +81,7 @@ export default CategoriesDashboard;
 const hendleGetCategories = async () => {
   const token = sessionStorage.getItem("token");
   const { data } = await axios.get(
-    `https://mayart-candles-api.vercel.app/categories/get-categories?token=${token}`,
+    `${BASE_API}/categories/get-categories?token=${token}`,
   );
   const { continueWork, categories } = data;
   if (continueWork) return categories;
