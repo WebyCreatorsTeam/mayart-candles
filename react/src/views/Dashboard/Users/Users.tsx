@@ -24,7 +24,7 @@ console.log(admins)
                         </div>
                     ))}
                 </div>
-                <Link to="/dashboard/regist">הוספת משתמש</Link>
+                <Link className='link' to="/dashboard/regist">הוספת משתמש</Link>
             </Await>
         </Suspense>
     )

@@ -1,0 +1,31 @@
+.navBar{
+    margin: 2% auto;
+    grid-row: 1;
+    justify-content: space-around;
+}
+h2{
+    font-size: 40px;
+    font-weight: 700;
+ 
+
+}  
+.user{
+   color: #8524FF; 
+} 
+.addPerson{
+    border: 1px 0;
+    border-color: #8524FF;
+    margin: 3% auto;
+    grid-column: 1;
+    gap: 5%;
+}
+.link {
+   
+    color: #EBDBFF;
+    background-color: #8524FF;
+    padding: 10px 50px;
+    //width: 422px;
+   // height: 73px;
+    border-radius: 20px;
+   
+  }
