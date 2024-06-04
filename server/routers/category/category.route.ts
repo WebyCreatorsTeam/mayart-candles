@@ -1,9 +1,10 @@
 import { Router } from "express";
 const router = Router()
-import { getAllCategosies, addCategory } from "../../controllers/category.contoller";
+import { getAllCategosies, addCategory, removeCategory } from "../../controllers/category.contoller";
 
 router
 .get('/get-categories', getAllCategosies)
 .post('/save-category', addCategory)
+.delete('/remove-category', removeCategory)
 
 export default router

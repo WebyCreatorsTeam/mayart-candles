@@ -22,3 +22,14 @@ export const addCategory = async (req: Request, res: Response, next: NextFunctio
         next(error)
     }
 }
+
+export const removeCategory = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const {id} = req.body
+        console.log(id)
+        // await Category.findByIdAndDelete(id)
+        return res.json({ continueWork: true, message: "קטיגוריה נמחקה" })
+    } catch (error) {
+        next(error)
+    }
+}
