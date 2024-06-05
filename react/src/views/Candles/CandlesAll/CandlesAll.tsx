@@ -1,14 +1,28 @@
-import React from "react";
-import { candles } from "../../../types/candles";
+import React, {useState, useEffect} from "react";
+import Freame from "./Freame";
+import axios from "axios"
+import { CandleType } from "../../../types/candles";
 
 const CandlesAll = () => {
+      const [data, setData] = useState<CandleType[]>([]);
+
+       async function dataCalenders () {
+       let result  = await axios.get("https://mayart-candles-api.vercel.app/candles/get-candles");
+       setData(result.data.allCandles)
+       console.log(result.data.allCandles)
+      }
+      useEffect(() => {
+        dataCalenders();
+      }, [])
+
   return (
     <div className="mt-40 flex w-[100%] flex-col">
       <p className="ml-[32%] mt-8 text-[32px] font-normal lg:ml-[41%] lg:text-[64px]">
         כל הנרות
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center">
-        {candles.map((item, i) => (
+        <Freame />
+        {data.map((item, i) => (
           <div key={i} className="flex flex-col items-center">
             <img
               src={item.pictures[0]}
