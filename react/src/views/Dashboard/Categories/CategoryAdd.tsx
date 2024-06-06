@@ -35,8 +35,8 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
     };
 
     return (
-        <div>
-            <h2>
+        <div className='popup'>
+            <h2 className='titlePopup'>
                 איזה סוג קטיגוריה את רוצה להוסיף?
             </h2>
             <input type="text" onChange={handleChangeInput} />

@@ -22,16 +22,16 @@ const MainDashboard: FC = () => {
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>
-        <section>
-          <img src="/images/hero-image.jpeg" alt="תמונת רקע של הירו" width={1684} height={972} /> {/* צריך לעשות שהתמונה תיהיה מותאמת לפי העיצוב */}
+        <section className='mainImg'>
+          <img className='bigImg' src="/images/hero-image.jpeg" alt="תמונת רקע של הירו" width={1684} height={972} /> {/* צריך לעשות שהתמונה תיהיה מותאמת לפי העיצוב */}
         </section>
-        <section>
+        <section className='gridImg'>
           {candles.map((cdl: ICandles) => (
             <Link to={`candle/${cdl._id}`} key={cdl._id}>
               <img src="/images/candleimage.png" alt={`תמונה של מוצר ${cdl.name}`} width={530} height={700} />
-              <h2>{cdl.name}</h2>
-              <p>{cdl.price}</p>
-              {cdl.salePrice && <p>{cdl.salePrice}</p>}
+              <h2 className='name'>{cdl.name}</h2>
+              <p className='price'>{cdl.price}</p>
+              {cdl.salePrice && <p className='salePrice'>{cdl.salePrice}</p>}
             </Link>
           ))}
         </section>

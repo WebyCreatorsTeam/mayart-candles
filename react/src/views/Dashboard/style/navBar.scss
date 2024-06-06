@@ -15,6 +15,17 @@
 .clicked{
     color: #EBDBFF;
     background-color: #8524FF;
+
+}
+.arrow{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.arrowIcon{
+    width: 28px;
+    height: 33px;
+    margin-top: -5px;
+    
 }
 @media only screen and (max-width: 290px){
     .nav{

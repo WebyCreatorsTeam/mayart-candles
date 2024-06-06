@@ -13,14 +13,14 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
     }
 
     return (
-        <div>
-            <h2>
+        <div className='popup'>
+            <h2 className='titlePopup'>
                 בטוחה שאת רוצה להסיר את הפריט?
             </h2>
-            <button
+            <button className='removeButton'
                 onClick={hendleRemoveCategory}
             >הסרה</button>
-            <button
+            <button className='cancleButton'
                 onClick={() => {
                     setRemoveCtgID("")
                     setOpenPopupRemove(false)

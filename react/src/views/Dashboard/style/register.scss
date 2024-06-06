@@ -41,6 +41,8 @@ label {
     height: 73px;
     border-radius: 20px;
     margin: 2% auto;
+    display: flex;
+    flex-direction: row-reverse;
 }
 .form-btn_active{
 

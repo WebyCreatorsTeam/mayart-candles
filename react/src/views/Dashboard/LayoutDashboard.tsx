@@ -8,8 +8,9 @@ const LayoutDashboard: FC = () => {
                 <Link className="navBar" to="/dashboard"> {/* Need to check how NavLink works */}
                     ראשי
                 </Link>
-                <Link className="navBar" to="/dashboard/categories">
+                <Link className="navBar arrow" to="/dashboard/categories">
                     קטיגוריות
+               <img className='arrowIcon' src="/icons/dashboard/arrow.svg" alt="arrow icon" />
                 </Link>
                 <Link className="navBar" to="/dashboard">
                     עמוד תשלום

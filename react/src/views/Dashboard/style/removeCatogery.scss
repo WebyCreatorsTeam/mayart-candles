@@ -1,0 +1,24 @@
+.popup{
+    width: 877px;
+    height: 472px;
+    background-color: #ffffff;
+    box-shadow:0 0 5px 100% #cec3dd;
+    display: flex;
+    grid-column: 1;
+    gap: 10px;
+    .titlePopup{
+        font-weight: 700;
+        font-size: 32px;
+    }
+    .removeButton{
+      padding: 15px 120px;
+      background-color: #8524FF;
+      color: #ffffff;
+
+    }
+    .cancleButton{
+      padding: 15px 120px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+}

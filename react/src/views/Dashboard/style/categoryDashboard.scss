@@ -1,0 +1,16 @@
+.categoryGrid{
+    display: flex;
+    grid-auto-columns: auto;
+ 
+    gap: 5px 10px;
+}
+.cubeGrid{
+       background-color: #9747ff;
+    opacity: 25%;
+   padding: 20px 30px;
+    border-radius: 65px;
+}
+.nameCategory{
+    font-size: 48px;
+    font-weight: 900;
+}

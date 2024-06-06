@@ -22,7 +22,7 @@ const CategoriesDashboard: FC = () => {
     return (
         <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
             <Await resolve={categories}>
-
+                <section className='categoryGrid'>
                 {/* Add Category Window */}
                 {openPopupAdd && <CategoryAdd
                     setOpenPopupAdd={setOpenPopupAdd}
@@ -36,24 +36,24 @@ const CategoriesDashboard: FC = () => {
                     setAllCategories={setAllCategories} />}
 
                 {staticCategory.map((ctg, idx) => (
-                    <section key={idx}>
+                    <section className='cubeGrid' key={idx}>
                         <Link to={ctg}>{ctg}</Link>
                     </section>
                 ))}
                 {allCategories.map((ctg: ICategories) => (
-                    <section key={ctg._id}>
+                    <section  key={ctg._id}>
                         <DeleteOutlineIcon
                             onClick={() => {
                                 setRemoveCtgID(ctg._id)
                                 setOpenPopupRemove(true)
                             }} />
-                        <Link to={`${ctg.opt}`}>{ctg.opt}</Link>
+                        <Link className='nameCategory' to={`${ctg.opt}`}>{ctg.opt}</Link>
                     </section>
                 ))}
-                <section
+                <section 
                     onClick={() => setOpenPopupAdd(true)}>
                     <img src="/icons/dashboard/add-category.svg" alt="הוספת קטיגוריה" width={93} height={93} />
-                </section>
+                </section></section>
             </Await>
         </Suspense>
     )
