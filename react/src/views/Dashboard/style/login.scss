@@ -1,63 +1,109 @@
 .background {
-border-radius: 25px;
-  text-align: center;
-  margin: 3% auto;
+  border-radius: 25px;
+  // text-align: center;
+  // margin: 3% auto; //added flex to the bodyDashboard
   background-color: white;
-  max-width: 1500px;
-  min-height: 780px;
-  box-shadow:0 0 5px 5px #B2a7c0;
+  // max-width: 1500px;
+  width: 78vw;
+  min-width: 320px; //added min-width for the mobile version
+  // min-height: 780px; // bettet to put vh/rem/% for responsive
+  height: 70vh;
+  // box-shadow: 0 0 5px 5px #B2a7c0; 
+  box-shadow: 0px 0px 67px 2px #B2A7C0; //in figma we can copy the parameers of box-shadow
+
+  
+  .section {
+    direction: rtl;
+    width: 40vw;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
 
   h1 {
-    padding-top: 8%;
-    font-size: 53px;
+    // margin-top: 8%;
+    // padding-top: 8%;
+    // font-size: 53px; //you can use clamp to min/max your font-size for mobile and desktop
+    font-size: clamp(2rem, 1.25vw + 1.75rem, 3.25rem);
     font-weight: 400;
   }
 
   .logForm {
-    padding-top: 5%;
-    display: grid;
-    grid-row: 1;
-    direction: rtl;
-    row-gap: 8%;
-   
-  }
+    // box-sizing: border-box;
+    margin-top: 5% ;
+    display: flex;
+    flex-direction: column;
+    // padding-top: 5%;
+    // display: grid;
+    // grid-row: 1;
+    // direction: rtl;
+    // row-gap: 8%;
+    // width: 40vw;
+    // margin: 0 auto;
 
-  label {
-    font-size: 32px;
-    font-weight: 400;
-   
+    .input-label-and-error {
+      display: flex;
+      align-items: center;
 
-  }
-  label[for=email]{
-    margin-left: 40%;
-  }
-label[for=password]{
-  margin-left: 47%;
-}
-  input {
-    margin-right: 23%;
-    background-color: #EBDBFF;
-    border-radius: 10px;
-    border: none;
- }
+      p {
+        color: red;
+        margin-right: 2%;
+      }
+    }
+
+    label {
+      // font-size: 32px;
+      font-size: clamp(1.5rem, 0.5vw + 1.4rem, 2rem);
+      font-weight: 400;
+    }
+
+    label[for=email] {
+      // margin-left: 40%;
+    }
+
+    label[for=password] {
+      // margin-left: 47%;
+    }
+
+    input {
+      // margin-right: 23%;
+      direction: ltr;
+      background-color: #EBDBFF;
+      border-radius: 10px;
+      border: none;
+      height: clamp(2.5rem, 0.938vw + 2.313rem, 3.438rem);
+      padding-left: 2%;
+      min-width: 280px;
+      // height: 55px;
+      // height: 40px;
+    }
+
     input#email {
-      max-width: 763px;
-      max-height: 55px; 
-      
+      width: 95%;
+      // min-width: 280px;
+      // max-width: 763px;
     }
 
     input#password {
-      max-width: 522px;
-      max-height: 55px;
+      width: 65%;
+      // min-width: 280px;
+      // max-width: 522px;
+      // max-height: 55px;
     }
+
+  }
 }
-@media only screen and (max-width: 290px){
-    .background{
-      min-width: 320px;
-      min-height: 900px;
-      text-align: center;
-      margin: 10% auto;
-    }
-  
-   
+
+@media only screen and (max-width: 290px) {
+  // .background {
+  //   min-width: 320px;
+  //   min-height: 900px;
+  //   text-align: center;
+  //   margin: 10% auto;
+  // }
+
+
 }

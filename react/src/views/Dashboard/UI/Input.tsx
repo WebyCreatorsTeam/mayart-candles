@@ -23,8 +23,10 @@ const Input: FC<I_Input> = ({ type, name, placeholder, autoComp, setUserDetails 
 
     return (
         <>
-            {error.length > 0 && <p>{error}</p>}
-            <label htmlFor={name} >{placeholder}</label>
+            <div className='input-label-and-error'>
+                <label htmlFor={name} >{placeholder}</label>
+                {error.length > 0 && <p>{error}</p>}
+            </div>
             <input
                 id={name}
                 required
