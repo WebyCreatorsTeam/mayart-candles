@@ -37,22 +37,27 @@ label {
 .form-btn_disable{
     background-color: rgb(175, 171, 171);
         color: #EBDBFF;
-    width: 422px;
-    height: 73px;
+        width: 422px;
+        height: 73px;
     border-radius: 20px;
     margin: 2% auto;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    align-items: center; 
 }
 .form-btn_active{
-
+   display: flex;
     background-color: #8524FF;
     color: #EBDBFF;
     width: 422px;
     height: 73px;
     border-radius: 20px;
     margin: 2% auto;
-      
+    justify-content: center;
+    align-items: center;  
 }
 @media only screen and (max-width: 290px){
     .addStyle{

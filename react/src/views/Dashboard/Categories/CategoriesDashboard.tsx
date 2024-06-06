@@ -41,7 +41,7 @@ const CategoriesDashboard: FC = () => {
                     </section>
                 ))}
                 {allCategories.map((ctg: ICategories) => (
-                    <section  key={ctg._id}>
+                    <section className='cubeGrid' key={ctg._id}>
                         <DeleteOutlineIcon
                             onClick={() => {
                                 setRemoveCtgID(ctg._id)
@@ -50,7 +50,7 @@ const CategoriesDashboard: FC = () => {
                         <Link className='nameCategory' to={`${ctg.opt}`}>{ctg.opt}</Link>
                     </section>
                 ))}
-                <section 
+                <section className='cubeGrid'
                     onClick={() => setOpenPopupAdd(true)}>
                     <img src="/icons/dashboard/add-category.svg" alt="הוספת קטיגוריה" width={93} height={93} />
                 </section></section>

@@ -29,7 +29,7 @@ const Users: FC = () => {
                         </div>
                     ))}
                 </div>
-                <Link className='link' to="/dashboard/regist"> <img className='addIcon' src="icons/dashboard/user-add-pluse.svg" alt="add user icon" /> הוספת משתמש</Link>
+                <Link className='link' to="/dashboard/regist"> <img className='addIcon' src="/icons/dashboard/user-add-plus.svg" alt="add user icon" /> הוספת משתמש</Link>
                 </section>
             </Await>
         </Suspense>
