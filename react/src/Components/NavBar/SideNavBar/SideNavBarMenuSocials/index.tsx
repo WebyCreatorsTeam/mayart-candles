@@ -1,11 +1,10 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 const NavBarMenuSocials = () => {
   return (
     <div
       dir="ltr"
-      className="flex w-full justify-center gap-5 px-7 py-5 lg:w-7/12 lg:gap-10"
+      className="flex w-full justify-center gap-5 px-7 py-5 lg:w-7/12 lg:gap-4"
     >
       <NavLink target="_blank" to="https://www.instagram.com">
         <img

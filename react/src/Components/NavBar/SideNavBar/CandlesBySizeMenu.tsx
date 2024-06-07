@@ -4,13 +4,11 @@ import MenuNavOptions from "./MenuNavOptions";
 
 const CandlesBySizeMenu = ({
   className,
-  childrenClassName,
   closeMenus,
   sizeMenuIsOpen,
   toggleSizeMenu,
 }: {
   className?: string;
-  childrenClassName?: string;
   closeMenus?: () => void;
   sizeMenuIsOpen: boolean;
   toggleSizeMenu: () => void;
@@ -22,19 +20,19 @@ const CandlesBySizeMenu = ({
       toggleSizeMenu={toggleSizeMenu}
     >
       <MenuNavLink
-        className={`font-normal lg:text-2xl ${childrenClassName}`}
+        className={`font-normal lg:text-2xl`}
         onClick={closeMenus}
         to="/candles/sized/large"
         text="גדול"
       />
       <MenuNavLink
-        className={`font-normal lg:text-2xl ${childrenClassName}`}
+        className={`font-normal lg:text-2xl`}
         onClick={closeMenus}
         to="/candles/sized/medium"
         text="בינוני"
       />
       <MenuNavLink
-        className={`font-normal lg:text-2xl ${childrenClassName}`}
+        className={`font-normal lg:text-2xl`}
         onClick={closeMenus}
         to="/candles/sized/small"
         text="קטן"

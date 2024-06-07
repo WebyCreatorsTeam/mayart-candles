@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { CandleType } from "../../types/candles";
+import { CandleType } from "../../utils/types/candles";
 
 const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
   const [currentCandlePicture, setCurrentCandlePicture] = useState(
@@ -13,9 +13,8 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
       <img
         src={currentCandlePicture}
         alt={currentCandle.name}
-        className=" aspect-square w-full h-full object-cover"
+        className=" aspect-square h-full w-full object-cover"
       />
-
       <div className="flex justify-center gap-3 py-5">
         {useMemo(
           () =>
@@ -26,11 +25,10 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
                   className={`h-16 w-16`}
                   onClick={() => chooseCandlePicture(picture)}
                 >
-                  <img src={picture} alt={`Picture ${index + 1}`} />
+                  <img src={picture} alt={`number ${index + 1}`} />
                 </button>
               );
             }),
-
           [currentCandle.pictures],
         )}
       </div>
