@@ -1,32 +1,18 @@
 .popupAdd{
     width: 877px;
     height: 472px;
-    background-color: #ffffff;
-    box-shadow:0 0 5px 100% #cec3dd;
+    background: #ffffff;
+    box-shadow: 0px 0px 67px 2px #B2A7C0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    margin-right: 20%;
     gap: 10px;
-    background-clip: padding-box;
+    z-index: 10000;
     text-align: center;
     border-radius: 15px;
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-      }
-      .overlay:target {
-        visibility: visible;
-        opacity: 1;
-      }
+    margin: 5% auto;
+    position: fixed;
 }
 .titlePopupAdd{
     font-weight: 700;
