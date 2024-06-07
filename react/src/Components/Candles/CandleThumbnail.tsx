@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { CandleType } from "../../types/candles";
 
 const CandleThumbnail = ({
-  id,
+  _id,
   name,
   shape,
   colors,
@@ -14,7 +14,7 @@ const CandleThumbnail = ({
 }: CandleType) => {
   const priceToShow = salePrice ? salePrice : price;
   return (
-    <Link to={`/candles/${id}`} className="w-full">
+    <Link to={`/candles/${_id}`} className="w-full">
       <div className="w-full">
         <img src={pictures[0]} alt={name} className="w-full object-cover" />
         <div className="p-2">

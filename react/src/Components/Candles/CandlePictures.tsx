@@ -13,8 +13,9 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
       <img
         src={currentCandlePicture}
         alt={currentCandle.name}
-        className="min-h-96 w-full  object-cover"
+        className=" aspect-square w-full h-full object-cover"
       />
+
       <div className="flex justify-center gap-3 py-5">
         {useMemo(
           () =>
