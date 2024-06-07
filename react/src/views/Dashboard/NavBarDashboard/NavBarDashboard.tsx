@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -12,7 +12,7 @@ const dashboardLinks = [
     { url: "/dashboard/admins", title: "משתמשים" },
 ]
 
-const NavBarDashboard = () => {
+const NavBarDashboard:FC = () => {
     const desktop = useMediaQuery({ query: '(min-width: 768px)' })
     const [toggleMenu, setToggleMenu] = useState(false);
 

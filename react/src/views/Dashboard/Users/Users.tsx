@@ -22,8 +22,8 @@ const Users: FC = () => {
                             {admins.map((adm, idx) => (
                                 <div className='gridUserName' key={idx}>
                                     <div className='gridName' key={idx}>
-                                        <p className='iconName'>{adm.name.slice(0, 2).toLocaleUpperCase()}</p> {/* בעיצוב של עמוד יוזרים, האותיות העיגול */}
-                                        <p>{adm.name}</p> {/* שם של משתמש */}
+                                        <p className='iconName'>{adm.name.slice(0, 2).toLocaleUpperCase()}</p>
+                                        <p>{adm.name}</p> 
                                         {/* {adm.role && (<button>מחיקת משתמש</button>) } */} {/* Need to add in the model role of user */}
                                     </div>
                                     <button className='delete'><DeleteOutlineIcon /></button>
