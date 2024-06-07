@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MenuNavLink from "./MenuNavLink";
 import CandlesBySizeMenu from "./CandlesBySizeMenu";
 import NavBarMenuSocials from "./SideNavBarMenuSocials";
+import { Await, useLoaderData } from "react-router-dom";
+import { candleCategoryType } from "../../../utils/types/candles";
 
 const SideNavBarMenu = ({
   closeMenus,
@@ -12,6 +14,10 @@ const SideNavBarMenu = ({
   sizeMenuIsOpen: boolean;
   toggleSizeMenu: () => void;
 }) => {
+  const { categories } = useLoaderData() as {
+    categories: Array<candleCategoryType>;
+  };
+
   return (
     <nav
       dir="rtl"
@@ -19,21 +25,22 @@ const SideNavBarMenu = ({
     >
       <MenuNavLink onClick={closeMenus} to="/" text="ראשי" />
       <MenuNavLink onClick={closeMenus} to="/candles" text="כל הנרות" />
-      <MenuNavLink
-        onClick={closeMenus}
-        to="/candles/designed"
-        text="נרות מעוצבים"
-      />
       <CandlesBySizeMenu
         closeMenus={closeMenus || toggleSizeMenu}
         sizeMenuIsOpen={sizeMenuIsOpen}
         toggleSizeMenu={toggleSizeMenu}
       />
-      <MenuNavLink
-        onClick={closeMenus}
-        to="/candles/in-vessel"
-        text="נרות בכלי"
-      />
+      <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
+        <Await resolve={categories}>
+          {categories.map((candleCategory: candleCategoryType) => (
+            <MenuNavLink onClick={closeMenus}
+              key={candleCategory._id}
+              to={`/candles/${candleCategory.opt}`}
+              text={candleCategory.opt}
+            />
+          ))}
+        </Await>
+      </Suspense>
       <MenuNavLink onClick={closeMenus} to="/about" text="אודות" />
       <MenuNavLink onClick={closeMenus} to="/contact" text="צור קשר" />
       <NavBarMenuSocials />
