@@ -1,15 +1,18 @@
 import React, { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
-import { CandleType } from "../../../utils/types/candles";
+import { CandleType, candleCategoryType } from "../../../utils/types/candles";
 
 const CandlesAll = () => {
-  const { candles } = useLoaderData() as { candles: Array<CandleType> };
+  const { candles, type } = useLoaderData() as {
+    candles: Array<CandleType>;
+    type?: string;
+  };
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={candles}>
         <div className="mt-40 flex w-[100%] flex-col">
           <p className="ml-[32%] mt-8 text-[32px] font-normal lg:ml-[41%] lg:text-[64px]">
-            כל הנרות
+            {type ? type : "כל הנרות"}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center">
             {candles.map((item: CandleType, i: number) => (

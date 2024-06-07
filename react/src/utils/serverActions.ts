@@ -25,6 +25,7 @@ export const candlesLoader = async ({ params }: any) => {
   const { type }: { type: string } = params;
   const candlesArray = await handleGetCandlesByType(type);
   return defer({
+    type,
     candles: candlesArray,
   });
 };
