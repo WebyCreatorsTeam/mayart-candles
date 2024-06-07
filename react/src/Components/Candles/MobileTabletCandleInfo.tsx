@@ -1,5 +1,5 @@
 import React from "react";
-import { CandleType } from "../../types/candles";
+import { CandleType } from "../../utils/types/candles";
 import ColorsMenu from "./menus/ColorMenu";
 import FragranceMenu from "./menus/FragranceMenu";
 import CandlePrices from "./CandlePrices";

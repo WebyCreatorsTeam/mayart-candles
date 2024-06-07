@@ -13,8 +13,9 @@ export type CandleType = {
   __v: number;
 };
 export type candleCategoryType = {
-  name: string;
-  link: string;
+  _id: string;
+  __v: number;
+  opt: string;
 };
 export type CandleFragranceT = "וניל" | "ורדים" | "לבנדר";
 export type CandleSizeT = "קטן" | "גדול" | "בינוני";
@@ -75,7 +76,16 @@ export const candles: CandleType[] = [
   },
 ];
 
-export const candleCatagories: candleCategoryType[] = [
-  { name: "נרות בכלי", link: "/candles/in-vessel" },
-  { name: "נרות מעוצבים", link: "/candles/designed" },
-];
+export interface ICandles {
+  name: string;
+  shape: string;
+  colors: [string];
+  fragrances: [string];
+  price: number;
+  salePrice: number;
+  pictures: [string];
+  description: string;
+  type: string;
+  size: string;
+  _id: string;
+}

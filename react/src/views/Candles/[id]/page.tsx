@@ -1,5 +1,5 @@
 import { useOutletContext, useParams } from "react-router-dom";
-import { CandleType } from "../../../types/candles";
+import { CandleType } from "../../../utils/types/candles";
 import CandlePictures from "../../../Components/Candles/CandlePictures";
 import MobileTabletCandleInfo from "../../../Components/Candles/MobileTabletCandleInfo";
 
@@ -13,7 +13,7 @@ const Candle = () => {
     <div className="h-fit w-full px-5 xl:mt-40 xl:px-32 xl:py-10">
       <div
         dir="rtl"
-        className="flex h-fit w-full items-center flex-col xl:flex-row xl:gap-8"
+        className="flex h-fit w-full flex-col items-center xl:flex-row xl:gap-8"
       >
         <CandlePictures currentCandle={currentCandle} />
         <MobileTabletCandleInfo currentCandle={currentCandle}>

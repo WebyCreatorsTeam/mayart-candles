@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CandleType, CandleFragranceT } from "../../../types/candles";
+import { CandleType, CandleFragranceT } from "../../../utils/types/candles";
 
 const FragranceMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
   const [currentCandleFragrance, setCurrentCandleFragrance] = useState(

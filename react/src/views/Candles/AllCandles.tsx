@@ -1,6 +1,6 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
-import { CandleType } from "../../types/candles";
+import { CandleType } from "../../utils/types/candles";
 import CandleThumbnail from "../../Components/Candles/CandleThumbnail";
 
 const AllCandles = () => {

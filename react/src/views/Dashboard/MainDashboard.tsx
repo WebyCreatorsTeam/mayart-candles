@@ -1,20 +1,6 @@
-import axios from "axios";
 import { FC, Suspense } from "react";
-import { Await, Link, defer, useLoaderData } from "react-router-dom";
-
-interface ICandles {
-  name: string;
-  shape: string;
-  colors: [string];
-  fragrances: [string];
-  price: number;
-  salePrice: number;
-  pictures: [string];
-  description: string;
-  type: string;
-  size: string;
-  _id: string;
-}
+import { Await, Link, useLoaderData } from "react-router-dom";
+import { ICandles } from "../../utils/types/candles";
 
 const MainDashboard: FC = () => {
   const { candles }: any = useLoaderData() as { admins: Array<ICandles> };
@@ -52,34 +38,3 @@ const MainDashboard: FC = () => {
 };
 
 export default MainDashboard;
-
-const handleGetCandles = async () => {
-  const { data } = await axios.get(
-    `https://mayart-candles-api.vercel.app/candles/get-candles`,
-  );
-  const { continueWork, allCandles } = data;
-  if (continueWork) return allCandles;
-  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
-};
-
-export const candlesLoader = async () => {
-  return defer({
-    candles: await handleGetCandles(),
-  });
-};
-
-// export const candleLoader = async ({ params }: any) => {
-//   const { id } = params
-//   return defer({
-//     project: await getCandle(id)
-//   })
-// }
-
-// const handleGetCandles = async () => {
-//   const { data } = await axios.get(
-//     `https://mayart-candles-api.vercel.app/candles/get-candle/${id}`,
-//   );
-//   const { continueWork, allCandles } = data;
-//   if (continueWork) return allCandles;
-//   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
-// };

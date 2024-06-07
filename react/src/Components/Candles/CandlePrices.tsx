@@ -1,4 +1,4 @@
-import { CandleType } from "../../types/candles";
+import { CandleType } from "../../utils/types/candles";
 
 const CandlePrices = ({ currentCandle }: { currentCandle: CandleType }) => {
   return (
