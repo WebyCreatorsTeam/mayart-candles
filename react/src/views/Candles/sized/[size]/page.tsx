@@ -17,7 +17,7 @@ const BySize = () => {
         {candlesArray
           .filter((candle) => candle.size === hebrewSize)
           .map((candle) => (
-            <CandleThumbnail key={candle.id} {...candle} />
+            <CandleThumbnail key={candle._id} {...candle} />
           ))}
       </div>
     </div>

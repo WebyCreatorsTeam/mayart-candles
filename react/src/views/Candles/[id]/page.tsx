@@ -6,14 +6,14 @@ import MobileTabletCandleInfo from "../../../Components/Candles/MobileTabletCand
 const Candle = () => {
   const { id } = useParams<{ id: string }>();
   const [candlesArray] = useOutletContext<Array<CandleType>[]>();
-  const currentCandle = candlesArray.find((candle) => candle.id === id);
+  const currentCandle = candlesArray.find((candle) => candle._id === id);
   if (!currentCandle) throw new Error("Candle not found");
 
   return (
     <div className="h-fit w-full px-5 xl:mt-40 xl:px-32 xl:py-10">
       <div
         dir="rtl"
-        className="flex h-fit w-full flex-col xl:flex-row xl:gap-8"
+        className="flex h-fit w-full items-center flex-col xl:flex-row xl:gap-8"
       >
         <CandlePictures currentCandle={currentCandle} />
         <MobileTabletCandleInfo currentCandle={currentCandle}>
