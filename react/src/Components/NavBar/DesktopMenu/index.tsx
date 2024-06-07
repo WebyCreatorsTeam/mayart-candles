@@ -1,6 +1,7 @@
 import React from "react";
 import DesktopNavLink from "./DesktopNavLink";
 import DesktopCandlesBySizeMenu from "./DesktopCandlesBySizeMenu";
+import { candleCatagories } from "../../../types/candles";
 
 const DesktopMenu = () => {
   return (
@@ -11,9 +12,14 @@ const DesktopMenu = () => {
         imgsrc="/icons/nav/desktop/home-icon.svg"
       />
       <DesktopNavLink to="/candles" text="כל הנרות" />
-      <DesktopNavLink to="/candles/designed" text="נרות מעוצבים" />
       <DesktopCandlesBySizeMenu />
-      <DesktopNavLink to="/candles/in-vessel" text="נרות בכלי" />
+    {candleCatagories.map((candleCategory) => (
+      <DesktopNavLink
+        key={candleCategory.link}
+        to={`/candles/${candleCategory.link}`}
+        text={candleCategory.name}
+      />
+    ))}
       <DesktopNavLink to="/about" text="אודות" />
       <DesktopNavLink aTag to="#contact_us" text="צור קשר" />
     </nav>
