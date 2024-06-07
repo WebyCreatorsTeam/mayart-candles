@@ -1,6 +1,7 @@
 import axios from "axios";
 import { defer } from "react-router-dom";
 import { CandleType } from "./types/candles";
+import { aboutLoaderResponse as AboutLoaderResponse } from "./types/about";
 
 export const handleGetCandles = async () => {
   const { data } = await axios.get(
@@ -28,6 +29,15 @@ export const candlesLoader = async ({ params }: any) => {
     type,
     candles: candlesArray,
   });
+};
+
+export const aboutLoader = async () => {
+  const { data }: { data: AboutLoaderResponse } = await axios.get(
+    `https://mayart-candles-api.vercel.app/about/get-about`,
+  );
+  const { continueWork, aboutText } = data;
+  if (continueWork) return { aboutText: aboutText[0] };
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
 
 // export const candleLoader = async ({ params }: any) => {

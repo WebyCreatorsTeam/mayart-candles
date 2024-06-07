@@ -3,7 +3,7 @@ import MenuNavLink from "./MenuNavLink";
 import CandlesBySizeMenu from "./CandlesBySizeMenu";
 import NavBarMenuSocials from "./SideNavBarMenuSocials";
 import { Await, useLoaderData } from "react-router-dom";
-import { candleCategoryType } from "../../../utils/types/candles";
+import { candleCategoryType } from "../../../utils/types/categories";
 
 const SideNavBarMenu = ({
   closeMenus,
@@ -33,7 +33,8 @@ const SideNavBarMenu = ({
       <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
         <Await resolve={categories}>
           {categories.map((candleCategory: candleCategoryType) => (
-            <MenuNavLink onClick={closeMenus}
+            <MenuNavLink
+              onClick={closeMenus}
               key={candleCategory._id}
               to={`/candles/${candleCategory.opt}`}
               text={candleCategory.opt}
