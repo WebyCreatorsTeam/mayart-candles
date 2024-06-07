@@ -1,37 +1,20 @@
 import { FC } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import NavBarDashboard from './NavBarDashboard/NavBarDashboard';
 
 const LayoutDashboard: FC = () => {
-    return (
-        <div className='bodyDashboard'>
+    const location = useLocation();
 
+    return (
+        <div className={location.pathname === "/dashboard" ? 'bodyDashboard' : "authDashboard"}>
             <div className="background">
-                <nav className='nav'>
-                    <Link className="navBar" to="/dashboard"> {/* Need to check how NavLink works */}
-                        ראשי
-                    </Link>
-                    <Link className="navBar arrow" to="/dashboard/categories">
-                        קטיגוריות
-                        <img className='arrowIcon' src="/icons/dashboard/arrow.svg" alt="arrow icon" />
-                    </Link>
-                    <Link className="navBar" to="/dashboard">
-                        עמוד תשלום
-                    </Link>
-                    <Link className="navBar" to="/dashboard">
-                        אודות
-                    </Link>
-                    <Link className="navBar" to="/dashboard/admins">
-                        משתמשים
-                    </Link>
-                </nav>
+                <NavBarDashboard/>
                 <main>
                     <Outlet />
                 </main>
             </div>
-
         </div>
-
     )
 }
 
-export default LayoutDashboard
+export default LayoutDashboard;

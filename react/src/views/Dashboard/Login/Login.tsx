@@ -32,11 +32,12 @@ const Login: FC = () => {
   }, [userDetails]);
 
   return (
-    <div className='bodyDashboard'>
+    <div className='authDashboard'>
       <div className="background">
+        <div className='auth'>
         <section className='section'>
           <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
-          <Form className='logForm' action='/login' method='post'>
+          <Form className='authForm' action='/login' method='post'>
             {inputs.map((int, idx) => (
               <Input key={idx} {...int} setUserDetails={setUserDetails} />
             ))}
@@ -49,6 +50,7 @@ const Login: FC = () => {
             </button>
           </Form>
         </section>
+        </div>
       </div>
     </div>
   )

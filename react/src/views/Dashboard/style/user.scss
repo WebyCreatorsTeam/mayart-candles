@@ -1,109 +1,83 @@
-h2{
-    font-size: 40px;
-    font-weight: 700;
- 
-} 
-.user{
-    margin: 8% auto;
-    grid-column: 1;
-    gap: 5px;
-
- 
-.userName{
-    margin: 3% auto;
- display: flex;
- flex-direction: column;
-    gap: 5px; 
-    justify-content: space-around;
-    max-width: 413px;
-     border: solid 1px;
-     border-width: 1px 0;
- border-color: #8524FF;
-}
-.gridUserName{
+.user {
+    height: 50vh;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: baseline;
- gap: 70%;
-
-
-}
-.gridName{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: baseline;
-    gap: 10%;
-}
-.iconName{
-    justify-content: center;
-  padding: 15px;
-    border-radius: 100%;
-    background-image: linear-gradient(#ebdbff, #ffffff);
-}
-.delete{
-    color: rgb(212, 25, 25);
-    background-color: transparent;
-    width: 20px;
-
-}
-.addPerson{
-    border: 1px 0;
-    border-color: #8524FF;
-    margin: 3% auto;
-    grid-column: 1;
-    gap: 5%;
-}
-.addIcon{
-   width: 36px;
-   height: 36px; 
-}
-.link {
-   display: flex;
-    color: #EBDBFF;
-    background-color: #8524FF;
-    width: 413px;
-    height: 73px;
-    border-radius: 20px;
-    flex-direction: row-reverse;
-    justify-content: center;
+    direction: rtl;
+    width: 40vw;
+    min-width: 300px;
+    margin: 2% auto;
     align-items: center;
-    gap: 10%;
-    margin: 0 auto;
-  }
-}
-@media only screen and (max-width: 290px){
-    h2{
-        font-size: 30px;
-        font-weight: 700;
-     
-    } 
-    .gridName{
-        gap: 5%;
-    }
-    .user{
-        margin: 8% auto;
-        grid-column: 1;
-        gap: 3px;
-    
-    } 
-    .userName{
-        margin: 3% auto;
-     display: flex;
-     flex-direction: column;
-        gap: 5px; 
-        justify-content: space-around;
-        max-width: 113px;
-         border: solid 1px;
-         border-width: 1px 0;
-     border-color: #8524FF;
-    }
-    .gridUserName{
-       
-     gap: 10%;
-    
-    
+    justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+        height:fit-content;
     }
 
+    h1 {
+        font-size: clamp(2rem, 0.625vw + 1.875rem, 2.625rem);
+        font-weight: 400;
+    }
+
+    .user-view {
+        width: 50%;
+        
+        @media only screen and (max-width: 768px) {
+            width: 80%;
+        }
+    }
+
+    .userName {
+        height: 350px;
+        overflow-x: auto;
+        overflow-x: hidden;
+    }
+
+    .gridUserName {
+        margin: 2% 0%;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        border: solid 1px;
+        border-width: 1px 0;
+        border-color: #8524FF;
+    }
+
+    .gridName {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .iconName {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 62px;
+        height: 62px;
+        font-size: 20px;
+        border-radius: 100%;
+        background-image: linear-gradient(#ebdbff, #ffffff);
+        margin-left: 10%;
+    }
+
+    .delete {
+        color: rgb(212, 25, 25);
+        background-color: transparent;
+    }
+
+    .addIcon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .link {
+        display: flex;
+        color: #EBDBFF;
+        background-color: #8524FF;
+        width: 413px;
+        height: 73px;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    }
 }
