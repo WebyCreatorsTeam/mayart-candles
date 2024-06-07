@@ -1189,6 +1189,10 @@ video {
   font-size: 0.5rem;
 }
 
+.text-\[22px\] {
+  font-size: 22px;
+}
+
 .font-light {
   font-weight: 300;
 }
@@ -1546,6 +1550,10 @@ code {
     width: 4rem;
   }
 
+  .md\:w-7\/12 {
+    width: 58.333333%;
+  }
+
   .md\:py-7 {
     padding-top: 1.75rem;
     padding-bottom: 1.75rem;
@@ -1646,6 +1654,14 @@ code {
     gap: 1.25rem;
   }
 
+  .lg\:gap-6 {
+    gap: 1.5rem;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
   .lg\:rounded-full {
     border-radius: 9999px;
   }
@@ -1697,6 +1713,11 @@ code {
 
   .lg\:text-\[64px\] {
     font-size: 64px;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .lg\:font-normal {
