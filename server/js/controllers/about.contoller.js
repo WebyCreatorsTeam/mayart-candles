@@ -92,7 +92,7 @@ exports.saveAboutText = saveAboutText;
 //     /about/get-about
 const getAboutText = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const aboutText = yield about_model_1.About.find({});
+        const aboutText = yield about_model_1.About.findOne({ _id: "665f1cc1a8ae36066076200a" });
         return res.json({ continueWork: true, aboutText });
     }
     catch (error) {

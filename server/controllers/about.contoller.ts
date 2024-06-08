@@ -107,7 +107,7 @@ export const saveAboutText = async (req: Request, res: Response, next: NextFunct
 //     /about/get-about
 export const getAboutText = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const aboutText = await About.find({})
+        const aboutText = await About.findOne({_id: "665f1cc1a8ae36066076200a"})
         return res.json({ continueWork: true, aboutText })
     } catch (error) {
         next(error)
