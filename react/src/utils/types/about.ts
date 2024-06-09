@@ -1,6 +1,6 @@
 export type aboutLoaderResponse = {
   continueWork: boolean;
-  aboutText: [aboutLoaderInformation];
+  aboutText: aboutLoaderInformation;
 };
 
 export type aboutLoaderInformation = {

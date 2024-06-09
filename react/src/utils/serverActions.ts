@@ -36,7 +36,7 @@ export const aboutLoader = async () => {
     `https://mayart-candles-api.vercel.app/about/get-about`,
   );
   const { continueWork, aboutText } = data;
-  if (continueWork) return { aboutText: aboutText[0] };
+  if (continueWork) return { aboutText };
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
 

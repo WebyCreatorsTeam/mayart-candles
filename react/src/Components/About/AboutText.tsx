@@ -3,7 +3,7 @@ import { aboutLoaderInformation } from "../../utils/types/about";
 
 const AboutText = ({ aboutText }: { aboutText: aboutLoaderInformation }) => {
   return (
-    <div className="text-balance px-[30px] text-lg leading-9 ">
+    <div className="text-balance px-[30px] text-lg leading-9 sm:px-[64.15px] sm:text-[38.49px] sm:leading-[76.98px]">
       <h2>{aboutText.title}</h2>
       <p>{aboutText.desc}</p>
     </div>
