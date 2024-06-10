@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import Freame from "./Freame";
 import { Await, useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
 
@@ -15,6 +16,7 @@ const CandlesAll = () => {
             {type ? type : "כל הנרות"}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center">
+            <Freame />
             {candles.map((item: CandleType, i: number) => (
               <div key={i} className="flex flex-col items-center">
                 <img
