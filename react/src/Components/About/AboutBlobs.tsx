@@ -13,13 +13,14 @@ const AboutBlobs = () => {
         src="/images/ellipse17.svg"
         alt=""
       />
+      {/* 19 and 20 are for desktop */}
       <img
-        className="absolute  top-40 left-0 -z-50 hidden w-[1136.5px] h-[1085.5px] xl:block"
+        className="absolute  left-0 top-40 -z-50 hidden h-[1085.5px] w-[1136.5px] xl:block"
         src="/images/ellipse19.svg"
         alt=""
       />
       <img
-        className="absolute right-0 -top-[271.5px] -z-50 hidden w-[928px] h-[844px] xl:block"
+        className="absolute -top-[271.5px] right-0 -z-50 hidden h-[844px] w-[928px] xl:block"
         src="/images/ellipse20.svg"
         alt=""
       />
