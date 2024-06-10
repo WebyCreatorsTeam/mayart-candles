@@ -6,12 +6,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
 import BySize from "./views/Candles/sized/[size]/page";
-import Designed from "./views/Candles/Designed/page";
-import InVessel from "./views/Candles/InVessel/page";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
-import MainDashboard, { candlesLoader } from "./views/Dashboard/MainDashboard";
+import MainDashboard from "./views/Dashboard/MainDashboard";
 import LayoutDashboard from "./views/Dashboard/LayoutDashboard";
 import Regist, { formRegistAction } from "./views/Dashboard/Regist/Regist";
 import Users, { adminsLoader } from "./views/Dashboard/Users/Users";
@@ -23,6 +21,11 @@ import OneCategoryDashboard from "./views/Dashboard/Categories/OneCategoryDashbo
 import AboutDashboard from "./views/Dashboard/About/AboutDashboard";
 import Candle from "./views/Candles/[id]/page";
 import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
+import {
+  aboutLoader,
+  candleCatagoriesLoader,
+  candlesLoader,
+} from "./utils/serverActions";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -33,18 +36,22 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorComponent />,
+    loader: candleCatagoriesLoader,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
+      { path: "/", element: <Home />, loader: candlesLoader },
+      { path: "/about", element: <About />, loader: aboutLoader },
       { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
         children: [
-          { index: true, element: <CandlesAll /> },
-          { path: "/candles/:id", element: <Candle /> },
+          { index: true, element: <CandlesAll />, loader: candlesLoader },
+          { path: "/candles/candle/:id", element: <Candle /> },
           { path: "/candles/sized/:size", element: <BySize /> },
-          { path: "/candles/designed", element: <Designed /> },
-          { path: "/candles/in-vessel", element: <InVessel /> },
+          {
+            path: "/candles/:type",
+            element: <CandlesAll />,
+            loader: candlesLoader,
+          },
         ],
       },
     ],

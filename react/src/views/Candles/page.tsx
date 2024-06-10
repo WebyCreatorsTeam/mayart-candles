@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { candles } from "../../types/candles";
+import { candles } from "../../utils/types/candles";
 
 const Candles = () => {
   const [candlesArray, setCandlesArray] = React.useState(candles);

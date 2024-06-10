@@ -1,11 +1,10 @@
 import React from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import { CandleType } from "../../../../types/candles";
+import { CandleType } from "../../../../utils/types/candles";
 import CandleThumbnail from "../../../../Components/Candles/CandleThumbnail";
 
 const BySize = () => {
-  const [candlesArray, setCandlesArray] =
-    useOutletContext<Array<CandleType>[]>();
+  const [candlesArray] = useOutletContext<Array<CandleType>[]>();
   const { size } = useParams<{ size: string }>();
   const hebrewSize =
     size === "small" ? "קטן" : size === "medium" ? "בינוני" : "גדול";
@@ -17,7 +16,7 @@ const BySize = () => {
         {candlesArray
           .filter((candle) => candle.size === hebrewSize)
           .map((candle) => (
-            <CandleThumbnail key={candle.id} {...candle} />
+            <CandleThumbnail key={candle._id} {...candle} />
           ))}
       </div>
     </div>
