@@ -3,7 +3,7 @@ import DesktopNavLink from "./DesktopNavLink";
 import DesktopCandlesBySizeMenu from "./DesktopCandlesBySizeMenu";
 
 import { Await, useLoaderData } from "react-router-dom";
-import { candleCategoryType } from "../../../utils/types/candles";
+import { candleCategoryType } from "../../../utils/types/categories";
 
 const DesktopMenu = () => {
   const { categories } = useLoaderData() as {

@@ -21,7 +21,11 @@ import OneCategoryDashboard from "./views/Dashboard/Categories/OneCategoryDashbo
 import AboutDashboard from "./views/Dashboard/About/AboutDashboard";
 import Candle from "./views/Candles/[id]/page";
 import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
-import { candleCatagoriesLoader, candlesLoader } from "./utils/serverActions";
+import {
+  aboutLoader,
+  candleCatagoriesLoader,
+  candlesLoader,
+} from "./utils/serverActions";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -35,7 +39,7 @@ const router = createBrowserRouter([
     loader: candleCatagoriesLoader,
     children: [
       { path: "/", element: <Home />, loader: candlesLoader },
-      { path: "/about", element: <About /> },
+      { path: "/about", element: <About />, loader: aboutLoader },
       { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
