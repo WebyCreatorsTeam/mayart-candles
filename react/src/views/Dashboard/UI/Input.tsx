@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { validateValues } from "../utils/fornValidation";
+import { validateValues } from "../../../utils/fornValidation";
 
 interface I_Input {
   type: string;
