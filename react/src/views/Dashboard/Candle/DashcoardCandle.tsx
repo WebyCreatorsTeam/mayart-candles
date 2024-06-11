@@ -4,8 +4,8 @@ import { Await, defer, useLoaderData } from 'react-router-dom'
 import { ICandles } from '../MainDashboard'
 
 const DashcoardCandle = () => {
-  const { candle }: any = useLoaderData() as { candles: ICandles }
-  console.log(candle)
+  const { candle } = useLoaderData() as { candle: ICandles }
+  // console.log(candle)
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candle}>
@@ -27,8 +27,6 @@ const DashcoardCandle = () => {
           <h3>תיאור מוצר</h3>
           <p>{candle.description}</p>
         </section>
-
-
       </Await>
     </Suspense>
   )

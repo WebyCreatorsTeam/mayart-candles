@@ -6,7 +6,7 @@ import CandleToShow from './UI/CandleToShow'
 export interface ICandles {
   name: string,
   shape: string
-  colors: [string]
+  colors: [{color: string, hexCode: string}]
   fragrances: [string]
   price: number,
   salePrice: number
@@ -18,7 +18,8 @@ export interface ICandles {
 }
 
 const MainDashboard: FC = () => {
-  const { candles }: any = useLoaderData() as { candles: Array<ICandles> }
+  const { candles } = useLoaderData() as { candles: Array<ICandles> }
+  console.log(candles)
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>
@@ -40,6 +41,7 @@ export default MainDashboard;
 const hendleGetCandles = async () => {
   const { data } = await axios.get(`https://mayart-candles-api.vercel.app/candles/get-candles`)
   const { continueWork, allCandles } = data;
+  console.log(data)
   if (continueWork) return allCandles
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }

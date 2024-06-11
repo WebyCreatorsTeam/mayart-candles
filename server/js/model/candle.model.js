@@ -12,7 +12,7 @@ const CandleSchema = new mongoose_1.Schema({
         require: [true, "נא למלא צורה של נר"]
     },
     colors: {
-        type: [String],
+        type: [{ color: String, hexCode: String }],
         required: [true, "נא למלא לפחות צבע אחד של נר"]
     },
     fragrances: {
