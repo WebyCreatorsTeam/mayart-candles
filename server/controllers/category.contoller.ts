@@ -33,3 +33,4 @@ export const removeCategory = async (req: Request, res: Response, next: NextFunc
         next(error)
     }
 }
+

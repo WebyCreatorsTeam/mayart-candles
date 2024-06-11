@@ -5,7 +5,7 @@ import { Candle } from '../model/candle.model'
 export const getAllCandles = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const allCandles = await Candle.find({})
-        return res.json({continueWork: true, allCandles})
+        return res.json({ continueWork: true, allCandles })
     } catch (error) {
         next(error)
     }
@@ -14,12 +14,12 @@ export const getAllCandles = async (req: Request, res: Response, next: NextFunct
 //      /candles/get-one-candle
 export const getOneCandle = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const {id} = req.body
+        const { id } = req.body
         const candle = await Candle.findById(id)
         console.log(candle)
-        return res.json({continueWork: true, candle})
+        return res.json({ continueWork: true, candle })
     } catch (error) {
-        next(error)    
+        next(error)
     }
 }
 
@@ -31,6 +31,27 @@ export const addCandle = async (req: Request, res: Response, next: NextFunction)
         await newCandle.save()
         return res.json({ continueWork: true, text: "candle saved" })
     } catch (error) {
-        next(error)    
+        next(error)
+    }
+}
+
+//  /candles/get-candles-by-category
+export const getCandleByCategory = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { categoryType } = req.body
+        let categoryCandles
+        if (categoryType == "כל הנרות") {
+            categoryCandles = await Candle.find({})
+        } else {
+            categoryCandles = await Candle.find({
+                $or: [
+                    { type: categoryType },
+                    { size: categoryType }
+                ]
+            })
+        }
+        return res.json({ continueWork: true, categoryCandles })
+    } catch (error) {
+        next(error)
     }
 }

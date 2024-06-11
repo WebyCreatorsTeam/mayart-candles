@@ -1,4 +1,5 @@
-.authDashboard, .bodyDashboard {
+.authDashboard,
+.bodyDashboard {
     background-color: #EBDBFF;
     width: 100vw;
     display: flex;
@@ -12,17 +13,17 @@
 
 .bodyDashboard {
     height: fit-content;
+    padding: 10vh 0;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-@import "login";
-@import "user";
-@import "register";
-@import "navBar";
-@import "dashboard";
-@import "addCategory";
-@import "categoryDashboard";
-@import "removeCategory";
+@import "./login";
+@import "./user";
+@import "./register";
+@import "./navBar";
+@import "./dashboard";
+@import "./popupCategoryEdit.scss";
+@import "./categoryDashboard";

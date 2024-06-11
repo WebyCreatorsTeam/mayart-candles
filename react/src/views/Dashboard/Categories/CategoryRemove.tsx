@@ -1,4 +1,6 @@
-import React, { FC } from 'react'
+import axios from 'axios'
+import React, { FC, useState } from 'react'
+import { ICategories } from './CategoriesDashboard'
 
 interface ICategoryRemove {
     ctgId: string
@@ -6,26 +8,47 @@ interface ICategoryRemove {
     setRemoveCtgID: Function
     setAllCategories: Function
 }
+
 const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRemoveCtgID, setAllCategories }) => {
-    const hendleRemoveCategory = () => {
-        console.log(ctgId)
-        // setAllCategories()
+    const [loader, setLoader] = useState<boolean>(false)
+
+    const hendleRemoveCategory = async () => {
+        try {
+            setLoader(true)
+            const { data: { continueWork, message } } = await axios.delete("https://mayart-candles-api.vercel.app/categories/remove-category", { data: { id: ctgId } })
+            if (continueWork) {
+                alert(message)
+                return setAllCategories((categories: Array<ICategories>) => categories.filter(ctg => ctg._id !== ctgId))
+            }
+            return alert(message)
+        } catch (error) {
+            alert(error)
+        } finally {
+            setOpenPopupRemove(false)
+            setLoader(false)
+        }
     }
 
     return (
         <div className='popup'>
-            <h2 className='titlePopup'>
-                בטוחה שאת רוצה להסיר את הפריט?
-            </h2>
-            <button className='removeButton'
-                onClick={hendleRemoveCategory}
-            >הסרה</button>
-            <button className='cancleButton'
-                onClick={() => {
-                    setRemoveCtgID("")
-                    setOpenPopupRemove(false)
-                }}
-            >ביטול</button>
+            <div className='popup__window'>
+                <h2 className='popup__window--title'>
+                    בטוחה שאת רוצה להסיר את הפריט?
+                </h2>
+                <button
+                    disabled={loader}
+                    className={loader === true ? "form-btn_disable" : "form-btn_active"}
+                    onClick={hendleRemoveCategory}
+                >{loader ? "שומר" : "מחיקה"}</button>
+                <button
+                    disabled={loader}
+                    className={loader === true ? "form-btn_disable" : "form-btn_active"}
+                    onClick={() => {
+                        setRemoveCtgID("")
+                        setOpenPopupRemove(false)
+                    }}
+                >ביטול</button>
+            </div>
         </div>
     )
 }

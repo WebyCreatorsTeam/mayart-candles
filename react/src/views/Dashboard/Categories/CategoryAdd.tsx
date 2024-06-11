@@ -15,7 +15,6 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
         try {
             setLoader(true)
             if (category.length === 0) return alert("השדה לא יכול להיות ריק")
-
             const { data: { continueWork, message, newCategory } } = await axios.post("https://mayart-candles-api.vercel.app/categories/save-category", { opt: category })
             if (continueWork) {
                 alert(message)
@@ -25,6 +24,7 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
         } catch (error) {
             alert(error)
         } finally {
+            setOpenPopupAdd(false)
             setLoader(false)
         }
     }
@@ -35,21 +35,26 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
     };
 
     return (
-        <div className='popupAdd'>
-            <h2 className='titlePopupAdd'>
-                איזה סוג קטיגוריה את רוצה להוסיף?
-            </h2>
-            <input id='addInput' type="text" onChange={handleChangeInput} />
-            <button
-                onClick={hendleAddCategory}
-                disabled={loader}
-                className={loader === true ? "form-btn_disable" : "form-btn_active"}
-            >הוספה</button>
-            <button
-                disabled={loader}
-                className={loader === true ? "form-btn_disable" : "form-btn_active"}
-            onClick={()=> setOpenPopupAdd(false)}
-            >ביטול</button>
+        <div className='popup'>
+            <div className='popup__window'>
+                <h2 className='popup__window--title' >
+                    איזה סוג קטיגוריה את רוצה להוסיף?
+                </h2>
+                <input id='addInput' type="text" onChange={handleChangeInput} placeholder="נא הכנס שם הקטיגוריה" />
+                <button
+                    onClick={hendleAddCategory}
+                    disabled={loader}
+                    className={
+                        loader ? "form-btn_disable" :
+                            category.length === 0 ? "form-btn_disable" : "form-btn_active"
+                    }
+                >{loader ? "שומר" : "הוספה"}</button>
+                <button
+                    disabled={loader}
+                    className={loader === true ? "form-btn_disable" : "form-btn_active"}
+                    onClick={() => setOpenPopupAdd(false)}
+                >ביטול</button>
+            </div>
         </div>
     )
 }

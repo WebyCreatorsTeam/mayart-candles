@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
+exports.getCandleByCategory = exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
 const candle_model_1 = require("../model/candle.model");
 //      /candles/get-candles
 const getAllCandles = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -48,4 +48,27 @@ const addCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.addCandle = addCandle;
+//  /candles/get-candles-by-category
+const getCandleByCategory = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { categoryType } = req.body;
+        let categoryCandles;
+        if (categoryType == "כל הנרות") {
+            categoryCandles = yield candle_model_1.Candle.find({});
+        }
+        else {
+            categoryCandles = yield candle_model_1.Candle.find({
+                $or: [
+                    { type: categoryType },
+                    { size: categoryType }
+                ]
+            });
+        }
+        return res.json({ continueWork: true, categoryCandles });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.getCandleByCategory = getCandleByCategory;
 //# sourceMappingURL=candles.controller.js.map
