@@ -1,13 +1,6 @@
-<<<<<<< Updated upstream
-import { FC, Suspense } from "react";
-import { Await, Link, defer, useLoaderData } from "react-router-dom";
-import { BASE_API } from "../../utils/api-connect";
-import axios from "axios";
-=======
 import axios from 'axios'
 import { FC, Suspense } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
->>>>>>> Stashed changes
 
 interface ICandles {
   name: string,
@@ -29,19 +22,8 @@ const MainDashboard: FC = () => {
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>
-<<<<<<< Updated upstream
-        <section>
-          <img
-            src="/images/hero-image.webp"
-            alt="תמונת רקע של הירו"
-            width={1684}
-            height={972}
-          />{" "}
-          {/* צריך לעשות שהתמונה תיהיה מותאמת לפי העיצוב */}
-=======
         <section className='mainImg'>
           <img className='bigImg' src="/images/hero-image.jpeg" alt="תמונת רקע של הירו" width={1684} height={972} /> {/* צריך לעשות שהתמונה תיהיה מותאמת לפי העיצוב */}
->>>>>>> Stashed changes
         </section>
         <section className='gridImg'>
           {candles.map((cdl: ICandles) => (

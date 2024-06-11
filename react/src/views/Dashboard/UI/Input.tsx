@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-import { FC, useState } from "react";
-import { validateValues } from "../../../utils/fornValidation";
-=======
 import { FC, useState } from 'react'
 import { validateValues } from '../utils/fornValidation'
->>>>>>> Stashed changes
 
 interface I_Input {
     type: string
