@@ -1,57 +1,76 @@
 .background {
   border-radius: 25px;
-  text-align: center;
-  margin: 3% auto;
+  // margin: 3% auto; //added flex to the bodyDashboard
   background-color: white;
-  max-width: 1500px;
-  min-height: 780px;
-  box-shadow: 0 0 5px 5px #b2a7c0;
+  width: 78vw;
+  min-width: 320px; //added min-width for the mobile version
+  // min-height: 780px; // bettet to put vh/% for responsive
+  min-height: 700px;
+  box-shadow: 0px 0px 67px 2px #B2A7C0;
 
-  h1 {
-    padding-top: 8%;
-    font-size: 53px;
-    font-weight: 400;
+  .auth {
+    height: 70vh;
   }
 
-  .logForm {
-    padding-top: 5%;
-    display: grid;
-    grid-row: 1;
+  .section {
     direction: rtl;
-    row-gap: 8%;
-  }
+    width: 40vw;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
 
-  label {
-    font-size: 32px;
-    font-weight: 400;
-  }
-  label[for="email"] {
-    margin-left: 40%;
-  }
-  label[for="password"] {
-    margin-left: 47%;
-  }
-  input {
-    margin-right: 23%;
-    background-color: #ebdbff;
-    border-radius: 10px;
-    border: none;
-  }
-  input#email {
-    max-width: 763px;
-    max-height: 55px;
-  }
+    h1 {
+      // font-size: 53px; //you can use clamp to min/max your font-size for mobile and desktop
+      font-size: clamp(2rem, 0.625vw + 1.875rem, 2.625rem);
+      font-weight: 400;
+    }
 
-  input#password {
-    max-width: 522px;
-    max-height: 55px;
-  }
-}
-@media only screen and (max-width: 290px) {
-  .background {
-    min-width: 320px;
-    min-height: 900px;
-    text-align: center;
-    margin: 10% auto;
+    // .logForm { //chenged from logForm to authForm to style it once and use twice
+    .authForm {
+      display: flex; //if you need to layout elements one under other, it is better to use flex 
+      flex-direction: column;
+
+      .input-label-and-error {
+        display: flex;
+        align-items: center;
+
+        p {
+          color: red;
+          margin-right: 2%;
+        }
+      }
+
+      label {
+        font-size: clamp(1.5rem, 0.5vw + 1.4rem, 2rem);
+        font-weight: 400;
+      }
+
+      input {
+        // use more global styling, for example you have the same height to each input, you do not need to write it twice for each one
+        direction: ltr;
+        background-color: #EBDBFF;
+        border-radius: 10px;
+        border: none;
+        height: clamp(2.5rem, 0.938vw + 2.313rem, 3.438rem);
+        padding-left: 2%;
+        min-width: 280px;
+
+        @media only screen and (max-width: 360px) {
+          max-width: 280px;
+          margin: 5% auto 0%;
+        }
+      }
+
+      input#email {
+        width: 95%;
+      }
+
+      input#password {
+        width: 65%;
+      }
+    }
   }
 }

@@ -1,8 +1,19 @@
-body{
+.authDashboard, .bodyDashboard {
     background-color: #EBDBFF;
-    max-width: 1920px;
-    max-height: 1080px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.authDashboard {
+    min-height: 100vh;
+}
+
+.bodyDashboard {
+    height: fit-content;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -11,3 +22,7 @@ html {
 @import "user";
 @import "register";
 @import "navBar";
+@import "dashboard";
+@import "addCategory";
+@import "categoryDashboard";
+@import "removeCategory";

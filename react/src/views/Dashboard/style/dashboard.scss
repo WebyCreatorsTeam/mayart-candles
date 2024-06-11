@@ -1,0 +1,29 @@
+.mainImg{
+  
+    .bigImg{
+    max-width: 66.7%;
+    height: auto;
+    transform: rotate(90deg);
+    margin: -12% auto;
+    }
+
+}
+.gridImg{
+    display: flex;
+    grid-row: 2;
+    grid-column: 3;
+    gap: 15px;
+}
+.price{
+    font-weight: 400;
+    font-size: 32px;
+}
+.salePrice{
+    font-weight: 400;
+    font-size: 32px;
+    color: rgb(155, 155, 155);
+    text-decoration: line-through;
+}
+.name{
+    font-size: 32px;
+}
