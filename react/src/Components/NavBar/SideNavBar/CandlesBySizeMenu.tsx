@@ -22,19 +22,19 @@ const CandlesBySizeMenu = ({
       <MenuNavLink
         className={`font-normal lg:text-2xl`}
         onClick={closeMenus}
-        to="/candles/sized/large"
+        to="/candles/sized/גדול"
         text="גדול"
       />
       <MenuNavLink
         className={`font-normal lg:text-2xl`}
         onClick={closeMenus}
-        to="/candles/sized/medium"
+        to="/candles/sized/בינוני"
         text="בינוני"
       />
       <MenuNavLink
         className={`font-normal lg:text-2xl`}
         onClick={closeMenus}
-        to="/candles/sized/small"
+        to="/candles/sized/קטן"
         text="קטן"
       />
     </MenuNavOptions>
