@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const OneCategoryDashboard = () => {
-  return <div>OneCategoryDashboard</div>;
-};
+  return (
+    <div>OneCategoryDashboard</div>
+  )
+}
 
-export default OneCategoryDashboard;
+export default OneCategoryDashboard

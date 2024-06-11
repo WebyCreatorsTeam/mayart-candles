@@ -1,8 +1,9 @@
-import { FC } from "react";
-import { Link, Outlet } from "react-router-dom";
-import "../../views/Dashboard/style/global.module.scss";
+import { FC } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import NavBarDashboard from './NavBarDashboard/NavBarDashboard';
 
 const LayoutDashboard: FC = () => {
+<<<<<<< Updated upstream
   return (
     <div className="background">
       <nav className="nav">
@@ -30,5 +31,22 @@ const LayoutDashboard: FC = () => {
     </div>
   );
 };
+=======
+    const location = useLocation();
+
+    return (
+        <div className={location.pathname === "/dashboard"  ? 'bodyDashboard' : "authDashboard"}>
+            <div className="background">
+                <NavBarDashboard/>
+                <main>
+                    <Outlet />
+                </main>
+            </div>
+        </div>
+    )
+}
+>>>>>>> Stashed changes
 
 export default LayoutDashboard;
+
+/*|| location.pathname === "/dashboard/categories"*/
