@@ -29,6 +29,7 @@ import {
   candlesLoaderByType,
   singleCandlesLoader,
 } from "./utils/serverActions";
+import "./views/Dashboard/style/global.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
