@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CandleType, CandleColorT } from "../../../types/candles";
+import { CandleType, CandleColorT } from "../../../utils/types/candles";
 
 const ColorsMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
   const [currentCandleColor, setCurrentCandleColor] = useState(

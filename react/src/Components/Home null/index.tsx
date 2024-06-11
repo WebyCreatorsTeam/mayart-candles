@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <img
-        src="/images/hero-image.jpeg"
+        src="/images/hero-image.webp"
         alt="hero"
         className="flex h-[700px] w-[100vw] flex-col-reverse"
       />

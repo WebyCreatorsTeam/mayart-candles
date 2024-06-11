@@ -1,7 +1,8 @@
 import React from "react";
-import { CandleType } from "../../types/candles";
+import { CandleType } from "../../utils/types/candles";
 import ColorsMenu from "./menus/ColorMenu";
 import FragranceMenu from "./menus/FragranceMenu";
+import CandlePrices from "./CandlePrices";
 
 const MobileTabletCandleInfo = ({
   children,
@@ -17,12 +18,7 @@ const MobileTabletCandleInfo = ({
         <h1 className="text-xl font-semibold sm:text-[42.77px] sm:leading-[56.89px]">
           {currentCandle.name}
         </h1>
-        <p className="flex flex-row-reverse gap-2 text-base font-normal sm:gap-4 sm:text-[34.22px] sm:leading-[45.51px]">
-          {currentCandle.salePrice}₪
-          <span className="text-black/50 line-through">
-            {currentCandle.price}₪
-          </span>
-        </p>
+        <CandlePrices currentCandle={currentCandle} />
       </div>
       {children}
       <ColorsMenu currentCandle={currentCandle} />

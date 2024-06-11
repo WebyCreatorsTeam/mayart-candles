@@ -1,7 +1,7 @@
-import axios from "axios";
 import { FC, Suspense } from "react";
 import { Await, Link, defer, useLoaderData } from "react-router-dom";
 import { BASE_API } from "../../utils/api-connect";
+import axios from "axios";
 
 interface ICandles {
   name: string;
@@ -25,7 +25,7 @@ const MainDashboard: FC = () => {
       <Await resolve={candles}>
         <section>
           <img
-            src="/images/hero-image.jpeg"
+            src="/images/hero-image.webp"
             alt="תמונת רקע של הירו"
             width={1684}
             height={972}

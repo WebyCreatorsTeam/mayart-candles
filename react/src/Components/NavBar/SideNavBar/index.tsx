@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../Logo";
 import SideNavBarMenu from "./SideNavBarMenu";
 
 const SideNavBar = ({
@@ -12,7 +11,6 @@ const SideNavBar = ({
   const [sizeMenuIsOpen, setSizeMenuIsOpen] = React.useState(false);
   const toggleSizeMenu = () => setSizeMenuIsOpen(!sizeMenuIsOpen);
   const closeMenus = () => {
-    console.log("closing menus");
     setNavBarMenuIsOpen(false);
     setSizeMenuIsOpen(false);
   };
