@@ -20,15 +20,56 @@ export const handleGetCandlesByType = async (type: string) => {
     return allCandles.filter((candle: CandleType) => candle.type === type);
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
+export const handleGetCandlesBySize = async (size: string) => {
+  const { data } = await axios.get(
+    `https://mayart-candles-api.vercel.app/candles/get-candles`,
+  );
+  const { continueWork, allCandles } = data;
+  if (continueWork)
+    return allCandles.filter((candle: CandleType) => candle.size === size);
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+};
+export const handleGetCandleById = async (id: string) => {
+  const { data } = await axios.get(
+    `https://mayart-candles-api.vercel.app/candles/get-candles`,
+  );
+  const {
+    continueWork,
+    allCandles,
+  }: { continueWork: boolean; allCandles: CandleType[] } = data;
+  if (continueWork) {
+    const candleIndex: number = allCandles.findIndex(
+      (candle: CandleType) => candle._id === id,
+    );
+    if (candleIndex !== -1) return allCandles[candleIndex];
+    else return alert("הראה שגיאה, נסה שנית");
+  }
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+};
+export const candlesLoader = async () => {
+  return defer({ candles: await handleGetCandles() });
+};
 
-export const candlesLoader = async ({ params }: any) => {
-  if (!params["type"]) return defer({ candles: await handleGetCandles() });
-  const { type }: { type: string } = params;
-  const candlesArray = await handleGetCandlesByType(type);
-  return defer({
-    type,
-    candles: candlesArray,
-  });
+export const candlesLoaderByType = async ({ params }: any) => {
+  const { type } = params;
+  if (type !== undefined)
+    return defer({
+      type: type,
+      candles: await handleGetCandlesByType(type),
+    });
+};
+export const candlesLoaderBySize = async ({ params }: any) => {
+  const { size } = params;
+  if (size !== undefined)
+    return defer({
+      size: size,
+      candles: await handleGetCandlesBySize(size),
+    });
+};
+export const singleCandlesLoader = async ({ params }: any) => {
+  const { id } = params;
+  if (id !== undefined)
+    return defer({ candle: await handleGetCandleById(id) });
 };
 
 export const aboutLoader = async () => {

@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-let Favorite = "../../../../public/icons/favorite.png"
-let Cart = "../../../../public/icons/Cart.png"
-const Freame = () => {
+let Favorite = "../../../../public/icons/favorite.png";
+let Cart = "../../../../public/icons/Cart.png";
+const Frame = () => {
   return (
-    <div className='w-100vw h-[119px] mt-20'>
-        <img src="../../../../public/icons/favorite.png" alt="" />
-        <span>אהבתי!</span>
-        <img src={Cart} alt="" />
-        <span>הוספה לסל</span>
+    <div className="w-100vw mt-20 h-[119px]">
+      <img src={Favorite} alt="" />
+      <span>אהבתי!</span>
+      <img src={Cart} alt="" />
+      <span>הוספה לסל</span>
     </div>
-  )
-}
+  );
+};
 
-export default Freame
+export default Frame;

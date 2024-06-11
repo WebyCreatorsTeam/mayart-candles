@@ -47,7 +47,7 @@ const DesktopMenuOptions = ({
         {/* <span className="h-[1px] w-full bg-black opacity-0 transition-all duration-150 group-hover:translate-y-0.5 group-hover:opacity-100"></span> */}
       </button>
       <div
-        className={`absolute top-full z-10 flex w-full flex-col items-center divide-y text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "" : "hidden"}`}
+        className={`absolute backdrop-blur-3xl  bg-white/50 top-full z-10 flex w-full flex-col items-center divide-y text-xl font-semibold transition-all duration-300 ${sizeMenuIsOpen ? "" : "hidden"}`}
       >
         {children}
       </div>

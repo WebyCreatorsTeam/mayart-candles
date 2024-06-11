@@ -1,20 +1,20 @@
 import React from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useLoaderData, useOutletContext, useParams } from "react-router-dom";
 import { CandleType } from "../../../../utils/types/candles";
 import CandleThumbnail from "../../../../Components/Candles/CandleThumbnail";
 
 const BySize = () => {
-  const [candlesArray] = useOutletContext<Array<CandleType>[]>();
-  const { size } = useParams<{ size: string }>();
-  const hebrewSize =
-    size === "small" ? "קטן" : size === "medium" ? "בינוני" : "גדול";
+  const { candles, size } = useLoaderData() as {
+    candles: Array<CandleType>;
+    size?: string;
+  };
   return (
     <div>
       Size: {size}
       {/* candle grid */}
       <div className="grid grid-cols-3 gap-4">
-        {candlesArray
-          .filter((candle) => candle.size === hebrewSize)
+        {candles
+          .filter((candle) => candle.size === size)
           .map((candle) => (
             <CandleThumbnail key={candle._id} {...candle} />
           ))}

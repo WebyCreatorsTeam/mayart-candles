@@ -25,6 +25,9 @@ import {
   aboutLoader,
   candleCatagoriesLoader,
   candlesLoader,
+  candlesLoaderBySize,
+  candlesLoaderByType,
+  singleCandlesLoader,
 } from "./utils/serverActions";
 
 const root = ReactDOM.createRoot(
@@ -45,12 +48,20 @@ const router = createBrowserRouter([
         path: "/candles",
         children: [
           { index: true, element: <CandlesAll />, loader: candlesLoader },
-          { path: "/candles/candle/:id", element: <Candle /> },
-          { path: "/candles/sized/:size", element: <BySize /> },
+          {
+            path: "/candles/candle/:id",
+            element: <Candle />,
+            loader: singleCandlesLoader,
+          },
+          {
+            path: "/candles/sized/:size",
+            element: <CandlesAll />,
+            loader: candlesLoaderBySize,
+          },
           {
             path: "/candles/:type",
             element: <CandlesAll />,
-            loader: candlesLoader,
+            loader: candlesLoaderByType,
           },
         ],
       },
