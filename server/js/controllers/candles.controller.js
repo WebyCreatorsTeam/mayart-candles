@@ -23,14 +23,17 @@ const getAllCandles = (req, res, next) => __awaiter(void 0, void 0, void 0, func
 });
 exports.getAllCandles = getAllCandles;
 //      /candles/get-one-candle
-const getOneCandle = (req, res, next) => {
+const getOneCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        return res.send("One Candle");
+        const { id } = req.body;
+        const candle = yield candle_model_1.Candle.findById(id);
+        console.log(candle);
+        return res.json({ continueWork: true, candle });
     }
     catch (error) {
         next(error);
     }
-};
+});
 exports.getOneCandle = getOneCandle;
 //      /candles/save-candle
 const addCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

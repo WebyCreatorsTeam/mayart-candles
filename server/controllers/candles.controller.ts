@@ -12,9 +12,12 @@ export const getAllCandles = async (req: Request, res: Response, next: NextFunct
 }
 
 //      /candles/get-one-candle
-export const getOneCandle = (req: Request, res: Response, next: NextFunction) => {
+export const getOneCandle = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        return res.send("One Candle")
+        const {id} = req.body
+        const candle = await Candle.findById(id)
+        console.log(candle)
+        return res.json({continueWork: true, candle})
     } catch (error) {
         next(error)    
     }

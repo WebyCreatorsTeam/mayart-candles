@@ -3,8 +3,8 @@ import { addCandle, getAllCandles, getOneCandle } from "../../controllers/candle
 const router = Router()
 
 router
-.get('/get-candles', getAllCandles)
-// router.get('/get-one-candle', getOneCandle)
-.post('/save-candle', addCandle)
+    .get('/get-candles', getAllCandles)
+    .post('/get-one-candle', getOneCandle)
+    .post('/save-candle', addCandle)
 
 export default router
