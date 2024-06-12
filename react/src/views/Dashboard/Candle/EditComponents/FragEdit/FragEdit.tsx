@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react'
-import PopUp from '../../UI/PopUp/PopUp'
+import PopUp from '../../../UI/PopUp/PopUp'
 import axios from 'axios'
-import { useCandleIdContext } from '../Context/CandleContext'
-import { BASE_API } from '../../../../utils/api-connect'
+import { useCandleIdContext } from '../../Context/CandleContext'
+import { BASE_API } from '../../../../../utils/api-connect'
 
 interface IFragEdit {
     setPopUpEditFrag: Function

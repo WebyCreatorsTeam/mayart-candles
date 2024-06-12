@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
-import DescEdit from './DescEdit/DescEdit';
+import DescEdit from '../EditComponents/DescEdit/DescEdit';
 
 interface ICandleDesc {
     description: string

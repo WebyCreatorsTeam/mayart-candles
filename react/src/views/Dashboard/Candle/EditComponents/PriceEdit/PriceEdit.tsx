@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
-import { useCandleIdContext } from '../Context/CandleContext'
+import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
-import { BASE_API } from '../../../../utils/api-connect'
+import { BASE_API } from '../../../../../utils/api-connect'
 
 interface IPriceEdit {
     price: number

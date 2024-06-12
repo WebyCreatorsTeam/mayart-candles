@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import PriceEdit from './PriceEdit/PriceEdit'
+import PriceEdit from '../EditComponents/PriceEdit/PriceEdit'
 import EditIcon from '@mui/icons-material/Edit';
 
 

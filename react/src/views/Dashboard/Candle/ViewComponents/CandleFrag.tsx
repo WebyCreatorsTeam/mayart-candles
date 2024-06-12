@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
-import FragEdit from './FragEdit/FragEdit';
+import FragEdit from '../EditComponents/FragEdit/FragEdit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
-import { useCandleIdContext } from './Context/CandleContext';
+import { useCandleIdContext } from '../Context/CandleContext';
 import { red } from '@mui/material/colors';
-import { BASE_API } from '../../../utils/api-connect';
+import { BASE_API } from '../../../../utils/api-connect';
 
 interface ICandleFrag {
     fragrances: [string]

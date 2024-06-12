@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import NameEdit from './NameEdit/NameEdit'
+import NameEdit from '../EditComponents/NameEdit/NameEdit'
 import EditIcon from '@mui/icons-material/Edit';
 
 interface ICandleName {

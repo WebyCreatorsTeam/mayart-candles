@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
-import ColorEdit from './ColorEdit/ColorEdit';
+import ColorEdit from '../EditComponents/ColorEdit/ColorEdit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { useCandleIdContext } from './Context/CandleContext';
+import { useCandleIdContext } from '../Context/CandleContext';
 import axios from 'axios';
 import { red } from '@mui/material/colors';
-import { BASE_API } from '../../../utils/api-connect';
+import { BASE_API } from '../../../../utils/api-connect';
 
 interface ICandleColor {
     colors: [{ color: string, hexCode: string, _id: string }]
