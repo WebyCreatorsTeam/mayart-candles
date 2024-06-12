@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { FC, useState } from 'react'
 import { ICategories } from './CategoriesDashboard'
+import { BASE_API } from '../../../utils/api-connect'
 
 interface ICategoryRemove {
     ctgId: string
@@ -15,7 +16,8 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
     const hendleRemoveCategory = async () => {
         try {
             setLoader(true)
-            const { data: { continueWork, message } } = await axios.delete("https://mayart-candles-api.vercel.app/categories/remove-category", { data: { id: ctgId } })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message } } = await axios.delete(`${BASE_API}/categories/remove-category?token=${token}`, { data: { id: ctgId } })
             if (continueWork) {
                 alert(message)
                 return setAllCategories((categories: Array<ICategories>) => categories.filter(ctg => ctg._id !== ctgId))

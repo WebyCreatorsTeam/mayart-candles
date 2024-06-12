@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import PopUp from '../../UI/PopUp/PopUp'
 import axios from 'axios'
 import { useCandleIdContext } from '../Context/CandleContext'
+import { BASE_API } from '../../../../utils/api-connect'
 
 interface IColorEdit {
     setPopUpEditColors: Function
@@ -20,7 +21,9 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
         try {
             setLoader(true)
             if (newColor.color.length === 0) return alert("חייב לכלול שם הצבע")
-            const { data: { continueWork, message, colors } } = await axios.post("http://localhost:7575/candles/add-color", { id, newColor })
+            if (newColor.hexCode.length === 0) return alert("נא לבחור את הצבע הרצוי")
+                const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message, colors } } = await axios.post(`${BASE_API}/candles/add-color?token=${token}`, { id, newColor })
             if (continueWork) {
                 alert(message)
                 setCandleColors(colors)

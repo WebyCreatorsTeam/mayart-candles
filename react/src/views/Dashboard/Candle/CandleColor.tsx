@@ -5,6 +5,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useCandleIdContext } from './Context/CandleContext';
 import axios from 'axios';
 import { red } from '@mui/material/colors';
+import { BASE_API } from '../../../utils/api-connect';
 
 interface ICandleColor {
     colors: [{ color: string, hexCode: string, _id: string }]
@@ -19,7 +20,8 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
     const handleDeleteColor = async (colorId: string) => {
         try {
             setLoader(true)
-            const { data: { continueWork, message, colors } } = await axios.delete("http://localhost:7575/candles/delete-color", { data: { id, colorId } })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message, colors } } = await axios.delete(`${BASE_API}/candles/delete-color?token=${token}`, { data: { id, colorId } })
             if (continueWork) {
                 alert(message)
                 setCandleColors(colors)

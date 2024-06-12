@@ -2,6 +2,7 @@ import axios from 'axios'
 import { FC, Suspense } from 'react'
 import { Await, defer, useLoaderData } from 'react-router-dom'
 import CandleToShow from './UI/CandleToShow'
+import { BASE_API } from '../../utils/api-connect'
 
 export interface ICandles {
   name: string,
@@ -41,7 +42,8 @@ const MainDashboard: FC = () => {
 export default MainDashboard;
 
 const hendleGetCandles = async () => {
-  const { data } = await axios.get(`https://mayart-candles-api.vercel.app/candles/get-candles`)
+  const token = sessionStorage.getItem('token')
+  const { data } = await axios.get(`${BASE_API}/candles/get-candles?token=${token}`)
   const { continueWork, allCandles } = data;
   console.log(data)
   if (continueWork) return allCandles

@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { useCandleIdContext } from '../Context/CandleContext'
 import axios from 'axios'
+import { BASE_API } from '../../../../utils/api-connect'
 
 interface IPriceEdit {
     price: number
@@ -31,7 +32,8 @@ const PriceEdit: FC<IPriceEdit> = ({
             if (Number(candlePrice) < Number(candleSalePrice)) return alert("המחיר הרגיל לא יכול להיות יותר נמוך ממחיר הנחה")
             console.log(`candle price:` + candlePrice)
             console.log(`candle sale price:` + candleSalePrice)
-            const { data: { continueWork, message } } = await axios.patch("http://localhost:7575/candles/change-candle-price", { id, price: candlePrice, salePrice: candleSalePrice })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-price?token=${token}`, { id, price: candlePrice, salePrice: candleSalePrice })
             if (continueWork) {
                 alert(message)
                 return setPopUpPriceEdit(false)

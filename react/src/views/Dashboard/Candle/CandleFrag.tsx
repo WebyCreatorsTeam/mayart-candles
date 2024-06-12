@@ -5,6 +5,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
 import { useCandleIdContext } from './Context/CandleContext';
 import { red } from '@mui/material/colors';
+import { BASE_API } from '../../../utils/api-connect';
 
 interface ICandleFrag {
     fragrances: [string]
@@ -18,7 +19,8 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
     const handleDeleteFragColor = async (frg: string) => {
         try {
             setLoader(true)
-            const { data: { continueWork, message, fragrances } } = await axios.delete("http://localhost:7575/candles/remove-frag", { data: { id, frg } })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message, fragrances } } = await axios.delete(`${BASE_API}/candles/remove-frag?token=${token}`, { data: { id, frg } })
             if (continueWork) {
                 alert(message)
                 return setAllFragrances(fragrances)

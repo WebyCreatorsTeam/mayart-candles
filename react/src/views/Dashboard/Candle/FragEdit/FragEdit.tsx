@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import PopUp from '../../UI/PopUp/PopUp'
 import axios from 'axios'
 import { useCandleIdContext } from '../Context/CandleContext'
+import { BASE_API } from '../../../../utils/api-connect'
 
 interface IFragEdit {
     setPopUpEditFrag: Function
@@ -9,7 +10,7 @@ interface IFragEdit {
     allFragrances: [string]
 }
 
-const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances,allFragrances }) => {
+const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances, allFragrances }) => {
     const id = useCandleIdContext()
     const [loader, setLoader] = useState<boolean>(false)
     const [newFrag, setNewFag] = useState<string>("")
@@ -18,8 +19,9 @@ const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances,allFragran
         try {
             setLoader(true)
             const filterFrag = allFragrances.filter(fgr => fgr === newFrag)
-            if(filterFrag.length>0) return alert(`ריח ${newFrag} כבר קיים ברשימה`)
-            const { data: { continueWork, message, fragrances } } = await axios.post("http://localhost:7575/candles/add-frag", { id, newFrag })
+            if (filterFrag.length > 0) return alert(`ריח ${newFrag} כבר קיים ברשימה`)
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message, fragrances } } = await axios.post(`${BASE_API}/candles/add-frag?token=${token}`, { id, newFrag })
             if (continueWork) {
                 alert(message)
                 setAllFragrances(fragrances)

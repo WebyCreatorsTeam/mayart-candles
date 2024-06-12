@@ -2,6 +2,7 @@ import axios from 'axios'
 import { FC, Suspense } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { BASE_API } from '../../../utils/api-connect';
 
 interface IAdmins {
     name: string,
@@ -42,7 +43,7 @@ export default Users
 
 const hendleGetAdmins = async () => {
     const token = sessionStorage.getItem('token')
-    const { data } = await axios.get(`https://mayart-candles-api.vercel.app/admin/all-admins?token=${token}`)
+    const { data } = await axios.get(`${BASE_API}/admin/all-admins?token=${token}`)
     console.log(data)
     const { continueWork, admins } = data;
     if (continueWork) return admins

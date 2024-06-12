@@ -3,6 +3,7 @@ import { FC, Suspense } from 'react'
 import { Await, defer, useLoaderData } from 'react-router-dom'
 import { ICandles } from '../MainDashboard'
 import CandleToShow from '../UI/CandleToShow'
+import { BASE_API } from '../../../utils/api-connect'
 
 const OneCategoryDashboard: FC = () => {
   const { candles }: any = useLoaderData() as { candles: Array<ICandles> }
@@ -22,7 +23,7 @@ const OneCategoryDashboard: FC = () => {
 export default OneCategoryDashboard;
 
 const hendleGetCategoryCandles = async (categoryType: string) => {
-  const { data: { continueWork, categoryCandles } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/get-candles-by-category`, { categoryType })
+  const { data: { continueWork, categoryCandles } } = await axios.post(`${BASE_API}/candles/get-candles-by-category`, { categoryType })
   if (continueWork) return categoryCandles
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }

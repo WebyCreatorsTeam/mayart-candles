@@ -3,6 +3,7 @@ import { IUser, InputsList } from '../Login/Login';
 import { Form, redirect, useNavigation } from 'react-router-dom';
 import Input from '../UI/Input';
 import axios from 'axios';
+import { BASE_API } from '../../../utils/api-connect';
 
 export const inputs: Array<InputsList> = [
     { type: "text", name: "name", placeholder: "שם", autoComp: "nickname" },
@@ -50,7 +51,8 @@ const Regist: FC = () => {
 export default Regist;
 
 const hendleRegistUser = async ({ name, email, password }: IUserReg) => {
-    const { data } = await axios.post(` https://mayart-candles-api.vercel.app/admin/reg-admin`, { name, email, password })
+    const token = sessionStorage.getItem('token')
+    const { data } = await axios.post(`${BASE_API}/admin/reg-admin?token=${token}`, { name, email, password })
     return data
 }
 

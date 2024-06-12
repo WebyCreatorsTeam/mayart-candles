@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { useCandleIdContext } from '../Context/CandleContext'
 import axios from 'axios'
+import { BASE_API } from '../../../../utils/api-connect'
 
 interface INameEdit {
     name: string
@@ -17,7 +18,8 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
         try {
             setLoader(true)
             if (candleName.length === 0) return alert("שם הנר לא יכול להיות ריק")
-            const { data: { continueWork, message } } = await axios.patch("http://localhost:7575/candles/change-candle-name", { id, name: candleName })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-name?token=${token}`, { id, name: candleName })
             if (continueWork) {
                 alert(message)
                 return setPopUpNameEdit(false)
