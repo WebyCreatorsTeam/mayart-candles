@@ -4,6 +4,7 @@ import {
     addNewColor,
     changeCandleName,
     changeCandlePrice,
+    deleteColor,
     getAllCandles,
     getCandleByCategory,
     getOneCandle
@@ -18,5 +19,6 @@ router
     .patch('/change-candle-name', changeCandleName)
     .patch('/change-candle-price', changeCandlePrice)
     .post('/add-color', addNewColor)
+    .delete('/delete-color', deleteColor)
 
 export default router;

@@ -13,7 +13,6 @@ const CandlePrice: FC<ICandlePrice> = ({ price, salePrice }) => {
     const [candlePrice, setCandlePrice] = useState<number>(price)
     const [candleSalePrice, setCandleSalePrice] = useState<number>(salePrice)
 
-
     return (
         <section className='candleItem__costs'>
             {!popUpPriceEdit && (<>

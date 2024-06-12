@@ -1,20 +1,20 @@
 import { FC, useState } from 'react'
+import EditIcon from '@mui/icons-material/Edit';
 
 interface ICandleFrag {
     fragrances: [string]
 }
 const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
-    const [choosenFrag, setChoosenFrag] = useState<string>("")
     return (
         <section className='candleItem__fragr'>
-            ריח: {choosenFrag}
+            ריח:
             {fragrances.map((frg, idx) => (
-                <button
+                <div
+                    className='candleItem__fragr--item'
                     key={idx}
-                    onClick={() => { setChoosenFrag(frg) }}
-                >{frg}</button>
+                >{frg}</div>
             ))}
-            <button>עריכת ריח</button>
+            <button><EditIcon color="primary" /></button>
         </section>
     )
 }

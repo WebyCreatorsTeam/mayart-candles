@@ -82,8 +82,19 @@ export const changeCandlePrice = async (req: Request, res: Response, next: NextF
 export const addNewColor = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id, newColor: { color, hexCode } } = req.body
-        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $push: { colors: { color, hexCode } } }, {new: true})
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $push: { colors: { color, hexCode } } }, { new: true })
         return res.json({ continueWork: true, message: "הצבע התווסף בהצלחה", colors: updatedCandle!.colors })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/delete-color
+export const deleteColor = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, colorId } = req.body
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $pull: { colors: { _id: colorId } } }, { new: true })
+        return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", colors: updatedCandle!.colors })
     } catch (error) {
         next(error)
     }
