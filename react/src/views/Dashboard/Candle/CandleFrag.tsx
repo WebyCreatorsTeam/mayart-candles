@@ -4,6 +4,7 @@ import FragEdit from './FragEdit/FragEdit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
 import { useCandleIdContext } from './Context/CandleContext';
+import { red } from '@mui/material/colors';
 
 interface ICandleFrag {
     fragrances: [string]
@@ -36,14 +37,18 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
                 <div
                     className='candleItem__fragr--item'
                     key={idx}
-                >{frg}<button
+                >{frg}
+                <button
                     disabled={loader}
-                    title='מחק צבע מהרשימה'
+                    title='מחק ריח מהרשימה'
                     onClick={() => handleDeleteFragColor(frg)}
-                ><DeleteOutlineIcon fontSize="large" /></button></div>
+                ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }}/></button></div>
             ))}
             <button onClick={() => setPopUpEditFrag(true)}><EditIcon color="primary" /></button>
-            {popUpEditFrag && (<FragEdit setPopUpEditFrag={setPopUpEditFrag} setAllFragrances={setAllFragrances} />)}
+            {popUpEditFrag && (<FragEdit
+                setPopUpEditFrag={setPopUpEditFrag}
+                setAllFragrances={setAllFragrances}
+                allFragrances={allFragrances} />)}
         </section>
     )
 }

@@ -122,3 +122,14 @@ export const removeFrag = async (req: Request, res: Response, next: NextFunction
         next(error)
     }
 }
+
+//  /candles/edit-description
+export const editDescription = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, candleDesc } = req.body
+        await Candle.findByIdAndUpdate(id, { $set: { description: candleDesc } })
+        return res.json({ continueWork: true, message: "תיאור מוצר עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}

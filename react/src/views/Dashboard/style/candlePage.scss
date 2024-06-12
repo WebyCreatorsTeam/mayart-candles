@@ -21,10 +21,15 @@
         min-width: 250px;
     }
 
-    &__candleName>button,
-    &__costs>button,
-    &__colors>button {
-        margin-right: 1%;
+    &__candleName,
+    &__costs,
+    &__colors,
+    &__candleDesc,
+    &__fragr,
+    &__candleDesc--title {
+        &>button {
+            margin-right: 1%;
+        }
     }
 
     &__candleName,
@@ -35,17 +40,18 @@
 
     &__costs,
     &__colors,
-    &__fragr {
+    &__fragr,
+    &__candleDesc {
         margin: 5% 0% 0%;
     }
 
     &__costs {
-        font-size: clamp(1.125rem, 0.256vw + 1.067rem, 1.375rem);
+        // font-size: clamp(1.125rem, 0.256vw + 1.067rem, 1.375rem);
 
         &--sale,
         &--regularPrice,
         &--priceBefore {
-            font-size: clamp(1.25rem, 0.256vw + 1.192rem, 1.5rem);
+            // font-size: clamp(1.25rem, 0.256vw + 1.192rem, 1.5rem);
         }
 
         &--sale,
@@ -88,11 +94,35 @@
 
     &__fragr {
         &--item {
+            position: relative;
             width: 10%;
-            min-width: 100px;
-            text-align: center;
+            min-width: 120px;
+            height: 40px;
             margin: 0% 1%;
             border: 2px solid grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                position: absolute;
+                left: 0;
+                display: none;
+            }
+
+            &:hover button {
+                display: block;
+            }
+        }
+    }
+
+    &__candleDesc {
+        &--title {
+            display: flex;
+        }
+
+        textarea {
+            background-color: #EBDBFF;
         }
     }
 

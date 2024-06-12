@@ -6,6 +6,7 @@ import {
     changeCandleName,
     changeCandlePrice,
     deleteColor,
+    editDescription,
     getAllCandles,
     getCandleByCategory,
     getOneCandle,
@@ -24,5 +25,6 @@ router
     .delete('/delete-color', deleteColor)
     .post('/add-frag', addNewFrag)
     .delete('/remove-frag', removeFrag)
+    .patch('/edit-description', editDescription)
 
 export default router;

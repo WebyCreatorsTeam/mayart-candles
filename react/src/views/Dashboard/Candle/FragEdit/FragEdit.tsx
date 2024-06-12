@@ -6,9 +6,10 @@ import { useCandleIdContext } from '../Context/CandleContext'
 interface IFragEdit {
     setPopUpEditFrag: Function
     setAllFragrances: Function
+    allFragrances: [string]
 }
 
-const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances }) => {
+const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances,allFragrances }) => {
     const id = useCandleIdContext()
     const [loader, setLoader] = useState<boolean>(false)
     const [newFrag, setNewFag] = useState<string>("")
@@ -16,6 +17,8 @@ const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances }) => {
     const handleAddFrag = async () => {
         try {
             setLoader(true)
+            const filterFrag = allFragrances.filter(fgr => fgr === newFrag)
+            if(filterFrag.length>0) return alert(`ריח ${newFrag} כבר קיים ברשימה`)
             const { data: { continueWork, message, fragrances } } = await axios.post("http://localhost:7575/candles/add-frag", { id, newFrag })
             if (continueWork) {
                 alert(message)

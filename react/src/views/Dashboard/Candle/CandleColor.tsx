@@ -4,6 +4,7 @@ import ColorEdit from './ColorEdit/ColorEdit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useCandleIdContext } from './Context/CandleContext';
 import axios from 'axios';
+import { red } from '@mui/material/colors';
 
 interface ICandleColor {
     colors: [{ color: string, hexCode: string, _id: string }]
@@ -43,7 +44,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
                         disabled={loader}
                         title='מחק צבע מהרשימה'
                         onClick={() => handleDeleteColor(clr._id)}
-                    ><DeleteOutlineIcon fontSize="large" /></button>
+                    ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }}/></button>
                 </div>
             ))}
             <button
