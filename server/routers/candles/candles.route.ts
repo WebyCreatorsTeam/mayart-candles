@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addCandle, changeCandleName, getAllCandles, getCandleByCategory, getOneCandle } from "../../controllers/candles.controller"
+import { addCandle, changeCandleName, changeCandlePrice, getAllCandles, getCandleByCategory, getOneCandle } from "../../controllers/candles.controller"
 const router = Router()
 
 router
@@ -8,5 +8,6 @@ router
     .post('/save-candle', addCandle)
     .post('/get-candles-by-category', getCandleByCategory)
     .patch('/change-candle-name', changeCandleName)
+    .patch('/change-candle-price', changeCandlePrice)
 
 export default router;

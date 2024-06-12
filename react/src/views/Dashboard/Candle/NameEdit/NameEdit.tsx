@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { useCandleIdContext } from '../Context/CandleContext'
 import axios from 'axios'
-import PopUp from '../../UI/PopUp/PopUp'
 
 interface INameEdit {
     name: string
@@ -32,24 +31,25 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
     }
 
     return (
-            <>
-                <input
-                    className='updateInput'
-                    type="text"
-                    placeholder='הכנסי שם המוצר'
-                    defaultValue={candleName}
-                    onBlur={(ev: any) => setCandleName(ev.target.value)} />
-                <button
-                    onClick={handleChangeName}
-                    className={loader ? "unactiveBtn" : "actionBtn"}
-                >{loader ? "מעדכן את הפרטים" : "שנה שם"}</button>
-                <button
-                    className={loader ? "unactiveBtn" : "actionBtn"}
-                    onClick={() => {
-                        setCandleName(name)
-                        setPopUpNameEdit(false)
-                    }}>בטל</button>
-            </>
+        <>
+            <label htmlFor="updateInput">שם הנר:</label>
+            <input
+                id="updateInput"
+                className='updateInput'
+                type="text"
+                defaultValue={candleName}
+                onChange={(ev: any) => setCandleName(ev.target.value)} />
+            <button
+                onClick={handleChangeName}
+                className={loader ? "unactiveBtn" : "actionBtn"}
+            >{loader ? "מעדכן את הפרטים" : "שנה שם"}</button>
+            <button
+                className={loader ? "unactiveBtn" : "actionBtn"}
+                onClick={() => {
+                    setCandleName(name)
+                    setPopUpNameEdit(false)
+                }}>בטל</button>
+        </>
     )
 }
 

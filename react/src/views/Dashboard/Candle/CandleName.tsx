@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import NameEdit from './NameEdit/NameEdit'
 import EditIcon from '@mui/icons-material/Edit';
 

@@ -66,3 +66,14 @@ export const changeCandleName = async (req: Request, res: Response, next: NextFu
         next(error)
     }
 }
+
+//  /candles/change-candle-price
+export const changeCandlePrice = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const {id, price, salePrice} = req.body
+        await Candle.findByIdAndUpdate(id, { $set: { price, salePrice } })
+        return res.json({ continueWork: true, message: "המחיר עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}
