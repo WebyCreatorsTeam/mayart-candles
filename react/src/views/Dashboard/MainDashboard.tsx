@@ -19,7 +19,7 @@ export interface ICandles {
 
 const MainDashboard: FC = () => {
   const { candles } = useLoaderData() as { candles: Array<ICandles> }
-  console.log(candles)
+  
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>

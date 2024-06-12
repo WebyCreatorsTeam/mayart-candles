@@ -1,0 +1,45 @@
+.candlePage {
+    h1 {
+        font-size: clamp(1.5rem, 0.641vw + 1.356rem, 2.125rem);
+        text-align: center;
+    }
+}
+
+.candleItem {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    h2 {
+        font-size: clamp(1.75rem, 0.897vw + 1.548rem, 2.625rem);
+    }
+
+    h3 {
+        font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
+    }
+
+    &__info-section {
+        background-color: aqua;
+        min-width: 250px;
+    }
+
+    &__colors,
+    &__fragr {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__colors {
+        button {
+            width: 60px;
+            height: 60px;
+            border-radius: 100px;
+            border: 2px solid grey;
+        }
+    }
+
+    &__fragr {
+        button {
+            width: 140px;
+        }
+    }
+}
