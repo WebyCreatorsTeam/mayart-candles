@@ -70,9 +70,20 @@ export const changeCandleName = async (req: Request, res: Response, next: NextFu
 //  /candles/change-candle-price
 export const changeCandlePrice = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const {id, price, salePrice} = req.body
+        const { id, price, salePrice } = req.body
         await Candle.findByIdAndUpdate(id, { $set: { price, salePrice } })
         return res.json({ continueWork: true, message: "המחיר עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/add-color
+export const addNewColor = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, newColor: { color, hexCode } } = req.body
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $push: { colors: { color, hexCode } } }, {new: true})
+        return res.json({ continueWork: true, message: "הצבע התווסף בהצלחה", colors: updatedCandle!.colors })
     } catch (error) {
         next(error)
     }
