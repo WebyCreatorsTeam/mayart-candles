@@ -8,6 +8,7 @@ import CandleFrag from './CandleFrag'
 import CandlePrice from './CandlePrice'
 import CandleName from './CandleName'
 import CandleDesc from './CandleDesc'
+import { CandleIdContext } from './Context/CandleContext'
 
 const DashcoardCandle = () => {
   const { candle } = useLoaderData() as { candle: ICandles }
@@ -16,20 +17,22 @@ const DashcoardCandle = () => {
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candle}>
-        <section className='candlePage'>
-          <h1>עמוד מוצר</h1>
-          <section className='candleItem' dir="rtl">
-            <CandleImages images={candle.pictures} candleName={candle.name} />
-            <section className='candleItem__info-section'>
-              <CandleName name={candle.name}/>
-              <hr />
-              <CandlePrice price={candle.price} salePrice={candle.salePrice} />
-              <CandleColor colors={candle.colors} />
-              <CandleFrag fragrances={candle.fragrances} />
-              <CandleDesc description={candle.description}/>
+        <CandleIdContext.Provider value={candle._id}>
+          <section className='candlePage'>
+            <h1>עמוד מוצר</h1>
+            <section className='candleItem' dir="rtl">
+              <CandleImages images={candle.pictures} candleName={candle.name} />
+              <section className='candleItem__info-section'>
+                <CandleName name={candle.name} />
+                <hr />
+                <CandlePrice price={candle.price} salePrice={candle.salePrice} />
+                <CandleColor colors={candle.colors} />
+                <CandleFrag fragrances={candle.fragrances} />
+                <CandleDesc description={candle.description} />
+              </section>
             </section>
           </section>
-        </section>
+        </CandleIdContext.Provider>
       </Await>
     </Suspense>
   )

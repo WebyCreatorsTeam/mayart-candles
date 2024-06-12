@@ -6,7 +6,7 @@ import CandleToShow from './UI/CandleToShow'
 export interface ICandles {
   name: string,
   shape: string
-  colors: [{color: string, hexCode: string}]
+  colors: [{color: string, hexCode: string, _id: string}]
   fragrances: [string]
   price: number,
   salePrice: number

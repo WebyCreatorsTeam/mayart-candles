@@ -16,10 +16,11 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             <div className='candle-images__bottom-show'>
                 {imagesOfCandle.length > 0 && imagesOfCandle.map((img, idx) => (
                     <button
+                        key={idx}
                         onMouseEnter={() => setMainImage(img)}
-                        className={mainImage === img? "choosenImage":""}
+                        className={mainImage === img ? "choosenImage" : ""}
                     >
-                        <img key={idx} src={img} alt={`תמונה משנית ${candleName} מספר ${idx + 1}`} width={153} height={153} />
+                        <img src={img} alt={`תמונה משנית ${candleName} מספר ${idx + 1}`} width={153} height={153} />
                     </button>
                 ))}
                 <button>+</button>

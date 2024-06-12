@@ -55,3 +55,14 @@ export const getCandleByCategory = async (req: Request, res: Response, next: Nex
         next(error)
     }
 }
+
+//  /candles/change-candle-name
+export const changeCandleName = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { name, id } = req.body
+        await Candle.findByIdAndUpdate(id, { $set: { name } })
+        return res.json({ continueWork: true, message: "השם עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}

@@ -8,8 +8,9 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
     return (
         <section className='candleItem__fragr'>
             ריח: {choosenFrag}
-            {fragrances.map(frg => (
+            {fragrances.map((frg, idx) => (
                 <button
+                    key={idx}
                     onClick={() => { setChoosenFrag(frg) }}
                 >{frg}</button>
             ))}

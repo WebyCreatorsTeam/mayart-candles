@@ -18,8 +18,12 @@
     }
 
     &__info-section {
-        background-color: aqua;
         min-width: 250px;
+    }
+
+    &__candleName {
+        align-items: center;
+        display: flex;
     }
 
     &__colors,
@@ -41,6 +45,23 @@
         button {
             width: 140px;
         }
+    }
+
+    .actionBtn, .unactiveBtn {
+        border-radius: 6px;
+        padding: 0px 10px;
+        color: #EBDBFF;
+        height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
+        // gap: 15px;
+        margin: 0% 1%;
+    }
+
+    .actionBtn {
+        background-color: #8524FF;
+    }
+    
+    .unactiveBtn { 
+        background-color: rgb(127, 127, 127);
     }
 }
 
@@ -78,3 +99,4 @@
         }
     }
 }
+

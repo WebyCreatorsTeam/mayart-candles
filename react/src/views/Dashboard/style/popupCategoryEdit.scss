@@ -20,6 +20,10 @@
         align-items: center;
         min-width: 280px;
 
+        input {
+            background-color: #EBDBFF;
+        }
+
         h2 {
             font-weight: 700;
             font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
@@ -30,6 +34,10 @@
 }
 
 #addInput {
+    margin-top: 5%;
+}
+
+.updateInput, #addInput {
     direction: rtl;
     background-color: #EBDBFF;
     border-radius: 10px;
@@ -37,5 +45,4 @@
     padding-right: 2%;
     width: 50%;
     min-width: 200px;
-    margin-top: 5%;
 }

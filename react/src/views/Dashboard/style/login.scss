@@ -1,10 +1,8 @@
 .background {
   border-radius: 25px;
-  // margin: 3% auto; //added flex to the bodyDashboard
   background-color: white;
   width: 78vw;
-  min-width: 320px; //added min-width for the mobile version
-  // min-height: 780px; // bettet to put vh/% for responsive
+  min-width: 320px;
   min-height: 700px;
   box-shadow: 0px 0px 67px 2px #B2A7C0;
 
@@ -23,14 +21,12 @@
     margin: 0 auto;
 
     h1 {
-      // font-size: 53px; //you can use clamp to min/max your font-size for mobile and desktop
       font-size: clamp(2rem, 0.625vw + 1.875rem, 2.625rem);
       font-weight: 400;
     }
 
-    // .logForm { //chenged from logForm to authForm to style it once and use twice
     .authForm {
-      display: flex; //if you need to layout elements one under other, it is better to use flex 
+      display: flex;
       flex-direction: column;
 
       .input-label-and-error {
@@ -49,7 +45,6 @@
       }
 
       input {
-        // use more global styling, for example you have the same height to each input, you do not need to write it twice for each one
         direction: ltr;
         background-color: #EBDBFF;
         border-radius: 10px;

@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 
 interface ICandleColor {
-    colors: [{ color: string, hexCode: string }]
+    colors: [{ color: string, hexCode: string, _id: string }]
 }
 
 const CandleColor: FC<ICandleColor> = ({ colors }) => {
@@ -12,6 +12,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
             צבע: <p>{choosenColor}</p>
             {colors.map(clr => (
                 <button
+                key={clr._id}
                     onClick={() => { setChoosenColor(clr.color) }}
                     title={clr.color}
                     style={{ backgroundColor: `#${clr.hexCode}` }}></button>
