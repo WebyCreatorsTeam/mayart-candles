@@ -41,7 +41,7 @@
     direction: rtl;
     background-color: #EBDBFF;
     border-radius: 10px;
-    height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
+    min-height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
     padding-right: 2%;
     width: 50%;
     min-width: 200px;

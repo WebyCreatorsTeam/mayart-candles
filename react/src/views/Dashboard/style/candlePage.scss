@@ -21,9 +21,37 @@
         min-width: 250px;
     }
 
-    &__candleName, &__costs {
+    &__candleName>button,
+    &__costs>button, 
+    &__colors>button {
+        margin-right: 1%;
+    }
+
+    &__candleName,
+    &__costs {
         align-items: center;
         display: flex;
+    }
+
+    &__costs,
+    &__colors,
+    &__fragr {
+        margin: 5% 0% 0%;
+    }
+
+    &__costs {
+        font-size: clamp(1.125rem, 0.256vw + 1.067rem, 1.375rem);
+        &--sale, &--regularPrice, &--priceBefore {
+            font-size: clamp(1.25rem, 0.256vw + 1.192rem, 1.5rem);
+        }
+
+        &--sale, &--regularPrice {
+            font-weight: bold;
+        }
+
+        &--priceBefore {
+            text-decoration: line-through;
+        }
     }
 
     &__colors,
@@ -47,20 +75,20 @@
         }
     }
 
-    .actionBtn, .unactiveBtn {
+    .actionBtn,
+    .unactiveBtn {
         border-radius: 6px;
         padding: 0px 10px;
         color: #EBDBFF;
-        height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
-        // gap: 15px;
+        min-height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
         margin: 0% 1%;
     }
 
     .actionBtn {
         background-color: #8524FF;
     }
-    
-    .unactiveBtn { 
+
+    .unactiveBtn {
         background-color: rgb(127, 127, 127);
     }
 }
@@ -78,7 +106,7 @@
             height: 100%;
             object-fit: cover;
         }
-    }   
+    }
 
     &__bottom-show {
         display: flex;
@@ -99,4 +127,3 @@
         }
     }
 }
-
