@@ -36,10 +36,10 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
     return (
         <PopUp>
             <h1>הוספת צבע</h1>
-            <label>שם הצבע:</label>
-            <input type='text' name="color" className='updateInput' onChange={hendleFillInput} />
-            <label>צבע:</label>
-            <input type='color' name="hexCode" className='updateInput' onChange={hendleFillInput} />
+            <label htmlFor='color'>שם הצבע:</label>
+            <input id="color" type='text' name="color" className='updateInput' onChange={hendleFillInput} />
+            <label htmlFor='hexCode'>צבע:</label>
+            <input id="hexCode" type='color' name="hexCode" className='updateInput' onChange={hendleFillInput} />
             <button
                 onClick={handleAddColor}
                 className={loader ? "unactiveBtn" : "actionBtn"}

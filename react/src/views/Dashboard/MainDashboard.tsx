@@ -6,7 +6,7 @@ import CandleToShow from './UI/CandleToShow'
 export interface ICandles {
   name: string,
   shape: string
-  colors: [{color: string, hexCode: string, _id: string}]
+  colors: [{ color: string, hexCode: string, _id: string }]
   fragrances: [string]
   price: number,
   salePrice: number
@@ -19,17 +19,19 @@ export interface ICandles {
 
 const MainDashboard: FC = () => {
   const { candles } = useLoaderData() as { candles: Array<ICandles> }
-  
+
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>
-        <section className='mainImg'>
-          <img className='bigImg' src="./images/hero-image.webp" alt="תמונת רקע של הירו" width={1500} height={855} />
-        </section>
-        <section className='gridImg'>
-          {candles.map((cdl: ICandles) => (
-            <CandleToShow cdl={cdl}  key={cdl._id}/>
-          ))}
+        <section className='dashboardGrid'>
+          <section className='mainImg'>
+            <img className='bigImg' src="./images/hero-image.webp" alt="תמונת רקע של הירו" width={1500} height={855} />
+          </section>
+          <section className='gridImg'>
+            {candles.map((cdl: ICandles) => (
+              <CandleToShow cdl={cdl} key={cdl._id} />
+            ))}
+          </section>
         </section>
       </Await>
     </Suspense>

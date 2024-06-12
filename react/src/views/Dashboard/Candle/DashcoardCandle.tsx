@@ -12,7 +12,6 @@ import { CandleIdContext } from './Context/CandleContext'
 
 const DashcoardCandle = () => {
   const { candle } = useLoaderData() as { candle: ICandles }
-  console.log(candle)
 
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>

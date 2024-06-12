@@ -99,3 +99,26 @@ export const deleteColor = async (req: Request, res: Response, next: NextFunctio
         next(error)
     }
 }
+
+//  /candles/add-frag
+export const addNewFrag = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, newFrag } = req.body
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $push: { fragrances:  newFrag  } }, { new: true })
+        return res.json({ continueWork: true, message: "הריח התווסף בהצלחה", fragrances: updatedCandle!.fragrances })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/remove-frag
+export const removeFrag = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, frg } = req.body
+        console.log(id, frg)
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $pull: { fragrances: frg } }, { new: true })
+        return res.json({ continueWork: true, message: "הריח הוסר בהצלחה", fragrances: updatedCandle!.fragrances })
+    } catch (error) {
+        next(error)
+    }
+}

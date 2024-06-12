@@ -88,8 +88,11 @@
 
     &__fragr {
         &--item {
-            width: 140px;
-
+            width: 10%;
+            min-width: 100px;
+            text-align: center;
+            margin: 0% 1%;
+            border: 2px solid grey;
         }
     }
 

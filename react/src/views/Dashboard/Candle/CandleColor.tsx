@@ -29,6 +29,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
             setLoader(false)
         }
     }
+    
     return (
         <section className='candleItem__colors'>
             צבע:

@@ -1,23 +1,16 @@
-.authDashboard,
-.bodyDashboard {
+.dashboard {
     background-color: #EBDBFF;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.authDashboard {
     min-height: 100vh;
-}
-
-.bodyDashboard {
-    height: fit-content;
-    padding: 10vh 0;
+    // padding: 10vh 0;
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden
 }
 
 @import "./login";
