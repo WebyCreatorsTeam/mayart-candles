@@ -20,8 +20,8 @@ const DownArrow = ({
         d="M18.5 1.25L10 9.75L1.5 1.25"
         stroke="#121515"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

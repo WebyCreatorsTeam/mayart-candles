@@ -10,7 +10,7 @@
     fill="black"
     stroke="black"
     stroke-width="0.364583"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     />
 </svg>

@@ -1,20 +1,6 @@
-import axios from "axios";
 import { FC, Suspense } from "react";
-import { Await, Link, defer, useLoaderData } from "react-router-dom";
-
-interface ICandles {
-  name: string;
-  shape: string;
-  colors: [string];
-  fragrances: [string];
-  price: number;
-  salePrice: number;
-  pictures: [string];
-  description: string;
-  type: string;
-  size: string;
-  _id: string;
-}
+import { Await, Link, useLoaderData } from "react-router-dom";
+import { ICandles } from "../../utils/types/candles";
 
 const MainDashboard: FC = () => {
   const { candles }: any = useLoaderData() as { admins: Array<ICandles> };
@@ -24,7 +10,7 @@ const MainDashboard: FC = () => {
       <Await resolve={candles}>
         <section>
           <img
-            src="/images/hero-image.jpeg"
+            src="/images/hero-image.webp"
             alt="תמונת רקע של הירו"
             width={1684}
             height={972}
@@ -52,18 +38,3 @@ const MainDashboard: FC = () => {
 };
 
 export default MainDashboard;
-
-const hendleGetCandles = async () => {
-  const { data } = await axios.get(
-    `https://mayart-candles-api.vercel.app/candles/get-candles`,
-  );
-  const { continueWork, allCandles } = data;
-  if (continueWork) return allCandles;
-  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
-};
-
-export const candlesLoader = async () => {
-  return defer({
-    candles: await hendleGetCandles(),
-  });
-};

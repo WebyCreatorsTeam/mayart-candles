@@ -78,7 +78,7 @@ const Login: FC = () => {
 
 export default Login;
 
-const hendleLoginUser = async ({ email, password }: IUser) => {
+const handleLoginUser = async ({ email, password }: IUser) => {
   const { data } = await axios.post(
     `https://mayart-candles-api.vercel.app/admin/login-admin`,
     { email, password },
@@ -99,7 +99,7 @@ export const formLoginAction = async ({ request }: any) => {
     password: formData.get("password"),
   };
 
-  const { continueWork, token, message } = await hendleLoginUser(user);
+  const { continueWork, token, message } = await handleLoginUser(user);
 
   if (continueWork) {
     await sessionStorage.setItem("token", token);
