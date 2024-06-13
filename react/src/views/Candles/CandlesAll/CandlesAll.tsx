@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import Freame from "./Freame";
-import { Await, useLoaderData } from "react-router-dom";
+import Frame from "./Frame";
+import { Link, Await, useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
 
 const CandlesAll = () => {
@@ -12,31 +12,46 @@ const CandlesAll = () => {
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={candles}>
-        <div className="mt-40 flex w-full flex-col">
+        <div className="mt-40 flex w-[100%] flex-col">
           <p className="ml-[32%] mt-8 text-[32px] font-normal lg:ml-[41%] lg:text-[64px]">
             {type ? type : size ? `נרות בגודל ${size}` : "כל הנרות"}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center">
-            <Freame />
-            {candles.map((item: CandleType, i: number) => (
-              <div key={i} className="flex flex-col items-center">
-                <img
-                  src={item.pictures[0]}
-                  alt="calends"
-                  className="flex h-[40vh] w-[50vw] gap-2 p-4 lg:h-[75vh] lg:w-[30vw]"
-                />
+            {candles.map((candle, i) => (
+              <Link
+                to={`/candles/candle/${candle._id}`}
+                key={i}
+                className="flex flex-col items-center"
+              >
+                <div className="relative">
+                  <img
+                    src={candle.pictures[0]}
+                    alt="calends"
+                    className="flex h-[221px] w-[165px] cursor-pointer flex-nowrap gap-[4px] object-cover p-[4px]  md:h-[221px] md:w-[165px] lg:h-[700px] lg:w-[430px] lg:gap-[10px] lg:p-[10px]"
+                  />
+
+                  <Frame />
+                </div>
                 <h1 className="text-[16px] font-normal tracking-normal lg:text-[30px]">
-                  {item.name}
+                  {candle.name}
                 </h1>
                 <div className="flex flex-row justify-evenly gap-2">
-                  <p className="text-[16px] lg:text-[32px] ">
-                    ₪{item.salePrice}
-                  </p>
-                  <span className="text-[16px] text-black/[.50] line-through lg:text-[32px]">
-                    ₪{item.price}
-                  </span>
+                  {candle.price ? (
+                    <span className="text-[16px] lg:text-[32px]">
+                      ₪{candle.salePrice}
+                    </span>
+                  ) : (
+                    <span className="none"></span>
+                  )}
+                  {candle.salePrice ? (
+                    <p className="text-[16px] text-black/[.50] line-through lg:text-[32px]">
+                      ₪{candle.price}
+                    </p>
+                  ) : (
+                    <p className="text-[16px] lg:text-[32px]">{candle.price}</p>
+                  )}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
