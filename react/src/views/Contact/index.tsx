@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="absolute mt-96 flex h-[180px] w-[60px] flex-col items-center rounded-2xl bg-red-300 p-4">
+    <div className="absolute scroll-smooth md:scroll-auto mt-56 flex h-[180px] w-[60px] flex-col items-center rounded-2xl bg-red-300 p-4">
       <a href="instagram.com">
         <img
           src={"/icons/instagram-icon.svg"}
@@ -19,12 +19,13 @@ const Contact = () => {
         />
         <br />
       </a>
-      <a href=" mail.com">
+      <a href="mail.com">
         <img
           src={"/icons/mail-icon.svg"}
           alt="mail-icon"
           className="h-[34px] w-[34px]"
         />
+        <br />
       </a>
     </div>
   );
