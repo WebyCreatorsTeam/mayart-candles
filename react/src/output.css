@@ -695,12 +695,12 @@ video {
   height: 48px;
 }
 
-.h-\[575px\] {
-  height: 575px;
+.h-\[561px\] {
+  height: 561px;
 }
 
-.h-\[591px\] {
-  height: 591px;
+.h-\[575px\] {
+  height: 575px;
 }
 
 .h-\[700px\] {
@@ -1119,11 +1119,6 @@ video {
   padding: 4px;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -1152,11 +1147,6 @@ video {
 .px-\[60px\] {
   padding-left: 60px;
   padding-right: 60px;
-}
-
-.py-11 {
-  padding-top: 2.75rem;
-  padding-bottom: 2.75rem;
 }
 
 .py-12 {
