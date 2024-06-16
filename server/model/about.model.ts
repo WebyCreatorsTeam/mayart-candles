@@ -7,11 +7,11 @@ interface IAbout {
 }
 
 interface IAboutMethods {
-    updateImages(image: any, id: any): any
+    updateImages(id: any,image: any, oldId: any): any
 }
 
 interface AboutModel extends Model<IAbout, {}, IAboutMethods> {
-    getAboutImages(image: any, id: any): Promise<HydratedDocument<IAbout, IAboutMethods>>
+    getAboutImages(id: any, image: any, oldId: any): Promise<HydratedDocument<IAbout, IAboutMethods>>
 }
 
 // type UserModel = Model<IAbout, {}, IAboutMethods>
@@ -37,11 +37,15 @@ const AboutSchema = new Schema<IAbout, AboutModel, IAboutMethods>({
         type: [{ img: String }]
     },
 })
-AboutSchema.static('getAboutImages', function getAboutImages(image: any, id: any) {
-    console.log(image, id)
+AboutSchema.static('getAboutImages', async function getAboutImages(id: any,image: any, oldId: any) {
+    console.log(id, image, oldId)
+    console.log("`````````````````about`````````````````")
+    await this.findById(id).then(doc=> console.log(doc))
+    // console.log(about)
     // const [firstName, lastName] = name.split(' ');
     // return this.create({ firstName, lastName });
 });
+
 AboutSchema.method('updateImages', function updateImages(image: any, id: any) {
 
 })
