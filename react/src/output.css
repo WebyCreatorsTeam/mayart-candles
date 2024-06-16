@@ -1869,10 +1869,6 @@ code {
     width: 43px;
   }
 
-  .lg\:flex-row {
-    flex-direction: row;
-  }
-
   .lg\:items-center {
     align-items: center;
   }
@@ -1975,10 +1971,6 @@ code {
 
   .xl\:mt-52 {
     margin-top: 13rem;
-  }
-
-  .xl\:mt-20 {
-    margin-top: 5rem;
   }
 
   .xl\:block {
