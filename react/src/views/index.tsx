@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="scrollbar-none flex flex-col">
       <HeroImageSection />
-      <CandlesAll />
+      <CandlesAll home />
     </div>
   );
 };

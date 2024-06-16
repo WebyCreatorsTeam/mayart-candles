@@ -3,16 +3,19 @@ import Frame from "./Frame";
 import { Link, Await, useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
 
-const CandlesAll = () => {
+const CandlesAll = ({ home = false }: { home?: boolean }) => {
   const { candles, type, size } = useLoaderData() as {
     candles: Array<CandleType>;
     type?: string;
     size?: string;
   };
+
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={candles}>
-        <div className="mt-40 flex w-[100%] flex-col">
+        <div
+          className={`flex w-[100%] flex-col p-28 pb-16 ${home ? "" : "xl:mt-40"}`}
+        >
           <p className="ml-[32%] mt-8 text-[32px] font-normal lg:ml-[41%] lg:text-[64px]">
             {type ? type : size ? `נרות בגודל ${size}` : "כל הנרות"}
           </p>
