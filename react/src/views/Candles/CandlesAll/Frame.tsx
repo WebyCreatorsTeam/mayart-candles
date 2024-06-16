@@ -2,7 +2,7 @@ import React from 'react';
 import { FiShoppingCart } from "react-icons/fi";
 import { GrFavorite } from "react-icons/gr";
 
-const Freame = () => {
+const Frame = () => {
 
   return (
     <div className= 'hidden lg:flex flex-row justify-center w-[410px] ml-[10px] h-[118px] mt-[-128px] p-[14px, 104px, 14px, 104px] gap-[100px] bg-stone-300 opacity-75'>
@@ -15,7 +15,7 @@ const Freame = () => {
         <span className='text-[20px]'>!אהבתי</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Freame
+export default Frame;
