@@ -6,13 +6,13 @@ const index = () => {
   return (
     <div
       id="contact_us"
-      className="flex w-full flex-row items-center justify-center gap-9 overflow-x-clip px-4 py-11 text-lg font-normal sm:text-4xl"
+      className="flex w-full flex-row items-center justify-center gap-9 overflow-x-clip text-lg font-normal sm:text-4xl"
     >
       <img
         src={"/images/ellipse15.svg"}
         alt="ellipse15"
         id="image2"
-        className="hidden h-[591px] w-[577px] lg:block"
+        className="hidden h-[561px] w-[577px] lg:block"
       />
       <div className="!flex !flex-col items-center">
         <h3 className="flex text-[32px]">!בואו נשמור על קשר</h3>
