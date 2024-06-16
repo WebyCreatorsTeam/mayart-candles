@@ -1,13 +1,14 @@
 import { FC } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import NavBarDashboard from './NavBarDashboard/NavBarDashboard';
 
 const LayoutDashboard: FC = () => {
+    const location = useLocation()
+
     return (
-        <div className="dashboard"
-        >
+        <div className={`dashboard ${location.pathname === "/dashboard/about" || location.pathname === "/dashboard" ? "dashboardMargin" : ""}`}>
             <div className="background">
-                <NavBarDashboard/>
+                <NavBarDashboard />
                 <main>
                     <Outlet />
                 </main>

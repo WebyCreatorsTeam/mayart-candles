@@ -8,6 +8,10 @@
     // padding: 10vh 0;
 }
 
+.dashboardMargin {
+    padding: 10vh 0;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden
@@ -21,3 +25,4 @@ html {
 @import "./popupCategoryEdit.scss";
 @import "./categoryDashboard";
 @import "./candlePage.scss";
+@import "./about.scss";

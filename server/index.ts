@@ -18,11 +18,11 @@ app.use(cors<Request>({
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
 
-// cloudinary.config({
-//     cloud_name: process.env.CLOUD_NAME,
-//     api_key: process.env.CLOUD_KEY,
-//     api_secret: process.env.CLOUD_SECRET
-// });
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUD_SECRET
+});
 
 app.use(morgan('dev'))
 app.use(express.json());

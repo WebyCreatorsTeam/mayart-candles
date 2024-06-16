@@ -18,7 +18,7 @@ import CategoriesDashboard, {
   categoriesLoader,
 } from "./views/Dashboard/Categories/CategoriesDashboard";
 import OneCategoryDashboard, { getCategoryLoader } from "./views/Dashboard/Categories/OneCategoryDashboard";
-import AboutDashboard from "./views/Dashboard/About/AboutDashboard";
+import AboutDashboard, { aboutDashLoader } from "./views/Dashboard/About/AboutDashboard";
 import Candle from "./views/Candles/[id]/page";
 import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
 import {
@@ -73,10 +73,10 @@ const router = createBrowserRouter([
     path: "dashboard", element: <LayoutDashboard />, errorElement: <ErrorComponent />,
     children: [
       { index: true, element: <MainDashboard />, loader: candlesLoader },
-      { path: "candle/:candleID", element: <DashcoardCandle />, loader: getCandle},
+      { path: "candle/:candleID", element: <DashcoardCandle />, loader: getCandle },
       { path: "categories", element: <CategoriesDashboard />, loader: categoriesLoader },
       { path: "categories/:categotyName", element: <OneCategoryDashboard />, loader: getCategoryLoader },
-      { path: "about", element: <AboutDashboard /> },
+      { path: "about", element: <AboutDashboard />, loader: aboutDashLoader },
       { path: "admins", element: <Users />, loader: adminsLoader },
       { path: "regist", element: <Regist />, action: formRegistAction },
     ],

@@ -32,8 +32,8 @@ const DescEdit: FC<IDescEdit> = ({ description, candleDesc, setCandleDesc, setPo
     }
 
     return (
-        <section className=''>
-            <textarea name="" id="" rows={5} cols={70} onChange={(ev: any) => setCandleDesc(ev.target.value)} defaultValue={candleDesc}></textarea>
+        <section>
+            <textarea rows={5} cols={70} onChange={(ev: any) => setCandleDesc(ev.target.value)} defaultValue={candleDesc}></textarea>
             <button
                 onClick={handleChangeDesc}
                 className={loader ? "unactiveBtn" : "actionBtn"}

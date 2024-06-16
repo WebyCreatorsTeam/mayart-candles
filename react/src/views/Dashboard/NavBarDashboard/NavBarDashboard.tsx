@@ -8,7 +8,7 @@ const dashboardLinks = [
     { url: "/dashboard", title: "ראשי" },
     { url: "/dashboard/categories", title: "קטיגוריות" },
     { url: "/dashboard", title: "עמוד תשלום" },
-    { url: "/dashboard", title: "אודות" },
+    { url: "/dashboard/about", title: "אודות" },
     { url: "/dashboard/admins", title: "משתמשים" },
 ]
 
