@@ -1,0 +1,180 @@
+.candlePage {
+    h1 {
+        font-size: clamp(1.5rem, 0.641vw + 1.356rem, 2.125rem);
+        text-align: center;
+    }
+}
+
+.candleItem {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+
+    h2 {
+        font-size: clamp(1.75rem, 0.897vw + 1.548rem, 2.625rem);
+    }
+
+    h3 {
+        font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
+    }
+
+    &__info-section {
+        min-width: 250px;
+    }
+
+    &__candleName,
+    &__costs,
+    &__colors,
+    &__candleDesc,
+    &__fragr,
+    &__candleDesc--title {
+        &>button {
+            margin-right: 1%;
+        }
+    }
+
+    &__candleName,
+    &__costs {
+        align-items: center;
+        display: flex;
+    }
+
+    &__costs,
+    &__colors,
+    &__fragr,
+    &__candleDesc {
+        margin: 5% 0% 0%;
+    }
+
+    &__costs {
+        // font-size: clamp(1.125rem, 0.256vw + 1.067rem, 1.375rem);
+
+        &--sale,
+        &--regularPrice,
+        &--priceBefore {
+            // font-size: clamp(1.25rem, 0.256vw + 1.192rem, 1.5rem);
+        }
+
+        &--sale,
+        &--regularPrice {
+            font-weight: bold;
+        }
+
+        &--priceBefore {
+            text-decoration: line-through;
+        }
+    }
+
+    &__colors,
+    &__fragr {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__colors {
+        &--item {
+            width: 60px;
+            height: 60px;
+            border-radius: 100px;
+            border: 2px solid grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                display: none;
+                background-color: #ffffff;
+                border-radius: 50px;
+            }
+
+            &:hover button {
+                display: block;
+            }
+        }
+    }
+
+    &__fragr {
+        &--item {
+            position: relative;
+            width: 10%;
+            min-width: 120px;
+            height: 40px;
+            margin: 0% 1%;
+            border: 2px solid grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                position: absolute;
+                left: 0;
+                display: none;
+            }
+
+            &:hover button {
+                display: block;
+            }
+        }
+    }
+
+    &__candleDesc {
+        &--title {
+            display: flex;
+        }
+
+        textarea {
+            background-color: #EBDBFF;
+        }
+    }
+
+    .actionBtn,
+    .unactiveBtn {
+        border-radius: 6px;
+        padding: 0px 10px;
+        color: #EBDBFF;
+        min-height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
+        margin: 0% 1%;
+    }
+
+    .actionBtn {
+        background-color: #8524FF;
+    }
+
+    .unactiveBtn {
+        background-color: rgb(127, 127, 127);
+    }
+}
+
+.candle-images {
+    background-color: beige;
+
+    &__top-show-big {
+        width: 100%;
+        min-width: 200px;
+        height: 77vh;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__bottom-show {
+        display: flex;
+
+        button {
+            width: 153px;
+            height: 153px;
+
+            &.choosenImage {
+                border: 2px solid black;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.dashboard {
+    background-color: #EBDBFF;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    // padding: 10vh 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden
+}
+
+@import "./login";
+@import "./user";
+@import "./register";
+@import "./navBar";
+@import "./dashboard";
+@import "./popupCategoryEdit.scss";
+@import "./categoryDashboard";
+@import "./candlePage.scss";

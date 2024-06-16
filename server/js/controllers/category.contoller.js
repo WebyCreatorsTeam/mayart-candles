@@ -35,11 +35,11 @@ const addCategory = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.addCategory = addCategory;
+// /categories/remove-category
 const removeCategory = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.body;
-        console.log(id);
-        // await Category.findByIdAndDelete(id)
+        yield category_model_1.Category.findByIdAndDelete(id);
         return res.json({ continueWork: true, message: "קטיגוריה נמחקה" });
     }
     catch (error) {

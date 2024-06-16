@@ -1,40 +1,57 @@
-import { FC, Suspense } from "react";
-import { Await, Link, useLoaderData } from "react-router-dom";
-import { ICandles } from "../../utils/types/candles";
+import axios from 'axios'
+import { FC, Suspense } from 'react'
+import { Await, defer, useLoaderData } from 'react-router-dom'
+import CandleToShow from './UI/CandleToShow'
+import { BASE_API } from '../../utils/api-connect'
+
+export interface ICandles {
+  name: string,
+  shape: string
+  colors: [{ color: string, hexCode: string, _id: string }]
+  fragrances: [string]
+  price: number,
+  salePrice: number
+  pictures: [string]
+  description: string
+  type: string
+  size: string
+  _id: string
+}
 
 const MainDashboard: FC = () => {
-  const { candles }: any = useLoaderData() as { admins: Array<ICandles> };
+  const { candles } = useLoaderData() as { candles: Array<ICandles> }
 
   return (
-    <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
+    <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>
-        <section>
-          <img
-            src="/images/hero-image.webp"
-            alt="תמונת רקע של הירו"
-            width={1684}
-            height={972}
-          />{" "}
-          {/* צריך לעשות שהתמונה תיהיה מותאמת לפי העיצוב */}
-        </section>
-        <section>
-          {candles.map((cdl: ICandles) => (
-            <Link to={`candle/${cdl._id}`} key={cdl._id}>
-              <img
-                src="/images/candleimage.png"
-                alt={`תמונה של מוצר ${cdl.name}`}
-                width={530}
-                height={700}
-              />
-              <h2>{cdl.name}</h2>
-              <p>{cdl.price}</p>
-              {cdl.salePrice && <p>{cdl.salePrice}</p>}
-            </Link>
-          ))}
+        <section className='dashboardGrid'>
+          <section className='mainImg'>
+            <img className='bigImg' src="./images/hero-image.webp" alt="תמונת רקע של הירו" width={1500} height={855} />
+          </section>
+          <section className='gridImg'>
+            {candles.map((cdl: ICandles) => (
+              <CandleToShow cdl={cdl} key={cdl._id} />
+            ))}
+          </section>
         </section>
       </Await>
     </Suspense>
-  );
-};
+  )
+}
 
 export default MainDashboard;
+
+const hendleGetCandles = async () => {
+  const token = sessionStorage.getItem('token')
+  const { data } = await axios.get(`${BASE_API}/candles/get-candles?token=${token}`)
+  const { continueWork, allCandles } = data;
+  console.log(data)
+  if (continueWork) return allCandles
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית")
+}
+
+export const candlesLoader = async () => {
+  return defer({
+    candles: await hendleGetCandles()
+  })
+}
