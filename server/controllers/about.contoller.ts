@@ -145,37 +145,10 @@ export const hendleAboutImageReplace = async (req: Request, res: Response, next:
     try {
         const { id, oldURL, oldId } = req.query
         const publicId = getPublicId(oldURL)
-        console.log(oldURL)
-        console.log(publicId)
-        console.log(id)
-
         const b64 = Buffer.from(req.file!.buffer).toString("base64");
         let dataURI = "data:" + req.file!.mimetype + ";base64," + b64;
         const { secure_url } = await imageUpdater(publicId, dataURI)
-        console.log("`````````````````````````````secure_url`````````````````````````````")
-        console.log(secure_url)
         await About.getAboutImages(id, secure_url, oldId)
-        // await about!.getAboutImages(secure_url, oldId)
-        // await About.updateOne({ 'images._id': oldId }, {
-        //     $set: {
-        //         "img": secure_url
-        //     }
-        // })
-        // await About.updateOne({ _id: id }, { $set: { "images.$[img].immg": secure_url }, { arrayFilters: { "img._id": oldId } } })
-        // await About.updateOne({ _id: id }, { $set: { "images.$.img": secure_url } }, [{ arrayFilters: { "img._id": oldId } }])
-        // await About.updateOne({ _id: id, images.img._id: oldId }, { $set: { images.$.img: secure_url } })
-        // await About.findOne({ _id: id }, { images: { _id: oldId, "$set": { img: secure_url } } })
-        // await About.findByIdAndUpdate(id, {})
-        // await About.updateOne({ 'images._id': oldId }, {
-        //     "$set": {
-        //         'items.$.img': secure_url
-        //     }
-        // })
-        // await About.findByIdAndUpdate({ _id: id }, { $push: { images: { img: id } } })
-        // await About.find({ _id: id }).updateOne({
-        //     "$set": { images: { img: oldId, secure_url } }
-        // })
-        
         return res.json({ continueWork: true, message: "התמונה עודכנה בהצלחה", secure_url })
     } catch (error) {
         next(error)

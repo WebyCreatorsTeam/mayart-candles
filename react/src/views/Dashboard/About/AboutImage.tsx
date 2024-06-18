@@ -6,12 +6,12 @@ import axios from 'axios';
 
 interface IAboutImage {
     id: string
-    img: {_id: string, img: string}
+    img: { _id: string, img: string }
     idx: number
 }
 
 const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
-    const [aboutImage, setAboutImage] = useState<{_id: string, img: string}>(img)
+    const [aboutImage, setAboutImage] = useState<{ _id: string, img: string }>(img)
     const [popUpEditImage, setPopUpEditImage] = useState<boolean>(false)
     const [prevFileShow, setPrevFileShow] = useState<string>("")
     const [file, setFile] = useState<any>(null);
@@ -63,7 +63,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
             const { continueWork, secure_url, message } = res.data
             if (continueWork) {
                 alert("תמונה עודכנה בהצלחה")
-                return setAboutImage(secure_url)
+                return setAboutImage((i) => { return { ...i, img: secure_url } })
             }
             if (!continueWork) return alert(message)
         } catch (error) {
