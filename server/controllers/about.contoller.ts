@@ -152,7 +152,9 @@ export const hendleAboutImageReplace = async (req: Request, res: Response, next:
         const b64 = Buffer.from(req.file!.buffer).toString("base64");
         let dataURI = "data:" + req.file!.mimetype + ";base64," + b64;
         const { secure_url } = await imageUpdater(publicId, dataURI)
-        const about = await About.getAboutImages(id, secure_url, oldId)
+        console.log("`````````````````````````````secure_url`````````````````````````````")
+        console.log(secure_url)
+        await About.getAboutImages(id, secure_url, oldId)
         // await about!.getAboutImages(secure_url, oldId)
         // await About.updateOne({ 'images._id': oldId }, {
         //     $set: {
@@ -173,8 +175,7 @@ export const hendleAboutImageReplace = async (req: Request, res: Response, next:
         // await About.find({ _id: id }).updateOne({
         //     "$set": { images: { img: oldId, secure_url } }
         // })
-        console.log("`````````````````````````````secure_url`````````````````````````````")
-        console.log(secure_url)
+        
         return res.json({ continueWork: true, message: "התמונה עודכנה בהצלחה", secure_url })
     } catch (error) {
         next(error)
