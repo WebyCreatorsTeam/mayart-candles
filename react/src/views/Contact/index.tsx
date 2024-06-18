@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="absolute scroll-smooth md:scroll-auto mt-56 flex h-[180px] w-[60px] flex-col items-center rounded-2xl bg-red-300 p-4">
+    <div className="fixed left-0 top-[486px] flex h-[180px] w-[60px] flex-col items-center rounded-2xl bg-red-300 p-4 md:top-[633px] md:scroll-auto lg:top-[744px]">
       <a href="instagram.com">
         <img
           src={"/icons/instagram-icon.svg"}

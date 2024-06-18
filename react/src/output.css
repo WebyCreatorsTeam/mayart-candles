@@ -553,6 +553,10 @@ video {
   pointer-events: auto;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -618,6 +622,10 @@ video {
   top: 15rem;
 }
 
+.top-\[486px\] {
+  top: 486px;
+}
+
 .top-full {
   top: 100%;
 }
@@ -652,10 +660,6 @@ video {
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mt-56 {
-  margin-top: 14rem;
 }
 
 .mt-6 {
@@ -1047,10 +1051,6 @@ video {
 
 .overflow-x-clip {
   overflow-x: clip;
-}
-
-.scroll-smooth {
-  scroll-behavior: smooth;
 }
 
 .truncate {
@@ -1739,6 +1739,10 @@ code {
 }
 
 @media (min-width: 768px) {
+  .md\:top-\[633px\] {
+    top: 633px;
+  }
+
   .md\:h-16 {
     height: 4rem;
   }
@@ -1770,6 +1774,10 @@ code {
 }
 
 @media (min-width: 1024px) {
+  .lg\:top-\[744px\] {
+    top: 744px;
+  }
+
   .lg\:ml-\[41\%\] {
     margin-left: 41%;
   }

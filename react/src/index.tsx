@@ -28,7 +28,6 @@ import {
   candlesLoader,
   candlesLoaderBySize,
   candlesLoaderByType,
-
 } from "./utils/serverActions";
 
 const root = ReactDOM.createRoot(
