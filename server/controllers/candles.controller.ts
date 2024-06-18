@@ -38,7 +38,7 @@ export const addCandle = async (req: Request, res: Response, next: NextFunction)
 //  /candles/get-candles-by-category
 export const getCandleByCategory = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { categoryType } = req.body
+        const { categoryType } = req.body;
         let categoryCandles
         if (categoryType == "כל הנרות") {
             categoryCandles = await Candle.find({})

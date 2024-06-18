@@ -7,7 +7,7 @@ import { useMediaQuery } from 'react-responsive'
 const dashboardLinks = [
     { url: "/dashboard", title: "ראשי" },
     { url: "/dashboard/categories", title: "קטגוריות" },
-    { url: "/dashboard", title: "עמוד תשלום" },
+    { url: "/dashboard/payment", title: "עמוד תשלום" },
     { url: "/dashboard/about", title: "אודות" },
     { url: "/dashboard/admins", title: "משתמשים" },
 ]
