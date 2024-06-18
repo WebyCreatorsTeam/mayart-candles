@@ -19,15 +19,7 @@ const MenuNavOptions = ({
     >
       <button
         className="z-40 flex w-full items-center justify-center gap-4 bg-white px-7 py-5 text-center  active:bg-primary-pink lg:justify-evenly lg:gap-1 lg:px-3 lg:text-[32px] lg:font-normal lg:hover:bg-primary-pink"
-        onMouseLeave={() => {
-          console.log("leave");
-
-          toggleSizeMenu();
-        }}
-        onMouseDown={() => {
-          console.log("down");
-          toggleSizeMenu();
-        }}
+        onMouseDown={toggleSizeMenu}
       >
         נרות לפי גודל
         <DownArrow sizeMenuIsOpen={sizeMenuIsOpen} />
