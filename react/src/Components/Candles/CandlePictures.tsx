@@ -25,7 +25,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
                   className={`h-16 w-16`}
                   onClick={() => chooseCandlePicture(picture)}
                 >
-                  <img src={picture} alt={`number ${index + 1}`} />
+                  <img src={picture} alt={`number ${index + 1}`} className="aspect-square overflow-hidden object-cover" />
                 </button>
               );
             }),

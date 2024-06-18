@@ -9,6 +9,8 @@ const About = () => {
   const { aboutText } = useLoaderData() as {
     aboutText: aboutLoaderInformation;
   };
+  console.log(aboutText);
+  
   return (
     <div
       dir="rtl"

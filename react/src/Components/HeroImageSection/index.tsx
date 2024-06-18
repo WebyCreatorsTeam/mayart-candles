@@ -21,7 +21,7 @@ const HeroImageSection = () => {
         </span>
         <img
           className="size-3 sm:size-[29.94px] lg:size-8"
-          src="/images/Heart--Streamline-Core.svg"
+          src="/images/hero_section_heart.svg"
           alt="heart logo"
         />
       </div>
