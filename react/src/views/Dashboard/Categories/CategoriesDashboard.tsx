@@ -57,7 +57,7 @@ const CategoriesDashboard: FC = () => {
                         </section>
                     ))}
                     <button className='cubeGrid' onClick={() => setOpenPopupAdd(true)}>
-                        <img src="/icons/dashboard/add-category.svg" alt="הוספת קטיגוריה" width={70} height={70} />
+                        <img src="/icons/dashboard/add-category.svg" alt="הוספת קטגוריה" width={70} height={70} />
                     </button>
                 </div>
 

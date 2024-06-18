@@ -40,9 +40,9 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
         <div className='popup'>
             <div className='popup__window'>
                 <h2 className='popup__window--title' >
-                    איזה סוג קטיגוריה את רוצה להוסיף?
+                    איזה סוג קטגוריה להוסיף? 
                 </h2>
-                <input id='addInput' type="text" onChange={handleChangeInput} placeholder="נא הכנס שם הקטיגוריה" />
+                <input id='addInput' type="text" onChange={handleChangeInput} placeholder="נא הכנס שם הקטגוריה" />
                 <button
                     onClick={hendleAddCategory}
                     disabled={loader}
