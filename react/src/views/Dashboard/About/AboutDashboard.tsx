@@ -13,7 +13,6 @@ interface IAbout {
 }
 const AboutDashboard: FC = () => {
   const { about } = useLoaderData() as { about: IAbout }
-  // console.log(about)
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={about}>
@@ -38,7 +37,6 @@ export default AboutDashboard;
 const handleGetAbout = async () => {
   try {
     const { data: { continueWork, aboutText } } = await axios.get("http://localhost:7575/about/get-about")
-    console.log(aboutText)
     if (continueWork) return aboutText
   } catch (error) {
     return alert(error)

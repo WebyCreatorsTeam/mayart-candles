@@ -40,20 +40,26 @@ const AboutHeader: FC<IAboutHeader> = ({ id, title }) => {
                 </>
             )}
             {editTitle && (
-                <>
+                <div className="aboutDash__editTitle--editWindow">
                     <input
                         type="text"
                         placeholder='הכנסי כותבת העמוד' defaultValue={aboutTitle}
-                        onChange={(ev: any) => setAboutTitle(ev.target.value)} />
+                        onChange={(ev: any) => setAboutTitle(ev.target.value)} 
+                        className='updateInput'
+                        />
                     <button
-                        onClick={handleChangeTitle}>
+                        onClick={handleChangeTitle}
+                        // className={loader ? "form-btn_disable" : "form-btn_active"}
+                        >
                         {loader ? "המעדכן" : "עדכן"}
                     </button>
                     <button onClick={() => {
                         setEditTitle(false)
-                        setAboutTitle(title)
-                    }}>בטל</button>
-                </>
+                        setAboutTitle(title)  
+                    }}
+                    // className={loader ? "form-btn_disable" : "form-btn_active"}
+                    >בטל</button>
+                </div>
             )}
         </section>
     )

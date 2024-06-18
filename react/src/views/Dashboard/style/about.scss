@@ -18,10 +18,19 @@
     }
 
     &__editTitle,
-    &__editDesc {
+    &__editDesc,
+    &__editTitle--editWindow {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    &__editTitle--editWindow {
+        width: 30%;
+        background-color: aqua;
+
+        
+        // height: 50px;
     }
 
     &__text {
@@ -85,17 +94,42 @@
 }
 
 .popupEditImage {
-    display: flex;
-    flex-direction: column;
+    // background-color: grey;
+    display: grid;
     align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 0.5fr;
+
+    p {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+    &--uploadBtn--grided {
+        grid-area: 2 / 1 / 3 / 3;
+    }
+
+    &--uploadBtn {
+        grid-area: 2 / 2 / 3 / 3;
+    }
 
     img {
-        width: 50%;
+        height: 80%;
     }
 
     &--text {
         background-color: rgb(129, 14, 14);
         color: white;
         margin-bottom: 2%;
+    }
+
+    &--btns {
+        grid-area: 3 / 1 / 4 / 3;
+        display: flex;
+
+        button {
+            margin: 4% 0%;
+        }
+
+        // background-color: aqua;
     }
 }
