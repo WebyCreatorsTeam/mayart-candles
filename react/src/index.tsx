@@ -30,7 +30,7 @@ import {
   singleCandlesLoader,
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
-import Payment from "./views/Dashboard/Payment/Payment";
+import Payment, { paymentDashLoader } from "./views/Dashboard/Payment/Payment";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutDashboard />, loader: aboutDashLoader },
       { path: "admins", element: <Users />, loader: adminsLoader },
       { path: "regist", element: <Regist />, action: formRegistAction },
-       { path: "payment", element: <Payment /> },
+       { path: "payment", element: <Payment />, loader: paymentDashLoader },
     ],
   },
 ]);
