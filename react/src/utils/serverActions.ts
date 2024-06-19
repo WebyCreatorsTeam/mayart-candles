@@ -30,19 +30,18 @@ export const handleGetCandlesBySize = async (size: string) => {
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
 export const handleGetCandleById = async (id: string) => {
-  const { data } = await axios.get(
-    `https://mayart-candles-api.vercel.app/candles/get-candles`,
+  const { data } = await axios.post(
+    `https://mayart-candles-api.vercel.app/candles/get-one-candle`,
+    {
+      id,
+    },
   );
   const {
     continueWork,
-    allCandles,
-  }: { continueWork: boolean; allCandles: CandleType[] } = data;
+    candle,
+  }: { continueWork: boolean; candle: CandleType } = data;
   if (continueWork) {
-    const candleIndex: number = allCandles.findIndex(
-      (candle: CandleType) => candle._id === id,
-    );
-    if (candleIndex !== -1) return allCandles[candleIndex];
-    else return alert("הראה שגיאה, נסה שנית");
+    return candle;
   }
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
@@ -66,11 +65,6 @@ export const candlesLoaderBySize = async ({ params }: any) => {
       candles: await handleGetCandlesBySize(size),
     });
 };
-export const singleCandlesLoader = async ({ params }: any) => {
-  const { id } = params;
-  if (id !== undefined)
-    return defer({ candle: await handleGetCandleById(id) });
-};
 
 export const aboutLoader = async () => {
   const { data }: { data: AboutLoaderResponse } = await axios.get(
@@ -81,12 +75,12 @@ export const aboutLoader = async () => {
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
 
-// export const candleLoader = async ({ params }: any) => {
-//   const { id } = params
-//   return defer({
-//     project: await getCandle(id)
-//   })
-// }
+export const candleLoader = async ({ params }: any) => {
+  const { id } = params;
+  return defer({
+    candle: await handleGetCandleById(id),
+  });
+};
 
 // const handleGetCandles = async () => {
 //   const { data } = await axios.get(

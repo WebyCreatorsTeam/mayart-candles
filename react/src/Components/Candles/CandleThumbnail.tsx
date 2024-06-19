@@ -16,7 +16,7 @@ const CandleThumbnail = ({
   return (
     <Link to={`/candles/candle/${_id}`} className="w-full">
       <div className="w-full">
-        <img src={pictures[0]} alt={name} className="w-full object-cover" />
+        <img src={pictures[0].img} alt={name} className="w-full object-cover" />
         <div className="p-2">
           <p className="truncate text-sm">{name}</p>
           <p className="text-sm">{shape}</p>
