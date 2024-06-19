@@ -10,7 +10,7 @@ const About = () => {
     aboutText: aboutLoaderInformation;
   };
   console.log(aboutText);
-  
+
   return (
     <div
       dir="rtl"

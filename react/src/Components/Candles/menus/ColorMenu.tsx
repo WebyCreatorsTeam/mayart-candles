@@ -3,7 +3,7 @@ import { CandleType, CandleColorT } from "../../../utils/types/candles";
 
 const ColorsMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
   console.log(currentCandle.colors);
-  
+
   const [currentCandleColor, setCurrentCandleColor] = useState(
     currentCandle.colors[0],
   );
