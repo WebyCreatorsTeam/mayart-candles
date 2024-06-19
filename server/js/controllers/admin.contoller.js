@@ -71,8 +71,7 @@ exports.loginAdmin = loginAdmin;
 //      /admin/all-admins
 const getAllAdmins = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const allAdmins = yield admin_model_1.Admin.find({});
-        const admins = allAdmins.map(ad => ({ name: ad.name, _id: ad._id }));
+        const admins = yield admin_model_1.Admin.find({}).select("-password");
         return res.json({ continueWork: true, admins });
     }
     catch (error) {
