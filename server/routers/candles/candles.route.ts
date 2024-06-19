@@ -2,6 +2,7 @@ import { Router } from "express";
 import { upload } from "../../utils/cloudinary/storage";
 import {
     addCandle,
+    removeCandle,
 } from "../../controllers/candle/candles.controller"
 import {
     getAllCandles,
@@ -28,6 +29,7 @@ router
     .post('/get-one-candle', getOneCandle)
     .post('/get-candles-by-category', getCandleByCategory)
     .post('/save-candle', addCandle)
+    .delete('/remove-candle', removeCandle)
     .patch('/change-candle-name', changeCandleName)
     .patch('/change-candle-price', changeCandlePrice)
     .post('/add-color', addNewColor)
