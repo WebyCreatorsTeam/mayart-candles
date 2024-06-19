@@ -6,7 +6,7 @@
 .form-btn_active, .form-btn_disable {
   width: 53%;
   border-radius: 20px;
-  margin: 5% auto 0%;
+  // margin: 5% auto 0%;
   padding: 15px 0px;
   color: #EBDBFF;
   min-width: 210px;
@@ -22,4 +22,8 @@
 
 .form-btn_active {
   background-color: #8524FF;
+}
+
+.loginRegBtn {
+  margin: 5% auto 0%;
 }

@@ -73,3 +73,15 @@ export const getAllAdmins = async (req: Request, res: Response, next: NextFuncti
         next(error);
     }
 }
+
+//      /admin/remove-admin
+export const removeAdmin = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const {id} = req.body
+        await Admin.findByIdAndDelete(id)
+        return res.json({ continueWork: true, message:"משתמש נמחק בהצלחה" })
+    } catch (error) {
+        next(error);
+    }
+}
+
