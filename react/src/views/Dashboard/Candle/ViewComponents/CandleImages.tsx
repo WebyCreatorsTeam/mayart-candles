@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useCandleIdContext } from '../Context/CandleContext';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { red } from '@mui/material/colors';
+import { BASE_API } from '../../../../utils/api-connect';
 
 interface ICandleImages {
     images: Array<candlePic>
@@ -59,9 +60,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             const data = new FormData()
             data.append("my_file", file!)
             const token = sessionStorage.getItem('token')
-
-            // const res = await axios.patch(`${BASE_API}/candles/add-candle-image?token=${token}&id=${id}`, data, {
-            const res = await axios.post(`http://localhost:7575/candles/add-candle-image?token=${token}&id=${id}`, data, {
+            const res = await axios.post(`${BASE_API}/candles/add-candle-image?token=${token}&id=${id}`, data, {
                 headers: {
                     'content-type': "mulpipart/form-data"
                 }
@@ -89,7 +88,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, pictures } } = await axios.delete(`http://localhost:7575/candles/delete-image?token=${token}`, { data: { id, imageId } })
+            const { data: { continueWork, message, pictures } } = await axios.delete(`${BASE_API}/candles/delete-image?token=${token}`, { data: { id, imageId } })
             if (continueWork) {
                 alert(message)
                 return setImagesOfCandle(pictures)
