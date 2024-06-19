@@ -3,82 +3,35 @@ export type CandleType = {
   name: string;
   shape: string;
   colors: CandleColorT[];
-  fragrances: CandleFragranceT[];
+  fragrances: string[];
   price: number;
-  salePrice?: number;
-  pictures: string[];
+  salePrice: number | null;
+  pictures: CandlePictureT[];
   description: string;
-  size: CandleSizeT;
   type: string;
+  size: CandleSizeT;
   __v: number;
 };
-export type CandleFragranceT = "וניל" | "ורדים" | "לבנדר";
-export type CandleSizeT = "קטן" | "גדול" | "בינוני";
-export type CandleColorT = "ורוד" | "ירוק" | "לבן" | "שחור" | "כחול" | "גוף";
-export const candles: CandleType[] = [
-  {
-    _id: "665793e3d8a768380bacc8d1",
-    name: "נר בועות",
-    shape: "קוביה",
-    colors: ["שחור", "לבן", "ירוק", "ורוד"],
-    fragrances: ["וניל", "ורדים", "לבנדר"],
-    price: 40,
-    salePrice: 20,
-    pictures: [
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/dppriqhsjaxqoxysc2n4",
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/aesxmhojjejy5ncjg5cy",
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/x1fmvjmhogbqlx3ph4ap",
-    ],
-    description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
-    type: "נרות הכלי",
-    size: "בינוני",
-    __v: 0,
-  },
-  {
-    _id: "66579403d8a768380bacc8d3",
-    name: "נר ואטאוור",
-    shape: "עגול",
-    colors: ["שחור", "לבן", "ירוק", "ורוד"],
-    fragrances: ["וניל", "ורדים", "לבנדר"],
-    price: 40,
-    pictures: [
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/aesxmhojjejy5ncjg5cy",
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/aesxmhojjejy5ncjg5cy",
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/x1fmvjmhogbqlx3ph4ap",
-    ],
-    description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
-    type: "נרות בכלי",
-    size: "קטן",
-    __v: 0,
-  },
-  {
-    _id: "66579447d8a768380bacc8d5",
-    name: "נר יפה",
-    shape: "חמשוש",
-    colors: ["שחור", "לבן", "ירוק", "ורוד"],
-    fragrances: ["וניל", "ורדים", "לבנדר"],
-    price: 55,
-    salePrice: 33,
-    pictures: [
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/x1fmvjmhogbqlx3ph4ap",
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/dppriqhsjaxqoxysc2n4",
-      "https://res.cloudinary.com/divgmprsc/image/upload/f_auto,q_auto/v1/mayart/aesxmhojjejy5ncjg5cy",
-    ],
-    description: "נר בועות גודל xxxxxx מיוצר משעוות יד טבעית עבודת יד",
-    type: "נרות מעוצבים",
-    size: "גדול",
-    __v: 0,
-  },
-];
+export type CandlePictureT = {
+  img: string;
+  _id: string;
+};
 
+export type CandleSizeT = "נרות קטנים" | "נרות גדולים" | "נרות בינוניים";
+
+export type CandleColorT = {
+  color: string;
+  hexCode: string;
+  _id: string;
+};
 export interface ICandles {
   name: string;
   shape: string;
-  colors: [string];
-  fragrances: [string];
+  colors: { color: string; hexCode: string; _id: string }[];
+  fragrances: string[];
   price: number;
   salePrice: number;
-  pictures: [string];
+  pictures: string[];
   description: string;
   type: string;
   size: string;

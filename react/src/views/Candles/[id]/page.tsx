@@ -5,7 +5,6 @@ import MobileTabletCandleInfo from "../../../Components/Candles/MobileTabletCand
 
 const Candle = () => {
   const { candle } = useLoaderData() as { candle: CandleType };
-
   return (
     <div className="h-fit w-full px-5 xl:mt-40 xl:px-32 xl:py-10">
       <div

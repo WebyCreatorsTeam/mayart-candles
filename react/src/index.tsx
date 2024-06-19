@@ -5,7 +5,6 @@ import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
-import BySize from "./views/Candles/sized/[size]/page";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
@@ -24,10 +23,10 @@ import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
 import {
   aboutLoader,
   candleCatagoriesLoader,
+  candleLoader,
   candlesLoader,
   candlesLoaderBySize,
   candlesLoaderByType,
-  singleCandlesLoader,
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
@@ -54,7 +53,7 @@ const router = createBrowserRouter([
           {
             path: "/candles/candle/:id",
             element: <Candle />,
-            loader: singleCandlesLoader,
+            loader: candleLoader,
           },
           {
             path: "/candles/sized/:size",

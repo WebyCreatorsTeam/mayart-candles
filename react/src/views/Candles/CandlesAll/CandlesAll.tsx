@@ -28,7 +28,7 @@ const CandlesAll = ({ home = false }: { home?: boolean }) => {
               >
                 <div className="relative">
                   <img
-                    src={candle.pictures[0]}
+                    src={candle.pictures[0].img}
                     alt="calends"
                     className="flex h-[221px] w-[165px] cursor-pointer flex-nowrap gap-[4px] object-cover p-[4px]  md:h-[221px] md:w-[165px] lg:h-[700px] lg:w-[430px] lg:gap-[10px] lg:p-[10px]"
                   />
