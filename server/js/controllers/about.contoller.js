@@ -83,9 +83,6 @@ const file_2 = require("../utils/file");
 const saveAboutText = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
-        // const b64 = Buffer.from(req.file.buffer).toString("base64");
-        // let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-        // const cldRes = await handleUpload(dataURI);
         const newAbout = new about_model_1.About(data);
         yield newAbout.save();
         return res.json({ continueWork: true, text: "הטקסט נשמר" });
@@ -110,7 +107,6 @@ exports.getAboutText = getAboutText;
 const edtiAboutTitle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id, aboutTitle } = req.body;
-        console.log(id, aboutTitle);
         yield about_model_1.About.findByIdAndUpdate(id, { $set: { title: aboutTitle } });
         return res.json({ continueWork: true, message: "הכותרת עודכנה בהצלחה" });
     }
@@ -123,7 +119,6 @@ exports.edtiAboutTitle = edtiAboutTitle;
 const edtiAboutDesc = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id, aboutDesc } = req.body;
-        console.log(id, aboutDesc);
         yield about_model_1.About.findByIdAndUpdate(id, { $set: { desc: aboutDesc } });
         return res.json({ continueWork: true, message: "הכותרת עודכנה בהצלחה" });
     }

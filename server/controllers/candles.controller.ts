@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import { Candle } from '../model/candle.model'
+import { handleUpload } from '../utils/cloudinary/uploadFunc'
+import { httpCodes } from '../utils/httpCodes'
 
 //      /candles/get-candles
 export const getAllCandles = async (req: Request, res: Response, next: NextFunction) => {
@@ -151,6 +153,47 @@ export const editSizeCandle = async (req: Request, res: Response, next: NextFunc
         const { id, size } = req.body
         await Candle.findByIdAndUpdate(id, { $set: { size } })
         return res.json({ continueWork: true, message: "גודל מוצר עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/add-candle-image
+export const addCandleImage = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id } = req.query
+
+        const candle = await Candle.findById(id)
+        const { pictures } = candle!
+
+        if (pictures.length === 4) {
+            return res.status(httpCodes.BAD_REQUEST).json({ continueWork: false, message: "לא ניתן לעלות יותר מ4 תמונות" })
+        }
+
+        const b64 = Buffer.from(req.file!.buffer).toString("base64");
+        let dataURI = "data:" + req.file!.mimetype + ";base64," + b64;
+        const cldRes = await handleUpload(dataURI);
+
+        if (!cldRes.secure_url) {
+            console.log(`none cldRes.secure_url`)
+            return res.status(httpCodes.BAD_REQUEST).json({ continueWork: false, message: "שגיא" })
+        }
+
+        candle?.pictures.push({ img: cldRes.secure_url })
+        await candle!.save().then(doc=> console.log(doc))
+
+        return res.json({ continueWork: true, message: "נר נשמר בהצלחה", pictures: candle!.pictures })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/delete-image
+export const deleteImage = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, imageId } = req.body
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $pull: { pictures: { _id: imageId } } }, { new: true })
+        return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", pictures: updatedCandle!.pictures })
     } catch (error) {
         next(error)
     }

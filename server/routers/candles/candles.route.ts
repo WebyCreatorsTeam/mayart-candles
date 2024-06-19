@@ -12,8 +12,11 @@ import {
     getCandleByCategory,
     getOneCandle,
     removeFrag,
-    editSizeCandle
+    editSizeCandle,
+    addCandleImage,
+    deleteImage
 } from "../../controllers/candles.controller"
+import { upload } from "../../utils/cloudinary/storage";
 const router = Router()
 
 router
@@ -30,5 +33,7 @@ router
     .patch('/edit-description', editDescription)
     .patch('/edit-type-candle', editTypeCandle)
     .patch('/edit-size-candle', editSizeCandle)
+    .post('/add-candle-image', upload.single("my_file"), addCandleImage)
+    .delete('/delete-image', deleteImage)
 
 export default router;
