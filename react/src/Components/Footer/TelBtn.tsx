@@ -9,7 +9,7 @@ const TelBtn = () => {
       <img
         src={"/icons/phone-icon.svg"}
         alt="phone-icon"
-        className="sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-[43px] lg:w-[43px]"
+        className="whitespace-nowrap sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-[43px] lg:w-[43px]"
       />
       050-8122000
     </a>

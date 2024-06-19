@@ -3,7 +3,7 @@ import { CandleType } from "../../utils/types/candles";
 
 const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
   const [currentCandlePicture, setCurrentCandlePicture] = useState(
-    currentCandle.pictures[0],
+    currentCandle.pictures[0].img,
   );
   const chooseCandlePicture = (picture: string) => {
     setCurrentCandlePicture(picture);
@@ -23,10 +23,10 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
                 <button
                   key={index}
                   className={`h-16 w-16`}
-                  onClick={() => chooseCandlePicture(picture)}
+                  onClick={() => chooseCandlePicture(picture.img)}
                 >
                   <img
-                    src={picture}
+                    src={picture.img}
                     alt={`number ${index + 1}`}
                     className="aspect-square overflow-hidden object-cover"
                   />

@@ -6,23 +6,21 @@ export type CandleType = {
   fragrances: string[];
   price: number;
   salePrice: number | null;
-  pictures: string[];
+  pictures: CandlePictureT[];
   description: string;
   type: string;
   size: CandleSizeT;
   __v: number;
 };
+export type CandlePictureT = {
+  img: string;
+  _id: string;
+};
 
 export type CandleSizeT = "נרות קטנים" | "נרות גדולים" | "נרות בינוניים";
-export type CandleColorNamesT =
-  | "ורוד"
-  | "ירוק"
-  | "לבן"
-  | "שחור"
-  | "כחול"
-  | "גוף";
+
 export type CandleColorT = {
-  color: CandleColorNamesT;
+  color: string;
   hexCode: string;
   _id: string;
 };

@@ -5,7 +5,6 @@ import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
-import BySize from "./views/Candles/sized/[size]/page";
 import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
