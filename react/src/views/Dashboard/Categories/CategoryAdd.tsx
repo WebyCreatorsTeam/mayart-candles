@@ -40,22 +40,24 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
         <div className='popup'>
             <div className='popup__window'>
                 <h2 className='popup__window--title' >
-                    איזה סוג קטגוריה להוסיף? 
+                    איזה סוג קטגוריה להוסיף?
                 </h2>
                 <input id='addInput' type="text" onChange={handleChangeInput} placeholder="נא הכנס שם הקטגוריה" />
-                <button
-                    onClick={hendleAddCategory}
-                    disabled={loader}
-                    className={
-                        loader ? "form-btn_disable" :
-                            category.length === 0 ? "form-btn_disable" : "form-btn_active"
-                    }
-                >{loader ? "שומר" : "הוספה"}</button>
-                <button
-                    disabled={loader}
-                    className={loader === true ? "form-btn_disable" : "form-btn_active"}
-                    onClick={() => setOpenPopupAdd(false)}
-                >ביטול</button>
+                <div className='confirmBtns popup__window--confirmBtns'>
+                    <button
+                        onClick={hendleAddCategory}
+                        disabled={loader}
+                        className={
+                            loader ? "form-btn_disable" :
+                                category.length === 0 ? "form-btn_disable" : "form-btn_active"
+                        }
+                    >{loader ? "שומר" : "הוספה"}</button>
+                    <button
+                        disabled={loader}
+                        className={loader === true ? "form-btn_disable" : "form-btn_active"}
+                        onClick={() => setOpenPopupAdd(false)}
+                    >ביטול</button>
+                </div>
             </div>
         </div>
     )

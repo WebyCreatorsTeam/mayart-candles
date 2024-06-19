@@ -20,7 +20,8 @@ const Users: FC = () => {
             const confirm = window.confirm(`למחוק משתמש השם ${name}`)
             if (!confirm) return;
             setLoader(true)
-            const { data: { continueWork, message } } = await axios.delete("http://localhost:7575/admin/remove-admin", { data: { id } })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message } } = await axios.delete(`${BASE_API}/admin/remove-admin?token=${token}`, { data: { id } })
             if (continueWork) {
                 setAllUser(allUser.filter(us => { return us._id !== id }))
                 return alert(message)

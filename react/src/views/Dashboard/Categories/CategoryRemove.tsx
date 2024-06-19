@@ -37,19 +37,21 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
                 <h2 className='popup__window--title'>
                     בטוחה שאת רוצה להסיר את הפריט?
                 </h2>
-                <button
-                    disabled={loader}
-                    className={loader === true ? "form-btn_disable" : "form-btn_active"}
-                    onClick={hendleRemoveCategory}
-                >{loader ? "שומר" : "מחיקה"}</button>
-                <button
-                    disabled={loader}
-                    className={loader === true ? "form-btn_disable" : "form-btn_active"}
-                    onClick={() => {
-                        setRemoveCtgID("")
-                        setOpenPopupRemove(false)
-                    }}
-                >ביטול</button>
+                <div className='popup__window--confirmBtns'>
+                    <button
+                        disabled={loader}
+                        className={loader === true ? "form-btn_disable" : "form-btn_active"}
+                        onClick={hendleRemoveCategory}
+                    >{loader ? "שומר" : "מחיקה"}</button>
+                    <button
+                        disabled={loader}
+                        className={loader === true ? "form-btn_disable" : "form-btn_active"}
+                        onClick={() => {
+                            setRemoveCtgID("")
+                            setOpenPopupRemove(false)
+                        }}
+                    >ביטול</button>
+                </div>
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editDescription = exports.removeFrag = exports.addNewFrag = exports.deleteColor = exports.addNewColor = exports.changeCandlePrice = exports.changeCandleName = exports.getCandleByCategory = exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
+exports.editSizeCandle = exports.editTypeCandle = exports.editDescription = exports.removeFrag = exports.addNewFrag = exports.deleteColor = exports.addNewColor = exports.changeCandlePrice = exports.changeCandleName = exports.getCandleByCategory = exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
 const candle_model_1 = require("../model/candle.model");
 //      /candles/get-candles
 const getAllCandles = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -156,4 +156,28 @@ const editDescription = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
     }
 });
 exports.editDescription = editDescription;
+//  /candles/edit-type-candle
+const editTypeCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id, type } = req.body;
+        yield candle_model_1.Candle.findByIdAndUpdate(id, { $set: { type } });
+        return res.json({ continueWork: true, message: "קטגוריה עודכנה בהצלחה" });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.editTypeCandle = editTypeCandle;
+//  /candles/edit-size-candle
+const editSizeCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id, size } = req.body;
+        yield candle_model_1.Candle.findByIdAndUpdate(id, { $set: { size } });
+        return res.json({ continueWork: true, message: "גודל מוצר עודכן בהצלחה" });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.editSizeCandle = editSizeCandle;
 //# sourceMappingURL=candles.controller.js.map

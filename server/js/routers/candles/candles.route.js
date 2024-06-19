@@ -14,6 +14,8 @@ router
     .delete('/delete-color', candles_controller_1.deleteColor)
     .post('/add-frag', candles_controller_1.addNewFrag)
     .delete('/remove-frag', candles_controller_1.removeFrag)
-    .patch('/edit-description', candles_controller_1.editDescription);
+    .patch('/edit-description', candles_controller_1.editDescription)
+    .patch('/edit-type-candle', candles_controller_1.editTypeCandle)
+    .patch('/edit-size-candle', candles_controller_1.editSizeCandle);
 exports.default = router;
 //# sourceMappingURL=candles.route.js.map

@@ -31,6 +31,18 @@
             direction: rtl;
             text-align: center;
         }
+
+        &--confirmBtns {
+            display: flex;
+
+            button:nth-child(2) {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .confirmBtns {
+        margin: 3% auto;
     }
 }
 
@@ -42,7 +54,7 @@
     direction: rtl;
     background-color: #EBDBFF;
     border-radius: 10px;
-    min-height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
+    height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
     padding-right: 2%;
     width: 50%;
     min-width: 200px;

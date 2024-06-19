@@ -7,10 +7,12 @@ import {
     changeCandlePrice,
     deleteColor,
     editDescription,
+    editTypeCandle,
     getAllCandles,
     getCandleByCategory,
     getOneCandle,
-    removeFrag
+    removeFrag,
+    editSizeCandle
 } from "../../controllers/candles.controller"
 const router = Router()
 
@@ -26,5 +28,7 @@ router
     .post('/add-frag', addNewFrag)
     .delete('/remove-frag', removeFrag)
     .patch('/edit-description', editDescription)
+    .patch('/edit-type-candle', editTypeCandle)
+    .patch('/edit-size-candle', editSizeCandle)
 
 export default router;

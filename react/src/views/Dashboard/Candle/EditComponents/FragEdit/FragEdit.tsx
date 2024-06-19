@@ -33,23 +33,26 @@ const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances, allFragra
             setLoader(false)
         }
     }
+
     return (
         <PopUp>
             <h1>הוספת ריח</h1>
             <label htmlFor='frag'>סוג ריח:</label>
             <input id="frag" type='text' className='updateInput' onChange={(ev: any) => setNewFag(ev.target.value)} />
-            <button
-                onClick={handleAddFrag}
-                className={loader ? "unactiveBtn" : "actionBtn"}>
-                {loader ? "מעדכן את הפרטים" : "הוסף צבע"}
-            </button>
-            <button
-                className={loader ? "unactiveBtn" : "actionBtn"}
-                onClick={() => {
-                    setPopUpEditFrag(false)
-                    setNewFag("")
-                }}
-            >בטל</button>
+            <div style={{display:"flex", margin:"2% 0%"}}>
+                <button
+                    onClick={handleAddFrag}
+                    className={loader ? "unactiveBtn" : "actionBtn"}>
+                    {loader ? "מעדכן את הפרטים" : "הוסף צבע"}
+                </button>
+                <button
+                    className={loader ? "unactiveBtn" : "actionBtn"}
+                    onClick={() => {
+                        setPopUpEditFrag(false)
+                        setNewFag("")
+                    }}
+                >בטל</button>
+            </div>
         </PopUp>
     )
 }

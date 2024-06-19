@@ -104,7 +104,7 @@ export const deleteColor = async (req: Request, res: Response, next: NextFunctio
 export const addNewFrag = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id, newFrag } = req.body
-        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $push: { fragrances:  newFrag  } }, { new: true })
+        const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $push: { fragrances: newFrag } }, { new: true })
         return res.json({ continueWork: true, message: "הריח התווסף בהצלחה", fragrances: updatedCandle!.fragrances })
     } catch (error) {
         next(error)
@@ -129,6 +129,28 @@ export const editDescription = async (req: Request, res: Response, next: NextFun
         const { id, candleDesc } = req.body
         await Candle.findByIdAndUpdate(id, { $set: { description: candleDesc } })
         return res.json({ continueWork: true, message: "תיאור מוצר עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/edit-type-candle
+export const editTypeCandle = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, type } = req.body
+        await Candle.findByIdAndUpdate(id, { $set: { type } })
+        return res.json({ continueWork: true, message: "קטגוריה עודכנה בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}
+
+//  /candles/edit-size-candle
+export const editSizeCandle = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id, size } = req.body
+        await Candle.findByIdAndUpdate(id, { $set: { size } })
+        return res.json({ continueWork: true, message: "גודל מוצר עודכן בהצלחה" })
     } catch (error) {
         next(error)
     }

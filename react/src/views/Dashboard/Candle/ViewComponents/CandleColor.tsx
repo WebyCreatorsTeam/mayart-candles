@@ -19,6 +19,8 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
 
     const handleDeleteColor = async (colorId: string) => {
         try {
+            const confirm = window.confirm("למוק את הצבע?")
+            if(!confirm ) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
             const { data: { continueWork, message, colors } } = await axios.delete(`${BASE_API}/candles/delete-color?token=${token}`, { data: { id, colorId } })
@@ -32,10 +34,10 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
             setLoader(false)
         }
     }
-    
+
     return (
         <section className='candleItem__colors'>
-            צבע:
+            <p>צבע:</p>
             {candleColors.map(clr => (
                 <div
                     className='candleItem__colors--item'
@@ -46,7 +48,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
                         disabled={loader}
                         title='מחק צבע מהרשימה'
                         onClick={() => handleDeleteColor(clr._id)}
-                    ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }}/></button>
+                    ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
                 </div>
             ))}
             <button
