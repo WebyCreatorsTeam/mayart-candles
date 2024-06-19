@@ -76,19 +76,17 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
                 <PopUp>
                     <h1>בחירת תמונה</h1>
                     <div className='popupEditImage'>
-                        <p className='popupEditImage--text'>נא לבחור תמונה ברוחב 530px וגובה 700px</p>
-                        <div className={prevFileShow ?'popupEditImage--uploadBtn' :  'popupEditImage--uploadBtn--grided'}>
+                        <p className='popupEditImage--text'>
+                            נא לבחור תמונה ברוחב מקסימאלי של 530px וגובה מקסימלי של 700
+                        </p>
+                        <div className={prevFileShow ? 'popupEditImage--uploadBtn' : 'popupEditImage--uploadBtn--grided'}>
                             <UploadFile
                                 loader={loader}
                                 handleSelectFile={handleSelectFile}
                                 prevFileShow={prevFileShow}
                             />
                         </div>
-                        {prevFileShow &&
-                            // <div>
-                            <img src={prevFileShow} alt="project" className='edit_project__image2' />
-                            // </div>
-                        }
+                        {prevFileShow && <img src={prevFileShow} alt="project" className='edit_project__image2' />}
                         <div className='popupEditImage--btns'>
                             {prevFileShow && <button onClick={handleUpload}
                                 className={loader ? "form-btn_disable" : "form-btn_active"}>

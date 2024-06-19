@@ -91,13 +91,6 @@ import { imageUpdater } from '../utils/file';
 export const saveAboutText = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const data = req.body;
-
-        // const b64 = Buffer.from(req.file.buffer).toString("base64");
-        // let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-        // const cldRes = await handleUpload(dataURI);
-
-
-
         const newAbout = new About(data)
         await newAbout.save()
         return res.json({ continueWork: true, text: "הטקסט נשמר" })
@@ -120,7 +113,6 @@ export const getAboutText = async (req: Request, res: Response, next: NextFuncti
 export const edtiAboutTitle = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id, aboutTitle } = req.body
-        console.log(id, aboutTitle)
         await About.findByIdAndUpdate(id, { $set: { title: aboutTitle } })
         return res.json({ continueWork: true, message: "הכותרת עודכנה בהצלחה" })
     } catch (error) {
@@ -132,7 +124,6 @@ export const edtiAboutTitle = async (req: Request, res: Response, next: NextFunc
 export const edtiAboutDesc = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id, aboutDesc } = req.body
-        console.log(id, aboutDesc)
         await About.findByIdAndUpdate(id, { $set: { desc: aboutDesc } })
         return res.json({ continueWork: true, message: "הכותרת עודכנה בהצלחה" })
     } catch (error) {

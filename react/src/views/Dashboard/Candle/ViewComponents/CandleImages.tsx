@@ -1,12 +1,98 @@
 import { FC, useState } from 'react'
+import UploadFile from '../../UI/UploadFile'
+import { getImageSize } from 'react-image-size';
+import PopUp from '../../UI/PopUp/PopUp';
+import axios from 'axios';
+// import { BASE_API } from '../../../../utils/api-connect';
+import { useCandleIdContext } from '../Context/CandleContext';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { red } from '@mui/material/colors';
 
 interface ICandleImages {
-    images: [{ img: string }]
+    images: Array<candlePic>
     candleName: string
+}
+
+interface candlePic {
+    img: string, _id: string
 }
 const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
     const [mainImage, setMainImage] = useState<string>(images[0].img)
-    const [imagesOfCandle, setImagesOfCandle] = useState<[{ img: string }]>(images)
+    const [imagesOfCandle, setImagesOfCandle] = useState<Array<candlePic>>(images)
+    const [loader, setLoader] = useState<boolean>(false)
+    const [prevFileShow, setPrevFileShow] = useState<string>("")
+    const [file, setFile] = useState<any>(null);
+    const [popUpEditImage, setPopUpEditImage] = useState<boolean>(false)
+    const id = useCandleIdContext()
+
+    const loadImage = async (imageUrl: any) => {
+        return await getImageSize(imageUrl);
+    };
+
+    const handleSelectFile = async (ev: React.SyntheticEvent) => {
+        if (imagesOfCandle.length === 4) {
+            return alert("לא ניתן לעלות יותר מ4 תמונות")
+        }
+        let target = ev.target as HTMLInputElement;
+        if (target.files && target.files[0]) {
+            const { width, height } = await loadImage(URL.createObjectURL(target.files[0]))
+            if (width > 530 || height > 700) {
+                return alert("התמונה גדולה מדי")
+            } else {
+                setFile(target.files[0])
+                return setPrevFileShow(URL.createObjectURL(target.files[0]));
+            }
+        }
+    };
+
+    console.log(imagesOfCandle)
+    const handleUpload = async () => {
+        try {
+            setLoader(true);
+            const data = new FormData()
+            data.append("my_file", file!)
+            const token = sessionStorage.getItem('token')
+
+            // const res = await axios.patch(`${BASE_API}/candles/add-candle-image?token=${token}&id=${id}`, data, {
+            const res = await axios.post(`http://localhost:7575/candles/add-candle-image?token=${token}&id=${id}`, data, {
+                headers: {
+                    'content-type': "mulpipart/form-data"
+                }
+            })
+
+            const { continueWork, pictures, message } = res.data
+            console.log(pictures)
+            if (continueWork) {
+                alert("תמונה עודכנה בהצלחה")
+                setPrevFileShow("")
+                return setImagesOfCandle(pictures)
+            }
+            if (!continueWork) return alert(message)
+        } catch (error) {
+            alert(error);
+        } finally {
+            setLoader(false);
+            setPopUpEditImage(false)
+        }
+    };
+
+    const handleDeleteImage = async (imageId: string) => {
+        try {
+            const confirm = window.confirm("למוק את התמונה?")
+            if (!confirm) return;
+            setLoader(true)
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message, pictures } } = await axios.delete(`http://localhost:7575/candles/delete-image?token=${token}`, { data: { id, imageId } })
+            if (continueWork) {
+                alert(message)
+                return setImagesOfCandle(pictures)
+            }
+        } catch (error) {
+            alert(error)
+        } finally {
+            setLoader(false)
+        }
+    }
 
     return (
         <section className='candle-images'>
@@ -22,16 +108,65 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
                     >
                         <img
                             src={img.img}
-                            alt={`תמונה משנית ${candleName} מספר ${idx + 1}`}
+                            alt={`תמונה ${candleName} מספר ${idx + 1}`}
                             width={153}
                             height={153}
                             key={idx}
                             onMouseEnter={() => setMainImage(img.img)}
                         />
+                        {
+                            imagesOfCandle.length > 1 &&
+                            <div className='candle-images__bottom-show--deleteEl'>
+                                <button
+                                    onClick={() => handleDeleteImage(img._id)}
+                                ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
+                            </div>
+                        }
+
                     </div>
                 ))}
-                <button>+</button>
+                {imagesOfCandle.length < 4 &&
+                    <div className='candle-images__bottom-show--addEl'>
+                        <button onClick={() => {
+                            if (imagesOfCandle.length === 4) {
+                                return alert("לא ניתן לעלות יותר מ4 תמונות")
+                            }
+                            setPopUpEditImage(true)
+                        }}>
+                            <img src="/icons/dashboard/add-category.svg" alt="הוספת תמונה" width={70} height={70} />
+                        </button>
+                    </div>}
             </div>
+            {popUpEditImage &&
+                <PopUp>
+                    <h1>בחירת תמונה</h1>
+                    <div className='popupEditImage'>
+                        <p className='popupEditImage--text'>
+                            נא לבחור תמונה ברוחב מקסימאלי של 530px וגובה מקסימלי של 700
+                        </p>
+                        <div className={prevFileShow ? 'popupEditImage--uploadBtn' : 'popupEditImage--uploadBtn--grided'}>
+                            <UploadFile
+                                loader={loader}
+                                handleSelectFile={handleSelectFile}
+                                prevFileShow={prevFileShow}
+                            />
+                        </div>
+                        {prevFileShow && <img src={prevFileShow} alt="project" className='edit_project__image2' />}
+                        <div className='popupEditImage--btns'>
+                            {prevFileShow && <button onClick={handleUpload}
+                                className={loader ? "form-btn_disable" : "form-btn_active"}>
+                                {loader ? "מעדכן" : " שמור תמונה חדשה"}
+                            </button>}
+                            <button onClick={() => {
+                                setPopUpEditImage(false)
+                                setFile(null)
+                                setPrevFileShow("")
+                            }}
+                                className={loader ? "form-btn_disable" : "form-btn_active"}
+                            >סגור חלון</button>
+                        </div>
+                    </div>
+                </PopUp>}
         </section>
     )
 }

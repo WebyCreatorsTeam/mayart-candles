@@ -9,8 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editSizeCandle = exports.editTypeCandle = exports.editDescription = exports.removeFrag = exports.addNewFrag = exports.deleteColor = exports.addNewColor = exports.changeCandlePrice = exports.changeCandleName = exports.getCandleByCategory = exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
+exports.deleteImage = exports.addCandleImage = exports.editSizeCandle = exports.editTypeCandle = exports.editDescription = exports.removeFrag = exports.addNewFrag = exports.deleteColor = exports.addNewColor = exports.changeCandlePrice = exports.changeCandleName = exports.getCandleByCategory = exports.addCandle = exports.getOneCandle = exports.getAllCandles = void 0;
 const candle_model_1 = require("../model/candle.model");
+const uploadFunc_1 = require("../utils/cloudinary/uploadFunc");
+const httpCodes_1 = require("../utils/httpCodes");
 //      /candles/get-candles
 const getAllCandles = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -180,4 +182,41 @@ const editSizeCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     }
 });
 exports.editSizeCandle = editSizeCandle;
+//  /candles/add-candle-image
+const addCandleImage = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.query;
+        const candle = yield candle_model_1.Candle.findById(id);
+        const { pictures } = candle;
+        if (pictures.length === 4) {
+            return res.status(httpCodes_1.httpCodes.BAD_REQUEST).json({ continueWork: false, message: "לא ניתן לעלות יותר מ4 תמונות" });
+        }
+        const b64 = Buffer.from(req.file.buffer).toString("base64");
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+        const cldRes = yield (0, uploadFunc_1.handleUpload)(dataURI);
+        if (!cldRes.secure_url) {
+            console.log(`none cldRes.secure_url`);
+            return res.status(httpCodes_1.httpCodes.BAD_REQUEST).json({ continueWork: false, message: "שגיא" });
+        }
+        candle === null || candle === void 0 ? void 0 : candle.pictures.push({ img: cldRes.secure_url });
+        yield candle.save().then(doc => console.log(doc));
+        return res.json({ continueWork: true, message: "נר נשמר בהצלחה", pictures: candle.pictures });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.addCandleImage = addCandleImage;
+//  /candles/delete-image
+const deleteImage = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id, imageId } = req.body;
+        const updatedCandle = yield candle_model_1.Candle.findOneAndUpdate({ _id: id }, { $pull: { pictures: { _id: imageId } } }, { new: true });
+        return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", pictures: updatedCandle.pictures });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.deleteImage = deleteImage;
 //# sourceMappingURL=candles.controller.js.map
