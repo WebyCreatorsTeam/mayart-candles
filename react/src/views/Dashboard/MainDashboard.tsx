@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { FC, Suspense } from 'react'
-import { Await, defer, useLoaderData } from 'react-router-dom'
+import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import CandleToShow from './UI/CandleToShow'
 import { BASE_API } from '../../utils/api-connect'
 
@@ -29,6 +29,16 @@ const MainDashboard: FC = () => {
             <img className='bigImg' src="./images/hero-image.webp" alt="תמונת רקע של הירו" width={1500} height={855} />
           </section>
           <section className='gridImg'>
+            <div className='candle-show'>
+              <Link to={`/dashboard/candle/add-new-candle`} className='link-to-candle'>
+              <img src="/icons/dashboard/add-category.svg" alt="הוספת תמונה" width={70} height={70} />
+                <div className='price-details'>
+                  <div className='price-details__costs'>
+                    <p>להוספת נר חדש נא לעבור לעמוד הוספת הנר</p>
+                  </div>
+                </div>
+              </Link>
+            </div>
             {candles.map((cdl: ICandles) => (
               <CandleToShow cdl={cdl} key={cdl._id} />
             ))}

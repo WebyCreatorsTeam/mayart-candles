@@ -31,6 +31,7 @@ import {
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
+import AddNewCandle from "./views/Dashboard/NewCandle/AddNewCandle";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -75,12 +76,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MainDashboard />, loader: candlesLoader },
       { path: "candle/:candleID", element: <DashcoardCandle />, loader: getCandle },
+      { path: "candle/add-new-candle", element: <AddNewCandle/> },
       { path: "categories", element: <CategoriesDashboard />, loader: categoriesLoader },
       { path: "categories/:categotyName", element: <OneCategoryDashboard />, loader: getCategoryLoader },
       { path: "about", element: <AboutDashboard />, loader: aboutDashLoader },
       { path: "admins", element: <Users />, loader: adminsLoader },
       { path: "regist", element: <Regist />, action: formRegistAction },
-      { path: "payment", element: <Payment /> }
+      { path: "payment", element: <Payment /> },
     ],
   },
 ]);
