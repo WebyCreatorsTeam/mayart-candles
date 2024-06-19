@@ -27,7 +27,7 @@ const CandleSchema = new mongoose_1.Schema({
         type: Number
     },
     pictures: {
-        type: [String],
+        type: [{ img: String }],
         required: [true, "נא לבחור לפחות תמונה אחד של נר"]
     },
     description: {

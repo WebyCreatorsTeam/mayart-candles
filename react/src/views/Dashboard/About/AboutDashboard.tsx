@@ -4,6 +4,7 @@ import { Await, defer, useLoaderData } from "react-router-dom";
 import AboutHeader from "./AboutHeader";
 import AboutDesc from "./AboutDesc";
 import AboutImage from "./AboutImage";
+import { BASE_API } from "../../../utils/api-connect";
 
 interface IAbout {
   _id: string
@@ -36,7 +37,7 @@ export default AboutDashboard;
 
 const handleGetAbout = async () => {
   try {
-    const { data: { continueWork, aboutText } } = await axios.get("http://localhost:7575/about/get-about")
+    const { data: { continueWork, aboutText } } = await axios.get(`${BASE_API}/about/get-about`)
     if (continueWork) return aboutText
   } catch (error) {
     return alert(error)

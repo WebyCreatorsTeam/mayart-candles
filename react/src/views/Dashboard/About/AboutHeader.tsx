@@ -17,7 +17,6 @@ const AboutHeader: FC<IAboutHeader> = ({ id, title }) => {
             setLoader(true)
             if (aboutTitle.length === 0) return alert("שם הנר לא יכול להיות ריק")
             const token = sessionStorage.getItem('token')
-            // const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-name?token=${token}`, { id, name: aboutTitle })
             const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/about/update-about-title?token=${token}`, { id, aboutTitle })
             if (continueWork) {
                 alert(message)

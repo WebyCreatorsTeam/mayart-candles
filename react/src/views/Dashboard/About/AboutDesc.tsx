@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
+import { BASE_API } from '../../../utils/api-connect';
 
 interface IAboutDesc {
     id: string
@@ -17,8 +18,7 @@ const AboutDesc: FC<IAboutDesc> = ({ id, desc }) => {
             setLoader(true)
             if (aboutDesc.length === 0) return alert("שם הנר לא יכול להיות ריק")
             const token = sessionStorage.getItem('token')
-            // const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-name?token=${token}`, { id, name: aboutTitle })
-            const { data: { continueWork, message } } = await axios.patch(`http://localhost:7575/about/update-about-desc?token=${token}`, { id, aboutDesc })
+            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/about/update-about-desc?token=${token}`, { id, aboutDesc })
             if (continueWork) {
                 alert(message)
                 return setEditDesc(false)
