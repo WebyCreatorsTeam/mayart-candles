@@ -1,20 +1,24 @@
 import axios from 'axios'
 import { FC, Suspense } from 'react'
-import { Await, defer, useLoaderData } from 'react-router-dom'
+import { Await, defer, useLoaderData, useParams } from 'react-router-dom'
 import { ICandles } from '../MainDashboard'
 import CandleToShow from '../UI/CandleToShow'
 import { BASE_API } from '../../../utils/api-connect'
 
 const OneCategoryDashboard: FC = () => {
   const { candles }: any = useLoaderData() as { candles: Array<ICandles> }
+  const { categotyName } = useParams()
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={candles}>
-        <section className='gridImg'>
-          {candles.map((cdl: ICandles) => (
-            <CandleToShow cdl={cdl} key={cdl._id} />
-          ))}
-        </section>
+        <div className='candlePage'>
+          <h1>{categotyName}</h1>
+          <section className='gridImg'>
+            {candles.map((cdl: ICandles) => (
+              <CandleToShow cdl={cdl} key={cdl._id} />
+            ))}
+          </section>
+        </div>
       </Await>
     </Suspense>
   )

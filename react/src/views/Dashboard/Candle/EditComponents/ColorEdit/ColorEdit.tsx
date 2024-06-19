@@ -22,7 +22,7 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
             setLoader(true)
             if (newColor.color.length === 0) return alert("חייב לכלול שם הצבע")
             if (newColor.hexCode.length === 0) return alert("נא לבחור את הצבע הרצוי")
-                const token = sessionStorage.getItem('token')
+            const token = sessionStorage.getItem('token')
             const { data: { continueWork, message, colors } } = await axios.post(`${BASE_API}/candles/add-color?token=${token}`, { id, newColor })
             if (continueWork) {
                 alert(message)
@@ -38,24 +38,30 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
 
     return (
         <PopUp>
-            <h1>הוספת צבע</h1>
-            <label htmlFor='color'>שם הצבע:</label>
-            <input id="color" type='text' name="color" className='updateInput' onChange={hendleFillInput} />
-            <label htmlFor='hexCode'>צבע:</label>
-            <input id="hexCode" type='color' name="hexCode" className='updateInput' onChange={hendleFillInput} />
-            <button
-                onClick={handleAddColor}
-                className={loader ? "unactiveBtn" : "actionBtn"}
-            >
-                {loader ? "מעדכן את הפרטים" : "הוסף צבע"}
-            </button>
-            <button
-                className={loader ? "unactiveBtn" : "actionBtn"}
-                onClick={() => {
-                    setPopUpEditColors(false)
-                    setNewColor({ color: "", hexCode: "" })
-                }}
-            >בטל</button>
+            <div className='colorEdit'>
+                <h1>הוספת צבע</h1>
+                <div className='colorEdit__inputs'>
+                    <label htmlFor='color'>שם הצבע:</label>
+                    <input id="color" type='text' name="color" onChange={hendleFillInput} />
+                    <label htmlFor='hexCode'>צבע:</label>
+                    <input id="hexCode" type='color' name="hexCode" onChange={hendleFillInput} />
+                </div>
+                <div className='colorEdit__editBtns'>
+                    <button
+                        onClick={handleAddColor}
+                        className={loader ? "unactiveBtn" : "actionBtn"}
+                    >
+                        {loader ? "מעדכן את הפרטים" : "הוסף צבע"}
+                    </button>
+                    <button
+                        className={loader ? "unactiveBtn" : "actionBtn"}
+                        onClick={() => {
+                            setPopUpEditColors(false)
+                            setNewColor({ color: "", hexCode: "" })
+                        }}
+                    >בטל</button>
+                </div>
+            </div>
         </PopUp >
     )
 }

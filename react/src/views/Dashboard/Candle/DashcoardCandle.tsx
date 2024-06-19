@@ -11,6 +11,8 @@ import CandleDesc from './ViewComponents/CandleDesc'
 import { CandleIdContext } from './Context/CandleContext'
 import { BASE_API } from '../../../utils/api-connect'
 import { ICategories } from '../Categories/CategoriesDashboard'
+import EditTypeCandle from './EditComponents/EditType/EditTypeCandle'
+import EditCandleSize from './EditComponents/EditSize/EditCandleSize'
 
 const DashcoardCandle = () => {
   const { candle, categories } = useLoaderData() as { candle: ICandles } & { categories: ICategories[] }
@@ -30,20 +32,9 @@ const DashcoardCandle = () => {
                 <CandleColor colors={candle.colors} />
                 <CandleFrag fragrances={candle.fragrances} />
                 <CandleDesc description={candle.description} />
-                <section>
-                  <select defaultValue={candle.type}>
-                    {categories.map(ctg => (
-                      <option value={ctg.opt}>{ctg.opt}</option>
-                    ))}
-                  </select>
-                </section>
-                <section>
-                  <select defaultValue={candle.size}>
-                    <option value="נרות גדולים">נרות גדולים</option>
-                    <option value="נרות בינוניים">נרות בינוניים</option>
-                    <option value="נרות קטנים">נרות קטנים</option>
-                  </select>
-                </section>
+                <h3>סוג מוצר</h3>
+                <EditTypeCandle candleType={candle.type} categoryOption={categories} />
+                <EditCandleSize candleSize={candle.size} />
               </section>
             </section>
           </section>

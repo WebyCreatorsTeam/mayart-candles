@@ -3,10 +3,6 @@ import { Form, redirect, useNavigation } from 'react-router-dom';
 import Input from '../UI/Input';
 import axios from 'axios';
 import { BASE_API } from '../../../utils/api-connect';
-/* {
-  "email":"admin@weby.com",
-  "password":"123ASD!@#"
-} */
 
 export interface InputsList {
   type: string
@@ -36,21 +32,21 @@ const Login: FC = () => {
     <div className='dashboard'>
       <div className="background">
         <div className='auth'>
-        <section className='section'>
-          <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
-          <Form className='authForm' action='/login' method='post'>
-            {inputs.map((int, idx) => (
-              <Input key={idx} {...int} setUserDetails={setUserDetails} />
-            ))}
-            <button
-              type="submit"
-              disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
-              className={`loginRegBtn ${!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}`}
-            >
-              {navigation.state === "submitting" ? "הפרטים נשלחים" : "כניסה"}
-            </button>
-          </Form>
-        </section>
+          <section className='section'>
+            <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
+            <Form className='authForm' action='/login' method='post'>
+              {inputs.map((int, idx) => (
+                <Input key={idx} {...int} setUserDetails={setUserDetails} />
+              ))}
+              <button
+                type="submit"
+                disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
+                className={`loginRegBtn ${!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}`}
+              >
+                {navigation.state === "submitting" ? "הפרטים נשלחים" : "כניסה"}
+              </button>
+            </Form>
+          </section>
         </div>
       </div>
     </div>

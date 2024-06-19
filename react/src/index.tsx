@@ -80,7 +80,7 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutDashboard />, loader: aboutDashLoader },
       { path: "admins", element: <Users />, loader: adminsLoader },
       { path: "regist", element: <Regist />, action: formRegistAction },
-       { path: "payment", element: <Payment /> },
+      { path: "payment", element: <Payment /> }
     ],
   },
 ]);
