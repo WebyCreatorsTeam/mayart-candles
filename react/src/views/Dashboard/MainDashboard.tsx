@@ -11,7 +11,7 @@ export interface ICandles {
   fragrances: [string]
   price: number,
   salePrice: number
-  pictures: [string]
+  pictures: [{ img: string }]
   description: string
   type: string
   size: string

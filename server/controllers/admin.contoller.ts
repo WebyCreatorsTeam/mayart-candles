@@ -9,17 +9,18 @@ import jwt from "jwt-simple";
 export const registAdmin = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const data = req.body
-
         const { error } = regValid.validate(data)
 
         if (error) {
+            console.log("error valid")
             return res.status(httpCodes.BAD_REQUEST).json({ continueWork: false, message: error.message });
         }
 
         const hashpass = await bcrypt.hash(data.password, 10);
+        console.log(hashpass)
 
         const newAdmin = new Admin({ ...data, password: hashpass })
-
+        console.log(newAdmin)
         await newAdmin.save().then(() => {
             return res.json({ continueWork: true, message: "משתמש חדש נשמר" })
         }).catch(err => {

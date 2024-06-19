@@ -17,6 +17,11 @@ const AdminSchema = new mongoose_1.Schema({
     password: {
         type: String,
         require: [true, "נא למלא סיסמא"],
+    },
+    role: {
+        type: String,
+        default: "user",
+        // require:[true]
     }
 });
 exports.Admin = (0, mongoose_1.model)("Admin", AdminSchema);
