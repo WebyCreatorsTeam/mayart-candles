@@ -67,8 +67,7 @@ export const loginAdmin = async (req: Request, res: Response, next: NextFunction
 //      /admin/all-admins
 export const getAllAdmins = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const allAdmins = await Admin.find({})
-        const admins = allAdmins.map(ad => ({ name: ad.name, _id: ad._id }))
+        const admins = await Admin.find({}).select("-password")
         return res.json({ continueWork: true, admins })
     } catch (error) {
         next(error);

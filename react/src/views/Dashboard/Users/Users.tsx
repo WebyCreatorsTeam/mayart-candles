@@ -43,7 +43,8 @@ export default Users
 
 const hendleGetAdmins = async () => {
     const token = sessionStorage.getItem('token')
-    const { data } = await axios.get(`${BASE_API}/admin/all-admins?token=${token}`)
+    // const { data } = await axios.get(`${BASE_API}/admin/all-admins?token=${token}`)
+    const { data } = await axios.get(`http://localhost:7575/admin/all-admins?token=${token}`)
     console.log(data)
     const { continueWork, admins } = data;
     if (continueWork) return admins
