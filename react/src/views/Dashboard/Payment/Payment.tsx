@@ -8,9 +8,10 @@ interface IPayment {
   desc: string
 }
 const Payment: FC = () => {
+  const {payment}= useLoaderData() as {payment:IPayment};
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
-      <Await resolve={Payment}>
+      <Await resolve={payment}>
     <section className='payment'>
       <h1 className='paymentTitle'>
       טקסט עמוד תשלום
@@ -31,8 +32,8 @@ export default Payment
 
 const handleGetPayment = async () => {
   try {
-    const { data: { continueWork, aboutText } } = await axios.get("http://localhost:7575/about/get-about")
-    if (continueWork) return aboutText
+    const { data: { continueWork, paymentText } } = await axios.get("http://localhost:7575/")
+    if (continueWork) return paymentText
   } catch (error) {
     return alert(error)
   }
@@ -40,6 +41,6 @@ const handleGetPayment = async () => {
 
 export const paymentDashLoader = async () => {
   return defer({
-    about: await handleGetPayment()
+    payment: await handleGetPayment()
   })
 }
