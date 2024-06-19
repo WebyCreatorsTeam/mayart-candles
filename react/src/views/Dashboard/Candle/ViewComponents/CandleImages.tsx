@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import UploadFile from '../../UI/UploadFile'
 import { getImageSize } from 'react-image-size';
 import PopUp from '../../UI/PopUp/PopUp';
@@ -17,13 +17,20 @@ interface candlePic {
     img: string, _id: string
 }
 const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
-    const [mainImage, setMainImage] = useState<string>(images[0].img)
     const [imagesOfCandle, setImagesOfCandle] = useState<Array<candlePic>>(images)
+    const [mainImage, setMainImage] = useState<string>(imagesOfCandle[0].img)
     const [loader, setLoader] = useState<boolean>(false)
     const [prevFileShow, setPrevFileShow] = useState<string>("")
     const [file, setFile] = useState<any>(null);
     const [popUpEditImage, setPopUpEditImage] = useState<boolean>(false)
     const id = useCandleIdContext()
+
+    useEffect(() => {
+        (() => {
+            console.log(`q`)
+            setMainImage(imagesOfCandle[0].img)
+        })()
+    }, [imagesOfCandle])
 
     const loadImage = async (imageUrl: any) => {
         return await getImageSize(imageUrl);
