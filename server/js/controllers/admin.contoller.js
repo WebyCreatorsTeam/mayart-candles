@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllAdmins = exports.loginAdmin = exports.registAdmin = void 0;
+exports.removeAdmin = exports.getAllAdmins = exports.loginAdmin = exports.registAdmin = void 0;
 const admin_model_1 = require("../model/admin.model");
 const adminValidation_1 = require("../utils/validation/adminValidation");
 const httpCodes_1 = require("../utils/httpCodes");
@@ -79,4 +79,16 @@ const getAllAdmins = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.getAllAdmins = getAllAdmins;
+//      /admin/remove-admin
+const removeAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.body;
+        yield admin_model_1.Admin.findByIdAndDelete(id);
+        return res.json({ continueWork: true, message: "משתמש נמחק בהצלחה" });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.removeAdmin = removeAdmin;
 //# sourceMappingURL=admin.contoller.js.map

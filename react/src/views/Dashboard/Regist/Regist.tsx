@@ -37,7 +37,7 @@ const Regist: FC = () => {
                             <button
                                 type="submit"
                                 disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
-                                className={!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}
+                                className={`loginRegBtn ${!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}`}
                             >
                                 <img className='addIcon' src="/icons/dashboard/user-add-plus.svg" alt="add user icon" />
                                 {navigation.state === "submitting" ? "הפרטים נשלחים" : "הוסף משתמש"}

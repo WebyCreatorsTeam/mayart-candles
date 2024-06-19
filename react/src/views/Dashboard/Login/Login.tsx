@@ -33,7 +33,7 @@ const Login: FC = () => {
   }, [userDetails]);
 
   return (
-    <div className='authDashboard'>
+    <div className='dashboard'>
       <div className="background">
         <div className='auth'>
         <section className='section'>
@@ -45,7 +45,7 @@ const Login: FC = () => {
             <button
               type="submit"
               disabled={!submitting === true ? true : navigation.state === "submitting" ? true : false}
-              className={!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}
+              className={`loginRegBtn ${!submitting === true ? "form-btn_disable" : navigation.state === "submitting" ? "form-btn_disable" : "form-btn_active"}`}
             >
               {navigation.state === "submitting" ? "הפרטים נשלחים" : "כניסה"}
             </button>
