@@ -1,29 +1,33 @@
 import { Router } from "express";
+import { upload } from "../../utils/cloudinary/storage";
 import {
     addCandle,
-    addNewColor,
-    addNewFrag,
+} from "../../controllers/candle/candles.controller"
+import {
+    getAllCandles,
+    getOneCandle,
+    getCandleByCategory
+} from "../../controllers/candle/getCandle.controller";
+import {
     changeCandleName,
     changeCandlePrice,
+    addNewColor,
     deleteColor,
+    addNewFrag,
+    removeFrag,
     editDescription,
     editTypeCandle,
-    getAllCandles,
-    getCandleByCategory,
-    getOneCandle,
-    removeFrag,
     editSizeCandle,
     addCandleImage,
     deleteImage
-} from "../../controllers/candles.controller"
-import { upload } from "../../utils/cloudinary/storage";
+} from "../../controllers/candle/editCandle.controller";
 const router = Router()
 
 router
     .get('/get-candles', getAllCandles)
     .post('/get-one-candle', getOneCandle)
-    .post('/save-candle', addCandle)
     .post('/get-candles-by-category', getCandleByCategory)
+    .post('/save-candle', addCandle)
     .patch('/change-candle-name', changeCandleName)
     .patch('/change-candle-price', changeCandlePrice)
     .post('/add-color', addNewColor)
