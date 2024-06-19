@@ -25,7 +25,7 @@ const CandleSchema = new Schema({
         type: Number
     },
     pictures: {
-        type: [String],
+        type: [{img: String}],
         required: [true, "נא לבחור לפחות תמונה אחד של נר"]
     },
     description: {

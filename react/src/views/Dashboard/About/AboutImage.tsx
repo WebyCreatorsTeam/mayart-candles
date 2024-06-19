@@ -4,6 +4,7 @@ import PopUp from '../UI/PopUp/PopUp';
 import UploadFile from '../UI/UploadFile';
 import axios from 'axios';
 import { getImageSize } from 'react-image-size';
+import { BASE_API } from '../../../utils/api-connect';
 
 interface IAboutImage {
     id: string
@@ -42,7 +43,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
             data.append("my_file", file!)
             const token = sessionStorage.getItem('token')
 
-            const res = await axios.patch(`http://localhost:7575/about/update-about-image?token=${token}&id=${id}&oldURL=${img.img}&oldId=${img._id}`, data, {
+            const res = await axios.patch(`${BASE_API}/about/update-about-image?token=${token}&id=${id}&oldURL=${img.img}&oldId=${img._id}`, data, {
                 headers: {
                     'content-type': "mulpipart/form-data"
                 }

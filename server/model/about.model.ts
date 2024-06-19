@@ -27,6 +27,7 @@ const AboutSchema = new Schema<IAbout, AboutModel, IAboutMethods>({
         type: [{ img: String }]
     },
 })
+
 AboutSchema.static('getAboutImages', async function getAboutImages(id: any, secure_url: any, oldId: any) {
     await this.findById(id).then(
         async doc => {
