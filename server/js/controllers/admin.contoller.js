@@ -24,10 +24,13 @@ const registAdmin = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         const data = req.body;
         const { error } = adminValidation_1.regValid.validate(data);
         if (error) {
+            console.log("error valid");
             return res.status(httpCodes_1.httpCodes.BAD_REQUEST).json({ continueWork: false, message: error.message });
         }
         const hashpass = yield bcryptjs_1.default.hash(data.password, 10);
+        console.log(hashpass);
         const newAdmin = new admin_model_1.Admin(Object.assign(Object.assign({}, data), { password: hashpass }));
+        console.log(newAdmin);
         yield newAdmin.save().then(() => {
             return res.json({ continueWork: true, message: "משתמש חדש נשמר" });
         }).catch(err => {

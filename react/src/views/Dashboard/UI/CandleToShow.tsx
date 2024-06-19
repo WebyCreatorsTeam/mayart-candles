@@ -7,7 +7,7 @@ interface ICandleToShow { cdl: ICandles }
 const CandleToShow: FC<ICandleToShow> = ({ cdl }) => {
     return (
         <Link to={`/dashboard/candle/${cdl._id}`} className='link-to-candle'>
-            <img src={cdl.pictures[0]} alt={`תמונה של מוצר ${cdl.name}`} width={530} height={700} />
+            <img src={cdl.pictures[0].img} alt={`תמונה של מוצר ${cdl.name}`} width={530} height={700} />
             <div className='price-details'>
                 <h2>{cdl.name}</h2>
                 <div className='price-details__costs'>

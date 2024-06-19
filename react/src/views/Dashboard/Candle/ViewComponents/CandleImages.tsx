@@ -1,12 +1,12 @@
 import { FC, useState } from 'react'
 
 interface ICandleImages {
-    images: [string]
+    images: [{img: string}]
     candleName: string
 }
 const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
-    const [mainImage, setMainImage] = useState<string>(images[0])
-    const [imagesOfCandle, setImagesOfCandle] = useState<[string]>(images)
+    const [mainImage, setMainImage] = useState<string>(images[0].img)
+    const [imagesOfCandle, setImagesOfCandle] = useState<[{img: string}]>(images)
 
     return (
         <section className='candle-images'>
@@ -17,10 +17,10 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
                 {imagesOfCandle.length > 0 && imagesOfCandle.map((img, idx) => (
                     <button
                         key={idx}
-                        onMouseEnter={() => setMainImage(img)}
-                        className={mainImage === img ? "choosenImage" : ""}
+                        onMouseEnter={() => setMainImage(img.img)}
+                        className={mainImage === img.img ? "choosenImage" : ""}
                     >
-                        <img src={img} alt={`תמונה משנית ${candleName} מספר ${idx + 1}`} width={153} height={153} />
+                        <img src={img.img} alt={`תמונה משנית ${candleName} מספר ${idx + 1}`} width={153} height={153} />
                     </button>
                 ))}
                 <button>+</button>

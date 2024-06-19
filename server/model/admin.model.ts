@@ -15,6 +15,11 @@ const AdminSchema = new Schema({
     password: {
         type: String,
         require: [true, "נא למלא סיסמא"],
+    },
+    role: {
+        type: String,
+        default: "user",
+        // require:[true]
     }
 })
 
