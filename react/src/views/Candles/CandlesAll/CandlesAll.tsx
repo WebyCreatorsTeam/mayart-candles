@@ -16,7 +16,7 @@ const CandlesAll = ({ home = false }: { home?: boolean }) => {
         <div
           className={`flex w-[100%] flex-col p-28 pb-16 ${home ? "" : "xl:mt-40"}`}
         >
-          <p className="ml-[32%] mt-8 text-[32px] font-normal lg:ml-[41%] lg:text-[64px]">
+          <p className="ml-[28%] mt-[-50px] md:mt-[50px] text-[20px] font-normal lg:ml-[38%] lg:text-[64px]">
             {type ? type : size ? `נרות בגודל ${size}` : "כל הנרות"}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center">
@@ -26,11 +26,11 @@ const CandlesAll = ({ home = false }: { home?: boolean }) => {
                 key={i}
                 className="flex flex-col items-center"
               >
-                <div className="relative">
+                <div className="relative p-1">
                   <img
                     src={candle.pictures[0].img}
                     alt="calends"
-                    className="flex h-[221px] w-[165px] cursor-pointer flex-nowrap gap-[4px] object-cover p-[4px]  md:h-[221px] md:w-[165px] lg:h-[700px] lg:w-[430px] lg:gap-[10px] lg:p-[10px]"
+                    className="flex h-[221px] w-[165px] cursor-pointer flex-nowrap gap-[4px] object-cover p-[4px]  md:h-[221px] md:w-[165px] lg:h-[700px] lg:w-[366px] lg:gap-[20px] "
                   />
 
                   <Frame />

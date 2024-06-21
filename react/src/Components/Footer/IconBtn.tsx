@@ -11,7 +11,7 @@ const IconBtn = ({
     <a
       href={href}
       rel="noreferrer"
-      className="flex items-center gap-3 p-[10px] hover:[textShadow:1px_0_rgba(0,0,0,0.5)] sm:gap-[21.38px] sm:p-[21.38px] lg:text-[32px]"
+      className="flex items-center justify-center text-[18px] mt-10 gap-3 p-[10px] hover:[textShadow:1px_0_rgba(0,0,0,0.5)] sm:gap-[21.38px] sm:p-[21.38px] lg:text-[32px]"
       target="_blank"
     >
       {children}

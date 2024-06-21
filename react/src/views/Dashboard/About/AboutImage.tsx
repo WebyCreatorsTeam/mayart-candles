@@ -65,44 +65,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
 
     return (
         <>
-            <div className="aboutDash__images--imageItem">
-                <img src={aboutImage.img} alt={`תמונת עבודה של מאיה מספר ${idx + 1}`} />
-                <div className="aboutDash__images--imageItem__btnSection">
-                    <button onClick={() => setPopUpEditImage(true)}><EditIcon color="primary" />עריכת תמונה</button>
-                </div>
-            </div>
-            {popUpEditImage && (
-                <PopUp>
-                    <h1>בחירת תמונה</h1>
-                    <div className='popupEditImage'>
-                        <p className='popupEditImage--text'>נא לבחור תמונה ברוחב 530px וגובה 700px</p>
-                        <div className={prevFileShow ?'popupEditImage--uploadBtn' :  'popupEditImage--uploadBtn--grided'}>
-                            <UploadFile
-                                loader={loader}
-                                handleSelectFile={handleSelectFile}
-                                prevFileShow={prevFileShow}
-                            />
-                        </div>
-                        {prevFileShow &&
-                            // <div>
-                            <img src={prevFileShow} alt="project" className='edit_project__image2' />
-                            // </div>
-                        }
-                        <div className='popupEditImage--btns'>
-                            {prevFileShow && <button onClick={handleUpload}
-                                className={loader ? "form-btn_disable" : "form-btn_active"}>
-                                {loader ? "מעדכן" : " שמור תמונה חדשה"}
-                            </button>}
-                            <button onClick={() => {
-                                setPopUpEditImage(false)
-                                setFile(null)
-                                setPrevFileShow("")
-                            }}
-                                className={loader ? "form-btn_disable" : "form-btn_active"}
-                            >סגור חלון</button>
-                        </div>
-                    </div>
-                </PopUp>)}
+        
         </>
     )
 }
