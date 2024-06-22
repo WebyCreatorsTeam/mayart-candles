@@ -1,3 +1,7 @@
+export type ChosenCandleType = Omit<CandleType, "colors"> & {
+  colors: CandleColorT;
+};
+
 export type CandleType = {
   _id: string;
   name: string;
@@ -12,6 +16,8 @@ export type CandleType = {
   size: CandleSizeT;
   __v: number;
 };
+
+
 export type CandlePictureT = {
   img: string;
   _id: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import SearchButton from "./SearchButton";
-import FavoriteButton from "./FavoriteButton";
+import FavoritesButton from "./FavoritesButton";
 import ShoppingCartButton from "./ShoppingCartButton";
 import { ActionButtonInfoT } from "./GenericActionButton";
 
@@ -15,7 +15,7 @@ const searchActionButtonInfo: ActionButtonInfoT = {
   },
 };
 
-const favoriteActionButtonInfo: ActionButtonInfoT = {
+const favoritesActionButtonInfo: ActionButtonInfoT = {
   mobile: {
     src: "/icons/nav/mobile/heart-icon.svg",
     alt: "heart icon",
@@ -40,7 +40,7 @@ const ActionButtons = () => {
   return (
     <div className="flex gap-7 sm:gap-[29.93px]">
       <SearchButton actionButtonInfo={searchActionButtonInfo} />
-      <FavoriteButton actionButtonInfo={favoriteActionButtonInfo} />
+      <FavoritesButton actionButtonInfo={favoritesActionButtonInfo} />
       <ShoppingCartButton actionButtonInfo={shoppingCartActionButtonInfo} />
     </div>
   );

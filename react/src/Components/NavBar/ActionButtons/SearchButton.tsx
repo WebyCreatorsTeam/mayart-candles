@@ -6,7 +6,8 @@ const SearchButton = ({
 }: {
   actionButtonInfo: ActionButtonInfoT;
 }) => {
-  return <GenericActionButton actionButtonInfo={actionButtonInfo} />;
+  return <GenericActionButton
+   actionButtonInfo={actionButtonInfo} />;
 };
 
 export default SearchButton;

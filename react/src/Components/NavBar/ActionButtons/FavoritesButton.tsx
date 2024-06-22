@@ -2,7 +2,7 @@ import React from "react";
 import GenericActionButton, { ActionButtonInfoT } from "./GenericActionButton";
 import { useLocalCandleStorage } from "../../../utils/localCandleStorage";
 
-const FavoriteButton = ({
+const FavoritesButton = ({
   actionButtonInfo,
 }: {
   actionButtonInfo: ActionButtonInfoT;
@@ -11,10 +11,11 @@ const FavoriteButton = ({
   const candles = getItems();
   return (
     <GenericActionButton
+      type="favorites"
       candles={candles}
       actionButtonInfo={actionButtonInfo}
     />
   );
 };
 
-export default FavoriteButton;
+export default FavoritesButton;

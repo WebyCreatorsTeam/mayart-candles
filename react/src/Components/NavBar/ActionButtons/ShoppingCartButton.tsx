@@ -11,6 +11,7 @@ const ShoppingCartButton = ({
   const candles = getItems();  
   return (
     <GenericActionButton
+      type="shoppingCart"
       candles={candles}
       actionButtonInfo={actionButtonInfo}
     />
