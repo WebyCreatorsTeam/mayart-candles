@@ -17,7 +17,6 @@ export type CandleType = {
   __v: number;
 };
 
-
 export type CandlePictureT = {
   img: string;
   _id: string;

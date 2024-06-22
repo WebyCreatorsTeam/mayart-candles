@@ -5,10 +5,10 @@ const SelectionList = ({ type }: { type: string }) => {
   const { getItems } = useLocalCandleStorage(`${type}Candles`);
   const candles = getItems();
   return (
-    <div dir="rtl" className="h-full min-h-svh w-full bg-white">
+    <div dir="rtl" className="h-full w-full bg-white">
       <h1>{type}</h1>
       {!candles || !candles.length ? (
-        <h1>עדיין לא נוספו פריטים</h1>
+        <h1 className="min-h-full">עדיין לא נוספו פריטים</h1>
       ) : (
         <>
           <h2>פריטים שנבחרו ({candles.length})</h2>

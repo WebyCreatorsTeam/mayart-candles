@@ -8,7 +8,7 @@ const ShoppingCartButton = ({
   actionButtonInfo: ActionButtonInfoT;
 }) => {
   const { setItem, getItems } = useLocalCandleStorage("shoppingCartCandles");
-  const candles = getItems();  
+  const candles = getItems();
   return (
     <GenericActionButton
       type="shoppingCart"

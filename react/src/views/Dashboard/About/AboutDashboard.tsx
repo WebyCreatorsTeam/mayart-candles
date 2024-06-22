@@ -6,15 +6,15 @@ import AboutDesc from "./AboutDesc";
 import AboutImage from "./AboutImage";
 
 interface IAbout {
-  _id: string
-  title: string
-  desc: string
-  images: Array<{ img: string, _id: string }>
+  _id: string;
+  title: string;
+  desc: string;
+  images: Array<{ img: string; _id: string }>;
 }
 const AboutDashboard: FC = () => {
-  const { about } = useLoaderData() as { about: IAbout }
+  const { about } = useLoaderData() as { about: IAbout };
   return (
-    <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
+    <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={about}>
         <section className="aboutDash">
           <h1>קצת עליי</h1>
@@ -29,23 +29,24 @@ const AboutDashboard: FC = () => {
         </section>
       </Await>
     </Suspense>
-  )
+  );
 };
 
 export default AboutDashboard;
 
 const handleGetAbout = async () => {
   try {
-    const { data: { continueWork, aboutText } } = await axios.get("http://localhost:7575/about/get-about")
-    if (continueWork) return aboutText
+    const {
+      data: { continueWork, aboutText },
+    } = await axios.get("http://localhost:7575/about/get-about");
+    if (continueWork) return aboutText;
   } catch (error) {
-    return alert(error)
+    return alert(error);
   }
-}
+};
 
 export const aboutDashLoader = async () => {
   return defer({
-    about: await handleGetAbout()
-  })
-}
-
+    about: await handleGetAbout(),
+  });
+};

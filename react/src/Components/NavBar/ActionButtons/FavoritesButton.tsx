@@ -7,7 +7,7 @@ const FavoritesButton = ({
 }: {
   actionButtonInfo: ActionButtonInfoT;
 }) => {
-  const {setItem, getItems} = useLocalCandleStorage("favoritesCandles");
+  const { setItem, getItems } = useLocalCandleStorage("favoritesCandles");
   const candles = getItems();
   return (
     <GenericActionButton

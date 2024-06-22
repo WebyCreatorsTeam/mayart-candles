@@ -1,20 +1,22 @@
-import { FC } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import NavBarDashboard from './NavBarDashboard/NavBarDashboard';
+import { FC } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import NavBarDashboard from "./NavBarDashboard/NavBarDashboard";
 
 const LayoutDashboard: FC = () => {
-    const location = useLocation()
+  const location = useLocation();
 
-    return (
-        <div className={`dashboard ${location.pathname === "/dashboard/about" || location.pathname === "/dashboard" ? "dashboardMargin" : ""}`}>
-            <div className="background">
-                <NavBarDashboard />
-                <main>
-                    <Outlet />
-                </main>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div
+      className={`dashboard ${location.pathname === "/dashboard/about" || location.pathname === "/dashboard" ? "dashboardMargin" : ""}`}
+    >
+      <div className="background">
+        <NavBarDashboard />
+        <main>
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
+};
 
 export default LayoutDashboard;

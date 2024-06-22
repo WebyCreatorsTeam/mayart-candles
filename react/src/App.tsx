@@ -7,7 +7,7 @@ import Contact from "./views/Contact";
 
 function App() {
   return (
-    <div className="scrollbar-none relative flex h-fit flex-col justify-between overflow-x-clip">
+    <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip">
       <div className="h-full ">
         <NavBar />
         <div className="flex h-fit w-full flex-col">
