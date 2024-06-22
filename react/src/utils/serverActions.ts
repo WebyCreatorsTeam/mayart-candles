@@ -7,7 +7,10 @@ export const handleGetCandles = async () => {
   const { data } = await axios.get(
     `https://mayart-candles-api.vercel.app/candles/get-candles`,
   );
+  
   const { continueWork, allCandles } = data;
+  console.log(allCandles);
+  
   if (continueWork) return allCandles;
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
