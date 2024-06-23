@@ -1,7 +1,7 @@
 import React from "react";
 
-import { CandleType } from "../../../../utils/types/candles";
 import FrameAddToFavoriteButton from "./FrameAddToFavoriteButton";
+import { CandleType } from "../../../../../utils/types/candles";
 
 const Frame = ({ candle }: { candle: CandleType }) => {
   return (

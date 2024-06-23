@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
-import { CandleType } from "../../../../utils/types/candles";
+
 import { useOutletContext } from "react-router-dom";
-import { ContextType } from "../../../../App";
+import { CandleType } from "../../../../../utils/types/candles";
+import { ContextType } from "../../../../../App";
 
 const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
   const context = useOutletContext();
@@ -15,14 +16,14 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
     if (favoriteCandle === -1) return false;
     else return true;
   }, [candle._id, favoritesArray]);
-  
+
   return (
     <button
       onClick={() => handleAddToFavoritesArray(candle)}
-      className="flex flex-col items-center justify-center p-2.5 sm:p-[21.38px] active:*:fill-black"
+      className="flex flex-col items-center justify-center p-2.5 active:*:fill-black sm:p-[21.38px]"
     >
       <svg
-        className={`h-[27.6px] sm:h-[57.11px] sm:w-[68.43px] w-[32px] lg:hover:fill-black ${isFavoriteCandle ? "fill-black" : ""}`}
+        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] lg:hover:fill-black ${isFavoriteCandle ? "fill-black" : ""}`}
         viewBox="0 0 34 29"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

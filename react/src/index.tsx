@@ -5,7 +5,6 @@ import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
-import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import Login, { formLoginAction } from "./views/Dashboard/Login/Login";
 import MainDashboard from "./views/Dashboard/MainDashboard";
@@ -51,7 +50,6 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home />, loader: candlesLoader },
       { path: "/about", element: <About />, loader: aboutLoader },
-      { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
         children: [

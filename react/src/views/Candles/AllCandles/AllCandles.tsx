@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
-import { Link, Await, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
-import Frame from "./Frame";
+import Thumbnail from "./Thumbnail";
 
 const AllCandles = ({ home = false }: { home?: boolean }) => {
   const { candles, type, size } = useLoaderData() as {
@@ -19,40 +19,8 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
             {type ? type : size ? `נרות בגודל ${size}` : "כל הנרות"}
           </h1>
           <div className=" grid w-full grid-flow-row grid-cols-2 items-center justify-center justify-items-center gap-5 lg:grid-cols-3 lg:gap-[47px]">
-            {candles.map((candle, i) => (
-              <div
-                key={i}
-                className="flex max-w-[165px] flex-col items-center text-[16px] font-normal leading-[21.28px] sm:max-w-[352.85px] sm:text-[32px] sm:leading-[42.56px] lg:max-w-[530px]"
-              >
-                <div className="relative h-full w-full">
-                  <Link
-                    to={`/candles/candle/${candle._id}`}
-                    className="relative h-full max-h-[221px] w-full sm:max-h-[684.31px]"
-                  >
-                    <img
-                      src={candle.pictures[0].img}
-                      alt="calends"
-                      className="flex cursor-pointer flex-nowrap gap-[4px] object-cover lg:max-h-[700px]"
-                    />
-                  </Link>
-                  <Frame candle={candle} />
-                </div>
-                <Link to={`/candles/candle/${candle._id}`}>{candle.name}</Link>
-                <div className="flex flex-row justify-evenly gap-2">
-                  {candle.price ? (
-                    <span className="">₪{candle.salePrice}</span>
-                  ) : (
-                    <span className="none"></span>
-                  )}
-                  {candle.salePrice ? (
-                    <p className="text-[#12151580] line-through ">
-                      ₪{candle.price}
-                    </p>
-                  ) : (
-                    <p className="">{candle.price}</p>
-                  )}
-                </div>
-              </div>
+            {candles.map((candle) => (
+              <Thumbnail key={candle._id} candle={candle} />
             ))}
           </div>
         </div>

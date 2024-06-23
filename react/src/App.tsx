@@ -3,9 +3,10 @@ import "./output.css";
 import Footer from "./Components/Footer";
 import NavBar from "./Components/NavBar";
 import { Outlet } from "react-router-dom";
-import Contact from "./views/Contact";
+
 import { CandleType } from "./utils/types/candles";
 import { useLocalFavoriteCandlesStorage } from "./utils/localCandleStorage";
+import ContactKnob from "./Components/ContactKnob";
 
 export type ContextType = {
   favoritesArray: CandleType[];
@@ -44,7 +45,7 @@ function App() {
               handleAddToFavoritesArray,
             }}
           />
-          <Contact />
+          <ContactKnob />
         </div>
       </div>
       <Footer />
