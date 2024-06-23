@@ -48,7 +48,6 @@ export const handleGetCandleById = async (id: string) => {
 export const candlesLoader = async () => {
   return defer({ candles: await handleGetCandles() });
 };
-
 export const candlesLoaderByType = async ({ params }: any) => {
   const { type } = params;
   if (type !== undefined)

@@ -1,8 +1,15 @@
 import React from "react";
 import DesktopMenu from "./DesktopMenu";
 import Header from "./Header";
+import { CandleType } from "../../utils/types/candles";
 
-const NavBar = () => {
+const NavBar = ({
+  favoritesArray,
+  handleAddToFavoritesArray,
+}: {
+  favoritesArray: CandleType[];
+  handleAddToFavoritesArray: (value: CandleType) => void;
+}) => {
   const [navBarMenuIsOpen, setNavBarMenuIsOpen] = React.useState(false);
   const toggleNavBarMenu = () => setNavBarMenuIsOpen(!navBarMenuIsOpen);
   return (
@@ -11,6 +18,8 @@ const NavBar = () => {
         navBarMenuIsOpen={navBarMenuIsOpen}
         setNavBarMenuIsOpen={setNavBarMenuIsOpen}
         toggleNavBarMenu={toggleNavBarMenu}
+        favoritesArray={favoritesArray}
+        handleAddToFavoritesArray={handleAddToFavoritesArray}
       />
       <DesktopMenu />
     </span>

@@ -1,49 +1,50 @@
 .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.573);
-    width: 100vw;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.573);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  &__window {
+    background-color: #ffffff;
+    width: 41%;
+    min-height: 43%;
+    border-radius: 15px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    min-width: 280px;
 
-    &__window {
-        background-color: #ffffff;
-        width: 41%;
-        min-height: 43%;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-width: 280px;
-
-        input {
-            background-color: #EBDBFF;
-        }
-
-        h2 {
-            font-weight: 700;
-            font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
-            direction: rtl;
-            text-align: center;
-        }
+    input {
+      background-color: #ebdbff;
     }
+
+    h2 {
+      font-weight: 700;
+      font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
+      direction: rtl;
+      text-align: center;
+    }
+  }
 }
 
 #addInput {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
-.updateInput, #addInput {
-    direction: rtl;
-    background-color: #EBDBFF;
-    border-radius: 10px;
-    min-height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
-    padding-right: 2%;
-    width: 50%;
-    min-width: 200px;
+.updateInput,
+#addInput {
+  direction: rtl;
+  background-color: #ebdbff;
+  border-radius: 10px;
+  min-height: clamp(2rem, 0.938vw + 1.5rem, 3.438rem);
+  padding-right: 2%;
+  width: 50%;
+  min-width: 200px;
 }

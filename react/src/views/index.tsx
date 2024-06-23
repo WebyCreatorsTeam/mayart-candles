@@ -1,12 +1,12 @@
 import React from "react";
 import HeroImageSection from "../Components/HeroImageSection";
-import CandlesAll from "./Candles/CandlesAll/CandlesAll";
+import AllCandles from "./Candles/AllCandles/AllCandles";
 
 const Home = () => {
   return (
     <div className="scrollbar-none flex flex-col">
       <HeroImageSection />
-      <CandlesAll home />
+      <AllCandles home />
     </div>
   );
 };
