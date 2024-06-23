@@ -1,8 +1,8 @@
 import React from "react";
-import { useLocalCandleStorage } from "../../../utils/localCandleStorage";
+import { useLocalCandlesStorage } from "../../../utils/localCandleStorage";
 
 const SelectionList = ({ type }: { type: string }) => {
-  const { getItems } = useLocalCandleStorage(`${type}Candles`);
+  const { getItems } = useLocalCandlesStorage(`${type}Candles`);
   const candles = getItems();
   return (
     <div dir="rtl" className="h-full w-full bg-white">

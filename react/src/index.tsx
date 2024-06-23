@@ -25,7 +25,7 @@ import AboutDashboard, {
   aboutDashLoader,
 } from "./views/Dashboard/About/AboutDashboard";
 import Candle from "./views/Candles/[id]/page";
-import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
+import AllCandles from "./views/Candles/AllCandles/AllCandles";
 import {
   aboutLoader,
   candleCatagoriesLoader,
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/candles",
         children: [
-          { index: true, element: <CandlesAll />, loader: candlesLoader },
+          { index: true, element: <AllCandles />, loader: candlesLoader },
           {
             path: "/candles/candle/:id",
             element: <Candle />,
@@ -63,12 +63,12 @@ const router = createBrowserRouter([
           },
           {
             path: "/candles/sized/:size",
-            element: <CandlesAll />,
+            element: <AllCandles />,
             loader: candlesLoaderBySize,
           },
           {
             path: "/candles/:type",
-            element: <CandlesAll />,
+            element: <AllCandles />,
             loader: candlesLoaderByType,
           },
         ],

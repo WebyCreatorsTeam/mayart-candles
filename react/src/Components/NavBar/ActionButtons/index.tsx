@@ -3,6 +3,7 @@ import SearchButton from "./SearchButton";
 import FavoritesButton from "./FavoritesButton";
 import ShoppingCartButton from "./ShoppingCartButton";
 import { ActionButtonInfoT } from "./GenericActionButton";
+import { CandleType } from "../../../utils/types/candles";
 
 const searchActionButtonInfo: ActionButtonInfoT = {
   mobile: {
@@ -36,11 +37,21 @@ const shoppingCartActionButtonInfo: ActionButtonInfoT = {
     alt: "shopping cart icon",
   },
 };
-const ActionButtons = () => {
+const ActionButtons = ({
+  favoritesArray,
+  handleAddToFavoritesArray,
+}: {
+  favoritesArray: CandleType[];
+  handleAddToFavoritesArray: (value: CandleType) => void;
+}) => {
   return (
     <div className="flex gap-7 sm:gap-[29.93px]">
       <SearchButton actionButtonInfo={searchActionButtonInfo} />
-      <FavoritesButton actionButtonInfo={favoritesActionButtonInfo} />
+      <FavoritesButton
+        favoritesArray={favoritesArray}
+        handleAddToFavoritesArray={handleAddToFavoritesArray}
+        actionButtonInfo={favoritesActionButtonInfo}
+      />
       <ShoppingCartButton actionButtonInfo={shoppingCartActionButtonInfo} />
     </div>
   );

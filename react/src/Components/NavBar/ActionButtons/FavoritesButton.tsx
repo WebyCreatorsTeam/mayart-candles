@@ -1,18 +1,20 @@
 import React from "react";
 import GenericActionButton, { ActionButtonInfoT } from "./GenericActionButton";
-import { useLocalCandleStorage } from "../../../utils/localCandleStorage";
+import { CandleType } from "../../../utils/types/candles";
 
 const FavoritesButton = ({
   actionButtonInfo,
+  favoritesArray,
+  handleAddToFavoritesArray,
 }: {
   actionButtonInfo: ActionButtonInfoT;
+  favoritesArray: CandleType[];
+  handleAddToFavoritesArray: (value: CandleType) => void;
 }) => {
-  const { setItem, getItems } = useLocalCandleStorage("favoritesCandles");
-  const candles = getItems();
   return (
     <GenericActionButton
       type="favorites"
-      candles={candles}
+      candles={favoritesArray}
       actionButtonInfo={actionButtonInfo}
     />
   );

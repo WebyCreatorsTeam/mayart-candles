@@ -1,5 +1,5 @@
 import React from "react";
-import CandlesAll from "../../views/Candles/CandlesAll/CandlesAll";
+import AllCandles from "../../views/Candles/AllCandles/AllCandles";
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
           <img src="../../../public/images/Heart-Streamline-Core.png" alt="" />
         </span>
       </div>
-      <CandlesAll />
+      <AllCandles />
     </div>
   );
 };

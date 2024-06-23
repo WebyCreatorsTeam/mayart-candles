@@ -1,5 +1,5 @@
 import React from "react";
-import { ChosenCandleType } from "../../../utils/types/candles";
+import { CandleType, ChosenCandleType } from "../../../utils/types/candles";
 
 import { Link } from "react-router-dom";
 export type ActionButtonInfoT = {
@@ -12,7 +12,7 @@ const GenericActionButton = ({
   type,
 }: {
   actionButtonInfo: ActionButtonInfoT;
-  candles?: ChosenCandleType[];
+  candles?: Array<ChosenCandleType | CandleType> | undefined;
   type?: string;
 }) => {
   return (
