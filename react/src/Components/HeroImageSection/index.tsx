@@ -3,10 +3,12 @@ import React from "react";
 const HeroImageSection = () => {
   return (
     <header className="relative flex max-h-[201px] items-center justify-center overflow-hidden text-center sm:max-h-[429.83px] lg:max-h-[859px] 2xl:max-h-none">
+      
       <img
         src="/images/hero-image.webp"
         alt="hero"
         className="-mb-3 object-cover 2xl:w-full"
+        loading="lazy"
       />
       <div
         dir="rtl"

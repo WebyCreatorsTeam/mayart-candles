@@ -803,6 +803,10 @@ video {
   max-height: 201px;
 }
 
+.max-h-\[221px\] {
+  max-height: 221px;
+}
+
 .min-h-full {
   min-height: 100%;
 }
@@ -893,8 +897,20 @@ video {
   width: 100vw;
 }
 
+.w-\[221px\] {
+  width: 221px;
+}
+
 .min-w-\[400px\] {
   min-width: 400px;
+}
+
+.min-w-\[165px\] {
+  min-width: 165px;
+}
+
+.max-w-\[165px\] {
+  max-width: 165px;
 }
 
 .basis-1 {
@@ -935,8 +951,16 @@ video {
           user-select: none;
 }
 
+.grid-flow-row {
+  grid-auto-flow: row;
+}
+
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -985,6 +1009,10 @@ video {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.justify-items-center {
+  justify-items: center;
 }
 
 .gap-1 {
@@ -1304,6 +1332,10 @@ video {
   padding-top: 46px;
 }
 
+.pb-14 {
+  padding-bottom: 3.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1395,6 +1427,10 @@ video {
   line-height: 53.2px;
 }
 
+.leading-\[21\.28px\] {
+  line-height: 21.28px;
+}
+
 .tracking-normal {
   letter-spacing: 0em;
 }
@@ -1420,6 +1456,18 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#12151580\] {
+  color: #12151580;
+}
+
+.text-\[\#12151580\/50\] {
+  color: #12151580/50;
+}
+
+.text-\[\#12151580\/\] {
+  color: #12151580/;
 }
 
 .line-through {
@@ -1517,10 +1565,6 @@ code {
 .hover\:bg-secondary-pink:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(139 14 89 / var(--tw-bg-opacity));
-}
-
-.hover\:fill-black:hover {
-  fill: #000;
 }
 
 .hover\:text-white:hover {
@@ -1629,8 +1673,20 @@ code {
     height: 868.22px;
   }
 
+  .sm\:h-\[57\] {
+    height: 57;
+  }
+
+  .sm\:h-\[57\.11px\] {
+    height: 57.11px;
+  }
+
   .sm\:max-h-\[429\.83px\] {
     max-height: 429.83px;
+  }
+
+  .sm\:max-h-\[684\.31px\] {
+    max-height: 684.31px;
   }
 
   .sm\:w-32 {
@@ -1659,6 +1715,18 @@ code {
     width: fit-content;
   }
 
+  .sm\:w-\[\] {
+    width: ;
+  }
+
+  .sm\:w-\[68\.43px\] {
+    width: 68.43px;
+  }
+
+  .sm\:max-w-\[352\.85px\] {
+    max-width: 352.85px;
+  }
+
   .sm\:gap-2 {
     gap: 0.5rem;
   }
@@ -1683,8 +1751,16 @@ code {
     gap: 76.98px;
   }
 
+  .sm\:gap-20 {
+    gap: 5rem;
+  }
+
   .sm\:rounded-\[38\.59px\] {
     border-radius: 38.59px;
+  }
+
+  .sm\:p-\[21\.38px\] {
+    padding: 21.38px;
   }
 
   .sm\:px-11 {
@@ -1720,6 +1796,21 @@ code {
   .sm\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .sm\:px-\[\] {
+    padding-left: ;
+    padding-right: ;
+  }
+
+  .sm\:py-\[46\.345\] {
+    padding-top: 46.345;
+    padding-bottom: 46.345;
+  }
+
+  .sm\:py-\[46\.345px\] {
+    padding-top: 46.345px;
+    padding-bottom: 46.345px;
   }
 
   .sm\:pb-\[78\.18px\] {
@@ -1766,6 +1857,14 @@ code {
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-\[30px\] {
+    font-size: 30px;
+  }
+
+  .sm\:font-semibold {
+    font-weight: 600;
   }
 
   .sm\:leading-\[34\.13px\] {
@@ -1979,10 +2078,6 @@ code {
   }
 
   .lg\:hover\:fill-black:hover {
-    fill: #000;
-  }
-
-  .lg\:hover\:\*\:fill-black > *:hover {
     fill: #000;
   }
 }
