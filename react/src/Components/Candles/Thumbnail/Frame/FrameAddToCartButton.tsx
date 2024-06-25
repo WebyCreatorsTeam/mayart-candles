@@ -1,9 +1,11 @@
 import React from "react";
 import { CandleType } from "../../../../utils/types/candles";
+import { Link } from "react-router-dom";
 
 const FrameAddToCartButton = ({ candle }: { candle: CandleType }) => {
   return (
-    <button
+    <Link
+      to={`/candles/candle/${candle._id}`}
       // onClick={() => handleAddToFavoritesArray(candle)}
       className="hidden flex-col items-center justify-center p-2.5 sm:p-[21.38px] lg:flex lg:p-[15px]"
     >
@@ -37,7 +39,7 @@ const FrameAddToCartButton = ({ candle }: { candle: CandleType }) => {
         />
       </svg>
       <span className="hidden lg:block">הוספה לסל</span>
-    </button>
+    </Link>
   );
 };
 
