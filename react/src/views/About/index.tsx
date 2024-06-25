@@ -1,16 +1,14 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { aboutLoaderInformation } from "../../utils/types/about";
+import { AboutLoaderInformation } from "../../utils/types/about";
 import AboutText from "../../Components/About/AboutText";
 import AboutImages from "../../Components/About/AboutImages";
 import AboutBlobs from "../../Components/About/AboutBlobs";
 
 const About = () => {
   const { aboutText } = useLoaderData() as {
-    aboutText: aboutLoaderInformation;
+    aboutText: AboutLoaderInformation;
   };
-  console.log(aboutText);
-
   return (
     <div
       dir="rtl"
