@@ -31,7 +31,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
         URL.createObjectURL(target.files[0]),
       );
       if (width > 530 || height > 700) {
-        return alert("התמונה גדולה מדי");
+        return alert("התמונה נרות גדוליםה מדי");
       } else {
         setFile(target.files[0]);
         return setPrevFileShow(URL.createObjectURL(target.files[0]));

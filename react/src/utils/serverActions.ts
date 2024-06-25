@@ -1,7 +1,7 @@
 import axios from "axios";
 import { defer } from "react-router-dom";
 import { CandleType } from "./types/candles";
-import { aboutLoaderResponse as AboutLoaderResponse } from "./types/about";
+import { AboutLoaderResponse } from "./types/about";
 
 export const handleGetCandles = async () => {
   const { data } = await axios.get(
@@ -12,22 +12,34 @@ export const handleGetCandles = async () => {
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
 export const handleGetCandlesByType = async (type: string) => {
-  const { data } = await axios.get(
-    `https://mayart-candles-api.vercel.app/candles/get-candles`,
-  );
-  const { continueWork, allCandles } = data;
-  if (continueWork)
-    return allCandles.filter((candle: CandleType) => candle.type === type);
-  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+  try {
+    const { data } = await axios.post(
+      `https://mayart-candles-api.vercel.app/candles/get-candles-by-category`,
+      {
+        categoryType: type,
+      },
+    );    
+    const { continueWork, categoryCandles } = data;
+    if (continueWork) return categoryCandles;
+    if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const handleGetCandlesBySize = async (size: string) => {
-  const { data } = await axios.get(
-    `https://mayart-candles-api.vercel.app/candles/get-candles`,
-  );
-  const { continueWork, allCandles } = data;
-  if (continueWork)
-    return allCandles.filter((candle: CandleType) => candle.size === size);
-  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+  try {
+    const { data } = await axios.post(
+      `https://mayart-candles-api.vercel.app/candles/get-candles-by-category`,
+      {
+        categoryType: size,
+      },
+    );
+    const { continueWork, categoryCandles } = data;
+    if (continueWork) return categoryCandles;
+    if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+  } catch (error) {
+    console.log(error);
+  }
 };
 export const handleGetCandleById = async (id: string) => {
   const { data } = await axios.post(

@@ -22,7 +22,10 @@ export type CandlePictureT = {
   _id: string;
 };
 
-export type CandleSizeT = "נרות קטנים" | "נרות גדולים" | "נרות בינוניים";
+export type CandleSizeT =
+  | "נרות קטנים"
+  | "נרות נרות גדוליםים"
+  | "נרות נרות בינונייםים";
 
 export type CandleColorT = {
   color: string;

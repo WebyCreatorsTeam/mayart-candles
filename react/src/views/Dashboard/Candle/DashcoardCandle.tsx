@@ -44,8 +44,12 @@ const DashcoardCandle = () => {
                 </section>
                 <section>
                   <select defaultValue={candle.size}>
-                    <option value="נרות גדולים">נרות גדולים</option>
-                    <option value="נרות בינוניים">נרות בינוניים</option>
+                    <option value="נרות נרות גדוליםים">
+                      נרות נרות גדוליםים
+                    </option>
+                    <option value="נרות נרות בינונייםים">
+                      נרות נרות בינונייםים
+                    </option>
                     <option value="נרות קטנים">נרות קטנים</option>
                   </select>
                 </section>
