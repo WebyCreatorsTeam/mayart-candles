@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 
 import { useOutletContext } from "react-router-dom";
-import { CandleType } from "../../../../../utils/types/candles";
-import { ContextType } from "../../../../../App";
+import { CandleType } from "../../../../utils/types/candles";
+import { ContextType } from "../../../../App";
 
 const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
   const context = useOutletContext();
@@ -20,10 +20,27 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
   return (
     <button
       onClick={() => handleAddToFavoritesArray(candle)}
-      className="flex flex-col items-center justify-center p-2.5 active:*:fill-black sm:p-[21.38px]"
+      className="flex flex-col items-center justify-center p-2.5 hover:*:fill-black active:*:fill-black sm:p-[21.38px] lg:p-[15px]"
     >
       <svg
-        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] lg:hover:fill-black ${isFavoriteCandle ? "fill-black" : ""}`}
+        className={`hidden lg:block ${isFavoriteCandle ? "fill-black" : ""}`}
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.0101 30.0721L3.71516 18.0297C-3.51035 10.8042 7.11113 -3.06878 17.0101 8.15481C26.9089 -3.06878 37.4824 10.8523 30.305 18.0297L17.0101 30.0721Z"
+          stroke="black"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+
+      <svg
+        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] lg:hidden ${isFavoriteCandle ? "fill-black" : ""}`}
         viewBox="0 0 34 29"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +53,7 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
         />
       </svg>
 
-      <span className="hidden text-[20px]">!אהבתי</span>
+      <span className="hidden lg:block">!אהבתי</span>
     </button>
   );
 };

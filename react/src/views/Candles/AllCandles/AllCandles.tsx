@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
-import Thumbnail from "./Thumbnail";
+import Thumbnail from "../../../Components/Candles/Thumbnail";
 
 const AllCandles = ({ home = false }: { home?: boolean }) => {
   const { candles, type, size } = useLoaderData() as {
