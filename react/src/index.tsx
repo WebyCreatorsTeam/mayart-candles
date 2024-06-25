@@ -37,10 +37,10 @@ import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
 import SelectionList from "./Components/NavBar/ActionButtons/SelectionList";
 
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
-
 const router = createBrowserRouter([
   {
     path: "/",

@@ -13,7 +13,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
       <img
         src={currentCandlePicture}
         alt={currentCandle.name}
-        className=" aspect-square h-full w-full object-cover"
+        className=" h-[508px] w-full object-cover"
       />
       <div className="flex justify-center gap-3 py-5">
         {useMemo(
@@ -22,13 +22,13 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
               return (
                 <button
                   key={index}
-                  className={`h-16 w-16`}
+                  className={`h-[98px] w-[68px]`}
                   onClick={() => chooseCandlePicture(picture.img)}
                 >
                   <img
                     src={picture.img}
                     alt={`number ${index + 1}`}
-                    className="aspect-square overflow-hidden object-cover"
+                    className="aspect-[0.69/1] overflow-hidden object-cover"
                   />
                 </button>
               );

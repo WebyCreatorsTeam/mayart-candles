@@ -13,9 +13,9 @@ export const useLocalCandlesStorage = (key: string) => {
 };
 export const useLocalFavoriteCandlesStorage = () => {
   const key = "favoritesCandles";
-  const addItem = (value: CandleType) => {
+  const addItemToFavorites = (value: CandleType) => {
     try {
-      const currentCandles = getItems();
+      const currentCandles = getFavoriteItems();
       if (!currentCandles) {
         const newCandles = [value];
         return localStorage.setItem(key, JSON.stringify(newCandles));
@@ -29,14 +29,14 @@ export const useLocalFavoriteCandlesStorage = () => {
           const newCandles = [...currentCandles, value];
           localStorage.setItem(key, JSON.stringify(newCandles));
         } else {
-          deleteItem(value._id);
+          deleteItemFromFavorites(value._id);
         }
       }
     } catch (error) {
       console.log(error);
     }
   };
-  const getItems = (): CandleType[] | undefined => {
+  const getFavoriteItems = (): CandleType[] | undefined => {
     try {
       const candles = localStorage.getItem(key);
       return candles ? [...JSON.parse(candles)] : undefined;
@@ -44,9 +44,9 @@ export const useLocalFavoriteCandlesStorage = () => {
       console.log(error);
     }
   };
-  const deleteItem = (id: string) => {
+  const deleteItemFromFavorites = (id: string) => {
     try {
-      const currentCandles = getItems();
+      const currentCandles = getFavoriteItems();
       if (currentCandles) {
         const newCandles = currentCandles.filter((candle) => candle._id !== id);
         localStorage.setItem(key, JSON.stringify(newCandles));
@@ -55,31 +55,93 @@ export const useLocalFavoriteCandlesStorage = () => {
       console.log(error);
     }
   };
-  return { addItem, getItems };
+  return { addItemToFavorites, getFavoriteItems };
 };
 
 export const useLocalShoppingCartCandlesStorage = () => {
   const key = "shoppingCartCandles";
-  const addItem = (value: ChosenCandleType) => {
+  const addItemToCart = (value: ChosenCandleType) => {
     try {
-      const currentCandles = getItems();
-      if (currentCandles) {
-        const newCandles = [...currentCandles, value];
-        localStorage.setItem(key, JSON.stringify(newCandles));
+      const currentCandles = getShoppingCartItems();
+      if (!currentCandles) {
+        const newCandles = [{ ...value, amount: 1 }];
+        return localStorage.setItem(key, JSON.stringify(newCandles));
       } else {
-        localStorage.setItem(key, JSON.stringify(value));
+        const candleExists = currentCandles.findIndex(
+          (candle) =>
+            candle._id === value._id &&
+            candle.colors._id === value.colors._id &&
+            candle.fragrances === value.fragrances,
+        );
+        if (candleExists === -1) {
+          const newCandles = [...currentCandles, { ...value, amount: 1 }];
+          localStorage.setItem(key, JSON.stringify(newCandles));
+        } else {
+          const newCandles = currentCandles.map((candle) => {
+            if (
+              candle._id === value._id &&
+              candle.colors._id === value.colors._id &&
+              candle.fragrances === value.fragrances
+            ) {
+              return { ...candle, amount: candle.amount + 1 };
+            }
+            return candle;
+          });
+          return localStorage.setItem(key, JSON.stringify(newCandles));
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
-  const getItems = (): ChosenCandleType[] | undefined => {
+  const getShoppingCartItems = (): ChosenCandleType[] | undefined => {
     try {
       const candles = localStorage.getItem(key);
-      return candles ? JSON.parse(candles) : undefined;
+      return candles ? [...JSON.parse(candles)] : undefined;
     } catch (error) {
       console.log(error);
     }
   };
-  return { addItem, getItems };
+  const removeItemFromCart = (value: ChosenCandleType) => {
+    try {
+      const currentCandles = getShoppingCartItems();
+      if (currentCandles) {
+        const candleExists = currentCandles.findIndex(
+          (candle) =>
+            candle._id === value._id &&
+            candle.colors._id === value.colors._id &&
+            candle.fragrances === value.fragrances,
+        );
+        if (candleExists === -1) return;
+        if (currentCandles[candleExists].amount === 1) {
+          const newCandles = currentCandles.filter(
+            (candle) =>
+              candle._id !== value._id ||
+              candle.colors._id !== value.colors._id ||
+              candle.fragrances !== value.fragrances,
+          );
+          localStorage.setItem(key, JSON.stringify(newCandles));
+        } else {
+          const updatedCandles = currentCandles.map((candle) => {
+            if (
+              candle._id === value._id &&
+              candle.colors._id === value.colors._id &&
+              candle.fragrances === value.fragrances
+            ) {
+              return { ...candle, amount: candle.amount - 1 };
+            }
+            return candle;
+          });
+          return localStorage.setItem(key, JSON.stringify(updatedCandles));
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return {
+    addItemToCart,
+    getShoppingCartItems,
+    removeItemFromCart,
+  };
 };
