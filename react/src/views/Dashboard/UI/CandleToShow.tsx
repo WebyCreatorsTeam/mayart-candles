@@ -28,11 +28,11 @@ const CandleToShow: FC<ICandleToShow> = ({ cdl }) => {
         <div className='candle-show'>
             <button
                 disabled={loader}
-                onClick={() => handleDeleteCandle(cdl._id)}
+                onClick={() => handleDeleteCandle(cdl._id!)}
                 title='למחוק נר'
             ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
             <Link to={`/dashboard/candle/${cdl._id}`} className='link-to-candle'>
-                <img src={cdl.pictures[0].img} alt={`תמונה של מוצר ${cdl.name}`} width={530} height={700} />
+                <img src={cdl.pictures![0].img} alt={`תמונה של מוצר ${cdl.name}`} width={530} height={700} />
                 <div className='price-details'>
                     <h2>{cdl.name}</h2>
                     <div className='price-details__costs'>

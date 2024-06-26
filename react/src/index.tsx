@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MainDashboard />, loader: candlesLoader },
       { path: "candle/:candleID", element: <DashcoardCandle />, loader: getCandle },
-      { path: "candle/add-new-candle", element: <AddNewCandle/> },
+      { path: "candle/add-new-candle", element: <AddNewCandle />, loader: categoriesLoader },
       { path: "categories", element: <CategoriesDashboard />, loader: categoriesLoader },
       { path: "categories/:categotyName", element: <OneCategoryDashboard />, loader: getCategoryLoader },
       { path: "about", element: <AboutDashboard />, loader: aboutDashLoader },

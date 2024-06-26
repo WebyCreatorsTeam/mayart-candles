@@ -6,7 +6,12 @@ const LayoutDashboard: FC = () => {
     const location = useLocation()
 
     return (
-        <div className={`dashboard ${location.pathname === "/dashboard/about" || location.pathname === "/dashboard" ? "dashboardMargin" : ""}`}>
+        <div className={`dashboard ${location.pathname === "/dashboard/about" ||
+            location.pathname === "/dashboard" ||
+            location.pathname.includes("/dashboard/candle") ||
+            location.pathname.includes("/dashboard/categories") 
+            ? "dashboardMargin"
+            : ""}`}>
             <div className="background">
                 <NavBarDashboard />
                 <main>

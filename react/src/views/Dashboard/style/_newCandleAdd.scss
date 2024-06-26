@@ -1,0 +1,80 @@
+.candleAddPage {
+    box-sizing: border-box;
+    padding: 0% 2%;
+
+    h1 {
+        font-size: clamp(1.5rem, 0.641vw + 1.356rem, 2.125rem);
+        text-align: center;
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 0.897vw + 1.548rem, 2.625rem);
+    }
+
+    h3 {
+        font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
+    }
+
+    p,
+    label {
+        font-size: 22px;
+    }
+
+    label {
+        margin-left: 1%;
+    }
+
+    input,
+    textarea,
+    select {
+        direction: rtl;
+        background-color: #EBDBFF;
+        border-radius: 10px;
+    }
+
+    input {
+        width: 15%;
+        font-size: 20px;
+    }
+
+    select {
+        padding: 0.5% 0%;
+    }
+
+    input[type="text"] {
+        padding: 0.5% 1% 0.5% 0%;
+    }
+
+    section {
+        margin: 2% 0%;
+    }
+
+    .costsDisplay {
+        width: 30%;
+        min-width: 320px;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        align-items: center;
+        justify-items: stretch;
+
+        label,
+        input {
+            margin-top: 3%;
+        }
+
+        input {
+            width: 100%;
+            padding: 3% 5% 3% 0%;
+        }
+    }
+
+    .colorDisplay,
+    .flagDisplay {
+        display: flex;
+        align-items: center;
+    }
+
+    .descDisplay {
+        width: 50%;
+    }
+}

@@ -20,11 +20,11 @@ const DashcoardCandle = () => {
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={[candle, categories]}>
-        <CandleIdContext.Provider value={candle._id}>
+        <CandleIdContext.Provider value={candle._id!}>
           <section className='candlePage'>
             <h1>עמוד מוצר</h1>
             <section className='candleItem' dir="rtl">
-              <CandleImages images={candle.pictures} candleName={candle.name} />
+              <CandleImages images={candle.pictures!} candleName={candle.name} />
               <section className='candleItem__info-section'>
                 <CandleName name={candle.name} />
                 <hr />
@@ -52,7 +52,7 @@ const hendleGetCandle = async (id: string) => {
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }
 
-const handleGetCategories = async () => {
+export const handleGetCategories = async () => {
   const { data: { continueWork, categories } } = await axios.get(`${BASE_API}/categories/get-categories`)
   if (continueWork) return categories
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")

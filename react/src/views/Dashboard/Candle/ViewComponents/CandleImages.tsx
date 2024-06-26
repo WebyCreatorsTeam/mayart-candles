@@ -15,7 +15,7 @@ interface ICandleImages {
 }
 
 interface candlePic {
-    img: string, _id: string
+    img: string, _id?: string
 }
 const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
     const [imagesOfCandle, setImagesOfCandle] = useState<Array<candlePic>>(images)
@@ -41,7 +41,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
         if (imagesOfCandle.length === 4) {
             return alert("לא ניתן לעלות יותר מ4 תמונות")
         }
-        let target = ev.target as HTMLInputElement;
+        const target = ev.target as HTMLInputElement;
         if (target.files && target.files[0]) {
             const { width, height } = await loadImage(URL.createObjectURL(target.files[0]))
             if (width > 530 || height > 700) {
@@ -124,7 +124,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
                             imagesOfCandle.length > 1 &&
                             <div className='candle-images__bottom-show--deleteEl'>
                                 <button
-                                    onClick={() => handleDeleteImage(img._id)}
+                                    onClick={() => handleDeleteImage(img._id!)}
                                 ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
                             </div>
                         }

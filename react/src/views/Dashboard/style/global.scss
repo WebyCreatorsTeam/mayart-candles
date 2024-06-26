@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    // padding: 10vh 0;
 }
 
 .dashboardMargin {
@@ -26,3 +25,4 @@ html {
 @import "./categoryDashboard";
 @import "./candlePage.scss";
 @import "./about.scss";
+@import "./newCandleAdd";

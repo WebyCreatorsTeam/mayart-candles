@@ -7,15 +7,15 @@ import { BASE_API } from '../../utils/api-connect'
 export interface ICandles {
   name: string,
   shape: string
-  colors: [{ color: string, hexCode: string, _id: string }]
+  colors: [{ color: string, hexCode: string, _id?: string }]
   fragrances: [string]
   price: number,
   salePrice: number
-  pictures: Array<{ img: string, _id: string }>
+  pictures?: Array<{ img: string, _id?: string }>
   description: string
   type: string
   size: string
-  _id: string
+  _id?: string
 }
 
 const MainDashboard: FC = () => {

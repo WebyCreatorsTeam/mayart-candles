@@ -6,8 +6,7 @@ const CandleSchema = new Schema({
         require: [true, "נא למלא שם של נר"]
     },
     shape: {
-        type: String,
-        require: [true, "נא למלא צורה של נר"]
+        type: String
     },
     colors: {
         type: [{color: String, hexCode: String}],
