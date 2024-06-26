@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import axios from "axios";
+import { BASE_API } from "../../../utils/api-connect";
 
 interface IPaymentDesc {
   id: string;
@@ -21,7 +22,7 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
       const {
         data: { continueWork, message }
       } = await axios.patch(
-        `http://localhost:7575/payment/update-payment-text?token=${token}`,
+        `${BASE_API}/payment/update-payment-text?token=${token}`,
         { id, paymentDesc },
       );
       if (continueWork) {

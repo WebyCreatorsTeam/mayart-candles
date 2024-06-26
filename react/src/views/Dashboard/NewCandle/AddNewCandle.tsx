@@ -12,7 +12,7 @@ import NewCandleType from './NewCandleType/NewCandleType'
 import NewCandleSize from './NewCandleSize/NewCandleSize'
 import UploadManyFiles from '../UI/UploadManyFiles'
 import axios from 'axios'
-import { BASE_API } from '../../../utils/api-connect'
+// import { BASE_API } from '../../../utils/api-connect'
 
 const AddNewCandle: FC = () => {
   const { categories }: any = useLoaderData() as { admins: Array<ICategories> }

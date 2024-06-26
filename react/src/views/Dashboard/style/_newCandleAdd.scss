@@ -8,16 +8,16 @@
     }
 
     h2 {
-        font-size: clamp(1.75rem, 0.897vw + 1.548rem, 2.625rem);
+        font-size: clamp(1.5rem, 0.385vw + 1.413rem, 1.875rem);
     }
 
     h3 {
-        font-size: clamp(1.5rem, 0.513vw + 1.385rem, 2rem);
+        font-size: clamp(1.5rem, 0.128vw + 1.471rem, 1.625rem);
     }
 
     p,
     label {
-        font-size: 22px;
+        font-size: clamp(1.25rem, 0.256vw + 1.192rem, 1.5rem);
     }
 
     label {

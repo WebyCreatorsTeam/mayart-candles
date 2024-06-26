@@ -2,6 +2,7 @@ import axios from "axios";
 import { FC, Suspense, useState } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 import PaymentDesc from "./paymentDesc";
+import { BASE_API } from "../../../utils/api-connect";
 // import paymantDesc from "./paymentDesc";
 
 interface IPayment {
@@ -10,6 +11,7 @@ interface IPayment {
 }
 const Payment: FC = () => {
   const { payment } = useLoaderData() as { payment: IPayment };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [paymentText, setPaymentText] = useState<string>(payment.text);
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
@@ -30,7 +32,7 @@ const handleGetPayment = async () => {
   try {
     const {
       data: { continueWork, paymentText },
-    } = await axios.get("http://localhost:7575/payment/get-payment");
+    } = await axios.get(`${BASE_API}/payment/get-payment`);
     if (continueWork) return paymentText;
   } catch (error) {
     return alert(error);
