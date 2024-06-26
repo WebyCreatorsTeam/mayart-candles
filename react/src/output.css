@@ -2251,6 +2251,10 @@ code {
 }
 
 @media (min-width: 1280px) {
+  .xl\:invisible {
+    visibility: hidden;
+  }
+
   .xl\:mt-40 {
     margin-top: 10rem;
   }
