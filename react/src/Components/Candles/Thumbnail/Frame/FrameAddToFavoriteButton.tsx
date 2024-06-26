@@ -33,9 +33,9 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
         <path
           d="M17.0101 30.0721L3.71516 18.0297C-3.51035 10.8042 7.11113 -3.06878 17.0101 8.15481C26.9089 -3.06878 37.4824 10.8523 30.305 18.0297L17.0101 30.0721Z"
           stroke="black"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
 

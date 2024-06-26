@@ -14,7 +14,7 @@ const Thumbnail = ({ candle }: { candle: CandleType }) => {
         >
           <img
             src={candle.pictures[0].img}
-            alt="calends"
+            alt="candles"
             className="flex cursor-pointer flex-nowrap gap-[4px] object-cover lg:max-h-[700px]"
           />
         </Link>

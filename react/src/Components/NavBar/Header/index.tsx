@@ -56,7 +56,7 @@ const Header = ({
   handleAddToFavoritesArray: (value: CandleType) => void;
 }) => {
   return (
-    <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-6 py-5 sm:px-11 sm:py-14">
+    <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-[10.5px]  py-[13.5px] sm:px-11 sm:py-14">
       <div className="flex gap-7 sm:gap-[29.93px]">
         <SearchButton actionButtonInfo={searchActionButtonInfo} />
         <FavoritesButton

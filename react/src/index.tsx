@@ -40,7 +40,6 @@ import SelectionList from "./Components/NavBar/ActionButtons/SelectionList";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
-
 const router = createBrowserRouter([
   {
     path: "/",
