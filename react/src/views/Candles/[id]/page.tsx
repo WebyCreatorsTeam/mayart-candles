@@ -1,8 +1,7 @@
-import { useLoaderData} from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
 import CandlePictures from "../../../Components/Candles/CandlePictures";
-import MobileTabletCandleInfo from "../../../Components/Candles/MobileTabletCandleInfo";
-
+import MobileTabletCandleInfo from "../../../Components/Candles/singularCandle/MobileTabletCandleInfo";
 
 const Candle = () => {
   const { candle } = useLoaderData() as { candle: CandleType };

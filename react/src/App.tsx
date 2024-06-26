@@ -3,13 +3,13 @@ import "./output.css";
 import Footer from "./Components/Footer";
 import NavBar from "./Components/NavBar";
 import { Outlet } from "react-router-dom";
-
 import { CandleType, ChosenCandleType } from "./utils/types/candles";
 import {
   useLocalFavoriteCandlesStorage,
   useLocalShoppingCartCandlesStorage,
 } from "./utils/localCandleStorage";
 import ContactKnob from "./Components/ContactKnob";
+import ShoppingCartPopover from "./Components/Popover/ShoppingCart";
 
 export type ContextType = {
   favoritesArray: CandleType[];
@@ -17,9 +17,18 @@ export type ContextType = {
   handleAddToFavoritesArray: (value: CandleType) => void;
   handleAddToShoppingCartArray: (candle: ChosenCandleType) => void;
   handleRemoveOneFromShoppingCartArray: (candle: ChosenCandleType) => void;
+  setShoppingCartPopoverIdleTimer: (value: boolean) => void;
 };
 function App() {
+  const [remaining, setRemaining] = useState<number>(0);
   const [showShoppingCart, setShowShoppingCart] = useState(false);
+  const [shoppingCartPopoverIdleTimer, setShoppingCartPopoverIdleTimer] =
+    useState(false);
+  const openShoppingCart = () => setShowShoppingCart(true);
+  const closeShoppingCart = () => {
+    setShoppingCartPopoverIdleTimer(false);
+    setShowShoppingCart(false);
+  };
   const { getFavoriteItems, addItemToFavorites } =
     useLocalFavoriteCandlesStorage();
   const { getShoppingCartItems, addItemToCart, removeItemFromCart } =
@@ -39,9 +48,10 @@ function App() {
         candle.colors._id === value.colors._id &&
         candle.fragrances === value.fragrances,
     );
-    if (alreadyInCart === -1)
+    if (alreadyInCart === -1) {
+      setShoppingCartPopoverIdleTimer(true);
       setShoppingCartArray([...shoppingCartArray, value]);
-    else {
+    } else {
       const updatedCart = shoppingCartArray.map((candle) => {
         if (
           candle._id === value._id &&
@@ -54,8 +64,6 @@ function App() {
       });
       setShoppingCartArray(updatedCart);
     }
-    console.log("shoppingCartArray", shoppingCartArray);
-
     addItemToCart(value);
   };
   const handleAddToFavoritesArray = (value: CandleType) => {
@@ -93,8 +101,8 @@ function App() {
       const filteredArray = shoppingCartArray.filter(
         (candle) =>
           candle._id !== value._id ||
-        candle.colors._id !== value.colors._id ||
-        candle.fragrances !== value.fragrances,
+          candle.colors._id !== value.colors._id ||
+          candle.fragrances !== value.fragrances,
       );
       setShoppingCartArray(filteredArray);
       return removeItemFromCart(value);
@@ -104,11 +112,14 @@ function App() {
   };
 
   useEffect(() => {
-    if (shoppingCartArray.length > 0) setShowShoppingCart(true);
-    setTimeout(() => {
-      setShowShoppingCart(false);
-    }, 5000);
-  }, [shoppingCartArray]);
+    if (shoppingCartArray.length > 0)
+      if (shoppingCartPopoverIdleTimer) setShowShoppingCart(true);
+    if (!shoppingCartPopoverIdleTimer)
+      setTimeout(() => {
+        setShoppingCartPopoverIdleTimer(false);
+        setShowShoppingCart(false);
+      }, 5000);
+  }, [shoppingCartArray, shoppingCartPopoverIdleTimer]);
 
   return (
     <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip">
@@ -117,36 +128,16 @@ function App() {
           favoritesArray={favoritesArray}
           handleAddToFavoritesArray={handleAddToFavoritesArray}
         />
-        {/* shopping cart popup */}
-        <div className="absolute flex h-[681px] w-[334px] flex-col">
-          <h1
-            className={`bg-[#F7E1D799] text-left ${showShoppingCart ? "" : "hidden"}`}
-          >
-            סל קניות
-          </h1>
-          <div
-            className={`${
-              showShoppingCart ? "" : "hidden"
-            } absolute right-0 top-0 flex h-[681px] w-[334px] flex-col justify-between bg-[#F7E1D799]`}
-          >
-            <div className="">
-              {shoppingCartArray.map((candle) => (
-                <div
-                  key={candle._id}
-                  className="flex h-[118px] w-full flex-col items-center justify-center gap-1"
-                >
-                  <img
-                    src={candle.pictures[0].img}
-                    alt="calends"
-                    className="h-[118px] w-[118px] object-cover"
-                  />
-                  <p>{candle.name}</p>
-                  <p>{candle.price}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+
+        <ShoppingCartPopover
+          closeShoppingCart={closeShoppingCart}
+          shoppingCartArray={shoppingCartArray}
+          showShoppingCart={showShoppingCart}
+          handleAddToShoppingCartArray={handleAddToShoppingCartArray}
+          handleRemoveOneFromShoppingCartArray={
+            handleRemoveOneFromShoppingCartArray
+          }
+        />
         <div className="flex h-fit w-full flex-col">
           <Outlet
             context={{
@@ -155,6 +146,7 @@ function App() {
               handleRemoveOneFromShoppingCartArray,
               favoritesArray,
               handleAddToFavoritesArray,
+              setShoppingCartPopoverIdleTimer,
             }}
           />
           <ContactKnob />
