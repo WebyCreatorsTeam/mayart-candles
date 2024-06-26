@@ -19,9 +19,9 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
       const token = sessionStorage.getItem("token");
       // const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-name?token=${token}`, { id, name: aboutTitle })
       const {
-        data: { continueWork, message },
+        data: { continueWork, message }
       } = await axios.patch(
-        `http://localhost:7575/payment/update-payment-desc?token=${token}`,
+        `http://localhost:7575/payment/update-payment-text?token=${token}`,
         { id, paymentDesc },
       );
       if (continueWork) {
@@ -39,7 +39,7 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
     <section className="aboutDash__editDesc">
       {!editDesc && (
         <>
-          <p className="paymentPara">{desc}</p>
+          <p className="paymentPara">{paymentDesc}</p>
           <button onClick={() => setEditDesc(true)}>
             <EditIcon color="primary" />
           </button>
@@ -55,9 +55,9 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
             onChange={(ev: any) => setPaymentDesc(ev.target.value)}
           ></textarea>
           <button
-          className="change"
+            className="change"
             onClick={handleChangeTitle}
-            // className={loader ? "form-btn_disable" : "form-btn_active"}
+          // className={loader ? "form-btn_disable" : "form-btn_active"}
           >
             {loader ? "המעדכן" : "עדכן"}
           </button>
@@ -66,7 +66,7 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
               setEditDesc(false);
               setPaymentDesc(desc);
             }}
-            // className={loader ? "form-btn_disable" : "form-btn_active"}
+          // className={loader ? "form-btn_disable" : "form-btn_active"}
           >
             בטל
           </button>

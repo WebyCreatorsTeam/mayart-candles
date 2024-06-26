@@ -10,7 +10,8 @@ import candlesRout from './routers/candles/candles.route'
 import adminRout from './routers/admin/admin.route'
 import categoriesRoute from './routers/category/category.route'
 import aboutRoute from './routers/about/about.route'
-import {v2 as cloudinary} from "cloudinary";
+import paymentRoute from './routers/payment/payment.route';
+import { v2 as cloudinary } from "cloudinary";
 
 // middlewares
 app.use(cors<Request>({
@@ -36,6 +37,7 @@ app
     .use("/candles", candlesRout)
     .use('/categories', categoriesRoute)
     .use('/about', aboutRoute)
+    .use('/payment', paymentRoute)
 
 // status check points
 app.get('/status', (req: Request, res: Response) => res.sendStatus(200))

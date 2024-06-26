@@ -15,6 +15,7 @@ const candles_route_1 = __importDefault(require("./routers/candles/candles.route
 const admin_route_1 = __importDefault(require("./routers/admin/admin.route"));
 const category_route_1 = __importDefault(require("./routers/category/category.route"));
 const about_route_1 = __importDefault(require("./routers/about/about.route"));
+const payment_route_1 = __importDefault(require("./routers/payment/payment.route"));
 const cloudinary_1 = require("cloudinary");
 // middlewares
 app.use((0, cors_1.default)({
@@ -35,7 +36,8 @@ app
     .use("/admin", admin_route_1.default)
     .use("/candles", candles_route_1.default)
     .use('/categories', category_route_1.default)
-    .use('/about', about_route_1.default);
+    .use('/about', about_route_1.default)
+    .use('/payment', payment_route_1.default);
 // status check points
 app.get('/status', (req, res) => res.sendStatus(200));
 // 404 handler

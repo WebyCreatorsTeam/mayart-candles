@@ -14,10 +14,18 @@ const candle_model_1 = require("../../model/candle.model");
 //      /candles/save-candle
 const addCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = req.body;
-        const newCandle = new candle_model_1.Candle(data);
-        yield newCandle.save();
-        return res.json({ continueWork: true, text: "הנר נשמר" });
+        const { candle } = req.query;
+        // const file = req.query
+        console.log(`-------------------------data---------------------------`);
+        console.log(candle);
+        console.log(`-------------------------file---------------------------`);
+        console.log(req.files);
+        // const b64 = Buffer.from(req.file!.buffer).toString("base64");
+        // let dataURI = "data:" + req.file!.mimetype + ";base64," + b64;
+        // console.log(dataURI)
+        // const newCandle = new Candle(data)
+        // await newCandle.save()
+        // return res.json({ continueWork: true, message: "הנר נשמר" })
     }
     catch (error) {
         next(error);
@@ -29,7 +37,7 @@ const removeCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     try {
         const { id } = req.body;
         yield candle_model_1.Candle.findByIdAndDelete(id);
-        return res.json({ continueWork: true, text: "הנר נמחק" });
+        return res.json({ continueWork: true, message: "הנר נמחק" });
     }
     catch (error) {
         next(error);

@@ -10,7 +10,7 @@ router
     .get('/get-candles', getCandle_controller_1.getAllCandles)
     .post('/get-one-candle', getCandle_controller_1.getOneCandle)
     .post('/get-candles-by-category', getCandle_controller_1.getCandleByCategory)
-    .post('/save-candle', candles_controller_1.addCandle)
+    .post('/save-candle', storage_1.upload.array("my_many_files", 4), candles_controller_1.addCandle)
     .delete('/remove-candle', candles_controller_1.removeCandle)
     .patch('/change-candle-name', editCandle_controller_1.changeCandleName)
     .patch('/change-candle-price', editCandle_controller_1.changeCandlePrice)

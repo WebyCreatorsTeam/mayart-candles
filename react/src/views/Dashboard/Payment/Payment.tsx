@@ -6,21 +6,18 @@ import PaymentDesc from "./paymentDesc";
 
 interface IPayment {
   _id: string;
-  desc: string;
+  text: string;
 }
 const Payment: FC = () => {
   const { payment } = useLoaderData() as { payment: IPayment };
-  const [paymentText, setPaymentText] = useState<string>(
-    " *לקוחות יקרים, שימו לב שבעת מעבר לתשלום יפתח צ’אט בWhatsapp שם תתבצע ההזמנה מולי. הפריטים שהוספתם לסל יופיעו לכן אין צורך לחזור על ההזמנה. תודה, מיה :)",
-  );
+  const [paymentText, setPaymentText] = useState<string>(payment.text);
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={payment}>
         <section className="payment">
           <h1 className="paymentTitle">טקסט עמוד תשלום</h1>
 
-          <PaymentDesc id={"123123"} desc={paymentText} />
-          {/* <p className="paymentPara">{paymentText}</p> */}
+          <PaymentDesc id={payment._id} desc={paymentText} />
         </section>
       </Await>
     </Suspense>
@@ -33,7 +30,7 @@ const handleGetPayment = async () => {
   try {
     const {
       data: { continueWork, paymentText },
-    } = await axios.get("http://localhost:7575/");
+    } = await axios.get("http://localhost:7575/payment/get-payment");
     if (continueWork) return paymentText;
   } catch (error) {
     return alert(error);
