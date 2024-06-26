@@ -15,18 +15,22 @@ export type ContextType = {
   favoritesArray: CandleType[];
   shoppingCartArray: ChosenCandleType[];
   handleAddToFavoritesArray: (value: CandleType) => void;
-  handleAddToShoppingCartArray: (candle: ChosenCandleType) => void;
-  handleRemoveOneFromShoppingCartArray: (candle: ChosenCandleType) => void;
-  setShoppingCartPopoverIdleTimer: (value: boolean) => void;
+  handleAddToShoppingCartArray: (
+    event: React.MouseEvent,
+    candle: ChosenCandleType,
+  ) => void;
+  handleRemoveOneFromShoppingCartArray: (
+    event: React.MouseEvent,
+    candle: ChosenCandleType,
+  ) => void;
 };
 function App() {
-  const [remaining, setRemaining] = useState<number>(0);
   const [showShoppingCart, setShowShoppingCart] = useState(false);
-  const [shoppingCartPopoverIdleTimer, setShoppingCartPopoverIdleTimer] =
-    useState(false);
-  const openShoppingCart = () => setShowShoppingCart(true);
-  const closeShoppingCart = () => {
-    setShoppingCartPopoverIdleTimer(false);
+  const openShoppingCart = () => {
+    setShowShoppingCart(true);
+  };
+  const closeShoppingCartPopover = (event?: React.MouseEvent) => {
+    event && event.stopPropagation();
     setShowShoppingCart(false);
   };
   const { getFavoriteItems, addItemToFavorites } =
@@ -41,7 +45,11 @@ function App() {
   const [shoppingCartArray, setShoppingCartArray] = useState<
     ChosenCandleType[]
   >(initialShoppingCartArray || []);
-  const handleAddToShoppingCartArray = (value: ChosenCandleType) => {
+  const handleAddToShoppingCartArray = (
+    event: React.MouseEvent,
+    value: ChosenCandleType,
+  ) => {
+    event.stopPropagation();
     const alreadyInCart = shoppingCartArray.findIndex(
       (candle) =>
         candle._id === value._id &&
@@ -49,8 +57,8 @@ function App() {
         candle.fragrances === value.fragrances,
     );
     if (alreadyInCart === -1) {
-      setShoppingCartPopoverIdleTimer(true);
       setShoppingCartArray([...shoppingCartArray, value]);
+      openShoppingCart();
     } else {
       const updatedCart = shoppingCartArray.map((candle) => {
         if (
@@ -80,7 +88,11 @@ function App() {
     addItemToFavorites(value);
   };
 
-  const handleRemoveOneFromShoppingCartArray = (value: ChosenCandleType) => {
+  const handleRemoveOneFromShoppingCartArray = (
+    event: React.MouseEvent,
+    value: ChosenCandleType,
+  ) => {
+    event.stopPropagation();
     const currentCandle = shoppingCartArray.findIndex(
       (candle) =>
         candle._id === value._id &&
@@ -111,16 +123,6 @@ function App() {
     removeItemFromCart(value);
   };
 
-  useEffect(() => {
-    if (shoppingCartArray.length > 0)
-      if (shoppingCartPopoverIdleTimer) setShowShoppingCart(true);
-    if (!shoppingCartPopoverIdleTimer)
-      setTimeout(() => {
-        setShoppingCartPopoverIdleTimer(false);
-        setShowShoppingCart(false);
-      }, 5000);
-  }, [shoppingCartArray, shoppingCartPopoverIdleTimer]);
-
   return (
     <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip">
       <div className="h-full ">
@@ -130,9 +132,9 @@ function App() {
         />
 
         <ShoppingCartPopover
-          closeShoppingCart={closeShoppingCart}
-          shoppingCartArray={shoppingCartArray}
           showShoppingCart={showShoppingCart}
+          closeShoppingCartPopover={closeShoppingCartPopover}
+          shoppingCartArray={shoppingCartArray}
           handleAddToShoppingCartArray={handleAddToShoppingCartArray}
           handleRemoveOneFromShoppingCartArray={
             handleRemoveOneFromShoppingCartArray
@@ -146,7 +148,6 @@ function App() {
               handleRemoveOneFromShoppingCartArray,
               favoritesArray,
               handleAddToFavoritesArray,
-              setShoppingCartPopoverIdleTimer,
             }}
           />
           <ContactKnob />

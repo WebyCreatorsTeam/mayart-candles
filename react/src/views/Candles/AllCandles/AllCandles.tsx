@@ -9,7 +9,7 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
     type?: string;
     size?: string;
   };
-  
+
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={candles}>

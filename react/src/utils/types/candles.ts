@@ -1,8 +1,8 @@
 export type ChosenCandleType = Omit<CandleType, "colors" | "fragrances"> & {
   colors: CandleColorT;
   fragrances: string;
-  amount:number;
-}
+  amount: number;
+};
 
 export type CandleType = {
   _id: string;

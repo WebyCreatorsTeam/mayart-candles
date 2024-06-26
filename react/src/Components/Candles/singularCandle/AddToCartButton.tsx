@@ -6,11 +6,16 @@ const AddToCartButton = ({
   handleAddToShoppingCartArray,
 }: {
   chosenCandle: ChosenCandleType;
-  handleAddToShoppingCartArray: (candle: ChosenCandleType) => void;
+  handleAddToShoppingCartArray: (
+    event: React.MouseEvent,
+    candle: ChosenCandleType,
+  ) => void;
 }) => {
   return (
     <button
-      onClick={() => handleAddToShoppingCartArray(chosenCandle)}
+      onClick={(e: React.MouseEvent) =>
+        handleAddToShoppingCartArray(e, chosenCandle)
+      }
       className="w-full  border-[6px] border-primary-pink py-[25px] text-xl font-semibold leading-[26.6px]"
     >
       הוספה לסל

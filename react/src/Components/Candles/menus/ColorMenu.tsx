@@ -9,7 +9,6 @@ const ColorsMenu = ({
   chooseCandleColor: (color: CandleColorT["_id"]) => void;
   currentCandleColor: CandleColorT;
   currentCandleColorOptions: CandleColorT[];
-
 }) => {
   return (
     <div className="flex flex-col items-center gap-3">

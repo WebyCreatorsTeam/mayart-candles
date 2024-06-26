@@ -19,7 +19,7 @@ export const handleGetCandlesByType = async (type: string) => {
       {
         categoryType: type,
       },
-    );    
+    );
     const { continueWork, categoryCandles } = data;
     if (continueWork) return categoryCandles;
     if (!continueWork) return alert("הראה שגיאה, נסה שנית");

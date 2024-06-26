@@ -1,69 +1,101 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { ChosenCandleType } from "../../../utils/types/candles";
 import Title from "./Title";
 import Overlay from "./Overlay";
+import ShoppingCartPopoverCandleThumbnail from "./Candle";
+import ShoppingCartPopoverButtons from "./Buttons";
 
 const ShoppingCartPopover = ({
   showShoppingCart,
   shoppingCartArray,
-  closeShoppingCart,
+  closeShoppingCartPopover,
+  handleRemoveOneFromShoppingCartArray,
+  handleAddToShoppingCartArray,
 }: {
   showShoppingCart: boolean;
   shoppingCartArray: ChosenCandleType[];
-  handleRemoveOneFromShoppingCartArray: (value: ChosenCandleType) => void;
-  handleAddToShoppingCartArray: (value: ChosenCandleType) => void;
-  closeShoppingCart: () => void;
+  handleRemoveOneFromShoppingCartArray: (
+    event: React.MouseEvent,
+    value: ChosenCandleType,
+  ) => void;
+  handleAddToShoppingCartArray: (
+    event: React.MouseEvent,
+    value: ChosenCandleType,
+  ) => void;
+  closeShoppingCartPopover: (event?: React.MouseEvent) => void;
 }) => {
+  const shoppingCartArrayActualLength = useMemo(() => {
+    let shoppingCartArrayActualLength = 0;
+    shoppingCartArray.forEach((candle) => {
+      if (candle.amount) {
+        shoppingCartArrayActualLength += candle.amount;
+      }
+    });
+    return shoppingCartArrayActualLength;
+  }, [shoppingCartArray]);
+  const shoppingCartArrayPriceSum = shoppingCartArray.reduce((sum, candle) => {
+    if (candle.salePrice) {
+      return sum + candle.salePrice * candle.amount;
+    } else {
+      return sum + candle.price * candle.amount;
+    }
+  }, 0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      closeShoppingCartPopover();
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [closeShoppingCartPopover, showShoppingCart]);
+
   return (
-    <Overlay closeShoppingCart={closeShoppingCart} showShoppingCart={showShoppingCart}>
+    <Overlay showShoppingCart={showShoppingCart}>
       <div
         dir="rtl"
-        className="fixed left-0 top-0 z-[1000]  flex h-[681px] w-[334px] flex-col gap-5 bg-white"
+        className="fixed left-0 top-0 z-[1000] flex h-[651px] w-[334px] flex-col gap-5 bg-white sm:h-[780px] lg:h-full lg:w-[960px]"
       >
-        <Title closeShoppingCart={closeShoppingCart} shoppingCartArray={shoppingCartArray} />
+        <Title
+          closeShoppingCartPopover={closeShoppingCartPopover}
+          shoppingCartArrayActualLength={shoppingCartArrayActualLength}
+        />
+
         <div
           className={`${
             showShoppingCart ? "" : ""
-          } flex h-full max-h-[555px] w-full flex-col items-center gap-5 p-5 px-5`}
+          } flex h-full w-full flex-col items-center gap-5 px-5 max-lg:max-h-[555px] max-lg:p-5 sm:max-lg:max-h-[635px]  lg:max-h-[calc(100%-484px)] lg:px-[95px] ${shoppingCartArrayActualLength > 0 ? "" : "gap-[50px] pb-[37px]"}`}
         >
-          <div className="scrollbar-none flex h-fit max-h-[276px] w-full flex-col items-center overflow-y-scroll border-y border-[#B0C4B1]">
-            {shoppingCartArray.map((candle, index) => (
-              <div className="relative flex h-[206.45px] w-44  flex-col items-center gap-5">
-                <div className="absolute start-0 top-0">{index + 1})</div>
-                <div className="flex flex-col gap-1">
-                  <img
-                    className="size-28 object-cover"
-                    src={candle.pictures[0].img}
-                    alt={candle.name}
+          {shoppingCartArrayActualLength > 0 ? (
+            <>
+              <div className="scrollbar-none flex h-full w-full flex-col items-center overflow-y-scroll border-[#B0C4B1] pb-5 max-lg:border-y max-sm:max-h-[276px] lg:min-h-full lg:gap-2  lg:py-0">
+                {shoppingCartArray.map((candle, index) => (
+                  <ShoppingCartPopoverCandleThumbnail
+                    key={`${candle._id}${index}${candle.colors._id}${candle.fragrances}`}
+                    candle={candle}
+                    index={index}
+                    handleRemoveOneFromShoppingCartArray={
+                      handleRemoveOneFromShoppingCartArray
+                    }
+                    handleAddToShoppingCartArray={handleAddToShoppingCartArray}
                   />
-                  <span className="text-center leading-[21.28px]">
-                    <h1 className="text-lg font-semibold leading-[23.94px]">
-                      {candle.name}
-                    </h1>
-                    {candle.price}₪{" "}
-                    {candle.salePrice ? `(${candle.salePrice}₪)` : ""}
-                  </span>
-                  <span
-                    style={{
-                      backgroundColor: candle.colors.hexCode,
-                      border:
-                        candle.colors.color === "לבן" ? "1px solid black" : "0",
-                    }}
-                    className={`${candle.colors.color === "שחור" ? "text-white" : "text-black"} w-fit self-center px-3 py-1`}
-                  >
-                    {candle.fragrances}
-                  </span>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <span className="flex h-full w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center ">
-            <button className="bg-black text-white">תשלום</button>
-            <button onClick={closeShoppingCart} className="border-4 border-black active:bg-black active:text-white">
-              המשך קניות
-            </button>
-          </span>
+              <div
+                dir="rtl"
+                className={`hidden ${shoppingCartArray.length > 0 ? "lg:flex" : "hidden"} mb-[93px] h-fit w-full justify-between gap-2 border-b border-b-[#4A5759] pb-[35px] text-2xl font-semibold leading-[31.92px]`}
+              >
+                <p>סיכום</p>
+                <span>₪{shoppingCartArrayPriceSum}</span>
+              </div>
+            </>
+          ) : (
+            <div className="w-full border-b border-b-[#B0C4B1] pb-[120px] pt-5 text-center text-lg leading-9">
+              סל הקניות שלך ריק בינתיים.
+            </div>
+          )}
+          <ShoppingCartPopoverButtons
+            shoppingCartArrayActualLength={shoppingCartArrayActualLength}
+            closeShoppingCartPopover={closeShoppingCartPopover}
+          />
         </div>
       </div>
     </Overlay>
