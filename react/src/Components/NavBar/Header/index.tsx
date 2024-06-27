@@ -1,13 +1,14 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useMemo } from "react";
 // import ActionButtons from "../ActionButtons";
 import Logo from "../Logo";
 import MenuToggle from "../MenuToggle";
 import SideNavBar from "../SideNavBar";
-import { CandleType } from "../../../utils/types/candles";
+import { CandleType, ChosenCandleType } from "../../../utils/types/candles";
 import FavoritesButton from "../ActionButtons/FavoritesButton";
 import SearchButton from "../ActionButtons/SearchButton";
 import ShoppingCartButton from "../ActionButtons/ShoppingCartButton";
 import { ActionButtonInfoT } from "../ActionButtons/GenericActionButton";
+import { useLocalShoppingCartCandlesStorage } from "../../../utils/localCandleStorage";
 
 const searchActionButtonInfo: ActionButtonInfoT = {
   mobile: {
@@ -47,24 +48,43 @@ const Header = ({
   setNavBarMenuIsOpen,
   toggleNavBarMenu,
   favoritesArray,
-  handleAddToFavoritesArray,
 }: {
   navBarMenuIsOpen: boolean;
   setNavBarMenuIsOpen: Dispatch<SetStateAction<boolean>>;
   toggleNavBarMenu: () => void;
   favoritesArray: CandleType[];
-  handleAddToFavoritesArray: (value: CandleType) => void;
 }) => {
+  const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
+  const shoppingCartArray = getShoppingCartItems();
+  const favoritesAmount = useMemo(() => {
+    if (!favoritesArray) return 0;
+    return favoritesArray.length;
+  }, [favoritesArray]);
+  const shoppingCartAmount = useMemo(() => {
+    if (!shoppingCartArray) return 0;
+    let amount = 0;
+    if (shoppingCartArray) {
+      shoppingCartArray.forEach((candle: ChosenCandleType) => {
+        amount += candle.amount;
+      });
+    }
+    return amount;
+  }, [shoppingCartArray]);
+
   return (
     <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-[10.5px]  py-[13.5px] sm:px-11 sm:py-14">
       <div className="flex gap-7 sm:gap-[29.93px]">
         <SearchButton actionButtonInfo={searchActionButtonInfo} />
         <FavoritesButton
+          favoritesAmount={favoritesAmount}
           favoritesArray={favoritesArray}
-          handleAddToFavoritesArray={handleAddToFavoritesArray}
           actionButtonInfo={favoritesActionButtonInfo}
         />
-        <ShoppingCartButton actionButtonInfo={shoppingCartActionButtonInfo} />
+        <ShoppingCartButton
+          shoppingCartAmount={shoppingCartAmount}
+          shoppingCartArray={shoppingCartArray}
+          actionButtonInfo={shoppingCartActionButtonInfo}
+        />
       </div>
       <Logo />
       <MenuToggle toggleNavBarMenu={toggleNavBarMenu} />

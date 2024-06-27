@@ -39,20 +39,20 @@ const shoppingCartActionButtonInfo: ActionButtonInfoT = {
 };
 const ActionButtons = ({
   favoritesArray,
-  handleAddToFavoritesArray,
 }: {
   favoritesArray: CandleType[];
-  handleAddToFavoritesArray: (value: CandleType) => void;
 }) => {
   return (
     <div className="flex gap-7 sm:gap-[29.93px]">
-      <SearchButton actionButtonInfo={searchActionButtonInfo} />
+      {/* <SearchButton actionButtonInfo={searchActionButtonInfo} />
       <FavoritesButton
+        favoritesAmount={favoritesArray.length}
         favoritesArray={favoritesArray}
-        handleAddToFavoritesArray={handleAddToFavoritesArray}
         actionButtonInfo={favoritesActionButtonInfo}
       />
-      <ShoppingCartButton actionButtonInfo={shoppingCartActionButtonInfo} />
+      <ShoppingCartButton
+      
+      actionButtonInfo={shoppingCartActionButtonInfo} /> */}
     </div>
   );
 };

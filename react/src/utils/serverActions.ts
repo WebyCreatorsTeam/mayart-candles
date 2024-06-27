@@ -1,8 +1,7 @@
 import axios from "axios";
 import { defer } from "react-router-dom";
-import { CandleType, ChosenCandleType } from "./types/candles";
+import { CandleType } from "./types/candles";
 import { AboutLoaderResponse } from "./types/about";
-import { useLocalShoppingCartCandlesStorage } from "./localCandleStorage";
 
 export const handleGetCandles = async () => {
   const { data } = await axios.get(

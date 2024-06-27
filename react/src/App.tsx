@@ -126,10 +126,7 @@ function App() {
   return (
     <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip">
       <div className="h-full ">
-        <NavBar
-          favoritesArray={favoritesArray}
-          handleAddToFavoritesArray={handleAddToFavoritesArray}
-        />
+        <NavBar favoritesArray={favoritesArray} />
 
         <ShoppingCartPopover
           showShoppingCart={showShoppingCart}

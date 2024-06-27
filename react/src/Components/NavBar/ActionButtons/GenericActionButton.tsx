@@ -8,20 +8,24 @@ export type ActionButtonInfoT = {
 };
 const GenericActionButton = ({
   actionButtonInfo,
-  candles,
   type,
+  candles,
+  amount
 }: {
+  candles?: Array<CandleType | ChosenCandleType> | undefined;
   actionButtonInfo: ActionButtonInfoT;
-  candles?: Array<ChosenCandleType | CandleType> | undefined;
+  favoriteCandles?: Array<CandleType> | undefined;
+  shoppingCartCandles?: Array<ChosenCandleType> | undefined;
   type?: string;
+  amount?: number
 }) => {
   return (
     <>
       {type ? (
         <Link to={`/list/${type}`} className="relative">
-          {candles && (
+          {candles && candles.length > 0 && (
             <span className="absolute -right-2 -top-1 hidden size-4 items-center justify-center rounded-full bg-black text-center text-sm text-white sm:flex">
-              {candles.length}
+              {amount}
             </span>
           )}
           <img

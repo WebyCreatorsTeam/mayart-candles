@@ -5,14 +5,15 @@ import { CandleType } from "../../../utils/types/candles";
 const FavoritesButton = ({
   actionButtonInfo,
   favoritesArray,
-  handleAddToFavoritesArray,
+  favoritesAmount,
 }: {
   actionButtonInfo: ActionButtonInfoT;
   favoritesArray: CandleType[];
-  handleAddToFavoritesArray: (value: CandleType) => void;
+  favoritesAmount: number;
 }) => {
   return (
     <GenericActionButton
+      amount={favoritesAmount}
       type="favorites"
       candles={favoritesArray}
       actionButtonInfo={actionButtonInfo}
