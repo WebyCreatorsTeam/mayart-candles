@@ -21,18 +21,17 @@ const Thumbnail = ({ candle }: { candle: CandleType }) => {
         <Frame candle={candle} />
       </div>
       <Link to={`/candles/candle/${candle._id}`}>{candle.name}</Link>
-      <div className="flex flex-row justify-evenly gap-2">
-        {candle.price ? (
-          <span className="">₪{candle.salePrice}</span>
-        ) : (
-          <span className="none"></span>
-        )}
-        {candle.salePrice ? (
+      {candle.salePrice ? (
+        <div className="flex flex-row justify-evenly gap-2">
           <p className="text-[#12151580] line-through ">₪{candle.price}</p>
-        ) : (
-          <p className="">{candle.price}</p>
-        )}
-      </div>
+          <span className="">₪{candle.salePrice}</span>
+        </div>
+      ) : (
+        <div>
+          <span className="none"></span>
+          <p className="">₪{candle.price}</p>
+        </div>
+      )}
     </div>
   );
 };

@@ -35,7 +35,8 @@ import {
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
-import SelectionList from "./Components/NavBar/ActionButtons/SelectionList";
+import ShoppingCartPage from "./views/ShoppingCart";
+import FavoritesPage from "./views/Favorites";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -75,11 +76,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/list/shoppingCart",
-            element: <SelectionList type={"shoppingCart"} />,
+            element: <ShoppingCartPage />,
           },
           {
             path: "/list/favorites",
-            element: <SelectionList type={"favorites"} />,
+            element: <FavoritesPage />,
           },
         ],
       },
