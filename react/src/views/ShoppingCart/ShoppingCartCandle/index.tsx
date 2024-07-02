@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import { ChosenCandleType } from "../../../utils/types/candles";
 import PopoverCandleActionButtons from "../../../Components/Popover/ShoppingCart/Candle/ActionButtons";
 import { ContextType } from "../../../App";
@@ -41,7 +41,16 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
             />
           </span>
         </div>
-        <DSKPLinkToCandle id={candle._id} />
+        <span className="hidden h-[304px] items-end flex-col justify-between lg:flex">
+          <PopoverCandleActionButtons
+            handleAddToShoppingCartArray={handleAddToShoppingCartArray}
+            handleRemoveOneFromShoppingCartArray={
+              handleRemoveOneFromShoppingCartArray
+            }
+            candle={candle}
+          />
+          <DSKPLinkToCandle id={candle._id} />
+        </span>
       </div>
     </div>
   );

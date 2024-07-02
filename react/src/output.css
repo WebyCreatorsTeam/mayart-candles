@@ -831,6 +831,10 @@ video {
   height: 100vh;
 }
 
+.h-\[304px\] {
+  height: 304px;
+}
+
 .max-h-\[201px\] {
   max-height: 201px;
 }
@@ -841,6 +845,10 @@ video {
 
 .min-h-svh {
   min-height: 100svh;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-16 {
@@ -1019,8 +1027,16 @@ video {
   flex-wrap: nowrap;
 }
 
+.content-between {
+  align-content: space-between;
+}
+
 .items-start {
   align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
 }
 
 .items-center {
@@ -2540,6 +2556,11 @@ code {
     line-height: 1.75rem;
   }
 
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .sm\:leading-\[34\.13px\] {
     line-height: 34.13px;
   }
@@ -2594,6 +2615,20 @@ code {
 
   .sm\:text-\[32\] {
     color: 32;
+  }
+
+  .sm\:\*\:p-10 > * {
+    padding: 2.5rem;
+  }
+
+  .sm\:\*\:py-\[\] > * {
+    padding-top: ;
+    padding-bottom: ;
+  }
+
+  .sm\:\*\:py-\[12\.14px\] > * {
+    padding-top: 12.14px;
+    padding-bottom: 12.14px;
   }
 
   @media not all and (min-width: 1024px) {
@@ -2761,6 +2796,10 @@ code {
 
   .lg\:flex-col {
     flex-direction: column;
+  }
+
+  .lg\:flex-col-reverse {
+    flex-direction: column-reverse;
   }
 
   .lg\:items-start {
@@ -3012,6 +3051,10 @@ code {
 
   .lg\:\*\:items-start > * {
     align-items: flex-start;
+  }
+
+  .lg\:\*\:p-10 > * {
+    padding: 2.5rem;
   }
 
   .lg\:\*\:py-\[19px\] > * {

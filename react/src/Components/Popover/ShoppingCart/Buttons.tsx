@@ -8,7 +8,7 @@ const ShoppingCartPopoverButtons = ({
   shoppingCartArrayActualLength: number;
 }) => {
   return (
-    <span className="flex h-fit w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center lg:max-w-[589px] ">
+    <span className="flex h-fit w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center lg:max-w-[589px] lg:*-[">
       {shoppingCartArrayActualLength > 0 && (
         <button className="bg-black text-white">תשלום</button>
       )}

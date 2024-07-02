@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { ChosenCandleType } from "../../../../utils/types/candles";
 
 const PopoverCandleActionButtons = ({
@@ -16,12 +16,13 @@ const PopoverCandleActionButtons = ({
     value: ChosenCandleType,
   ) => void;
 }) => {
+  const { amount } = useMemo(() => candle, [candle]) as ChosenCandleType;
   return (
     <span
-      className="flex w-full justify-center text-[9.13px] leading-[12.14px] lg:w-fit lg:text-2xl lg:leading-[31.92px]"
+      className="flex w-full justify-center text-[9.13px] leading-[12.14px] sm:text-base lg:w-fit lg:text-2xl lg:leading-[31.92px]"
       dir="ltr"
     >
-      <div className="flex  w-[77.18px] bg-[#F7E1D7] *:grow *:py-[7.22px] *:text-center lg:w-[203px] lg:*:py-[19px]">
+      <div className="flex  w-[77.18px] bg-[#F7E1D7] *:grow *:py-[7.22px] *:text-center sm:*:py-[12.14px] lg:w-[203px] lg:*:py-[19px]">
         <button
           onClick={(e) => {
             handleAddToShoppingCartArray(e, candle);
@@ -29,7 +30,7 @@ const PopoverCandleActionButtons = ({
         >
           +
         </button>
-        <span>{candle.amount}</span>
+        <span>{amount}</span>
         <button
           onClick={(e) => handleRemoveOneFromShoppingCartArray(e, candle)}
         >

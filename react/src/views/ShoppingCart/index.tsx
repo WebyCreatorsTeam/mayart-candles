@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useLocalShoppingCartCandlesStorage } from "../../utils/localCandleStorage";
 import { ChosenCandleType } from "../../utils/types/candles";
 import ShoppingCartCandle from "./ShoppingCartCandle";
 import CheckoutAndDisclaimer from "./CheckoutAndDisclaimer";
+import { useOutletContext } from "react-router-dom";
+import { ContextType } from "../../App";
 const ShoppingCartPage = () => {
-  const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
-  const candles = getShoppingCartItems();
+  const { shoppingCartArray } = useOutletContext<ContextType>();
+  const candles = useMemo(() => shoppingCartArray, [shoppingCartArray]);
   return (
     <div
       dir="rtl"
@@ -31,7 +33,7 @@ const ShoppingCartPage = () => {
               // candle
               <ShoppingCartCandle key={candle._id} candle={candle} />
             ))}
-          <CheckoutAndDisclaimer />
+            <CheckoutAndDisclaimer />
           </div>
         </div>
       )}
