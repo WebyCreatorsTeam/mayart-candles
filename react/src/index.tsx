@@ -32,6 +32,7 @@ import {
   candlesLoader,
   candlesLoaderBySize,
   candlesLoaderByType,
+  checkoutPageInfoLoader,
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
@@ -75,6 +76,7 @@ const router = createBrowserRouter([
               {
                 path: "/candles/list/shoppingCart",
                 element: <ShoppingCartPage />,
+                loader: checkoutPageInfoLoader,
               },
               {
                 path: "/candles/list/favorites",

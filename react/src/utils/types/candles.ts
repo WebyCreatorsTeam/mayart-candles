@@ -47,3 +47,11 @@ export interface ICandles {
   size: string;
   _id: string;
 }
+
+export type checkoutInfoType = {
+  name: string;
+  telNumber: string;
+};
+export type checkoutInfoAndArrayType = checkoutInfoType & {
+  candles: ChosenCandleType[];
+};

@@ -14,7 +14,7 @@ const ShoppingCartPopoverButtons = ({
       )}
       <button
         onClick={closeShoppingCartPopover}
-        className="border-4 border-black transition-colors duration-300 hover:bg-black hover:text-white active:bg-black active:text-white"
+        className="w-full  border-4 border-black p-[23px] text-center transition-colors duration-300 hover:bg-black hover:text-white active:bg-black active:text-white"
       >
         המשך קניות
       </button>

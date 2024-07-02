@@ -2,6 +2,7 @@ import React from "react";
 import { useLocalShoppingCartCandlesStorage } from "../../utils/localCandleStorage";
 import { ChosenCandleType } from "../../utils/types/candles";
 import ShoppingCartCandle from "./ShoppingCartCandle";
+import CheckoutAndDisclaimer from "./CheckoutAndDisclaimer";
 const ShoppingCartPage = () => {
   const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
   const candles = getShoppingCartItems();
@@ -30,6 +31,7 @@ const ShoppingCartPage = () => {
               // candle
               <ShoppingCartCandle key={candle._id} candle={candle} />
             ))}
+          <CheckoutAndDisclaimer />
           </div>
         </div>
       )}

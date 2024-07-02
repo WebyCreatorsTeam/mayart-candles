@@ -1,6 +1,6 @@
 import axios from "axios";
 import { defer } from "react-router-dom";
-import { CandleType } from "./types/candles";
+import { CandleType, ChosenCandleType, checkoutInfoAndArrayType } from "./types/candles";
 import { AboutLoaderResponse } from "./types/about";
 
 export const handleGetCandles = async () => {
@@ -108,5 +108,28 @@ export const candleCatagoriesLoader = async () => {
   );
   const { continueWork, categories } = data;
   if (continueWork) return { categories };
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+};
+export const checkoutPageInfoLoader = async (): Promise<{
+  paymentText: { _id: string; text: string };
+} | void> => {
+  const { data } = await axios.get(
+    `https://mayart-candles-api.vercel.app/payment/get-payment`,
+  );
+  const {
+    continueWork,
+    paymentText,
+  }: { continueWork: boolean; paymentText: { _id: string; text: string } } =
+    data;
+  if (continueWork) return { paymentText };
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+};
+export const checkout = async (checkoutInfoAndArray: checkoutInfoAndArrayType) => {
+  const { data } = await axios.post(
+    `https://mayart-candles-api.vercel.app/payment/checkout`,
+    checkoutInfoAndArray,
+  );
+  const { continueWork } = data;
+  if (continueWork) return
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
