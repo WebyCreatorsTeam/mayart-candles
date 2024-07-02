@@ -48,10 +48,10 @@ export interface ICandles {
   _id: string;
 }
 
-export type checkoutInfoType = {
+export type CheckoutInfoType = {
   name: string;
   telNumber: string;
 };
-export type checkoutInfoAndArrayType = checkoutInfoType & {
+export type CheckoutInfoAndArrayType = CheckoutInfoType & {
   candles: ChosenCandleType[];
 };

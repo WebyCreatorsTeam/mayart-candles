@@ -27,11 +27,12 @@ import Candle from "./views/Candles/[id]/page";
 import AllCandles from "./views/Candles/AllCandles/AllCandles";
 import {
   aboutLoader,
-  candleCatagoriesLoader,
+  candleCategoriesLoader,
   candleLoader,
   candlesLoader,
   candlesLoaderBySize,
   candlesLoaderByType,
+  checkout,
   checkoutPageInfoLoader,
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorComponent />,
-    loader: candleCatagoriesLoader,
+    loader: candleCategoriesLoader,
     children: [
       { path: "/", element: <Home />, loader: candlesLoader },
       { path: "/about", element: <About />, loader: aboutLoader },
@@ -77,6 +78,7 @@ const router = createBrowserRouter([
                 path: "/candles/list/shoppingCart",
                 element: <ShoppingCartPage />,
                 loader: checkoutPageInfoLoader,
+                action: checkout,
               },
               {
                 path: "/candles/list/favorites",

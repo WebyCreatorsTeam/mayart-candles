@@ -3,10 +3,11 @@ import { useOutletContext } from "react-router-dom";
 import { ChosenCandleType } from "../../../utils/types/candles";
 import PopoverCandleActionButtons from "../../../Components/Popover/ShoppingCart/Candle/ActionButtons";
 import { ContextType } from "../../../App";
-import Title from "./Title";
-import PricingSystem from "./PricingSystem";
+
 import Color from "./Color";
 import DSKPLinkToCandle from "./DSKPLinkToCandle";
+import PricingSystem from "../../../Components/ListComponents/PricingSystem";
+import Title from "../../../Components/ListComponents/Title";
 const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
   const { handleAddToShoppingCartArray, handleRemoveOneFromShoppingCartArray } =
     useOutletContext<ContextType>();

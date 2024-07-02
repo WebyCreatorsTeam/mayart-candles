@@ -1,6 +1,11 @@
 import axios from "axios";
 import { defer } from "react-router-dom";
-import { CandleType, ChosenCandleType, checkoutInfoAndArrayType } from "./types/candles";
+import {
+  CandleType,
+  ChosenCandleType,
+  CheckoutInfoAndArrayType,
+  CheckoutInfoType,
+} from "./types/candles";
 import { AboutLoaderResponse } from "./types/about";
 
 export const handleGetCandles = async () => {
@@ -102,7 +107,7 @@ export const candleLoader = async ({ params }: any) => {
 //   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 // };
 
-export const candleCatagoriesLoader = async () => {
+export const candleCategoriesLoader = async () => {
   const { data } = await axios.get(
     `https://mayart-candles-api.vercel.app/categories/get-categories`,
   );
@@ -124,12 +129,29 @@ export const checkoutPageInfoLoader = async (): Promise<{
   if (continueWork) return { paymentText };
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
-export const checkout = async (checkoutInfoAndArray: checkoutInfoAndArrayType) => {
-  const { data } = await axios.post(
+export const checkout = async ({ request }: any) => {
+  const formData = await request.formData();
+
+  const checkoutInfo = {
+    fullName: formData.get("fullName"),
+    telPhone: formData.get("telPhone"),
+    candlesArrayTrue: formData.get("candlesArrayTrue"),
+  };
+  const candles = localStorage.getItem("shoppingCartCandles");
+  const candlesArray = JSON.parse(candles as string) as ChosenCandleType[];
+  if (checkoutInfo.candlesArrayTrue === false)
+    return alert("הראה שגיאה, נסה שנית");
+  const checkoutInfoAndArray: CheckoutInfoAndArrayType = {
+    name: checkoutInfo.fullName,
+    telNumber: checkoutInfo.telPhone,
+    candles: candlesArray,
+  };
+  const data = await axios.post(
     `https://mayart-candles-api.vercel.app/payment/checkout`,
     checkoutInfoAndArray,
   );
-  const { continueWork } = data;
-  if (continueWork) return
-  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+  console.log(data);
+  // const { continueWork } = data;
+  // if (continueWork) return;
+  // if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
