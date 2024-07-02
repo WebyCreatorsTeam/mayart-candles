@@ -28,7 +28,6 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
 
     useEffect(() => {
         (() => {
-            console.log(`q`)
             setMainImage(imagesOfCandle[0].img)
         })()
     }, [imagesOfCandle])
@@ -53,7 +52,6 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
         }
     };
 
-    console.log(imagesOfCandle)
     const handleUpload = async () => {
         try {
             setLoader(true);
@@ -133,7 +131,9 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
                 ))}
                 {imagesOfCandle.length < 4 &&
                     <div className='candle-images__bottom-show--addEl'>
-                        <button onClick={() => {
+                        <button 
+                        className='candle-images__bottom-show--addEl--btn'
+                        onClick={() => {
                             if (imagesOfCandle.length === 4) {
                                 return alert("לא ניתן לעלות יותר מ4 תמונות")
                             }
@@ -160,15 +160,15 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
                         {prevFileShow && <img src={prevFileShow} alt="project" className='edit_project__image2' />}
                         <div className='popupEditImage--btns'>
                             {prevFileShow && <button onClick={handleUpload}
-                                className={loader ? "form-btn_disable" : "form-btn_active"}>
-                                {loader ? "מעדכן" : " שמור תמונה חדשה"}
+                               className={loader ? "action-loading" : "agree-btn"}>
+                                {loader ? "מעדכן" : "שמור תמונה חדשה"}
                             </button>}
                             <button onClick={() => {
                                 setPopUpEditImage(false)
                                 setFile(null)
                                 setPrevFileShow("")
                             }}
-                                className={loader ? "form-btn_disable" : "form-btn_active"}
+                            className={loader ? "action-loading" : "cancel-btn"}
                             >סגור חלון</button>
                         </div>
                     </div>

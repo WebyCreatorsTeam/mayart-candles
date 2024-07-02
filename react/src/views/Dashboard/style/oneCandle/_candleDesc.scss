@@ -1,0 +1,192 @@
+.candlePage {
+    width: 100%;
+}
+
+.candleItem {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    &__editInfo {
+        display: flex;
+
+        button {
+            margin-right: 1%;
+
+            @media only screen and (max-width: 768px) {
+                margin-right: 3%;
+            }
+        }
+    }
+
+    &__costs,
+    &__colors,
+    &__fragr,
+    &__candleDesc {
+        margin: 3% 0% 0%;
+
+        @media only screen and (max-width: 768px) {
+            margin: 5% 0% 0%;
+        }
+    }
+
+    &__costs {
+
+        &--sale,
+        &--regularPrice {
+            font-weight: bold;
+        }
+
+        &--priceBefore {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        &--updateInput {
+            width: 10%;
+        }
+    }
+
+
+
+    &__colors {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+
+        &--item {
+            width: 60px;
+            height: 60px;
+            border-radius: 100px;
+            border: 2px solid grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 1%;
+
+            button {
+                display: none;
+                background-color: #ffffff;
+                border-radius: 50px;
+
+                @media only screen and (max-width: 768px) {
+                    display: block;
+                }
+            }
+
+            &:hover button {
+                display: block;
+            }
+        }
+    }
+
+    &__fragr {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+
+        &--item {
+            position: relative;
+            width: 10%;
+            min-width: 120px;
+            height: 40px;
+            margin: 0% 1%;
+            border: 2px solid grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                position: absolute;
+                left: 0;
+                display: none;
+
+                @media only screen and (max-width: 768px) {
+                    display: block;
+                }
+            }
+
+            &:hover button {
+                display: block;
+            }
+        }
+    }
+
+    &__candleDesc {
+        &--edit {
+            display: flex;
+            align-items: center;
+
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+
+            textarea {
+                width: 100%;
+            }
+
+            div {
+
+                display: flex;
+
+                @media only screen and (max-width: 768px) {
+                    margin-top: 3%;
+                }
+            }
+        }
+    }
+
+    &__editType {
+        &--title {
+            & p:nth-child(1) {
+                font-weight: 500;
+                margin-left: 1%;
+            }
+        }
+
+        select {
+            width: 20%;
+
+            @media only screen and (max-width: 768px) {
+                width: 95%;
+                margin: 0 auto;
+            }
+        }
+
+        &--section {
+            display: flex;
+
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+        }
+
+        &--actionBtns {
+            display: flex;
+            flex-direction: row;
+
+            @media only screen and (max-width: 768px) {
+                margin: 5% 0%;
+            }
+        }
+    }
+}
+
+.colorEdit {
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__editBtns {
+        margin: 5% auto;
+        display: flex;
+    }
+
+    input[type="color"] {
+        width: 100%;
+    }
+}

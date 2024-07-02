@@ -43,21 +43,23 @@ const AboutHeader: FC<IAboutHeader> = ({ id, title }) => {
                     <input
                         type="text"
                         placeholder='הכנסי כותבת העמוד' defaultValue={aboutTitle}
-                        onChange={(ev: any) => setAboutTitle(ev.target.value)} 
+                        onChange={(ev: any) => setAboutTitle(ev.target.value)}
                         className='updateInput'
-                        />
-                    <button
-                        onClick={handleChangeTitle}
-                        // className={loader ? "form-btn_disable" : "form-btn_active"}
+                    />
+                    <div className="aboutDash__editTitle--editWindow--btns">
+                        <button
+                            onClick={handleChangeTitle}
+                            className={loader ? "action-loading" : "agree-btn"}
                         >
-                        {loader ? "המעדכן" : "עדכן"}
-                    </button>
-                    <button onClick={() => {
-                        setEditTitle(false)
-                        setAboutTitle(title)  
-                    }}
-                    // className={loader ? "form-btn_disable" : "form-btn_active"}
-                    >בטל</button>
+                            {loader ? "המעדכן" : "עדכן"}
+                        </button>
+                        <button onClick={() => {
+                            setEditTitle(false)
+                            setAboutTitle(title)
+                        }}
+                            className={loader ? "action-loading" : "cancel-btn"}
+                        >בטל</button>
+                    </div>
                 </div>
             )}
         </section>

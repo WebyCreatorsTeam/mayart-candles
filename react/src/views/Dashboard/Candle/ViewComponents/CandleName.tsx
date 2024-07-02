@@ -11,10 +11,10 @@ const CandleName: FC<ICandleName> = ({ name }) => {
 
     return (
         <section className='candleItem__candleName'>
-            {!popUpNameEdit && (<>
+            {!popUpNameEdit && (<div className='candleItem__editInfo'>
                 <h2>{candleName}</h2>
                 <button onClick={() => setPopUpNameEdit(true)}><EditIcon color="primary"/></button>
-            </>)}
+            </div>)}
             {popUpNameEdit && (
                 <NameEdit
                     name={name}

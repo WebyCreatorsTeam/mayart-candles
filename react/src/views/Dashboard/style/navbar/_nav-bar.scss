@@ -6,7 +6,7 @@
     margin: 0 auto;
     height: 70px;
     position: relative;
-    
+
     @media only screen and (max-width: 768px) {
         width: 100%;
     }
@@ -30,21 +30,22 @@
     }
 
     button {
-        margin-left: 5%;
+        margin-right: 5%;
     }
+
     &__link {
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #EBDBFF;
         border-radius: 50px;
-        // padding: 0 2%;
+        margin: 2% 0%;
         width: 165px;
         height: 47px;
     }
+
     .active {
         color: #EBDBFF;
         background-color: #8524FF;
     }
 }
-

@@ -29,8 +29,8 @@ const EditCandleSize: FC<IEditCandleSize> = ({ candleSize }) => {
 
     return (
         <section className='candleItem__editType'>
-            {!editType && <div className='candleItem__editType--title'>
-                <h4>גודל נר:</h4>
+            {!editType && <div className='candleItem__editType--title candleItem__editInfo'>
+                <p>גודל נר:</p>
                 <p>{size}</p>
                 <button
                     onClick={() => setEditType(true)}
@@ -46,17 +46,19 @@ const EditCandleSize: FC<IEditCandleSize> = ({ candleSize }) => {
                         <option value="נרות בינוניים">נרות בינוניים</option>
                         <option value="נרות קטנים">נרות קטנים</option>
                     </select>
-                    <button
-                        className={loader ? "unactiveBtn" : "actionBtn"}
-                        onClick={handleChangeType}
-                    >שמור</button>
-                    <button
-                        className={loader ? "unactiveBtn" : "actionBtn"}
-                        onClick={() => {
-                            setEditType(false)
-                            setSize(candleSize)
-                        }}
-                    >בטל</button>
+                    <div className='candleItem__editType--actionBtns'>
+                        <button
+                            className={loader ? "action-loading" : "agree-btn"}
+                            onClick={handleChangeType}
+                        >שמור</button>
+                        <button
+                            className={loader ? "action-loading" : "cancel-btn"}
+                            onClick={() => {
+                                setEditType(false)
+                                setSize(candleSize)
+                            }}
+                        >בטל</button>
+                    </div>
                 </section>}
         </section>
     )

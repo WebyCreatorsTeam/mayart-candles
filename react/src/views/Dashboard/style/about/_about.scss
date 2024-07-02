@@ -1,21 +1,5 @@
 .aboutDash {
-    direction: rtl;
     text-align: center;
-
-    h1,
-    h2,
-    &__text,
-    &__backstage {
-        margin: 2% 0;
-    }
-
-    h1 {
-        font-size: clamp(1.75rem, 0.897vw + 1.548rem, 2.625rem);
-    }
-
-    h2 {
-        font-size: clamp(1.25rem, 0.769vw + 1.077rem, 2rem);
-    }
 
     &__editTitle,
     &__editDesc,
@@ -23,21 +7,47 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
     }
 
     &__editTitle--editWindow {
-        width: 30%;
-        background-color: aqua;
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+        }
 
+
+        textarea {
+            width: 35ch;
+            height: 300px;
+        }
         
-        // height: 50px;
+        &--btns {
+            display: flex;
+
+            @media only screen and (max-width: 768px) {
+                margin: 5%;
+            }
+        }
     }
+
+    // &__edit {
+    //     display: flex;
+
+    //     @media only screen and (max-width: 768px) {
+    //         flex-direction: column;
+
+    //     }
+
+    //     textarea {
+    //         // background-color: aqua;
+    //         // width: 100%;
+    //     }
+    // }
 
     &__text {
         width: 90%;
         margin: 0 auto;
         min-width: 280px;
-        font-size: clamp(1.25rem, 0.513vw + 1.135rem, 1.75rem);
         line-height: 2.25;
     }
 
@@ -47,20 +57,26 @@
         gap: 1%;
         margin: 5% 0% 10%;
 
+        @media only screen and (max-width: 768px) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0;
+        }
+
         &--imageItem {
-            // width: 45%;
+            width: 100%;
             position: relative;
+
+            @media only screen and (max-width: 768px) {
+                margin-bottom: 5%;
+            }
 
             &:hover .aboutDash__images--imageItem__btnSection {
                 display: flex;
-
             }
 
             img {
                 width: 100%;
                 min-width: 280px;
-                height: 700px;
-                object-fit: cover;
             }
 
             &__btnSection {
@@ -72,6 +88,10 @@
                 height: 100%;
                 top: 0;
                 display: none;
+
+                @media only screen and (max-width: 768px) {
+                    display: flex;
+                }
             }
 
             button {
@@ -86,15 +106,9 @@
             }
         }
     }
-
-    &__backstage {
-        margin: 4% 0;
-        font-size: clamp(1.25rem, 0.641vw + 1.106rem, 1.875rem);
-    }
 }
 
 .popupEditImage {
-    // background-color: grey;
     display: grid;
     align-items: center;
     justify-items: center;
@@ -129,7 +143,5 @@
         button {
             margin: 4% 0%;
         }
-
-        // background-color: aqua;
     }
 }

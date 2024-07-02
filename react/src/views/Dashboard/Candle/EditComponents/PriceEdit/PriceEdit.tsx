@@ -30,6 +30,7 @@ const PriceEdit: FC<IPriceEdit> = ({
             setLoader(true)
             if (Number(candlePrice) === 0 && Number(candleSalePrice) > 0) return alert("לא ניתן לתת הנחה במידה והמחיר שווה לאפס")
             if (Number(candlePrice) < Number(candleSalePrice)) return alert("המחיר הרגיל לא יכול להיות יותר נמוך ממחיר הנחה")
+            if (Number(candlePrice) === Number(candleSalePrice)) return alert("המחיר וההנחה לא יכולים להיות אותו הדבר")
             const token = sessionStorage.getItem('token')
             const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-price?token=${token}`, { id, price: candlePrice, salePrice: candleSalePrice })
             if (continueWork) {
@@ -52,10 +53,10 @@ const PriceEdit: FC<IPriceEdit> = ({
             <input type="number" className='candleItem__costs--updateInput' defaultValue={candleSalePrice} onChange={(ev: any) => setCandleSalePrice(ev.target.value)} />
             <button
                 onClick={handleChangePrice}
-                className={loader ? "unactiveBtn" : "actionBtn"}
+                className={loader ? "action-loading" : "agree-btn"}
             >{loader ? "מעדכן את הפרטים" : "עדכן מחירים"}</button>
             <button
-                className={loader ? "unactiveBtn" : "actionBtn"}
+                className={loader ? "action-loading" : "cancel-btn"}
                 onClick={() => {
                     setCandlePrice(price)
                     setCandleSalePrice(salePrice)

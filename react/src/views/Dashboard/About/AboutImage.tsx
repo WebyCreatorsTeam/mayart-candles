@@ -96,7 +96,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
                                 setFile(null)
                                 setPrevFileShow("")
                             }}
-                                className={loader ? "form-btn_disable" : "form-btn_active"}
+                                className={loader ? "action-loading" : "cancel-btn"}
                             >סגור חלון</button>
                         </div>
                     </div>

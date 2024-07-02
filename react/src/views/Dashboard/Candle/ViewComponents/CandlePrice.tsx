@@ -15,11 +15,11 @@ const CandlePrice: FC<ICandlePrice> = ({ price, salePrice }) => {
 
     return (
         <section className='candleItem__costs'>
-            {!popUpPriceEdit && (<>
-                {candleSalePrice && <p className='candleItem__costs--sale'>{candleSalePrice}&#x20AA;</p>}
-                <p className={candleSalePrice ? "candleItem__costs--priceBefore" : "candleItem__costs--regularPrice"}>{candlePrice}&#x20AA;</p>
+            {!popUpPriceEdit && (<div className='candleItem__editInfo'>
+                {candleSalePrice !== 0 && <p className='candleItem__costs--sale'>{candleSalePrice}&#x20AA;</p>}
+                <p className={candleSalePrice > 0 ? "candleItem__costs--priceBefore":"candleItem__costs--regularPrice" }>{candlePrice}&#x20AA;</p>
                 <button onClick={() => setPopUpPriceEdit(true)}><EditIcon color="primary" /></button>
-            </>)}
+            </div>)}
             {popUpPriceEdit && (
                 <PriceEdit
                     price={price}

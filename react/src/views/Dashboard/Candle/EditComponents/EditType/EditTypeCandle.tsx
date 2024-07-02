@@ -31,8 +31,9 @@ const EditTypeCandle: FC<IEditTypeCandle> = ({ candleType, categoryOption }) => 
 
     return (
         <section className='candleItem__editType'>
-            {!editType && <div className='candleItem__editType--title'>
-                <h4>קטגורית נר:</h4>
+            {!editType && 
+            <div className='candleItem__editType--title candleItem__editInfo'>
+                <p>קטגורית נר:</p>
                 <p>{type}</p>
                 <button
                     onClick={() => setEditType(true)}
@@ -47,17 +48,20 @@ const EditTypeCandle: FC<IEditTypeCandle> = ({ candleType, categoryOption }) => 
                         {categoryOption.map(ctg => (
                             <option key={ctg._id} value={ctg.opt}>{ctg.opt}</option>
                         ))}
-                    </select>
-                    <button
-                        className={loader ? "unactiveBtn" : "actionBtn"}
-                        onClick={handleChangeType}
-                    >שמור</button>
-                    <button
-                        className={loader ? "unactiveBtn" : "actionBtn"}
-                        onClick={() => {
-                            setEditType(false)
-                            setType(candleType)}}
-                    >בטל</button>
+                    </select >
+                    <div className='candleItem__editType--actionBtns'>
+                        <button
+                            className={loader ? "action-loading" : "agree-btn"}
+                            onClick={handleChangeType}
+                        >שמור</button>
+                        <button
+                            className={loader ? "action-loading" : "cancel-btn"}
+                            onClick={() => {
+                                setEditType(false)
+                                setType(candleType)
+                            }}
+                        >בטל</button>
+                    </div>
                 </section>
             }
         </section>

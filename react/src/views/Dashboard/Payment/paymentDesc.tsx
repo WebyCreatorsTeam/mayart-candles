@@ -18,13 +18,7 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
       setLoader(true);
       if (paymentDesc.length === 0) return alert("שם הנר לא יכול להיות ריק");
       const token = sessionStorage.getItem("token");
-      // const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-name?token=${token}`, { id, name: aboutTitle })
-      const {
-        data: { continueWork, message }
-      } = await axios.patch(
-        `${BASE_API}/payment/update-payment-text?token=${token}`,
-        { id, paymentDesc },
-      );
+      const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/payment/update-payment-text?token=${token}`, { id, paymentDesc });
       if (continueWork) {
         alert(message);
         return setEditDesc(false);
@@ -47,31 +41,30 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
         </>
       )}
       {editDesc && (
-        <>
+        <section className="aboutDash__editTitle--editWindow">
           <textarea
-            rows={5}
-            cols={90}
             defaultValue={paymentDesc}
             className="updateInput"
             onChange={(ev: any) => setPaymentDesc(ev.target.value)}
           ></textarea>
-          <button
-            className="change"
-            onClick={handleChangeTitle}
-          // className={loader ? "form-btn_disable" : "form-btn_active"}
-          >
-            {loader ? "המעדכן" : "עדכן"}
-          </button>
-          <button className="cancle"
-            onClick={() => {
-              setEditDesc(false);
-              setPaymentDesc(desc);
-            }}
-          // className={loader ? "form-btn_disable" : "form-btn_active"}
-          >
-            בטל
-          </button>
-        </>
+          <div className="aboutDash__editTitle--editWindow--btns">
+            <button
+              onClick={handleChangeTitle}
+              className={loader ? "action-loading" : "agree-btn"}
+            >
+              {loader ? "המעדכן" : "עדכן"}
+            </button>
+            <button
+              className={loader ? "action-loading" : "cancel-btn"}
+              onClick={() => {
+                setEditDesc(false);
+                setPaymentDesc(desc);
+              }}
+            >
+              בטל
+            </button>
+          </div>
+        </section>
       )}
     </section>
   );

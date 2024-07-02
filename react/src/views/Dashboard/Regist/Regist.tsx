@@ -6,9 +6,9 @@ import axios from 'axios';
 import { BASE_API } from '../../../utils/api-connect';
 
 export const inputs: Array<InputsList> = [
-    { type: "text", name: "name", placeholder: "שם", autoComp: "nickname" },
+    { type: "text", name: "name", placeholder: "שם (רק את רואה איך קראת למשתמש)", autoComp: "nickname" },
     { type: "text", name: "email", placeholder: "דואר אלקטרוני", autoComp: "email" },
-    { type: "text", name: "password", placeholder: "סיסמא", autoComp: "new-password" },
+    { type: "password", name: "password", placeholder: "סיסמא", autoComp: "new-password" },
 ];
 
 const Regist: FC = () => {

@@ -37,7 +37,7 @@ const Users: FC = () => {
         <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
             <Await resolve={admins}>
                 <section className='user'>
-                    <div className='user-view'>
+                    <div>
                         <h1>משתמשים עם גישה</h1>
                         <div className='userName'>
                             {allUser.map((adm, idx) => (

@@ -49,12 +49,12 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
                 <div className='colorEdit__editBtns'>
                     <button
                         onClick={handleAddColor}
-                        className={loader ? "unactiveBtn" : "actionBtn"}
+                        className={loader ? "action-loading" : "agree-btn"}
                     >
                         {loader ? "מעדכן את הפרטים" : "הוסף צבע"}
                     </button>
                     <button
-                        className={loader ? "unactiveBtn" : "actionBtn"}
+                        className={loader ? "action-loading" : "cancel-btn"}
                         onClick={() => {
                             setPopUpEditColors(false)
                             setNewColor({ color: "", hexCode: "" })

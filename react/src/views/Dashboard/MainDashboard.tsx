@@ -34,7 +34,7 @@ const MainDashboard: FC = () => {
               <img src="/icons/dashboard/add-category.svg" alt="הוספת תמונה" width={70} height={70} />
                 <div className='price-details'>
                   <div className='price-details__costs'>
-                    <p>להוספת נר חדש נא לעבור לעמוד הוספת הנר</p>
+                    <p>הוספת נר חדש</p>
                   </div>
                 </div>
               </Link>

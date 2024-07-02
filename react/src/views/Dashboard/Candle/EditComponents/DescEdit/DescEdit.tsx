@@ -32,18 +32,20 @@ const DescEdit: FC<IDescEdit> = ({ description, candleDesc, setCandleDesc, setPo
     }
 
     return (
-        <section>
-            <textarea rows={5} cols={70} onChange={(ev: any) => setCandleDesc(ev.target.value)} defaultValue={candleDesc}></textarea>
-            <button
-                onClick={handleChangeDesc}
-                className={loader ? "unactiveBtn" : "actionBtn"}
-            >{loader ? "מעדכן את הפרטים" : "שנה תיאור מוצר"}</button>
-            <button
-                className={loader ? "unactiveBtn" : "actionBtn"}
-                onClick={() => {
-                    setCandleDesc(description)
-                    setPopUpDescEdit(false)
-                }}>בטל</button>
+        <section className="candleItem__candleDesc--edit">
+            <textarea rows={5} onChange={(ev: any) => setCandleDesc(ev.target.value)} defaultValue={candleDesc}></textarea>
+            <div>
+                <button
+                    onClick={handleChangeDesc}
+                    className={loader ? "action-loading" : "agree-btn"}
+                >{loader ? "מעדכן את הפרטים" : "שנה תיאור המוצר"}</button>
+                <button
+                    className={loader ? "action-loading" : "cancel-btn"}
+                    onClick={() => {
+                        setCandleDesc(description)
+                        setPopUpDescEdit(false)
+                    }}>בטל</button>
+            </div>
         </section>
     )
 }

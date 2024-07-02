@@ -1,9 +1,8 @@
 import axios from "axios";
-import { FC, Suspense, useState } from "react";
+import { FC, Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 import PaymentDesc from "./paymentDesc";
 import { BASE_API } from "../../../utils/api-connect";
-// import paymantDesc from "./paymentDesc";
 
 interface IPayment {
   _id: string;
@@ -11,15 +10,13 @@ interface IPayment {
 }
 const Payment: FC = () => {
   const { payment } = useLoaderData() as { payment: IPayment };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [paymentText, setPaymentText] = useState<string>(payment.text);
+
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={payment}>
         <section className="payment">
           <h1 className="paymentTitle">טקסט עמוד תשלום</h1>
-
-          <PaymentDesc id={payment._id} desc={paymentText} />
+          <PaymentDesc id={payment._id} desc={payment.text} />
         </section>
       </Await>
     </Suspense>
@@ -30,9 +27,7 @@ export default Payment;
 
 const handleGetPayment = async () => {
   try {
-    const {
-      data: { continueWork, paymentText },
-    } = await axios.get(`${BASE_API}/payment/get-payment`);
+    const { data: { continueWork, paymentText }, } = await axios.get(`${BASE_API}/payment/get-payment`)
     if (continueWork) return paymentText;
   } catch (error) {
     return alert(error);

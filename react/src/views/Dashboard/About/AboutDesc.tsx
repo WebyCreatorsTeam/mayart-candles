@@ -39,26 +39,26 @@ const AboutDesc: FC<IAboutDesc> = ({ id, desc }) => {
                 </>
             )}
             {editDesc && (
-                <>
+                <div className="aboutDash__editTitle--editWindow">
                     <textarea
-                        rows={5}
-                        cols={90}
                         defaultValue={aboutDesc}
-                        className='updateInput'
+                        className='updateAboutTextarea'
                         onChange={(ev: any) => setAboutDesc(ev.target.value)}></textarea>
-                    <button
-                        onClick={handleChangeTitle}
-                        // className={loader ? "form-btn_disable" : "form-btn_active"}
+                    <div className="aboutDash__editTitle--editWindow--btns">
+                        <button
+                            onClick={handleChangeTitle}
+                            className={loader ? "action-loading" : "agree-btn"}
                         >
-                        {loader ? "המעדכן" : "עדכן"}
-                    </button>
-                    <button onClick={() => {
-                        setEditDesc(false)
-                        setAboutDesc(desc)
-                    }}
-                        // className={loader ? "form-btn_disable" : "form-btn_active"}
-                    >בטל</button>
-                </>
+                            {loader ? "המעדכן" : "עדכן"}
+                        </button>
+                        <button onClick={() => {
+                            setEditDesc(false)
+                            setAboutDesc(desc)
+                        }}
+                            className={loader ? "action-loading" : "cancel-btn"}
+                        >בטל</button>
+                    </div>
+                </div>
             )}
         </section>
     )

@@ -43,10 +43,10 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
                 onChange={(ev: any) => setCandleName(ev.target.value)} />
             <button
                 onClick={handleChangeName}
-                className={loader ? "unactiveBtn" : "actionBtn"}
+                className={loader ? "action-loading" : "agree-btn"}
             >{loader ? "מעדכן את הפרטים" : "שנה שם"}</button>
             <button
-                className={loader ? "unactiveBtn" : "actionBtn"}
+                className={loader ? "action-loading" : "cancel-btn"}
                 onClick={() => {
                     setCandleName(name)
                     setPopUpNameEdit(false)

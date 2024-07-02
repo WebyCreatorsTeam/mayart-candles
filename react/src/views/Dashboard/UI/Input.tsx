@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import { validateValues } from '../utils/fornValidation'
+import ErrorMessega from './ErrorMessega'
 
 interface I_Input {
     type: string
@@ -24,10 +25,11 @@ const Input: FC<I_Input> = ({ type, name, placeholder, autoComp, setUserDetails 
     return (
         <>
             <div className='input-label-and-error'>
-                <label htmlFor={name} >{placeholder}</label>
-                {error.length > 0 && <p>{error}</p>}
+                <label htmlFor={name}>{placeholder}</label>
+                <ErrorMessega errorText={error} />
             </div>
             <input
+                dir={name === "email" ? "ltr" : "rtl"}
                 id={name}
                 required
                 type={type}

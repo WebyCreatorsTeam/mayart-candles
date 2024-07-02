@@ -18,6 +18,8 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
 
     const handleDeleteFragColor = async (frg: string) => {
         try {
+            const confirm = window.confirm(`האם אתה בטוח שברצונך למחוק את הריח ${frg}?`)
+            if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
             const { data: { continueWork, message, fragrances } } = await axios.delete(`${BASE_API}/candles/remove-frag?token=${token}`, { data: { id, frg } })

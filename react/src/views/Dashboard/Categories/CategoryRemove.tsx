@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { FC, useState } from 'react'
 import { ICategories } from './CategoriesDashboard'
 import { BASE_API } from '../../../utils/api-connect'
+import PopUp from '../UI/PopUp/PopUp'
 
 interface ICategoryRemove {
     ctgId: string
@@ -32,28 +33,26 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
     }
 
     return (
-        <div className='popup'>
-            <div className='popup__window'>
-                <h2 className='popup__window--title'>
-                    בטוחה שאת רוצה להסיר את הפריט?
-                </h2>
-                <div className='popup__window--confirmBtns'>
-                    <button
-                        disabled={loader}
-                        className={loader === true ? "form-btn_disable" : "form-btn_active"}
-                        onClick={hendleRemoveCategory}
-                    >{loader ? "שומר" : "מחיקה"}</button>
-                    <button
-                        disabled={loader}
-                        className={loader === true ? "form-btn_disable" : "form-btn_active"}
-                        onClick={() => {
-                            setRemoveCtgID("")
-                            setOpenPopupRemove(false)
-                        }}
-                    >ביטול</button>
-                </div>
+        <PopUp>
+            <h2 className='popup__window--title'>
+                בטוחה שאת רוצה להסיר את הפריט?
+            </h2>
+            <div className='popup__window--confirmBtns'>
+                <button
+                    disabled={loader}
+                    className={loader ? "action-loading" : "agree-btn"}
+                    onClick={hendleRemoveCategory}
+                >{loader ? "שומר" : "מחיקה"}</button>
+                <button
+                    disabled={loader}
+                    className={loader ? "action-loading" : "cancel-btn"}
+                    onClick={() => {
+                        setRemoveCtgID("")
+                        setOpenPopupRemove(false)
+                    }}
+                >ביטול</button>
             </div>
-        </div>
+        </PopUp>
     )
 }
 

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { FC, useState } from 'react'
 import { ICategories } from './CategoriesDashboard'
 import { BASE_API } from '../../../utils/api-connect'
+import PopUp from '../UI/PopUp/PopUp'
 
 interface ICategoryAdd {
     setOpenPopupAdd: Function
@@ -37,29 +38,27 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
     };
 
     return (
-        <div className='popup'>
-            <div className='popup__window'>
-                <h2 className='popup__window--title' >
-                    איזה סוג קטגוריה להוסיף?
-                </h2>
-                <input id='addInput' type="text" onChange={handleChangeInput} placeholder="נא הכנס שם הקטגוריה" />
-                <div className='confirmBtns popup__window--confirmBtns'>
-                    <button
-                        onClick={hendleAddCategory}
-                        disabled={loader}
-                        className={
-                            loader ? "form-btn_disable" :
-                                category.length === 0 ? "form-btn_disable" : "form-btn_active"
-                        }
-                    >{loader ? "שומר" : "הוספה"}</button>
-                    <button
-                        disabled={loader}
-                        className={loader === true ? "form-btn_disable" : "form-btn_active"}
-                        onClick={() => setOpenPopupAdd(false)}
-                    >ביטול</button>
-                </div>
+        <PopUp>
+            <h2>
+                איזה סוג קטגוריה להוסיף?
+            </h2>
+            <input id='addInput' type="text" onChange={handleChangeInput} placeholder="נא הכנס שם הקטגוריה" />
+            <div className='confirmBtns popup__window--confirmBtns'>
+                <button
+                    onClick={hendleAddCategory}
+                    disabled={loader}
+                    className={
+                        loader ? "action-loading" :
+                            category.length === 0 ? "action-loading" : "agree-btn"
+                    }
+                >{loader ? "שומר" : "הוספה"}</button>
+                <button
+                    disabled={loader}
+                    className={loader === true ? "action-loading" : "cancel-btn"}
+                    onClick={() => setOpenPopupAdd(false)}
+                >ביטול</button>
             </div>
-        </div>
+        </PopUp>
     )
 }
 

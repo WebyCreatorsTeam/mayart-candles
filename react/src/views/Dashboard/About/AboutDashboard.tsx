@@ -12,8 +12,10 @@ interface IAbout {
   desc: string
   images: Array<{ img: string, _id: string }>
 }
+
 const AboutDashboard: FC = () => {
   const { about } = useLoaderData() as { about: IAbout }
+  
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={about}>
@@ -21,7 +23,7 @@ const AboutDashboard: FC = () => {
           <h1>קצת עליי</h1>
           <AboutHeader id={about._id} title={about.title} />
           <AboutDesc id={about._id} desc={about.desc} />
-          <p className="aboutDash__backstage">מאחורי הקלעים של MAYART</p>
+          <h3 className="aboutDash__backstage">מאחורי הקלעים של MAYART</h3>
           <div className="aboutDash__images">
             {about.images.map((image, idx) => (
               <AboutImage key={idx} id={about._id} img={image} idx={idx} />

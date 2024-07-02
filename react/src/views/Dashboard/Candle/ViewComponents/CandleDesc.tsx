@@ -11,7 +11,7 @@ const CandleDesc: FC<ICandleDesc> = ({ description }) => {
 
     return (
         <section className='candleItem__candleDesc'>
-            <div className='candleItem__candleDesc--title'>
+            <div className='candleItem__candleDesc--title candleItem__editInfo'>
                 <h3>תיאור מוצר</h3>
                 {!popUpDescEdit && (
                     <button onClick={() => setPopUpDescEdit(true)}><EditIcon color="primary" /></button>
@@ -21,11 +21,11 @@ const CandleDesc: FC<ICandleDesc> = ({ description }) => {
                 <p>{candleDesc}</p>
             )}
             {popUpDescEdit && (
-                <DescEdit 
-                description={description}
-                candleDesc={candleDesc} 
-                setCandleDesc={setCandleDesc}
-                setPopUpDescEdit={setPopUpDescEdit}/>
+                <DescEdit
+                    description={description}
+                    candleDesc={candleDesc}
+                    setCandleDesc={setCandleDesc}
+                    setPopUpDescEdit={setPopUpDescEdit} />
             )}
         </section>
     )
