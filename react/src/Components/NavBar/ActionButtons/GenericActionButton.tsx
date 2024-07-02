@@ -10,19 +10,19 @@ const GenericActionButton = ({
   actionButtonInfo,
   type,
   candles,
-  amount
+  amount,
 }: {
   candles?: Array<CandleType | ChosenCandleType> | undefined;
   actionButtonInfo: ActionButtonInfoT;
   favoriteCandles?: Array<CandleType> | undefined;
   shoppingCartCandles?: Array<ChosenCandleType> | undefined;
   type?: string;
-  amount?: number
+  amount?: number;
 }) => {
   return (
     <>
       {type ? (
-        <Link to={`/list/${type}`} className="relative">
+        <Link to={`/candles/list/${type}`} className="relative">
           {candles && candles.length > 0 && (
             <span className="absolute -right-2 -top-1 hidden size-4 items-center justify-center rounded-full bg-black text-center text-sm text-white sm:flex">
               {amount}

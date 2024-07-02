@@ -69,18 +69,18 @@ const router = createBrowserRouter([
             element: <AllCandles />,
             loader: candlesLoaderByType,
           },
-        ],
-      },
-      {
-        path: "/list",
-        children: [
           {
-            path: "/list/shoppingCart",
-            element: <ShoppingCartPage />,
-          },
-          {
-            path: "/list/favorites",
-            element: <FavoritesPage />,
+            path: "/candles/list",
+            children: [
+              {
+                path: "/candles/list/shoppingCart",
+                element: <ShoppingCartPage />,
+              },
+              {
+                path: "/candles/list/favorites",
+                element: <FavoritesPage />,
+              },
+            ],
           },
         ],
       },
