@@ -78,20 +78,28 @@ const AddNewCandle: FC = () => {
       <Await resolve={categories}>
         <section dir="rtl" className='candleAddPage'>
           <h1>הוספת מוצר חדש</h1>
-          <NewNameCandle hendleFillInput={hendleFillInput} />
-          <NewCandlePrice hendleFillInput={hendleFillInput} />
+          <p className='candleAddPage__mustIncluded'>*כל השדות אשר נמצאים תחת כוכבים הינם שדות חובה </p>
+          <hr/>
+          <section>
+            <NewNameCandle hendleFillInput={hendleFillInput} />
+            <NewCandlePrice hendleFillInput={hendleFillInput} />
+          </section>
+          <hr/>
           <section>
             <h2>מפרט טכני</h2>
             <NewCandleColor setNewCandle={setNewCandle} />
             <AddNewCandleFrg setNewCandle={setNewCandle} />
             <NewCandleShape hendleFillInput={hendleFillInput} />
           </section>
+          <hr/>
           <NewDescCandle hendleFillInput={hendleFillInput} />
+          <hr/>
           <section>
             <h3>קטגוריות</h3>
             <NewCandleType categories={categories} setNewCandle={setNewCandle} />
             <NewCandleSize setNewCandle={setNewCandle} />
           </section>
+          <hr/>
           <section>
             <h3>תמונות המוצר</h3>
             <section>

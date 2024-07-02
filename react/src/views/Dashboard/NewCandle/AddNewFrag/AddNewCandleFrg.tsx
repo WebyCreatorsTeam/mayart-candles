@@ -23,17 +23,31 @@ const AddNewCandleFrg: FC<INewCandleProps> = ({ setNewCandle }) => {
         return setFragrance(target.value)
     }
 
+    const handleDeleteFrag = (indx: number) => {
+        return setFragrances(fragrances.filter((fragrances, index) => index !== indx))
+    }
+
     return (
-        <section className='flagDisplay'> 
+        <section className='flagDisplay'>
+            <div className='label-error-text-display'>
+                <h3>ריח של מוצר (חייב לכלול לפחות ריח אחד)*</h3>
+            </div>
             {error && <p>{error}</p>}
-            <form onSubmit={handleAddColor}>
-                <label htmlFor="fragrance">ריח של מוצר (חייב לכלול לפחות ריח אחד)*:</label>
-                <input type="text" id="fragrance" name="fragrance" onChange={handeValidColorsFrag}/>
-                <button type='submit'>הוסף ריח</button>
+            <form onSubmit={handleAddColor} className='flagDisplay__form-section'>
+                <label htmlFor="fragrance">שם הריח:</label>
+                <div>
+                    <input type="text" id="fragrance" name="fragrance" onChange={handeValidColorsFrag} />
+                </div>
+                <button type='submit' className='agree-btn'>הוסף ריח</button>
             </form>
-            <div>{fragrances.map((clr: string, index: number) => (
-                    <div key={index}>{clr}</div>
-                ))}</div>
+            <div>
+                {fragrances.map((clr: string, index: number) => (
+                    <div>
+                        <div key={index}>{clr}</div>
+                        <button onClick={() => handleDeleteFrag(index)}>Del</button>
+                    </div>
+                ))}
+            </div>
         </section>
     )
 }

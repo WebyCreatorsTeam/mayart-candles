@@ -1,6 +1,7 @@
 import { FC, SyntheticEvent, useState } from 'react'
 import { IPrompCandleEdit } from '../NameCandle/NewNameCandle'
 import { validateNewCandle } from '../../utils/validateNewCandle'
+import ErrorMessega from '../../UI/ErrorMessega'
 
 const NewCandlePrice: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
     const [price, setPrice] = useState<number>(0)
@@ -17,19 +18,34 @@ const NewCandlePrice: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
 
     const handleValidSalePrice = (ev: SyntheticEvent) => {
         let target = ev.target as HTMLInputElement;
-        if (Number(target.value) > price || Number(target.value) === price) return setError("ההנחה לא יכולה להיות יותר ממחחיר המוצר או שווה למחיר")
+        if (Number(target.value) > price || Number(target.value) === price) return setError("ההנחה לא יכולה להיות יותר ממחחיר המוצר או שווה למחיר המקורי")
         hendleFillInput(target.name, target.value)
         return setError("")
     }
 
     return (
-        <section>
-            <h2>עלויות</h2>
+        <section className='cost-section'>
+            <div className='label-error-text-display'>
+                <h2>עלויות</h2>
+                <ErrorMessega errorText={error} />
+            </div>
             <section className='costsDisplay'>
-                <label htmlFor="price">מחיר המוצר*:</label> {error && <p>{error}</p>}
-                <input type='number' id="price" name="price" onChange={handleValidPrice} />
-                <label htmlFor="salePrice">הנחה על המוצר:</label>
-                <input type='number' id="salePrice" name="salePrice" onChange={handleValidSalePrice} />
+                <div>
+                    <div>
+                        <label htmlFor="price">מחיר המוצר*:</label>
+                    </div>
+                    <div className='cost-section__price'>
+                        <input type='number' id="price" name="price" onChange={handleValidPrice} /> <p>&#x20AA;</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label htmlFor="salePrice">הנחה על המוצר:</label>
+                    </div>
+                    <div className='cost-section__price'>
+                        <input type='number' id="salePrice" name="salePrice" onChange={handleValidSalePrice} /> <p>&#x20AA;</p>
+                    </div>
+                </div>
             </section>
         </section>
     )

@@ -22,7 +22,7 @@ const NewDescCandle: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
                 <li>שילוב מילות מפתח בתיאור כדי לשפר את מיקום המוצר בתוצאות החיפוש.</li>
             </ul>
             {error && <p>{error}</p>}
-            <textarea name="description" rows={7} cols={80} onChange={handleValidDesc} />
+            <textarea name="description" onChange={handleValidDesc} />
         </section>
     )
 }

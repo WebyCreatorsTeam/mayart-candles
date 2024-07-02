@@ -1,80 +1,162 @@
-// .candleAddPage {
-//     box-sizing: border-box;
-//     padding: 0% 2%;
+.candleAddPage {
+    &__mustIncluded {
+        color: red;
+    }
 
-//     h1 {
-//         font-size: clamp(1.5rem, 0.641vw + 1.356rem, 2.125rem);
-//         text-align: center;
-//     }
+    .label-error-text-display {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
-//     h2 {
-//         font-size: clamp(1.5rem, 0.385vw + 1.413rem, 1.875rem);
-//     }
+    input[name="name"] {
+        width: 50%;
+    }
 
-//     h3 {
-//         font-size: clamp(1.5rem, 0.128vw + 1.471rem, 1.625rem);
-//     }
+    .cost-section {
+        &__price {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
 
-//     p,
-//     label {
-//         font-size: clamp(1.25rem, 0.256vw + 1.192rem, 1.5rem);
-//     }
+            input[type="number"] {
+                width: 50%;
+                margin-left: 1%;
 
-//     label {
-//         margin-left: 1%;
-//     }
+                @media only screen and (max-width: 768px) {
+                    flex-direction: column;
+                    width: 30%;
+                }
+            }
+        }
 
-//     input,
-//     textarea,
-//     select {
-//         direction: rtl;
-//         background-color: #EBDBFF;
-//         border-radius: 10px;
-//     }
+        .costsDisplay {
+            display: flex;
 
-//     input {
-//         width: 15%;
-//         font-size: 20px;
-//     }
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+        }
+    }
 
-//     select {
-//         padding: 0.5% 0%;
-//     }
+    .colorDisplay {
+        &__form-section {
+            display: flex;
+            align-items: center;
 
-//     input[type="text"] {
-//         padding: 0.5% 1% 0.5% 0%;
-//     }
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: normal;
+            }
 
-//     section {
-//         margin: 2% 0%;
-//     }
+            input[name="color"] {
+                width: 60%;
 
-//     .costsDisplay {
-//         width: 30%;
-//         min-width: 320px;
-//         display: grid;
-//         grid-template-columns: 2fr 3fr;
-//         align-items: center;
-//         justify-items: stretch;
+                @media only screen and (max-width: 768px) {
+                    width: 60%;
+                }
+            }
 
-//         label,
-//         input {
-//             margin-top: 3%;
-//         }
+            input[type="color"] {
+                width: 100%;
 
-//         input {
-//             width: 100%;
-//             padding: 3% 5% 3% 0%;
-//         }
-//     }
+                @media only screen and (max-width: 768px) {
+                    width: 60%;
+                    margin-bottom: 5%;
+                }
+            }
+        }
 
-//     .colorDisplay,
-//     .flagDisplay {
-//         display: flex;
-//         align-items: center;
-//     }
+        &__colorsList {
+            display: flex;
+            flex-wrap: wrap;
 
-//     .descDisplay {
-//         width: 50%;
-//     }
-// }
+            &--color-item {
+                border: 1px solid grey;
+                border-radius: 100px;
+                padding: 0.5%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 1%;
+
+                div {
+                    margin-top: 3%;
+                    color: white;
+                    text-shadow: 0 0 3px black;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 100px;
+                    border: 2px solid grey;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: 1%;
+                }
+            }
+        }
+    }
+
+    .flagDisplay {
+        &__form-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+
+            label {
+                grid-area: 1 / 1 / 2 / 3;
+            }
+
+
+            // @media only screen and (max-width: 768px) {
+            //     grid-template-columns: repeat(1, 1fr);
+            // }
+        }
+    }
+
+    // input {
+    // width: 32%;
+    // font-size: 20px;
+    // }
+
+    //     select {
+    //         padding: 0.5% 0%;
+    //     }
+
+    //     input[type="text"] {
+    //         padding: 0.5% 1% 0.5% 0%;
+    //     }
+
+    //     section {
+    //         margin: 2% 0%;
+    //     }
+
+    //     .costsDisplay {
+    //         width: 30%;
+    //         min-width: 320px;
+    //         display: grid;
+    //         grid-template-columns: 2fr 3fr;
+    //         align-items: center;
+    //         justify-items: stretch;
+
+    //         label,
+    //         input {
+    //             margin-top: 3%;
+    //         }
+
+    //         input {
+    //             width: 100%;
+    //             padding: 3% 5% 3% 0%;
+    //         }
+    //     }
+
+    //     .colorDisplay,
+    //     .flagDisplay {
+    //         display: flex;
+    //         align-items: center;
+    //     }
+
+    //     .descDisplay {
+    //         width: 50%;
+    //     }
+}

@@ -53,6 +53,7 @@
 
         h2 {
             font-size: clamp(1.75rem, 0.75vw + 1.6rem, 2.5rem);
+            font-weight: 500;
         }
 
         h3 {
@@ -163,4 +164,4 @@
 @import "./dashboard/mainDashboard";
 @import "./UI/PopUp/popUp";
 @import "./oneCandle/candle";
-// // @import "./newCandleAdd";
+@import "./newCandleAdd";
