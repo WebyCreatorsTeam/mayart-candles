@@ -19,10 +19,10 @@ const PopoverCandleActionButtons = ({
   const { amount } = useMemo(() => candle, [candle]) as ChosenCandleType;
   return (
     <span
-      className="flex w-full justify-center text-[9.13px] leading-[12.14px] sm:text-base lg:w-fit lg:text-2xl lg:leading-[31.92px]"
+      className="flex w-full justify-center  ~sm/xl:~text-[0.6rem]/[1.5rem] ~sm/2xl:~leading-[0.75rem]/[4rem] sm:max-md:text-base lg:w-fit "
       dir="ltr"
     >
-      <div className="flex  w-[77.18px] bg-[#F7E1D7] *:grow *:py-[7.22px] *:text-center sm:*:py-[12.14px] lg:w-[203px] lg:*:py-[19px]">
+      <div className="flex  bg-[#F7E1D7] *:grow *:py-[7.22px] *:text-center ~/2xl:~w-[4.75rem]/[12.5rem] sm:*:py-[12.14px] lg:*:py-[19px]">
         <button
           onClick={(e) => {
             handleAddToShoppingCartArray(e, candle);

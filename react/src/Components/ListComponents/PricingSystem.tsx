@@ -7,7 +7,7 @@ const PricingSystem = ({
   candle: CandleType | ChosenCandleType;
 }) => {
   return candle.salePrice ? (
-    <div className="flex flex-row justify-center gap-2 sm:justify-evenly sm:text-[34.22px] sm:leading-[45.51px] lg:text-[32px] lg:font-normal lg:leading-[42.56px]">
+    <div className="flex flex-row justify-center gap-2 sm:text-[34.22px] sm:leading-[45.51px] lg:justify-evenly lg:text-[32px] lg:font-normal lg:leading-[42.56px]">
       <p className="text-[#12151580] line-through ">₪{candle.price}</p>
       <span className="">₪{candle.salePrice}</span>
     </div>

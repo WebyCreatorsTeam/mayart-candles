@@ -3,7 +3,7 @@ import { CandleColorT } from "../../../utils/types/candles";
 
 const Colors = ({ colors }: { colors: CandleColorT[] }) => {
   return (
-    <div className="flex flex-col items-center sm:gap-[38.49px]">
+    <div className="flex flex-col items-center sm:gap-3">
       <h2>צבעים:</h2>
       <ul className="flex gap-[18px]">
         {colors.map((color) => (
@@ -15,7 +15,7 @@ const Colors = ({ colors }: { colors: CandleColorT[] }) => {
                 backgroundColor: `${color.hexCode}`,
                 border: color.color === "לבן" ? "1px solid black" : "0",
               }}
-              className={`size-[31px] self-center rounded-full`}
+              className={`size-[31px] self-center rounded-full sm:~size-10/14`}
             ></div>
           </li>
         ))}

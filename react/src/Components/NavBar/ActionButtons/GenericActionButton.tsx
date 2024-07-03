@@ -24,7 +24,7 @@ const GenericActionButton = ({
       {type ? (
         <Link to={`/candles/list/${type}`} className="relative">
           {candles && candles.length > 0 && (
-            <div className="absolute ~right-[-.5rem]/[-1rem] ~top-[-.25rem]/[-.5rem] hidden ~size-4/7 aspect-square items-center justify-center rounded-full bg-black text-center  text-white sm:flex">
+            <div className="absolute hidden aspect-square items-center justify-center rounded-full bg-black text-center text-white ~sm/xl:~-top-1/2 ~sm/xl:~-right-2/4 ~sm/xl:~size-4/7  sm:flex sm:max-xl:top-2">
               {amount}
             </div>
           )}
@@ -34,7 +34,7 @@ const GenericActionButton = ({
             alt={actionButtonInfo.mobile.alt}
           />
           <img
-            className="hidden sm:block ~size-7/10"
+            className="hidden ~size-7/10 sm:block"
             src={actionButtonInfo.tablet.src}
             alt={actionButtonInfo.tablet.alt}
           />
@@ -42,7 +42,7 @@ const GenericActionButton = ({
       ) : (
         <div className="relative">
           {candles && (
-            <span className="absolute  hidden ~size-4/6 items-center justify-center rounded-full bg-black text-center text-sm text-white sm:flex">
+            <span className="absolute  hidden items-center justify-center rounded-full bg-black text-center text-sm text-white ~size-4/6 sm:flex">
               {candles.length}
             </span>
           )}
@@ -52,7 +52,7 @@ const GenericActionButton = ({
             alt={actionButtonInfo.mobile.alt}
           />
           <img
-            className="hidden sm:block  ~size-7/10"
+            className="hidden ~size-7/10  sm:block"
             src={actionButtonInfo.tablet.src}
             alt={actionButtonInfo.tablet.alt}
           />

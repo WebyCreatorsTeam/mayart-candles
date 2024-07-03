@@ -5,7 +5,7 @@ const DSKPLinkToCandle = ({ id }: { id: string }) => {
   return (
     <Link
       to={`/candles/candle/${id}`}
-      className="hidden text-nowrap bg-black px-[196px] py-[25px] text-4xl font-semibold leading-[47.88px] text-white max-xl:px-14 lg:block"
+      className="~sm/lg:px-[10rem]/[12.25rem] hidden text-nowrap bg-black py-[25px] text-4xl font-semibold leading-[47.88px] text-white max-xl:px-14 lg:block"
     >
       צפייה במוצר
     </Link>

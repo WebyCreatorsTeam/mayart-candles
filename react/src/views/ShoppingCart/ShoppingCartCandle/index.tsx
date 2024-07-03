@@ -27,7 +27,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
           </div>
           <div
             dir="rtl"
-            className="flex w-full justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] lg:flex-col lg:gap-[21px] lg:text-[32px] lg:font-normal lg:leading-none"
+            className="flex w-full flex-col justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] lg:gap-[21px] lg:text-[32px] lg:font-normal lg:leading-none"
           >
             <Color color={candle.colors} />
             <p>ריח: {candle.fragrances}</p>
@@ -42,7 +42,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
             />
           </span>
         </div>
-        <span className="hidden h-[304px] items-end flex-col justify-between lg:flex">
+        <span className="hidden h-[304px] flex-col items-end justify-between lg:flex">
           <PopoverCandleActionButtons
             handleAddToShoppingCartArray={handleAddToShoppingCartArray}
             handleRemoveOneFromShoppingCartArray={

@@ -3,8 +3,9 @@ import { useLocalShoppingCartCandlesStorage } from "../../utils/localCandleStora
 import { ChosenCandleType } from "../../utils/types/candles";
 import ShoppingCartCandle from "./ShoppingCartCandle";
 import CheckoutAndDisclaimer from "./CheckoutAndDisclaimer";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { ContextType } from "../../App";
+import EmptyArrayPrompt from "../../Components/ListComponents/EmptyArrayPrompt";
 const ShoppingCartPage = () => {
   const { shoppingCartArray } = useOutletContext<ContextType>();
   const candles = useMemo(() => shoppingCartArray, [shoppingCartArray]);
@@ -25,7 +26,7 @@ const ShoppingCartPage = () => {
         )}
       </div>
       {!candles || !candles.length ? (
-        <h1 className="h-full">עדיין לא נוספו פריטים</h1>
+        <EmptyArrayPrompt />
       ) : (
         <div className="flex h-full w-full flex-col items-start">
           <div className="flex h-full w-full flex-col items-center gap-[50px] px-5  sm:gap-[106.92px] sm:px-[42.77px] lg:p-0">

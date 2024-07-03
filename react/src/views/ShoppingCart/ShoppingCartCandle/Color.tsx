@@ -1,10 +1,10 @@
 import React from "react";
 import { CandleColorT } from "../../../utils/types/candles";
 
-const Color = ({color}:{color: CandleColorT}) => {
+const Color = ({ color }: { color: CandleColorT }) => {
   return (
-    <p className="flex items-start gap-[18px] sm:gap-[38.49px]">
-      צבע: {color.color}
+    <p className="flex w-full items-start justify-center gap-[18px] sm:gap-[38.49px] lg:justify-start">
+      <h2>צבע: {color.color}</h2>
       <div
         aria-description={`צבע ${color.color}`}
         style={{

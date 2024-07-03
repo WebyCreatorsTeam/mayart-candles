@@ -74,7 +74,7 @@ function App() {
     }
     addItemToCart(value);
   };
-  const handleAddToFavoritesArray = (value: CandleType) => {    
+  const handleAddToFavoritesArray = (value: CandleType) => {
     const alreadyFavorite = favoritesArray.findIndex(
       (candle) => candle._id === value._id,
     );
