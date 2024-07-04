@@ -28,7 +28,6 @@ exports.addPaymentText = addPaymentText;
 const getPaymentText = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const paymentText = yield payment_model_1.Payment.findOne({ _id: "667c47143e1fe81613271580" });
-        console.log(paymentText);
         return res.json({ continueWork: true, paymentText });
     }
     catch (error) {

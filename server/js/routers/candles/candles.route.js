@@ -3,13 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const storage_1 = require("../../utils/cloudinary/storage");
 const candles_controller_1 = require("../../controllers/candle/candles.controller");
-const getCandle_controller_1 = require("../../controllers/candle/getCandle.controller");
 const editCandle_controller_1 = require("../../controllers/candle/editCandle.controller");
 const router = (0, express_1.Router)();
 router
-    .get('/get-candles', getCandle_controller_1.getAllCandles)
-    .post('/get-one-candle', getCandle_controller_1.getOneCandle)
-    .post('/get-candles-by-category', getCandle_controller_1.getCandleByCategory)
     .post('/save-candle', storage_1.upload.array("my_many_files", 4), candles_controller_1.addCandle)
     .delete('/remove-candle', candles_controller_1.removeCandle)
     .patch('/change-candle-name', editCandle_controller_1.changeCandleName)
