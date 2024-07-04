@@ -1,10 +1,8 @@
 import { FC, useEffect, useState } from 'react'
 import { Form, redirect, useNavigation } from 'react-router-dom';
-// import Input from '../UI/Input';
 import axios from 'axios';
 import { BASE_API } from '../../../../utils/api-connect';
 import Input from '../../UI/Input';
-// import { BASE_API } from '../../../utils/api-connect';
 
 export interface InputsList {
   type: string

@@ -15,11 +15,17 @@ import { v2 as cloudinary } from "cloudinary";
 import { userIsAdmin } from './middlewares/admin.user.mw';
 
 // middlewares
-
 const corsOrigin = process.env.CORS_ORIGIN;
 const corsDev = process.env.CORS_DEV;
+const allowedOrigins = [corsOrigin, corsDev];
 app.use(cors<Request>({
-    origin: process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },//process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
 

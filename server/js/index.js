@@ -21,8 +21,16 @@ const admin_user_mw_1 = require("./middlewares/admin.user.mw");
 // middlewares
 const corsOrigin = process.env.CORS_ORIGIN;
 const corsDev = process.env.CORS_DEV;
+const allowedOrigins = [corsOrigin, corsDev];
 app.use((0, cors_1.default)({
-    origin: process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }, //process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
 cloudinary_1.v2.config({
