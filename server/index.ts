@@ -1,17 +1,18 @@
 import 'dotenv/config'
 import morgan from 'morgan';
-import express, { Request, Response } from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import { dbconnect } from './DBconnect/dbconnect'
 const app = express()
 const PORT = process.env.PORT || 7575
 import cors from "cors";
 import { GlobalErrorHandler, NotFoundHandler } from './middlewares/error-handles.mw';
-import candlesRout from './routers/candles/candles.route'
-import adminRout from './routers/admin/admin.route'
-import categoriesRoute from './routers/category/category.route'
-import aboutRoute from './routers/about/about.route'
-import paymentRoute from './routers/payment/payment.route';
+import candlesRout from './routers/candles/candle.index.route'
+import adminRout from './routers/admin/index.admin.route'
+import categoriesRoute from './routers/category/category.index.route'
+import aboutRoute from './routers/about/about.index.route'
+import paymentRoute from './routers/payment/payment.index.route';
 import { v2 as cloudinary } from "cloudinary";
+import { userIsAdmin } from './middlewares/admin.user.mw';
 
 // middlewares
 app.use(cors<Request>({
@@ -27,10 +28,11 @@ cloudinary.config({
 
 app.use(morgan('dev'))
 app.use(express.json());
-// app.use(express.urlencoded({extended:true}));
 
 // database connection
 dbconnect()
+
+app.use(userIsAdmin)
 
 app
     .use("/admin", adminRout)

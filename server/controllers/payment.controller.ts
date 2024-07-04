@@ -17,7 +17,6 @@ export const addPaymentText = async (req: Request, res: Response, next: NextFunc
 export const getPaymentText = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const paymentText = await Payment.findOne({ _id: "667c47143e1fe81613271580" });
-        console.log(paymentText)
         return res.json({ continueWork: true, paymentText })
     } catch (error) {
         next(error)

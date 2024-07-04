@@ -2,11 +2,11 @@ import { NextFunction, Request, Response } from 'express'
 import { httpCodes } from '../utils/httpCodes'
 
 // 404 handler
-export const NotFoundHandler =  ((req: Request, res: Response, next: NextFunction) => {
+export const NotFoundHandler =  (req: Request, res: Response, next: NextFunction) => {
     const error = new Error("route not founded") as StatusError
     error['status'] = httpCodes.NOT_FOUND
     next(error)
-})
+}
 
 //Global Error
 export const GlobalErrorHandler = (error: StatusError, req: Request, res: Response, next: NextFunction) => {

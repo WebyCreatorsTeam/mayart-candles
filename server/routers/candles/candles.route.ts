@@ -5,11 +5,6 @@ import {
     removeCandle,
 } from "../../controllers/candle/candles.controller"
 import {
-    getAllCandles,
-    getOneCandle,
-    getCandleByCategory
-} from "../../controllers/candle/getCandle.controller";
-import {
     changeCandleName,
     changeCandlePrice,
     addNewColor,
@@ -25,9 +20,6 @@ import {
 const router = Router()
 
 router
-    .get('/get-candles', getAllCandles)
-    .post('/get-one-candle', getOneCandle)
-    .post('/get-candles-by-category', getCandleByCategory)
     .post('/save-candle', upload.array("my_many_files", 4), addCandle)
     .delete('/remove-candle', removeCandle)
     .patch('/change-candle-name', changeCandleName)

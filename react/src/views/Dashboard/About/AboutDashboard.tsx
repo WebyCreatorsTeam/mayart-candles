@@ -15,7 +15,7 @@ interface IAbout {
 
 const AboutDashboard: FC = () => {
   const { about } = useLoaderData() as { about: IAbout }
-  
+
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={about}>

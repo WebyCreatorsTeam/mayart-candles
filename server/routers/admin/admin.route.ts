@@ -10,7 +10,7 @@ const router = Router()
 
 router
     .post('/reg-admin', registAdmin)
-    .post('/login-admin', loginAdmin)
+    // .post('/login-admin', loginAdmin)
     .get('/all-admins', getAllAdmins)
     .delete('/remove-admin', removeAdmin)
 
