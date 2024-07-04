@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import NavBarDashboard from './NavBarDashboard/NavBarDashboard';
+import NavBarDashboard from './View/NavBarDashboard/NavBarDashboard'
+// import NavBarDashboard from './NavBarDashboard/NavBarDashboard';
 
 const LayoutDashboard: FC = () => {
     const location = useLocation()
