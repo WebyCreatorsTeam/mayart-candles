@@ -15,8 +15,11 @@ import { v2 as cloudinary } from "cloudinary";
 import { userIsAdmin } from './middlewares/admin.user.mw';
 
 // middlewares
+
+const corsOrigin = process.env.CORS_ORIGIN;
+const corsDev = process.env.CORS_DEV;
 app.use(cors<Request>({
-    origin: "http://localhost:3000", // process.env.NODE_ENV === 'production' ? "" :
+    origin: process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
 
