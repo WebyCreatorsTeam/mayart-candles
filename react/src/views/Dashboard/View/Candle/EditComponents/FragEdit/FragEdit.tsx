@@ -21,7 +21,7 @@ const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances, allFragra
             const filterFrag = allFragrances.filter(fgr => fgr === newFrag)
             if (filterFrag.length > 0) return alert(`ריח ${newFrag} כבר קיים ברשימה`)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, fragrances } } = await axios.post(`${BASE_API}/candles/add-frag?token=${token}`, { id, newFrag })
+            const { data: { continueWork, message, fragrances } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-frag?token=${token}`, { id, newFrag })
             if (continueWork) {
                 alert(message)
                 setAllFragrances(fragrances)

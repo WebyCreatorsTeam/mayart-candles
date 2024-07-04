@@ -58,7 +58,7 @@ const AddNewCandle: FC = () => {
       const data = new FormData()
       data.append("my_many_files", images!)
       const token = sessionStorage.getItem('token')
-      // const res = await axios.post(`${BASE_API}/candles/add-candle-image?token=${token}&candle=${newCandle}`, data, {
+      // const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-candle-image?token=${token}&candle=${newCandle}`, data, {
       const candle = JSON.stringify(newCandle)
       const res = await axios.post(`http://localhost:7575/candles/save-candle?token=${token}&candle=${candle}`, data, {
         headers: {

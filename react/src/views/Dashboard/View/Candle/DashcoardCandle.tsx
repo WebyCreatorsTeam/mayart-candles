@@ -47,13 +47,13 @@ const DashcoardCandle = () => {
 export default DashcoardCandle;
 
 const hendleGetCandle = async (id: string) => {
-  const { data: { continueWork, candle } } = await axios.post(`${BASE_API}/candles/get-one-candle`, { id })
+  const { data: { continueWork, candle } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/get-one-candle`, { id })
   if (continueWork) return candle
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }
 
 export const handleGetCategories = async () => {
-  const { data: { continueWork, categories } } = await axios.get(`${BASE_API}/categories/get-categories`)
+  const { data: { continueWork, categories } } = await axios.get(`https://mayart-candles-api.vercel.app/categories/get-categories`)
   if (continueWork) return categories
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }

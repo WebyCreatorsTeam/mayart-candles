@@ -18,7 +18,7 @@ const EditTypeCandle: FC<IEditTypeCandle> = ({ candleType, categoryOption }) => 
     const handleChangeType = async () => {
         try {
             setLoader(true)
-            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/edit-type-candle`, { id, type })
+            const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/edit-type-candle`, { id, type })
             if (continueWork) {
                 alert(message)
                 setEditType(false)

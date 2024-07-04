@@ -19,7 +19,7 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
       setLoader(true);
       if (paymentDesc.length === 0) return alert("שם הנר לא יכול להיות ריק");
       const token = sessionStorage.getItem("token");
-      const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/payment/update-payment-text?token=${token}`, { id, paymentDesc });
+      const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/payment/update-payment-text?token=${token}`, { id, paymentDesc });
       if (continueWork) {
         alert(message);
         return setEditDesc(false);

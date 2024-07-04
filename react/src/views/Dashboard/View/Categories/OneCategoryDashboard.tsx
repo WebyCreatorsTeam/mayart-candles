@@ -35,7 +35,7 @@ const OneCategoryDashboard: FC = () => {
 export default OneCategoryDashboard;
 
 const hendleGetCategoryCandles = async (categoryType: string) => {
-  const { data: { continueWork, categoryCandles } } = await axios.post(`${BASE_API}/candles/get-candles-by-category`, { categoryType })
+  const { data: { continueWork, categoryCandles } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/get-candles-by-category`, { categoryType })
   if (continueWork) return categoryCandles
   if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }

@@ -42,7 +42,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
             const data = new FormData()
             data.append("my_file", file!)
             const token = sessionStorage.getItem('token')
-            const res = await axios.patch(`${BASE_API}/about/update-about-image?token=${token}&id=${id}&oldURL=${img.img}&oldId=${img._id}`, data, {
+            const res = await axios.patch(`https://mayart-candles-api.vercel.app/about/update-about-image?token=${token}&id=${id}&oldURL=${img.img}&oldId=${img._id}`, data, {
                 headers: {
                     'content-type': "mulpipart/form-data"
                 }

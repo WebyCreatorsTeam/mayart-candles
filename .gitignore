@@ -4,6 +4,7 @@ npm-debug.log
 .npm
 .env
 .env.development
+.env.production
 
 # Next.js Build Output
 .next

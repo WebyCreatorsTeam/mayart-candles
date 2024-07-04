@@ -22,7 +22,7 @@ const Users: FC = () => {
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message } } = await axios.delete(`${BASE_API}/admin/remove-admin?token=${token}`, { data: { id } })
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/admin/remove-admin?token=${token}`, { data: { id } })
             if (continueWork) {
                 setAllUser(allUser.filter(us => { return us._id !== id }))
                 return alert(message)
@@ -69,7 +69,7 @@ export default Users
 
 const hendleGetAdmins = async () => {
     const token = sessionStorage.getItem('token')
-    const { data } = await axios.get(`${BASE_API}/admin/all-admins?token=${token}`)
+    const { data } = await axios.get(`https://mayart-candles-api.vercel.app/admin/all-admins?token=${token}`)
     const { continueWork, admins } = data;
     if (continueWork) return admins
     if (!continueWork) return alert("הראה שגיאה, נסה שנית")

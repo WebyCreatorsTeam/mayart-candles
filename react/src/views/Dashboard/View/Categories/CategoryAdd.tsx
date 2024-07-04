@@ -18,7 +18,7 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
             setLoader(true)
             if (category.length === 0) return alert("השדה לא יכול להיות ריק")
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, newCategory } } = await axios.post(`${BASE_API}/categories/save-category?token=${token}`, { opt: category })
+            const { data: { continueWork, message, newCategory } } = await axios.post(`https://mayart-candles-api.vercel.app/categories/save-category?token=${token}`, { opt: category })
             if (continueWork) {
                 alert(message)
                 return setAllCategories((categories: Array<ICategories>) => [...categories, { _id: newCategory._id, opt: newCategory.opt }])

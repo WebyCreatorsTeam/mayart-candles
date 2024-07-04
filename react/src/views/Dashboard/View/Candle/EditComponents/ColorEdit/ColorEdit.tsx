@@ -23,7 +23,7 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
             if (newColor.color.length === 0) return alert("חייב לכלול שם הצבע")
             if (newColor.hexCode.length === 0) return alert("נא לבחור את הצבע הרצוי")
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, colors } } = await axios.post(`${BASE_API}/candles/add-color?token=${token}`, { id, newColor })
+            const { data: { continueWork, message, colors } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-color?token=${token}`, { id, newColor })
             if (continueWork) {
                 alert(message)
                 setCandleColors(colors)

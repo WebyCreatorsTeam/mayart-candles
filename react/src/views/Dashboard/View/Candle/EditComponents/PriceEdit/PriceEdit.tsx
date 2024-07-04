@@ -32,7 +32,7 @@ const PriceEdit: FC<IPriceEdit> = ({
             if (Number(candlePrice) < Number(candleSalePrice)) return alert("המחיר הרגיל לא יכול להיות יותר נמוך ממחיר הנחה")
             if (Number(candlePrice) === Number(candleSalePrice)) return alert("המחיר וההנחה לא יכולים להיות אותו הדבר")
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-price?token=${token}`, { id, price: candlePrice, salePrice: candleSalePrice })
+            const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/change-candle-price?token=${token}`, { id, price: candlePrice, salePrice: candleSalePrice })
             if (continueWork) {
                 alert(message)
                 return setPopUpPriceEdit(false)

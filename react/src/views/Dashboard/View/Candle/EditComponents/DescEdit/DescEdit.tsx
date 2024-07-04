@@ -19,7 +19,7 @@ const DescEdit: FC<IDescEdit> = ({ description, candleDesc, setCandleDesc, setPo
             setLoader(true)
             if (candleDesc.length === 0) return alert("המוצר חייב לכלול תיאור מוצר")
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/edit-description?token=${token}`, { id, candleDesc })
+            const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/edit-description?token=${token}`, { id, candleDesc })
             if (continueWork) {
                 alert(message)
                 return setPopUpDescEdit(false)

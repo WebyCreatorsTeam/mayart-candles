@@ -16,7 +16,7 @@ const CandleToShow: FC<ICandleToShow> = ({ cdl }) => {
             const confirm = window.confirm(`האם למחוק את הנר ${cdl.name}`)
             if (!confirm) return;
             setLoader(true)
-            const { data: { continueWork, message } } = await axios.delete(`${BASE_API}/candles/remove-candle`, { data: { id } })
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-candle`, { data: { id } })
             console.log(continueWork, message)
         } catch (error) {
             alert(error)

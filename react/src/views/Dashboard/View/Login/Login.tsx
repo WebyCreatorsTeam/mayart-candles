@@ -57,7 +57,7 @@ export default Login
 
 const handleLoginUser = async ({ email, password }: IUser) => {
   const { data } = await axios.post(
-    `${BASE_API}/admin/login-admin`,
+    `https://mayart-candles-api.vercel.app/admin/login-admin`,
     { email, password },
   );
   return data;

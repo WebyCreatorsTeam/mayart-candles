@@ -19,7 +19,7 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
         try {
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message } } = await axios.delete(`${BASE_API}/categories/remove-category?token=${token}`, { data: { id: ctgId } })
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/categories/remove-category?token=${token}`, { data: { id: ctgId } })
             if (continueWork) {
                 alert(message)
                 return setAllCategories((categories: Array<ICategories>) => categories.filter(ctg => ctg._id !== ctgId))

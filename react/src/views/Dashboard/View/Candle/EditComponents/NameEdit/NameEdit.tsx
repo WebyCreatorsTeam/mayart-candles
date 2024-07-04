@@ -19,7 +19,7 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
             setLoader(true)
             if (candleName.length === 0) return alert("שם הנר לא יכול להיות ריק")
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message } } = await axios.patch(`${BASE_API}/candles/change-candle-name?token=${token}`, { id, name: candleName })
+            const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/change-candle-name?token=${token}`, { id, name: candleName })
             if (continueWork) {
                 alert(message)
                 return setPopUpNameEdit(false)

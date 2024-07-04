@@ -40,7 +40,7 @@ export default AboutDashboard;
 
 const handleGetAbout = async () => {
   try {
-    const { data: { continueWork, aboutText } } = await axios.get(`${BASE_API}/about/get-about`)
+    const { data: { continueWork, aboutText } } = await axios.get(`https://mayart-candles-api.vercel.app/about/get-about`)
     if (continueWork) return aboutText
   } catch (error) {
     return alert(error)

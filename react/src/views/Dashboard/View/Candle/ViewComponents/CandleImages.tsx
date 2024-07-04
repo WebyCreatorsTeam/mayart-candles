@@ -57,7 +57,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             const data = new FormData()
             data.append("my_file", file!)
             const token = sessionStorage.getItem('token')
-            const res = await axios.post(`${BASE_API}/candles/add-candle-image?token=${token}&id=${id}`, data, {
+            const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-candle-image?token=${token}&id=${id}`, data, {
                 headers: {
                     'content-type': "mulpipart/form-data"
                 }
@@ -85,7 +85,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, pictures } } = await axios.delete(`${BASE_API}/candles/delete-image?token=${token}`, { data: { id, imageId } })
+            const { data: { continueWork, message, pictures } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/delete-image?token=${token}`, { data: { id, imageId } })
             if (continueWork) {
                 alert(message)
                 return setImagesOfCandle(pictures)

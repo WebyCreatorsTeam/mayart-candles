@@ -22,7 +22,7 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, fragrances } } = await axios.delete(`${BASE_API}/candles/remove-frag?token=${token}`, { data: { id, frg } })
+            const { data: { continueWork, message, fragrances } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-frag?token=${token}`, { data: { id, frg } })
             if (continueWork) {
                 alert(message)
                 return setAllFragrances(fragrances)

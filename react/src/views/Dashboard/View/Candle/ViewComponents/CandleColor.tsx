@@ -23,7 +23,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
             if(!confirm ) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, colors } } = await axios.delete(`${BASE_API}/candles/delete-color?token=${token}`, { data: { id, colorId } })
+            const { data: { continueWork, message, colors } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/delete-color?token=${token}`, { data: { id, colorId } })
             if (continueWork) {
                 alert(message)
                 setCandleColors(colors)

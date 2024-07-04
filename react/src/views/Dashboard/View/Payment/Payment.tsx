@@ -28,7 +28,7 @@ export default Payment;
 
 const handleGetPayment = async () => {
   try {
-    const { data: { continueWork, paymentText }, } = await axios.get(`${BASE_API}/payment/get-payment`)
+    const { data: { continueWork, paymentText }, } = await axios.get(`https://mayart-candles-api.vercel.app/payment/get-payment`)
     if (continueWork) return paymentText;
   } catch (error) {
     return alert(error);
