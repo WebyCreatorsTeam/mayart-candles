@@ -30,8 +30,8 @@ const Login: FC = () => {
 
   return (
     <div className='dashboard'>
-      <div className="background">
-        <div className='auth'>
+      <div className="dashboard__window">
+        <main className='auth'>
           <section className='section'>
             <h1>כניסת משתמש - דשבורד לאתר נרות</h1>
             <Form className='authForm' action='/login' method='post'>
@@ -47,7 +47,7 @@ const Login: FC = () => {
               </button>
             </Form>
           </section>
-        </div>
+        </main>
       </div>
     </div>
   )
