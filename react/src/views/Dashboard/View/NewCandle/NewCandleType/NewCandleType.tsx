@@ -16,8 +16,10 @@ const NewCandleType: FC<INewCandleType> = ({ categories, setNewCandle }) => {
 
     return (
         <section>
-            <label htmlFor="">נא לשייך לקטגורית את הנר. *חייב לבחור באחת האופציות:</label>
-            <select onChange={handleChooseType}>
+            <h3>
+                נא לבחור קטגורית הנר*
+            </h3>
+            <select onChange={handleChooseType} className='selectDisplay'>
                 {categories.map((ctg: any) => (
                     <option key={ctg._id} value={ctg.opt}>{ctg.opt}</option>
                 ))}

@@ -1,6 +1,7 @@
 import { FC, SyntheticEvent, useState } from 'react'
 import { IPrompCandleEdit } from '../NameCandle/NewNameCandle'
 import { validateNewCandle } from '../../../utils/validateNewCandle'
+import ErrorMessega from '../../../UI/ErrorMessega'
 // import { validateNewCandle } from '../../utils/validateNewCandle'
 
 const NewCandleShape: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
@@ -14,9 +15,13 @@ const NewCandleShape: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
     }
 
     return (
-        <section>
-            <label htmlFor="shape">צורת המוצר*</label>  {error && <p>{error}</p>}
-            <input type="text" id="shape" name="shape" onChange={handleValidName} />
+        <section className='shapeDisplay'>
+            <div className='label-error-text-display'>
+                <label htmlFor="shape">צורת המוצר*</label>  <ErrorMessega errorText={error} />
+            </div>
+            <div>
+                <input type="text" id="shape" name="shape" onChange={handleValidName} />
+            </div>
         </section>
     )
 }

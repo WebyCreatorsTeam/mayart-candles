@@ -13,13 +13,14 @@ import NewCandleSize from './NewCandleSize/NewCandleSize'
 // import UploadManyFiles from '../UI/UploadManyFiles'
 import axios from 'axios'
 import { ICandles } from '../../MainDashboard'
-import UploadManyFiles from '../../UI/UploadManyFiles'
+import NewCandleImages from './NewImagesCandle/NewCandleImages'
+// import UploadManyFiles from '../../UI/UploadManyFiles'
 // import { BASE_API } from '../../../utils/api-connect'
 
 const AddNewCandle: FC = () => {
   const { categories }: any = useLoaderData() as { admins: Array<ICategories> }
   const [loader, setLoader] = useState<boolean>(false)
-  const [prevFileShow, setPrevFileShow] = useState<Array<string>>([])
+  // const [prevFileShow, setPrevFileShow] = useState<Array<string>>([])
   const [images, setImages] = useState<any>([])
 
   const [newCandle, setNewCandle] = useState<ICandles>({
@@ -34,30 +35,34 @@ const AddNewCandle: FC = () => {
     size: ""
   })
 
-  console.log(images)
+  // console.log(images)
 
   const hendleFillInput = (name: string, value: string) => {
     setNewCandle((candle: any) => { return { ...candle, [name]: value } })
   }
 
-  const handleSelectFile = (ev: SyntheticEvent) => {
-    const target = ev.target as HTMLInputElement;
+  // const handleSelectFile = (ev: SyntheticEvent) => {
+  //   const target = ev.target as HTMLInputElement;
 
-    if (target.files) {
-      setImages(target.files)
-      for (let i = 0; i < target.files.length; i++) {
-        const fileToShow = URL.createObjectURL(target.files[i])
-        setPrevFileShow((prv: any) => [...prv, fileToShow])
-      }
-    }
-  }
+  //   if (target.files) {
+  //     setImages(target.files)
+  //     for (let i = 0; i < target.files.length; i++) {
+  //       const fileToShow = URL.createObjectURL(target.files[i])
+  //       setPrevFileShow((prv: any) => [...prv, fileToShow])
+  //     }
+  //   }
+  // }
 
   const handleUploadNewCandle = async () => {
     try {
       setLoader(true);
       const data = new FormData()
-      data.append("my_many_files", images!)
+      for (let i = 0; i < images.length; i++) {
+         data.append("my_many_files", images[i])
+      }
+      console.log(data)
       const token = sessionStorage.getItem('token')
+      console.log(`qweqweq`)
       // const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-candle-image?token=${token}&candle=${newCandle}`, data, {
       const candle = JSON.stringify(newCandle)
       const res = await axios.post(`http://localhost:7575/candles/save-candle?token=${token}&candle=${candle}`, data, {
@@ -73,48 +78,39 @@ const AddNewCandle: FC = () => {
     }
   }
 
-  console.log(prevFileShow)
-  console.log(newCandle)
+  // console.log(prevFileShow)
+  // console.log(newCandle)
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={categories}>
         <section dir="rtl" className='candleAddPage'>
           <h1>הוספת מוצר חדש</h1>
           <p className='candleAddPage__mustIncluded'>*כל השדות אשר נמצאים תחת כוכבים הינם שדות חובה </p>
-          <hr/>
+          <hr />
           <section>
             <NewNameCandle hendleFillInput={hendleFillInput} />
             <NewCandlePrice hendleFillInput={hendleFillInput} />
           </section>
-          <hr/>
+          <hr />
           <section>
             <h2>מפרט טכני</h2>
             <NewCandleColor setNewCandle={setNewCandle} />
             <AddNewCandleFrg setNewCandle={setNewCandle} />
             <NewCandleShape hendleFillInput={hendleFillInput} />
           </section>
-          <hr/>
+          <hr />
           <NewDescCandle hendleFillInput={hendleFillInput} />
-          <hr/>
+          <hr />
           <section>
-            <h3>קטגוריות</h3>
+            <h2>קטגוריות</h2>
             <NewCandleType categories={categories} setNewCandle={setNewCandle} />
             <NewCandleSize setNewCandle={setNewCandle} />
           </section>
-          <hr/>
-          <section>
-            <h3>תמונות המוצר</h3>
-            <section>
-              <p>בחרי תמונות של מוצר. חייב לכלול לפחות תמונה אחת למוצר ועד 4 תמונות למוצר*.</p>
-            </section>
-            <UploadManyFiles loader={loader} handleSelectFile={handleSelectFile} prevFileShow={prevFileShow} />
-            <div>
-              {prevFileShow.map((img: string) => (
-                <img src={img} alt="img" />
-              ))}
-            </div>
-          </section>
-          <button onClick={handleUploadNewCandle}>הוסף מוצר לחנות</button>
+          <hr />
+          <NewCandleImages loader={loader} setImages={setImages} />
+          <div className='addCandleBtn'>
+            <button onClick={handleUploadNewCandle} className="addCandleBtn__btn">הוסף מוצר לחנות</button>
+          </div>
         </section>
       </Await>
     </Suspense>

@@ -1,8 +1,6 @@
 import { FC, SyntheticEvent, useState } from 'react'
 import { validateNewCandle } from '../../../utils/validateNewCandle'
 import ErrorMessega from '../../../UI/ErrorMessega'
-// import { validateNewCandle } from '../../utils/validateNewCandle'
-// import ErrorMessega from '../../UI/ErrorMessega'
 
 export interface IPrompCandleEdit {
     hendleFillInput: (name: string, value: string) => void

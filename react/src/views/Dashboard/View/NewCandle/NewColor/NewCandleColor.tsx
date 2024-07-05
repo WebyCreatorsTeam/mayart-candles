@@ -1,7 +1,4 @@
 import { FC, SyntheticEvent, useState } from 'react'
-// import { validateNewCandle } from '../../utils/validateNewCandle'
-// import { ICandles } from '../../MainDashboard'
-// import ErrorMessega from '../../UI/ErrorMessega'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { red } from '@mui/material/colors';
 import { ICandles } from '../../../MainDashboard';
@@ -68,8 +65,9 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
                     </div>
                     <button type='submit' className='agree-btn'>הוסף צבע</button>
                 </form>
-                <div >
-                    {colors.length > 0 && <p>צבעים קיימים:</p>}
+                <div>
+                    {colors.length === 0 && <p>אין צבעים שנבחרו</p>}
+                    {colors.length > 0 && <p>צבעים שנבחרו:</p>}
                     <div className='colorDisplay__colorsList'>
                         {colors.map((clr: { color: string, hexCode: string }, index: number) => (
                             <div key={index} className='colorDisplay__colorsList--color-item'>

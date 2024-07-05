@@ -12,8 +12,8 @@ const NewCandleSize: FC<INewCandleSize> = ({ setNewCandle }) => {
     }
     return (
         <section>
-            <label htmlFor="">נא לשייך לקטגורית גודל הנר. *חייב לבחור באחת האופציות:</label>
-            <select onChange={handleChooseType}>
+            <h3>נא לבחור גודל הנר*</h3>
+            <select onChange={handleChooseType} className='selectDisplay'>
                 <option value="נרות גדולים">נרות גדולים</option>
                 <option value="נרות בינוניים">נרות בינוניים</option>
                 <option value="נרות קטנים">נרות קטנים</option>

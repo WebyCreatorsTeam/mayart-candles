@@ -2,8 +2,9 @@ import { FC, SyntheticEvent, useState } from 'react'
 import { INewCandleProps } from '../NewColor/NewCandleColor'
 import { ICandles } from '../../../MainDashboard'
 import { validateNewCandle } from '../../../utils/validateNewCandle'
-// import { validateNewCandle } from '../../utils/validateNewCandle'
-// import { ICandles } from '../../MainDashboard'
+import ErrorMessega from '../../../UI/ErrorMessega'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { red } from '@mui/material/colors';
 
 const AddNewCandleFrg: FC<INewCandleProps> = ({ setNewCandle }) => {
     const [fragrance, setFragrance] = useState<string>("")
@@ -30,26 +31,34 @@ const AddNewCandleFrg: FC<INewCandleProps> = ({ setNewCandle }) => {
     }
 
     return (
-        <section className='flagDisplay'>
+        <section className='fragDisplay'>
             <div className='label-error-text-display'>
                 <h3>ריח של מוצר (חייב לכלול לפחות ריח אחד)*</h3>
+                <ErrorMessega errorText={error} />
             </div>
-            {error && <p>{error}</p>}
-            <form onSubmit={handleAddColor} className='flagDisplay__form-section'>
-                <label htmlFor="fragrance">שם הריח:</label>
-                <div>
-                    <input type="text" id="fragrance" name="fragrance" onChange={handeValidColorsFrag} />
-                </div>
-                <button type='submit' className='agree-btn'>הוסף ריח</button>
-            </form>
-            <div>
-                {fragrances.map((clr: string, index: number) => (
+            <section>
+                <form onSubmit={handleAddColor} className='fragDisplay__form-section'>
                     <div>
-                        <div key={index}>{clr}</div>
-                        <button onClick={() => handleDeleteFrag(index)}>Del</button>
+                        <label htmlFor="fragrance">שם הריח:</label>
                     </div>
-                ))}
-            </div>
+                    <div>
+                        <input type="text" id="fragrance" name="fragrance" onChange={handeValidColorsFrag} />
+                    </div>
+                    <button type='submit' className='agree-btn'>הוסף ריח</button>
+                </form>
+                <div>
+                    {fragrances.length === 0 && <p>אין ריחות שנבחרו</p>}
+                    {fragrances.length > 0 && <p>ריחות שנבחרו:</p>}
+                    <div className='fragDisplay__fragranceList'>
+                        {fragrances.map((clr: string, idx: number) => (
+                            <div key={idx} className='fragDisplay__fragranceList--frag-item'>
+                                <div key={idx}>{clr}</div>
+                                <button onClick={() => handleDeleteFrag(idx)}><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </section>
     )
 }
