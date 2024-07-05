@@ -4,7 +4,7 @@ import {
   CandleType,
   ChosenCandleType,
   CheckoutInfoAndArrayType,
-  CheckoutInfoType,
+  SentCandleType,
 } from "./types/candles";
 import { AboutLoaderResponse } from "./types/about";
 
@@ -139,19 +139,34 @@ export const checkout = async ({ request }: any) => {
   };
   const candles = localStorage.getItem("shoppingCartCandles");
   const candlesArray = JSON.parse(candles as string) as ChosenCandleType[];
+  const sentCandlesArray: SentCandleType[] = candlesArray.map((candle) => {
+    let price = candle.price;
+    if (candle.salePrice && candle.salePrice < candle.price)
+      price = candle.salePrice;
+    return {
+      _id: candle._id,
+      name: candle.name,
+      quantity: candle.quantity,
+      price: price,
+      color: candle.colors.color,
+      fragrance: candle.fragrances,
+      description: candle.description,
+    };
+  });
   if (checkoutInfo.candlesArrayTrue === false)
     return alert("הראה שגיאה, נסה שנית");
   const checkoutInfoAndArray: CheckoutInfoAndArrayType = {
     name: checkoutInfo.fullName,
     telNumber: checkoutInfo.telPhone,
-    candles: candlesArray,
+    candles: sentCandlesArray,
   };
-  const data = await axios.post(
-    `https://mayart-candles-api.vercel.app/payment/checkout`,
-    checkoutInfoAndArray,
-  );
-  console.log(data);
-  // const { continueWork } = data;
-  // if (continueWork) return;
-  // if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+  // const {data} = await axios.post(
+  //   `https://whattsap-sending-message.vercel.app/send-message`,
+  //   checkoutInfoAndArray,
+  // );
+  // const { continueWork, message } = data;
+
+  // if (continueWork)
+  return { message: "ההזמנה נקלטה בהצלחה" };
+  // if (!continueWork) return throw new Error(message);
 };

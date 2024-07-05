@@ -13,7 +13,7 @@ const ShoppingCartButton = ({
 }) => {
   return (
     <GenericActionButton
-      amount={shoppingCartAmount}
+      quantity={shoppingCartAmount}
       type="shoppingCart"
       candles={shoppingCartArray}
       actionButtonInfo={actionButtonInfo}

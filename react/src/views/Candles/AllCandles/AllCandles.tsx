@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useMemo } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 import { CandleType } from "../../../utils/types/candles";
 import Thumbnail from "../../../Components/Candles/Thumbnail";
@@ -9,7 +9,7 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
     type?: string;
     size?: string;
   };
-
+  
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={candles}>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Link } from "react-router-dom";
 import { useLocalShoppingCartCandlesStorage } from "../../../utils/localCandleStorage";
+import CheckoutButton from "./CheckoutButton";
 
 const CheckoutForm = () => {
   const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
@@ -10,8 +11,11 @@ const CheckoutForm = () => {
       ? true
       : false
     : false;
+
   return (
     <Form
+      // navigate={false}
+      preventScrollReset
       className="w-full px-6 pb-[146px] sm:px-[46.29px] sm:pb-[121.68px]"
       action="/candles/list/shoppingCart"
       method="post"
@@ -42,16 +46,9 @@ const CheckoutForm = () => {
               id="telPhone"
             />
           </div>
+
           <div className="flex w-full flex-col  items-center gap-[15px] text-xl font-semibold leading-[26.6px] sm:gap-[32.08px] sm:text-[32px] sm:leading-[42.56px]">
-            <button
-              className="w-full bg-primary-pink p-[23px] text-center  text-white transition-colors duration-300 active:bg-secondary-pink sm:w-fit sm:px-[100px] sm:py-10"
-              name={candlesArrayTrue ? "candlesArrayTrue" : "candlesArrayFalse"}
-              id={candlesArrayTrue ? "candlesArrayTrue" : "candlesArrayFalse"}
-              type={candlesArrayTrue ? "submit" : "button"}
-              disabled={candlesArrayTrue ? false : true}
-            >
-              סיום ושליחה
-            </button>
+            <CheckoutButton candlesArrayTrue={candlesArrayTrue} />
             <Link
               className="w-full border-4 border-black p-[23px] text-center  transition-colors duration-300 hover:bg-black hover:text-white active:bg-black active:text-white sm:w-fit sm:px-[100px] sm:py-10"
               to="/"

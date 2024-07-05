@@ -64,7 +64,7 @@ export const useLocalShoppingCartCandlesStorage = () => {
     try {
       const currentCandles = getShoppingCartItems();
       if (!currentCandles) {
-        const newCandles = [{ ...value, amount: 1 }];
+        const newCandles = [{ ...value, quantity: 1 }];
         return localStorage.setItem(key, JSON.stringify(newCandles));
       } else {
         const candleExists = currentCandles.findIndex(
@@ -74,7 +74,7 @@ export const useLocalShoppingCartCandlesStorage = () => {
             candle.fragrances === value.fragrances,
         );
         if (candleExists === -1) {
-          const newCandles = [...currentCandles, { ...value, amount: 1 }];
+          const newCandles = [...currentCandles, { ...value, quantity: 1 }];
           localStorage.setItem(key, JSON.stringify(newCandles));
         } else {
           const newCandles = currentCandles.map((candle) => {
@@ -83,7 +83,7 @@ export const useLocalShoppingCartCandlesStorage = () => {
               candle.colors._id === value.colors._id &&
               candle.fragrances === value.fragrances
             ) {
-              return { ...candle, amount: candle.amount + 1 };
+              return { ...candle, quantity: candle.quantity + 1 };
             }
             return candle;
           });
@@ -113,7 +113,7 @@ export const useLocalShoppingCartCandlesStorage = () => {
             candle.fragrances === value.fragrances,
         );
         if (candleExists === -1) return;
-        if (currentCandles[candleExists].amount === 1) {
+        if (currentCandles[candleExists].quantity === 1) {
           const newCandles = currentCandles.filter(
             (candle) =>
               candle._id !== value._id ||
@@ -128,7 +128,7 @@ export const useLocalShoppingCartCandlesStorage = () => {
               candle.colors._id === value.colors._id &&
               candle.fragrances === value.fragrances
             ) {
-              return { ...candle, amount: candle.amount - 1 };
+              return { ...candle, quantity: candle.quantity - 1 };
             }
             return candle;
           });

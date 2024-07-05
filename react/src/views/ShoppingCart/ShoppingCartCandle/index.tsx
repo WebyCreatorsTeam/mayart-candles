@@ -11,8 +11,12 @@ import Title from "../../../Components/ListComponents/Title";
 const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
   const { handleAddToShoppingCartArray, handleRemoveOneFromShoppingCartArray } =
     useOutletContext<ContextType>();
+  const ChosenCandleId = `${candle._id}${candle.colors.color}${candle.fragrances}`;
   return (
-    <div key={candle._id} className="flex w-full flex-col gap-3 text-center">
+    <div
+      key={ChosenCandleId}
+      className="flex w-full flex-col gap-3 text-center"
+    >
       <div className="flex flex-col items-center gap-3 sm:gap-[25.66px] lg:flex-row lg:items-start lg:gap-[59px]">
         {/* candle image */}
         <img
@@ -50,7 +54,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
             }
             candle={candle}
           />
-          <DSKPLinkToCandle id={candle._id} />
+          <DSKPLinkToCandle id={ChosenCandleId} />
         </span>
       </div>
     </div>

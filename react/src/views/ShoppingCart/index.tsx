@@ -32,7 +32,10 @@ const ShoppingCartPage = () => {
           <div className="flex h-full w-full flex-col items-center gap-[50px] px-5  sm:gap-[106.92px] sm:px-[42.77px] lg:p-0">
             {candles.map((candle: ChosenCandleType) => (
               // candle
-              <ShoppingCartCandle key={candle._id} candle={candle} />
+              <ShoppingCartCandle
+                key={candle._id + candle.colors.color + candle.fragrances}
+                candle={candle}
+              />
             ))}
             <CheckoutAndDisclaimer />
           </div>

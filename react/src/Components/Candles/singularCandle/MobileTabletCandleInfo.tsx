@@ -57,7 +57,7 @@ const MobileTabletCandleInfo = ({
       colors: currentCandleColor,
       fragrances: currentCandleFragrance,
       __v: currentCandle.__v,
-      amount: 1,
+      quantity: 1,
     };
   }, [currentCandle, currentCandleColor, currentCandleFragrance]);
   const candleIsInShoppingCart = useMemo(() => {

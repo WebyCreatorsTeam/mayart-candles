@@ -16,7 +16,7 @@ const PopoverCandleActionButtons = ({
     value: ChosenCandleType,
   ) => void;
 }) => {
-  const { amount } = useMemo(() => candle, [candle]) as ChosenCandleType;
+  const { quantity } = useMemo(() => candle, [candle]) as ChosenCandleType;
   return (
     <span
       className="flex w-full justify-center  ~sm/xl:~text-[0.6rem]/[1.5rem] ~sm/2xl:~leading-[0.75rem]/[4rem] sm:max-md:text-base lg:w-fit "
@@ -30,7 +30,7 @@ const PopoverCandleActionButtons = ({
         >
           +
         </button>
-        <span>{amount}</span>
+        <span>{quantity}</span>
         <button
           onClick={(e) => handleRemoveOneFromShoppingCartArray(e, candle)}
         >
