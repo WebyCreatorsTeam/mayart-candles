@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FC, Suspense } from 'react'
+import { FC, Suspense, useState } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import CandleToShow from './UI/CandleToShow'
 import { BASE_API } from '../../utils/api-connect'
@@ -20,6 +20,7 @@ export interface ICandles {
 
 const MainDashboard: FC = () => {
   const { candles } = useLoaderData() as { candles: Array<ICandles> }
+  const [allCandles, setAllCandles] = useState<Array<ICandles>>(candles)
 
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
@@ -39,8 +40,8 @@ const MainDashboard: FC = () => {
                 </div>
               </Link>
             </div>
-            {candles.map((cdl: ICandles) => (
-              <CandleToShow cdl={cdl} key={cdl._id} />
+            {allCandles.map((cdl: ICandles) => (
+              <CandleToShow cdl={cdl} key={cdl._id} setAllCandles={setAllCandles} />
             ))}
           </section>
         </section>

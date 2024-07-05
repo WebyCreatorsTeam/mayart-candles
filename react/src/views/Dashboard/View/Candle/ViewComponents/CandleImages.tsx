@@ -79,13 +79,13 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
         }
     };
 
-    const handleDeleteImage = async (imageId: string) => {
+    const handleDeleteImage = async (imageId: string, img: string) => {
         try {
             const confirm = window.confirm("למוק את התמונה?")
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, pictures } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/delete-image?token=${token}`, { data: { id, imageId } })
+            const { data: { continueWork, message, pictures } } = await axios.delete(`http://localhost:7575/candles/delete-image?token=${token}`, { data: { id, imageId, img } })
             if (continueWork) {
                 alert(message)
                 return setImagesOfCandle(pictures)
@@ -121,7 +121,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
                             imagesOfCandle.length > 1 &&
                             <div className='candle-images__bottom-show--deleteEl'>
                                 <button
-                                    onClick={() => handleDeleteImage(img._id!)}
+                                    onClick={() => handleDeleteImage(img._id!, img.img)}
                                 ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
                             </div>
                         }

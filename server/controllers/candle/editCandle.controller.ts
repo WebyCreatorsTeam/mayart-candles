@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { Candle } from '../../model/candle.model'
-import { handleUpload } from '../../utils/cloudinary/uploadFunc'
+import { getPublicId, handleDeleteImage, handleUpload } from '../../utils/cloudinary/uploadFunc'
 import { httpCodes } from '../../utils/httpCodes'
 
 
@@ -126,7 +126,7 @@ export const addCandleImage = async (req: Request, res: Response, next: NextFunc
         }
 
         candle?.pictures.push({ img: cldRes.secure_url })
-        await candle!.save().then(doc=> console.log(doc))
+        await candle!.save().then(doc => console.log(doc))
 
         return res.json({ continueWork: true, message: "נר נשמר בהצלחה", pictures: candle!.pictures })
     } catch (error) {
@@ -137,7 +137,10 @@ export const addCandleImage = async (req: Request, res: Response, next: NextFunc
 //  /candles/delete-image
 export const deleteImage = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { id, imageId } = req.body
+        const { id, imageId, img } = req.body
+        console.log(img)
+        const publicId = getPublicId(img)
+        await handleDeleteImage(publicId)
         const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $pull: { pictures: { _id: imageId } } }, { new: true })
         return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", pictures: updatedCandle!.pictures })
     } catch (error) {

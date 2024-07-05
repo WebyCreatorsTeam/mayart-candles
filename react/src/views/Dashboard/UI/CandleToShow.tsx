@@ -6,9 +6,12 @@ import { red } from '@mui/material/colors';
 import axios from 'axios';
 import { BASE_API } from '../../../utils/api-connect';
 
-interface ICandleToShow { cdl: ICandles }
+interface ICandleToShow {
+    cdl: ICandles
+    setAllCandles?: Function
+}
 
-const CandleToShow: FC<ICandleToShow> = ({ cdl }) => {
+const CandleToShow: FC<ICandleToShow> = ({ cdl, setAllCandles }) => {
     const [loader, setLoader] = useState<boolean>(false)
 
     const handleDeleteCandle = async (id: string) => {
@@ -16,8 +19,18 @@ const CandleToShow: FC<ICandleToShow> = ({ cdl }) => {
             const confirm = window.confirm(`האם למחוק את הנר ${cdl.name}`)
             if (!confirm) return;
             setLoader(true)
-            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-candle`, { data: { id } })
-            console.log(continueWork, message)
+            const token = sessionStorage.getItem('token')
+            // const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-candle?token=${token}`, { data: { id } })
+            const { data: { continueWork, message } } = await axios.delete(`http://localhost:7575/candles/remove-candle?token=${token}`, { data: { id } })
+
+            if (continueWork) {
+                alert(message)
+                return setAllCandles && setAllCandles((candles: any) => {
+                    return candles.filter((candle: ICandles) => candle._id !== id)
+                })
+            }
+
+            alert(message)
         } catch (error) {
             alert(error)
         } finally {
