@@ -14,9 +14,8 @@ const CandleShape: FC<ICandleShape> = ({ shape }) => {
         <section className='candleItem__candleName'>
             {!popUpCandleShape && (<div className='candleItem__editInfo'>
                 <p>צורה:</p>
-                <p>{shape}</p>
+                <p>{candleShape}</p>
                 <button onClick={() => setPopUpCandleShape(true)}><EditIcon color="primary"/></button>
-
             </div>)}
             {popUpCandleShape && (
                 <ShapeEdit

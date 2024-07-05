@@ -39,11 +39,10 @@ const ShapeEdit: FC<IShapeEdit> = ({ shape, candleShape, setCandleShape, setPopU
                 type="text"
                 defaultValue={candleShape}
                 onChange={(ev: any) => setCandleShape(ev.target.value)} />
-            
             <button
                 onClick={handleChangeShape}
                 className={loader ? "action-loading" : "agree-btn"}
-            >{loader ? "מעדכן את הפרטים" : "שנה שם"}</button>
+            >{loader ? "מעדכן את הפרטים" : "שנה סוג צורה"}</button>
             <button
                 className={loader ? "action-loading" : "cancel-btn"}
                 onClick={() => {

@@ -1,13 +1,24 @@
 .candlePage {
     width: 100%;
+    
 }
 
 .candleItem {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
+    // column-gap: 3%;
 
     @media only screen and (max-width: 768px) {
         grid-template-columns: 1fr;
+    }
+
+    &__info-section {
+        width: 90%;
+        margin: 0 auto;
+
+        @media only screen and (max-width: 768px) {
+            width: 95%;
+        }
     }
 
     &__editInfo {
