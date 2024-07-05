@@ -45,7 +45,7 @@ const CandleToShow: FC<ICandleToShow> = ({ cdl, setAllCandles }) => {
             <Link to={`/dashboard/candle/${cdl._id}`} className='link-to-candle'>
                 <img src={cdl.pictures![0].img} alt={`תמונה של מוצר ${cdl.name}`} width={530} height={700} />
                 <div className='price-details'>
-                    <h2>{cdl.name}</h2>
+                    <h2>{cdl.name} בצורת {cdl.shape}</h2>
                     <div className='price-details__costs'>
                         {cdl.salePrice && <p className='salePrice'>{cdl.salePrice}&#x20AA;</p>}
                         <p className={cdl.salePrice ? "priceBefore" : "regularPrice"}>{cdl.price}&#x20AA;</p>

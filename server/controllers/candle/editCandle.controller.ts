@@ -15,6 +15,17 @@ export const changeCandleName = async (req: Request, res: Response, next: NextFu
     }
 }
 
+//  /candles/change-candle-shape
+export const changeCandleShape = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { shape, id } = req.body
+        await Candle.findByIdAndUpdate(id, { $set: { shape } })
+        return res.json({ continueWork: true, message: "צורת הנר עודכן בהצלחה" })
+    } catch (error) {
+        next(error)
+    }
+}
+
 //  /candles/change-candle-price
 export const changeCandlePrice = async (req: Request, res: Response, next: NextFunction) => {
     try {

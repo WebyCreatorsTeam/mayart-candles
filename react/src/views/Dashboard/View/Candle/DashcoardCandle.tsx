@@ -12,6 +12,7 @@ import { ICategories } from '../Categories/CategoriesDashboard'
 import EditTypeCandle from './EditComponents/EditType/EditTypeCandle'
 import EditCandleSize from './EditComponents/EditSize/EditCandleSize'
 import { ICandles } from '../../MainDashboard'
+import CandleShape from './ViewComponents/CandleShape'
 
 const DashcoardCandle = () => {
   const { candle, categories } = useLoaderData() as { candle: ICandles } & { categories: ICategories[] }
@@ -28,6 +29,7 @@ const DashcoardCandle = () => {
                 <CandleName name={candle.name} />
                 <hr />
                 <CandlePrice price={candle.price} salePrice={candle.salePrice} />
+                <CandleShape shape={candle.shape} />
                 <CandleColor colors={candle.colors} />
                 <CandleFrag fragrances={candle.fragrances} />
                 <CandleDesc description={candle.description} />

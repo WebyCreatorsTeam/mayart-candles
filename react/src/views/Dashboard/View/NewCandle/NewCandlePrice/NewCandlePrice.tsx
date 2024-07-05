@@ -12,7 +12,6 @@ const NewCandlePrice: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
     const handleValidPrice = (ev: SyntheticEvent) => {
         let target = ev.target as HTMLInputElement;
         const { continueWork, message } = validateNewCandle(target.name, target.value)
-        console.log(target.name)
         if (!continueWork) { return setError(message) } else { setError("") }
         hendleFillInput(target.name, target.value)
         setPrice(Number(target.value))

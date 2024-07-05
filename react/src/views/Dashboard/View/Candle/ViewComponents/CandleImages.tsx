@@ -1,11 +1,12 @@
 import { FC, useEffect, useState } from 'react'
-import { getImageSize } from 'react-image-size';
+// import { getImageSize } from 'react-image-size';
 import axios from 'axios';
 import { useCandleIdContext } from '../Context/CandleContext';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { red } from '@mui/material/colors';
 import PopUp from '../../../UI/PopUp/PopUp';
 import UploadFile from '../../../UI/UploadFile';
+import { loadImage } from '../../../utils/getImageSize';
 
 interface ICandleImages {
     images: Array<candlePic>
@@ -29,10 +30,6 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             setMainImage(imagesOfCandle[0].img)
         })()
     }, [imagesOfCandle])
-
-    const loadImage = async (imageUrl: any) => {
-        return await getImageSize(imageUrl);
-    };
 
     const handleSelectFile = async (ev: React.SyntheticEvent) => {
         if (imagesOfCandle.length === 4) {

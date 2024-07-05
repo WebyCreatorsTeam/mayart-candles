@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteImage = exports.addCandleImage = exports.editSizeCandle = exports.editTypeCandle = exports.editDescription = exports.removeFrag = exports.addNewFrag = exports.deleteColor = exports.addNewColor = exports.changeCandlePrice = exports.changeCandleName = void 0;
+exports.deleteImage = exports.addCandleImage = exports.editSizeCandle = exports.editTypeCandle = exports.editDescription = exports.removeFrag = exports.addNewFrag = exports.deleteColor = exports.addNewColor = exports.changeCandlePrice = exports.changeCandleShape = exports.changeCandleName = void 0;
 const candle_model_1 = require("../../model/candle.model");
 const uploadFunc_1 = require("../../utils/cloudinary/uploadFunc");
 const httpCodes_1 = require("../../utils/httpCodes");
@@ -25,6 +25,18 @@ const changeCandleName = (req, res, next) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.changeCandleName = changeCandleName;
+//  /candles/change-candle-shape
+const changeCandleShape = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { shape, id } = req.body;
+        yield candle_model_1.Candle.findByIdAndUpdate(id, { $set: { shape } });
+        return res.json({ continueWork: true, message: "צורת הנר עודכן בהצלחה" });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.changeCandleShape = changeCandleShape;
 //  /candles/change-candle-price
 const changeCandlePrice = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {

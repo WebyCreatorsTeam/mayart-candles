@@ -9,6 +9,7 @@ router
     .post('/save-candle', storage_1.upload.array("my_many_files", 4), candles_controller_1.addCandle)
     .delete('/remove-candle', candles_controller_1.removeCandle)
     .patch('/change-candle-name', editCandle_controller_1.changeCandleName)
+    .patch('/change-candle-shape', editCandle_controller_1.changeCandleShape)
     .patch('/change-candle-price', editCandle_controller_1.changeCandlePrice)
     .post('/add-color', editCandle_controller_1.addNewColor)
     .delete('/delete-color', editCandle_controller_1.deleteColor)

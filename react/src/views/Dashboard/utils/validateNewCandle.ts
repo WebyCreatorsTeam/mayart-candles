@@ -1,3 +1,5 @@
+import { ICandles } from "../MainDashboard";
+
 interface ValidReturn {
     continueWork: boolean;
     message: string;
@@ -53,3 +55,48 @@ export const validateNewCandle = (inputKey: string, inputValue: string): ValidRe
     }
     return { continueWork: true, message: "" };
 };
+
+export const validateNewCandleBeforeSend = (candle: any, images: any) => {
+    const arrFields: string[] = []
+    const mustFields: string[] = ["name", "price", "colors", "fragrances", "shape", "description", "type", "size"]
+    const mustFieldsHeb: any[] = [
+        { name: "שם המוצר" },
+        { price: "מחיר המוצר" },
+        { colors: "צבעים" },
+        { "fragrances": "ריח" },
+        { shape: "צורה" },
+        { description: "תיאור המוצר" },
+        { type: "קטגורית הנר" },
+        { size: " גודל הנר" }]
+
+    for (let key in candle) {
+        const field = candle[key as keyof ICandles]
+        if (mustFields.includes(key)) {
+            if (field === "" || field === 0) {
+                arrFields.push(key);
+            } else if (key === "colors") {
+                if (candle.colors[0].color === "" && candle.colors[0].hexCode === "") {
+                    arrFields.push(key);
+                }
+            } else if (key === "fragrances") {
+                if (candle.fragrances[0] === "") {
+                    arrFields.push(key);
+                }
+            }
+        }
+    }
+
+    if (arrFields.length > 0) {
+        const hebFields = arrFields.map((field: any) => mustFieldsHeb.find((item: any) => item[field]) || field)// Object.values(item[field])
+        let fieldsToAlert: any = []
+        for (let i = 0; i < hebFields.length; i++) {
+            const valuesToShow = Object.values(hebFields[i])
+            fieldsToAlert = [...fieldsToAlert, ...valuesToShow]
+        }
+        return { continueWork: false, message: `נא למלא את הפרטים: ${fieldsToAlert.join(", ")}` }
+    }
+
+    if (images.length === 0) { return { continueWork: false, message: "הוסף תמונות" } }
+
+    return { continueWork: true, message: "" }
+}

@@ -15,7 +15,8 @@ import {
     editTypeCandle,
     editSizeCandle,
     addCandleImage,
-    deleteImage
+    deleteImage,
+    changeCandleShape
 } from "../../controllers/candle/editCandle.controller";
 const router = Router()
 
@@ -23,6 +24,7 @@ router
     .post('/save-candle', upload.array("my_many_files", 4), addCandle)
     .delete('/remove-candle', removeCandle)
     .patch('/change-candle-name', changeCandleName)
+    .patch('/change-candle-shape', changeCandleShape)
     .patch('/change-candle-price', changeCandlePrice)
     .post('/add-color', addNewColor)
     .delete('/delete-color', deleteColor)

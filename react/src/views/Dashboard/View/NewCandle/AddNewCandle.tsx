@@ -12,6 +12,7 @@ import NewCandleSize from './NewCandleSize/NewCandleSize'
 import axios from 'axios'
 import { ICandles } from '../../MainDashboard'
 import NewCandleImages from './NewImagesCandle/NewCandleImages'
+import { validateNewCandleBeforeSend } from '../../utils/validateNewCandle'
 
 const AddNewCandle: FC = () => {
   const { categories }: any = useLoaderData() as { admins: Array<ICategories> }
@@ -37,6 +38,11 @@ const AddNewCandle: FC = () => {
 
   const handleUploadNewCandle = async () => {
     try {
+      const valid = await validateNewCandleBeforeSend(newCandle, images)
+      if (!valid?.continueWork) {
+        return alert(valid?.message)
+      }
+
       setLoader(true);
       const data = new FormData()
       for (let i = 0; i < images.length; i++) {
@@ -51,12 +57,10 @@ const AddNewCandle: FC = () => {
           'content-type': "mulpipart/form-data"
         }
       })
-      console.log(res)
       const { continueWork, message } = res.data;
       if (continueWork) {
         alert(message);
         return navigate("/dashboard")
-
       }
     } catch (error) {
       alert(error);
