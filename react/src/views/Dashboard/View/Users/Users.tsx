@@ -2,8 +2,6 @@ import axios from 'axios'
 import { FC, Suspense, useState } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { BASE_API } from '../../../../utils/api-connect';
-// import { BASE_API } from '../../../utils/api-connect';
 
 interface IAdmins {
     name: string,

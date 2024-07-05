@@ -2,7 +2,6 @@ import { FC, SyntheticEvent, useState } from 'react'
 import { IPrompCandleEdit } from '../NameCandle/NewNameCandle'
 import { validateNewCandle } from '../../../utils/validateNewCandle'
 import ErrorMessega from '../../../UI/ErrorMessega'
-// import { validateNewCandle } from '../../utils/validateNewCandle'
 
 const NewCandleShape: FC<IPrompCandleEdit> = ({ hendleFillInput }) => {
     const [error, setError] = useState<string>("")

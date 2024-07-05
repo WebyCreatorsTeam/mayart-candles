@@ -5,7 +5,6 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
 import { useCandleIdContext } from '../Context/CandleContext';
 import { red } from '@mui/material/colors';
-import { BASE_API } from '../../../../../utils/api-connect';
 
 interface ICandleFrag {
     fragrances: [string]

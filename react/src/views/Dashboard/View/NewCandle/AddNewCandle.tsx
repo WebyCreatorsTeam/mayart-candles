@@ -46,8 +46,7 @@ const AddNewCandle: FC = () => {
       data.append("candle", JSON.stringify(newCandle))
 
       const token = sessionStorage.getItem('token')
-      // const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-candle-image?token=${token}&candle=${newCandle}`, data, {
-      const res = await axios.post(`http://localhost:7575/candles/save-candle?token=${token}`, data, {
+      const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/save-candle?token=${token}`, data, {
         headers: {
           'content-type': "mulpipart/form-data"
         }

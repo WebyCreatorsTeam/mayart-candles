@@ -2,8 +2,6 @@ import axios from "axios";
 import { FC, Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 import PaymentDesc from "./paymentDesc";
-import { BASE_API } from "../../../../utils/api-connect";
-// import { BASE_API } from "../../../utils/api-connect";
 
 interface IPayment {
   _id: string;

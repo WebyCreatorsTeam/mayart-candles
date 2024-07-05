@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import axios from 'axios'
 import { useCandleIdContext } from '../../Context/CandleContext'
-import { BASE_API } from '../../../../../../utils/api-connect'
 import PopUp from '../../../../UI/PopUp/PopUp'
 
 interface IFragEdit {

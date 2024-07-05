@@ -1,11 +1,8 @@
 import { FC, useEffect, useState } from 'react'
 import { IUser, InputsList } from '../Login/Login';
 import { Form, redirect, useNavigation } from 'react-router-dom';
-// import Input from '../UI/Input';
 import axios from 'axios';
 import Input from '../../UI/Input';
-import { BASE_API } from '../../../../utils/api-connect';
-// import { BASE_API } from '../../../utils/api-connect';
 
 export const inputs: Array<InputsList> = [
     { type: "text", name: "name", placeholder: "שם (רק את רואה איך קראת למשתמש)", autoComp: "nickname" },

@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
-import { BASE_API } from '../../../../../../utils/api-connect'
 
 interface INameEdit {
     name: string

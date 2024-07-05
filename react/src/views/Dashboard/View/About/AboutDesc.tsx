@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
-import { BASE_API } from '../../../../utils/api-connect';
 
 interface IAboutDesc {
     id: string

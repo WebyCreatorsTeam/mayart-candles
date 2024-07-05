@@ -3,10 +3,6 @@ import { FC, Suspense } from 'react'
 import { Await, defer, useLoaderData, useParams } from 'react-router-dom'
 import CandleToShow from '../../UI/CandleToShow'
 import { ICandles } from '../../MainDashboard'
-import { BASE_API } from '../../../../utils/api-connect'
-// import { ICandles } from '../MainDashboard'
-// import CandleToShow from '../UI/CandleToShow'
-// import { BASE_API } from '../../../utils/api-connect'
 
 const OneCategoryDashboard: FC = () => {
   const { candles }: any = useLoaderData() as { candles: Array<ICandles> }

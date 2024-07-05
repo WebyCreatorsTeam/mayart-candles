@@ -21,7 +21,6 @@ const NewCandleImages: FC<INewCandleImages> = ({ loader, setImages }) => {
         }
     }
 
-    
     return (
         <section>
             <h2>תמונות המוצר*</h2>

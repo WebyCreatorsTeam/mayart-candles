@@ -4,8 +4,6 @@ import { Await, defer, useLoaderData } from "react-router-dom";
 import AboutHeader from "./AboutHeader";
 import AboutDesc from "./AboutDesc";
 import AboutImage from "./AboutImage";
-import { BASE_API } from "../../../../utils/api-connect";
-// import { BASE_API } from "../../../../utils/api-connect";
 
 interface IAbout {
   _id: string

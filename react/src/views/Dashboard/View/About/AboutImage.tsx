@@ -4,7 +4,6 @@ import PopUp from '../../UI/PopUp/PopUp';
 import UploadFile from '../../UI/UploadFile';
 import axios from 'axios';
 import { getImageSize } from 'react-image-size';
-import { BASE_API } from '../../../../utils/api-connect';
 
 interface IAboutImage {
     id: string

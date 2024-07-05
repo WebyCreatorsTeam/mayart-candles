@@ -4,7 +4,6 @@ import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import CategoryAdd from './CategoryAdd';
 import CategoryRemove from './CategoryRemove';
-import { BASE_API } from '../../../../utils/api-connect';
 
 export interface ICategories {
     _id: string

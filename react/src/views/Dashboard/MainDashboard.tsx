@@ -2,7 +2,6 @@ import axios from 'axios'
 import { FC, Suspense, useState } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import CandleToShow from './UI/CandleToShow'
-import { BASE_API } from '../../utils/api-connect'
 
 export interface ICandles {
   name: string,

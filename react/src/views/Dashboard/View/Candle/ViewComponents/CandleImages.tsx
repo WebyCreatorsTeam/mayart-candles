@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useCandleIdContext } from '../Context/CandleContext';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { red } from '@mui/material/colors';
-import { BASE_API } from '../../../../../utils/api-connect';
 import PopUp from '../../../UI/PopUp/PopUp';
 import UploadFile from '../../../UI/UploadFile';
 

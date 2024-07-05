@@ -155,7 +155,7 @@ const deleteImage = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         const publicId = (0, uploadFunc_1.getPublicId)(img);
         yield (0, uploadFunc_1.handleDeleteImage)(publicId);
         const updatedCandle = yield candle_model_1.Candle.findOneAndUpdate({ _id: id }, { $pull: { pictures: { _id: imageId } } }, { new: true });
-        return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", pictures: updatedCandle.pictures });
+        return res.json({ continueWork: true, message: "התמונה הוסרה בהצלחה", pictures: updatedCandle.pictures });
     }
     catch (error) {
         next(error);

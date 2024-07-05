@@ -12,7 +12,6 @@ import { ICategories } from '../Categories/CategoriesDashboard'
 import EditTypeCandle from './EditComponents/EditType/EditTypeCandle'
 import EditCandleSize from './EditComponents/EditSize/EditCandleSize'
 import { ICandles } from '../../MainDashboard'
-import { BASE_API } from '../../../../utils/api-connect'
 
 const DashcoardCandle = () => {
   const { candle, categories } = useLoaderData() as { candle: ICandles } & { categories: ICategories[] }

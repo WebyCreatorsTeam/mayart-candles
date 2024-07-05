@@ -2,7 +2,6 @@ import { FC, SyntheticEvent, useState } from 'react'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
 import EditIcon from '@mui/icons-material/Edit';
-import { BASE_API } from '../../../../../../utils/api-connect';
 
 interface IEditCandleSize {
     candleSize: string

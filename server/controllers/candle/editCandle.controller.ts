@@ -142,7 +142,7 @@ export const deleteImage = async (req: Request, res: Response, next: NextFunctio
         const publicId = getPublicId(img)
         await handleDeleteImage(publicId)
         const updatedCandle = await Candle.findOneAndUpdate({ _id: id }, { $pull: { pictures: { _id: imageId } } }, { new: true })
-        return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", pictures: updatedCandle!.pictures })
+        return res.json({ continueWork: true, message: "התמונה הוסרה בהצלחה", pictures: updatedCandle!.pictures })
     } catch (error) {
         next(error)
     }

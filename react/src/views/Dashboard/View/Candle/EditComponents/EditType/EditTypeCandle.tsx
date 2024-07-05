@@ -3,7 +3,6 @@ import { ICategories } from '../../../Categories/CategoriesDashboard'
 import EditIcon from '@mui/icons-material/Edit';
 import { useCandleIdContext } from '../../Context/CandleContext';
 import axios from 'axios';
-import { BASE_API } from '../../../../../../utils/api-connect';
 
 interface IEditTypeCandle {
     candleType: string

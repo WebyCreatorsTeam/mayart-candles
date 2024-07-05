@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { FC, useState } from 'react'
 import { ICategories } from './CategoriesDashboard'
-import { BASE_API } from '../../../../utils/api-connect'
 import PopUp from '../../UI/PopUp/PopUp'
 
 

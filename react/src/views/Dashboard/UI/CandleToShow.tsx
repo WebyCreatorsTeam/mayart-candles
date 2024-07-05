@@ -4,7 +4,6 @@ import { ICandles } from '../MainDashboard'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { red } from '@mui/material/colors';
 import axios from 'axios';
-import { BASE_API } from '../../../utils/api-connect';
 
 interface ICandleToShow {
     cdl: ICandles
@@ -20,8 +19,7 @@ const CandleToShow: FC<ICandleToShow> = ({ cdl, setAllCandles }) => {
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            // const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-candle?token=${token}`, { data: { id } })
-            const { data: { continueWork, message } } = await axios.delete(`http://localhost:7575/candles/remove-candle?token=${token}`, { data: { id } })
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-candle?token=${token}`, { data: { id } })
 
             if (continueWork) {
                 alert(message)
