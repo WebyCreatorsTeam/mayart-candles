@@ -9,14 +9,62 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleUpload = void 0;
+exports.handleDeleteImage = exports.imageUpdater = exports.handleDeleteMany = exports.handleUpload = exports.getPublicId = void 0;
+// const cloudinary = require("cloudinary").v2;
 const cloudinary = require("cloudinary").v2;
+const getPublicId = (imageURL) => imageURL.split("/").pop().split(".")[0];
+exports.getPublicId = getPublicId;
+// const resizedBuffer: Buffer = await sharp(file.buffer)
+//     .resize({ width: your - width, height: your - height })
+//     .toBuffer();
 const handleUpload = (file) => __awaiter(void 0, void 0, void 0, function* () {
-    const res = yield cloudinary.uploader.upload(file, {
-        resource_type: "auto",
-        folder: 'mayart'
-    });
-    return res;
+    try {
+        const res = yield cloudinary.uploader.upload(file, {
+            resource_type: "auto",
+            folder: 'mayart'
+        });
+        return res;
+    }
+    catch (error) {
+        console.log(error);
+        return error;
+    }
 });
 exports.handleUpload = handleUpload;
+const handleDeleteMany = (publicIds) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const res = yield cloudinary.api.delete_resources(publicIds);
+        return res;
+    }
+    catch (error) {
+        console.log(error);
+        return error;
+    }
+});
+exports.handleDeleteMany = handleDeleteMany;
+const imageUpdater = (imagePublicId, imagePath) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield cloudinary.uploader.upload(imagePath, {
+            public_id: `mayart/${imagePublicId}`
+        });
+        return result;
+    }
+    catch (error) {
+        console.log(error);
+        return error;
+    }
+});
+exports.imageUpdater = imageUpdater;
+const handleDeleteImage = (imageId) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield cloudinary.uploader.destroy(`mayart/${imageId}`);
+        console.log(result);
+        return result;
+    }
+    catch (error) {
+        console.log(error);
+        return error;
+    }
+});
+exports.handleDeleteImage = handleDeleteImage;
 //# sourceMappingURL=uploadFunc.js.map

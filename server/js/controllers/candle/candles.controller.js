@@ -11,21 +11,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.removeCandle = exports.addCandle = void 0;
 const candle_model_1 = require("../../model/candle.model");
+const uploadFunc_1 = require("../../utils/cloudinary/uploadFunc");
 //      /candles/save-candle
 const addCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { candle } = req.query;
-        // const file = req.query
-        console.log(`-------------------------data---------------------------`);
-        console.log(candle);
-        console.log(`-------------------------file---------------------------`);
-        console.log(req.files);
-        // const b64 = Buffer.from(req.file!.buffer).toString("base64");
-        // let dataURI = "data:" + req.file!.mimetype + ";base64," + b64;
-        // console.log(dataURI)
-        // const newCandle = new Candle(data)
-        // await newCandle.save()
-        // return res.json({ continueWork: true, message: "הנר נשמר" })
+        const candleImages = [];
+        const images = req.files;
+        const { candle } = req.body;
+        const candleObj = JSON.parse(candle.toString());
+        for (let i = 0; i < images.length; i++) {
+            const b64 = Buffer.from(images[i].buffer).toString("base64");
+            let dataURI = "data:" + images[i].mimetype + ";base64," + b64;
+            const { secure_url } = yield (0, uploadFunc_1.handleUpload)(dataURI);
+            candleImages.push({ img: secure_url });
+        }
+        const data = Object.assign(Object.assign({}, candleObj), { pictures: candleImages });
+        console.log(data);
+        const newCandle = new candle_model_1.Candle(data);
+        yield newCandle.save();
+        return res.json({ continueWork: true, message: "הנר נשמר" });
     }
     catch (error) {
         next(error);
@@ -36,6 +40,12 @@ exports.addCandle = addCandle;
 const removeCandle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.body;
+        const candle = yield candle_model_1.Candle.findById(id);
+        const { pictures } = candle;
+        const picturesId = pictures.map((img) => { return `mayart/${(0, uploadFunc_1.getPublicId)(img.img)}`; });
+        console.log(picturesId);
+        const aaa = yield (0, uploadFunc_1.handleDeleteMany)(picturesId);
+        console.log(aaa);
         yield candle_model_1.Candle.findByIdAndDelete(id);
         return res.json({ continueWork: true, message: "הנר נמחק" });
     }

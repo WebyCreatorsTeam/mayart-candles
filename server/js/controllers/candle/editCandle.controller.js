@@ -150,7 +150,10 @@ exports.addCandleImage = addCandleImage;
 //  /candles/delete-image
 const deleteImage = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id, imageId } = req.body;
+        const { id, imageId, img } = req.body;
+        console.log(img);
+        const publicId = (0, uploadFunc_1.getPublicId)(img);
+        yield (0, uploadFunc_1.handleDeleteImage)(publicId);
         const updatedCandle = yield candle_model_1.Candle.findOneAndUpdate({ _id: id }, { $pull: { pictures: { _id: imageId } } }, { new: true });
         return res.json({ continueWork: true, message: "הצבע הוסר בהצלחה", pictures: updatedCandle.pictures });
     }

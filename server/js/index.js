@@ -30,7 +30,8 @@ app.use((0, cors_1.default)({
         else {
             callback(new Error('Not allowed by CORS'));
         }
-    }, //process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
+    },
+    //process.env.NODE_ENV === 'production' ? corsOrigin : corsDev,
     methods: ["POST", "GET", "DELETE", "PATCH"],
 }));
 cloudinary_1.v2.config({
