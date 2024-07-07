@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { ChosenCandleType } from "../../../../utils/types/candles";
 
-const PopoverCandleActionButtons = ({
+const PopoverCandleQuantityToggle = ({
   candle,
   handleRemoveOneFromShoppingCartArray,
   handleAddToShoppingCartArray,
@@ -41,4 +41,4 @@ const PopoverCandleActionButtons = ({
   );
 };
 
-export default PopoverCandleActionButtons;
+export default PopoverCandleQuantityToggle;

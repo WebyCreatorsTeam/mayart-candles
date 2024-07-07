@@ -1,12 +1,18 @@
-import React from "react";
 import GenericActionButton, { ActionButtonInfoT } from "./GenericActionButton";
 
 const SearchButton = ({
   actionButtonInfo,
+  openSearchBar,
 }: {
   actionButtonInfo: ActionButtonInfoT;
+  openSearchBar: () => void;
 }) => {
-  return <GenericActionButton actionButtonInfo={actionButtonInfo} />;
+  return (
+    <GenericActionButton
+      openSearchBar={openSearchBar}
+      actionButtonInfo={actionButtonInfo}
+    />
+  );
 };
 
 export default SearchButton;

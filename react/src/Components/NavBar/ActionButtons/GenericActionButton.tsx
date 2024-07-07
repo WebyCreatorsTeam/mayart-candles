@@ -1,7 +1,7 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { CandleType, ChosenCandleType } from "../../../utils/types/candles";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export type ActionButtonInfoT = {
   mobile: { src: string; alt: string };
   tablet: { src: string; alt: string };
@@ -11,6 +11,7 @@ const GenericActionButton = ({
   type,
   candles,
   quantity,
+  openSearchBar,
 }: {
   candles?: Array<CandleType | ChosenCandleType> | undefined;
   actionButtonInfo: ActionButtonInfoT;
@@ -18,6 +19,7 @@ const GenericActionButton = ({
   shoppingCartCandles?: Array<ChosenCandleType> | undefined;
   type?: string;
   quantity?: number;
+  openSearchBar?: () => void;
 }) => {
   return (
     <>
@@ -40,7 +42,11 @@ const GenericActionButton = ({
           />
         </Link>
       ) : (
-        <div className="relative">
+        <a
+          onClick={openSearchBar}
+          href="#all_candles_list"
+          className="relative"
+        >
           {candles && (
             <span className="absolute  hidden items-center justify-center rounded-full bg-black text-center text-sm text-white ~size-4/6 sm:flex">
               {candles.length}
@@ -56,7 +62,7 @@ const GenericActionButton = ({
             src={actionButtonInfo.tablet.src}
             alt={actionButtonInfo.tablet.alt}
           />
-        </div>
+        </a>
       )}
     </>
   );

@@ -19,7 +19,7 @@ const FragranceMenu = ({
           <div
             onClick={() => chooseCandleFragrance(fragrance)}
             key={fragrance}
-            className={`px-8 py-5 ${currentCandleFragrance === fragrance && "border"}`}
+            className={`px-8 py-5 ${currentCandleFragrance === fragrance && "border-2"}`}
           >
             {fragrance}
           </div>
