@@ -8,9 +8,9 @@ const ShoppingCartPriceSum = ({
 }) => {
   const shoppingCartArrayPriceSum = shoppingCartArray.reduce((sum, candle) => {
     if (candle.salePrice) {
-      return sum + candle.salePrice * candle.amount;
+      return sum + candle.salePrice * candle.quantity;
     } else {
-      return sum + candle.price * candle.amount;
+      return sum + candle.price * candle.quantity;
     }
   }, 0);
   return (

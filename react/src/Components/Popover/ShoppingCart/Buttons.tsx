@@ -8,13 +8,13 @@ const ShoppingCartPopoverButtons = ({
   shoppingCartArrayActualLength: number;
 }) => {
   return (
-    <span className="flex h-fit w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center lg:max-w-[589px] ">
+    <span className="lg:*-[ flex h-fit w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center lg:max-w-[589px]">
       {shoppingCartArrayActualLength > 0 && (
         <button className="bg-black text-white">תשלום</button>
       )}
       <button
         onClick={closeShoppingCartPopover}
-        className="border-4 border-black transition-colors duration-300 hover:bg-black hover:text-white active:bg-black active:text-white"
+        className="w-full  border-4 border-black p-[23px] text-center transition-colors duration-300 hover:bg-black hover:text-white active:bg-black active:text-white"
       >
         המשך קניות
       </button>

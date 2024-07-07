@@ -1,7 +1,16 @@
 export type ChosenCandleType = Omit<CandleType, "colors" | "fragrances"> & {
   colors: CandleColorT;
   fragrances: string;
-  amount: number;
+  quantity: number;
+};
+export type SentCandleType = {
+  _id: string;
+  name: string;
+  color: string;
+  fragrance: string;
+  description: string;
+  quantity: number;
+  price: number;
 };
 
 export type CandleType = {
@@ -47,3 +56,11 @@ export interface ICandles {
   size: string;
   _id: string;
 }
+
+export type CheckoutInfoType = {
+  name: string;
+  telNumber: string;
+};
+export type CheckoutInfoAndArrayType = CheckoutInfoType & {
+  candles: SentCandleType[];
+};

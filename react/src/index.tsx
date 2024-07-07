@@ -27,15 +27,18 @@ import Candle from "./views/Candles/[id]/page";
 import AllCandles from "./views/Candles/AllCandles/AllCandles";
 import {
   aboutLoader,
-  candleCatagoriesLoader,
+  candleCategoriesLoader,
   candleLoader,
   candlesLoader,
   candlesLoaderBySize,
   candlesLoaderByType,
+  checkout,
+  checkoutPageInfoLoader,
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
-import SelectionList from "./Components/NavBar/ActionButtons/SelectionList";
+import ShoppingCartPage from "./views/ShoppingCart";
+import FavoritesPage from "./views/Favorites";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -45,7 +48,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorComponent />,
-    loader: candleCatagoriesLoader,
+    loader: candleCategoriesLoader,
     children: [
       { path: "/", element: <Home />, loader: candlesLoader },
       { path: "/about", element: <About />, loader: aboutLoader },
@@ -68,18 +71,20 @@ const router = createBrowserRouter([
             element: <AllCandles />,
             loader: candlesLoaderByType,
           },
-        ],
-      },
-      {
-        path: "/list",
-        children: [
           {
-            path: "/list/shoppingCart",
-            element: <SelectionList type={"shoppingCart"} />,
-          },
-          {
-            path: "/list/favorites",
-            element: <SelectionList type={"favorites"} />,
+            path: "/candles/list",
+            children: [
+              {
+                path: "/candles/list/shoppingCart",
+                element: <ShoppingCartPage />,
+                loader: checkoutPageInfoLoader,
+                action: checkout,
+              },
+              {
+                path: "/candles/list/favorites",
+                element: <FavoritesPage />,
+              },
+            ],
           },
         ],
       },

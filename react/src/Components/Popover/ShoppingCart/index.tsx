@@ -26,8 +26,8 @@ const ShoppingCartPopover = ({
   const shoppingCartArrayActualLength = useMemo(() => {
     let shoppingCartArrayActualLength = 0;
     shoppingCartArray.forEach((candle) => {
-      if (candle.amount) {
-        shoppingCartArrayActualLength += candle.amount;
+      if (candle.quantity) {
+        shoppingCartArrayActualLength += candle.quantity;
       }
     });
     return shoppingCartArrayActualLength;

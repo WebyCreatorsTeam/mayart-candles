@@ -24,7 +24,7 @@ const AmountToggle = ({
       >
         +
       </button>
-      <span>{candleIsInShoppingCart.amount}</span>
+      <span>{candleIsInShoppingCart.quantity}</span>
       <button
         onClick={(e) =>
           handleRemoveOneFromShoppingCartArray(e, candleIsInShoppingCart)

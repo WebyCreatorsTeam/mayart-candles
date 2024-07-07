@@ -66,7 +66,7 @@ function App() {
           candle.colors._id === value.colors._id &&
           candle.fragrances === value.fragrances
         ) {
-          return { ...candle, amount: candle.amount + 1 };
+          return { ...candle, quantity: candle.quantity + 1 };
         }
         return candle;
       });
@@ -105,11 +105,11 @@ function App() {
         candle.colors._id === value.colors._id &&
         candle.fragrances === value.fragrances
       ) {
-        return { ...candle, amount: candle.amount - 1 };
+        return { ...candle, quantity: candle.quantity - 1 };
       }
       return candle;
     });
-    if (updatedCart[currentCandle].amount === 0) {
+    if (updatedCart[currentCandle].quantity === 0) {
       const filteredArray = shoppingCartArray.filter(
         (candle) =>
           candle._id !== value._id ||

@@ -10,23 +10,23 @@ const GenericActionButton = ({
   actionButtonInfo,
   type,
   candles,
-  amount
+  quantity,
 }: {
   candles?: Array<CandleType | ChosenCandleType> | undefined;
   actionButtonInfo: ActionButtonInfoT;
   favoriteCandles?: Array<CandleType> | undefined;
   shoppingCartCandles?: Array<ChosenCandleType> | undefined;
   type?: string;
-  amount?: number
+  quantity?: number;
 }) => {
   return (
     <>
       {type ? (
-        <Link to={`/list/${type}`} className="relative">
+        <Link to={`/candles/list/${type}`} className="relative">
           {candles && candles.length > 0 && (
-            <span className="absolute -right-2 -top-1 hidden size-4 items-center justify-center rounded-full bg-black text-center text-sm text-white sm:flex">
-              {amount}
-            </span>
+            <div className="absolute hidden aspect-square items-center justify-center rounded-full bg-black text-center text-white ~sm/xl:~-top-1/2 ~sm/xl:~-right-2/4 ~sm/xl:~size-4/7  sm:flex sm:max-xl:top-2">
+              {quantity}
+            </div>
           )}
           <img
             className="sm:hidden"
@@ -34,7 +34,7 @@ const GenericActionButton = ({
             alt={actionButtonInfo.mobile.alt}
           />
           <img
-            className="hidden sm:block"
+            className="hidden ~size-7/10 sm:block"
             src={actionButtonInfo.tablet.src}
             alt={actionButtonInfo.tablet.alt}
           />
@@ -42,7 +42,7 @@ const GenericActionButton = ({
       ) : (
         <div className="relative">
           {candles && (
-            <span className="absolute -right-2 -top-1 hidden size-4 items-center justify-center rounded-full bg-black text-center text-sm text-white sm:flex">
+            <span className="absolute  hidden items-center justify-center rounded-full bg-black text-center text-sm text-white ~size-4/6 sm:flex">
               {candles.length}
             </span>
           )}
@@ -52,7 +52,7 @@ const GenericActionButton = ({
             alt={actionButtonInfo.mobile.alt}
           />
           <img
-            className="hidden sm:block"
+            className="hidden ~size-7/10  sm:block"
             src={actionButtonInfo.tablet.src}
             alt={actionButtonInfo.tablet.alt}
           />

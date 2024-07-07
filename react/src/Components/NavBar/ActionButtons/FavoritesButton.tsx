@@ -13,7 +13,7 @@ const FavoritesButton = ({
 }) => {
   return (
     <GenericActionButton
-      amount={favoritesAmount}
+      quantity={favoritesAmount}
       type="favorites"
       candles={favoritesArray}
       actionButtonInfo={actionButtonInfo}

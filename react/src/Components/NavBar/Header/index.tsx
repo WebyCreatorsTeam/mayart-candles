@@ -62,13 +62,13 @@ const Header = ({
   }, [favoritesArray]);
   const shoppingCartAmount = useMemo(() => {
     if (!shoppingCartArray) return 0;
-    let amount = 0;
+    let quantity = 0;
     if (shoppingCartArray) {
       shoppingCartArray.forEach((candle: ChosenCandleType) => {
-        amount += candle.amount;
+        quantity += candle.quantity;
       });
     }
-    return amount;
+    return quantity;
   }, [shoppingCartArray]);
 
   return (

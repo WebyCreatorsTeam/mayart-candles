@@ -53,7 +53,9 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
         />
       </svg>
 
-      <span className="hidden lg:block">!אהבתי</span>
+      <span dir="rtl" className="hidden lg:block">
+        אהבתי!
+      </span>
     </button>
   );
 };

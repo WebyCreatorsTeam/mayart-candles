@@ -1,6 +1,11 @@
 import axios from "axios";
 import { defer } from "react-router-dom";
-import { CandleType } from "./types/candles";
+import {
+  CandleType,
+  ChosenCandleType,
+  CheckoutInfoAndArrayType,
+  SentCandleType,
+} from "./types/candles";
 import { AboutLoaderResponse } from "./types/about";
 
 export const handleGetCandles = async () => {
@@ -102,11 +107,66 @@ export const candleLoader = async ({ params }: any) => {
 //   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 // };
 
-export const candleCatagoriesLoader = async () => {
+export const candleCategoriesLoader = async () => {
   const { data } = await axios.get(
     `https://mayart-candles-api.vercel.app/categories/get-categories`,
   );
   const { continueWork, categories } = data;
   if (continueWork) return { categories };
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+};
+export const checkoutPageInfoLoader = async (): Promise<{
+  paymentText: { _id: string; text: string };
+} | void> => {
+  const { data } = await axios.get(
+    `https://mayart-candles-api.vercel.app/payment/get-payment`,
+  );
+  const {
+    continueWork,
+    paymentText,
+  }: { continueWork: boolean; paymentText: { _id: string; text: string } } =
+    data;
+  if (continueWork) return { paymentText };
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית");
+};
+export const checkout = async ({ request }: any) => {
+  const formData = await request.formData();
+
+  const checkoutInfo = {
+    fullName: formData.get("fullName"),
+    telPhone: formData.get("telPhone"),
+    candlesArrayTrue: formData.get("candlesArrayTrue"),
+  };
+  const candles = localStorage.getItem("shoppingCartCandles");
+  const candlesArray = JSON.parse(candles as string) as ChosenCandleType[];
+  const sentCandlesArray: SentCandleType[] = candlesArray.map((candle) => {
+    let price = candle.price;
+    if (candle.salePrice && candle.salePrice < candle.price)
+      price = candle.salePrice;
+    return {
+      _id: candle._id,
+      name: candle.name,
+      quantity: candle.quantity,
+      price: price,
+      color: candle.colors.color,
+      fragrance: candle.fragrances,
+      description: candle.description,
+    };
+  });
+  if (checkoutInfo.candlesArrayTrue === false)
+    return alert("הראה שגיאה, נסה שנית");
+  const checkoutInfoAndArray: CheckoutInfoAndArrayType = {
+    name: checkoutInfo.fullName,
+    telNumber: checkoutInfo.telPhone,
+    candles: sentCandlesArray,
+  };
+  // const {data} = await axios.post(
+  //   `https://whattsap-sending-message.vercel.app/send-message`,
+  //   checkoutInfoAndArray,
+  // );
+  // const { continueWork, message } = data;
+
+  // if (continueWork)
+  return { message: "ההזמנה נקלטה בהצלחה" };
+  // if (!continueWork) return throw new Error(message);
 };
