@@ -31,6 +31,8 @@ import Users, { adminsLoader } from "./views/Dashboard/View/Users/Users";
 import Regist, { formRegistAction } from "./views/Dashboard/View/Regist/Regist";
 import Payment, { paymentDashLoader } from "./views/Dashboard/View/Payment/Payment";
 import ProtectedRoute from "./views/Dashboard/ProtectedRoute/ProtectedRoute";
+import ShoppingCartPage from "./views/ShoppingCart";
+import FavoritesPage from "./views/Favorites";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

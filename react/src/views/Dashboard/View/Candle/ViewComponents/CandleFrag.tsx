@@ -15,25 +15,23 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
   const [popUpEditFrag, setPopUpEditFrag] = useState<boolean>(false);
   const [allFragrances, setAllFragrances] = useState<[string]>(fragrances);
 
-    const handleDeleteFragColor = async (frg: string) => {
-        try {
-            const confirm = window.confirm(`האם אתה בטוח שברצונך למחוק את הריח ${frg}?`)
-            if (!confirm) return;
-            setLoader(true)
-            const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, fragrances } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-frag?token=${token}`, { data: { id, frg } })
-            if (continueWork) {
-                alert(message)
-                return setAllFragrances(fragrances)
-            }
-        } catch (error) {
-            alert(error)
-        } finally {
-            setLoader(false)
-        }
+  const handleDeleteFragColor = async (frg: string) => {
+    try {
+      const confirm = window.confirm(`האם אתה בטוח שברצונך למחוק את הריח ${frg}?`)
+      if (!confirm) return;
+      setLoader(true)
+      const token = sessionStorage.getItem('token')
+      const { data: { continueWork, message, fragrances } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-frag?token=${token}`, { data: { id, frg } })
+      if (continueWork) {
+        alert(message)
+        return setAllFragrances(fragrances)
+      }
+    } catch (error) {
+      alert(error)
+    } finally {
+      setLoader(false)
     }
-  };
-
+  }
   return (
     <section className="candleItem__fragr">
       ריח:

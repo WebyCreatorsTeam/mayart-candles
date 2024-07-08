@@ -58,36 +58,4 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
     )
 }
 
-  return (
-    <section className="candleItem__colors">
-      צבע:
-      {candleColors.map((clr) => (
-        <div
-          className="candleItem__colors--item"
-          key={clr._id}
-          title={clr.color}
-          style={{ backgroundColor: clr.hexCode }}
-        >
-          <button
-            disabled={loader}
-            title="מחק צבע מהרשימה"
-            onClick={() => handleDeleteColor(clr._id)}
-          >
-            <DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} />
-          </button>
-        </div>
-      ))}
-      <button onClick={() => setPopUpEditColors(true)}>
-        <EditIcon color="primary" />
-      </button>
-      {popUpEditColors && (
-        <ColorEdit
-          setPopUpEditColors={setPopUpEditColors}
-          setCandleColors={setCandleColors}
-        />
-      )}
-    </section>
-  );
-};
-
 export default CandleColor;
