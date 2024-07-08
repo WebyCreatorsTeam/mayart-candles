@@ -3,15 +3,20 @@ import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
 
 interface INameEdit {
-    name: string
-    setCandleName: Function
-    candleName: string
-    setPopUpNameEdit: Function
+  name: string;
+  setCandleName: Function;
+  candleName: string;
+  setPopUpNameEdit: Function;
 }
 
-const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpNameEdit }) => {
-    const [loader, setLoader] = useState<boolean>(false)
-    const id = useCandleIdContext()
+const NameEdit: FC<INameEdit> = ({
+  name,
+  setCandleName,
+  candleName,
+  setPopUpNameEdit,
+}) => {
+  const [loader, setLoader] = useState<boolean>(false);
+  const id = useCandleIdContext();
 
     const handleChangeName = async () => {
         try {
@@ -30,6 +35,7 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
             setLoader(false)
         }
     }
+  };
 
     return (
         <>
@@ -54,4 +60,4 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
     )
 }
 
-export default NameEdit
+export default NameEdit;

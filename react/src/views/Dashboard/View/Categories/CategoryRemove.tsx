@@ -5,14 +5,19 @@ import PopUp from '../../UI/PopUp/PopUp'
 
 
 interface ICategoryRemove {
-    ctgId: string
-    setOpenPopupRemove: Function
-    setRemoveCtgID: Function
-    setAllCategories: Function
+  ctgId: string;
+  setOpenPopupRemove: Function;
+  setRemoveCtgID: Function;
+  setAllCategories: Function;
 }
 
-const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRemoveCtgID, setAllCategories }) => {
-    const [loader, setLoader] = useState<boolean>(false)
+const CategoryRemove: FC<ICategoryRemove> = ({
+  ctgId,
+  setOpenPopupRemove,
+  setRemoveCtgID,
+  setAllCategories,
+}) => {
+  const [loader, setLoader] = useState<boolean>(false);
 
     const hendleRemoveCategory = async () => {
         try {
@@ -31,6 +36,7 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
             setLoader(false)
         }
     }
+  };
 
     return (
         <PopUp>
@@ -56,4 +62,4 @@ const CategoryRemove: FC<ICategoryRemove> = ({ ctgId, setOpenPopupRemove, setRem
     )
 }
 
-export default CategoryRemove
+export default CategoryRemove;

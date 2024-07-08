@@ -1,8 +1,10 @@
 import type { Config } from "tailwindcss";
+import fluid, { extract, screens } from "fluid-tailwind";
 
 const config: Config = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: { files: ["./src/**/*.{js,ts,jsx,tsx}"], extract },
   theme: {
+    screens,
     extend: {
       colors: {
         "primary-pink": "#F06CBB",
@@ -19,6 +21,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [fluid],
 };
 export default config;

@@ -1,12 +1,16 @@
-export type aboutLoaderResponse = {
+export type AboutLoaderResponse = {
   continueWork: boolean;
-  aboutText: aboutLoaderInformation;
+  aboutText: AboutLoaderInformation;
 };
 
-export type aboutLoaderInformation = {
+export type AboutLoaderInformation = {
   _id: string;
   title: string;
   desc: string;
-  images: string[];
+  images: AboutImageType[];
   __v: number;
+};
+export type AboutImageType = {
+  img: string;
+  _id: string;
 };

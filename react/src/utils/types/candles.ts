@@ -1,3 +1,18 @@
+export type ChosenCandleType = Omit<CandleType, "colors" | "fragrances"> & {
+  colors: CandleColorT;
+  fragrances: string;
+  quantity: number;
+};
+export type SentCandleType = {
+  _id: string;
+  name: string;
+  color: string;
+  fragrance: string;
+  description: string;
+  quantity: number;
+  price: number;
+};
+
 export type CandleType = {
   _id: string;
   name: string;
@@ -12,12 +27,16 @@ export type CandleType = {
   size: CandleSizeT;
   __v: number;
 };
+
 export type CandlePictureT = {
   img: string;
   _id: string;
 };
 
-export type CandleSizeT = "נרות קטנים" | "נרות גדולים" | "נרות בינוניים";
+export type CandleSizeT =
+  | "נרות קטנים"
+  | "נרות נרות גדוליםים"
+  | "נרות נרות בינונייםים";
 
 export type CandleColorT = {
   color: string;
@@ -37,3 +56,11 @@ export interface ICandles {
   size: string;
   _id: string;
 }
+
+export type CheckoutInfoType = {
+  name: string;
+  telNumber: string;
+};
+export type CheckoutInfoAndArrayType = CheckoutInfoType & {
+  candles: SentCandleType[];
+};

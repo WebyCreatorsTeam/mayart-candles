@@ -9,7 +9,7 @@ const OneCategoryDashboard: FC = () => {
   const { categotyName } = useParams()
 
   return (
-    <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
+    <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
       <Await resolve={candles}>
         <div className='categoryPage'>
           <h1>{categotyName}</h1>
@@ -25,8 +25,8 @@ const OneCategoryDashboard: FC = () => {
         </div>
       </Await>
     </Suspense>
-  )
-}
+  );
+};
 
 export default OneCategoryDashboard;
 
@@ -37,8 +37,8 @@ const hendleGetCategoryCandles = async (categoryType: string) => {
 }
 
 export const getCategoryLoader = async ({ params }: any) => {
-  const { categotyName } = params
+  const { categotyName } = params;
   return defer({
-    candles: await hendleGetCategoryCandles(categotyName)
-  })
-}
+    candles: await hendleGetCategoryCandles(categotyName),
+  });
+};

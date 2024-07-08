@@ -4,13 +4,16 @@ import { ICategories } from './CategoriesDashboard'
 import PopUp from '../../UI/PopUp/PopUp'
 
 interface ICategoryAdd {
-    setOpenPopupAdd: Function
-    setAllCategories: Function
+  setOpenPopupAdd: Function;
+  setAllCategories: Function;
 }
 
-const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) => {
-    const [category, setCategory] = useState<string>("")
-    const [loader, setLoader] = useState<boolean>(false)
+const CategoryAdd: FC<ICategoryAdd> = ({
+  setOpenPopupAdd,
+  setAllCategories,
+}) => {
+  const [category, setCategory] = useState<string>("");
+  const [loader, setLoader] = useState<boolean>(false);
 
     const hendleAddCategory = async () => {
         try {
@@ -30,11 +33,12 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
             setLoader(false)
         }
     }
+  };
 
-    const handleChangeInput = (ev: React.SyntheticEvent) => {
-        let target = ev.target as HTMLInputElement;
-        return setCategory(target.value);
-    };
+  const handleChangeInput = (ev: React.SyntheticEvent) => {
+    let target = ev.target as HTMLInputElement;
+    return setCategory(target.value);
+  };
 
     return (
         <PopUp>
@@ -61,4 +65,4 @@ const CategoryAdd: FC<ICategoryAdd> = ({ setOpenPopupAdd, setAllCategories }) =>
     )
 }
 
-export default CategoryAdd
+export default CategoryAdd;

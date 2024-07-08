@@ -3,26 +3,26 @@ import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
 
 interface IPriceEdit {
-    price: number
-    salePrice: number
-    candlePrice: number
-    candleSalePrice: number
-    setPopUpPriceEdit: Function
-    setCandlePrice: Function
-    setCandleSalePrice: Function
+  price: number;
+  salePrice: number;
+  candlePrice: number;
+  candleSalePrice: number;
+  setPopUpPriceEdit: Function;
+  setCandlePrice: Function;
+  setCandleSalePrice: Function;
 }
 
 const PriceEdit: FC<IPriceEdit> = ({
-    price,
-    salePrice,
-    candlePrice,
-    candleSalePrice,
-    setPopUpPriceEdit,
-    setCandlePrice,
-    setCandleSalePrice
+  price,
+  salePrice,
+  candlePrice,
+  candleSalePrice,
+  setPopUpPriceEdit,
+  setCandlePrice,
+  setCandleSalePrice,
 }) => {
-    const [loader, setLoader] = useState<boolean>(false)
-    const id = useCandleIdContext()
+  const [loader, setLoader] = useState<boolean>(false);
+  const id = useCandleIdContext();
 
     const handleChangePrice = async () => {
         try {
@@ -43,6 +43,7 @@ const PriceEdit: FC<IPriceEdit> = ({
             setLoader(false)
         }
     }
+  };
 
     return (
         <>
@@ -65,4 +66,4 @@ const PriceEdit: FC<IPriceEdit> = ({
     )
 }
 
-export default PriceEdit
+export default PriceEdit;

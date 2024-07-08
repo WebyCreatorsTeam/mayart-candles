@@ -11,15 +11,21 @@ export const inputs: Array<InputsList> = [
 ];
 
 const Regist: FC = () => {
-    const [submitting, setSubmitting] = useState<boolean>(true);
-    const [userDetails, setUserDetails] = useState({ email: "", password: "", name: "" })
-    const navigation = useNavigation();
+  const [submitting, setSubmitting] = useState<boolean>(true);
+  const [userDetails, setUserDetails] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+  const navigation = useNavigation();
 
-    useEffect(() => {
-        (() => {
-            return setSubmitting(Object.values(userDetails).every((a) => a.length > 0));
-        })()
-    }, [userDetails]);
+  useEffect(() => {
+    (() => {
+      return setSubmitting(
+        Object.values(userDetails).every((a) => a.length > 0),
+      );
+    })();
+  }, [userDetails]);
 
     return (
                 <div className='auth'>
@@ -56,24 +62,24 @@ const hendleRegistUser = async ({ name, email, password }: IUserReg) => {
 }
 
 interface IUserReg extends IUser {
-    name: string,
+  name: string;
 }
 
 export const formRegistAction = async ({ request }: any) => {
-    const formData = await request.formData();
+  const formData = await request.formData();
 
-    const user = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        password: formData.get("password")
-    };
+  const user = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    password: formData.get("password"),
+  };
 
-    const { continueWork, message } = await hendleRegistUser(user)
+  const { continueWork, message } = await hendleRegistUser(user);
 
-    if (continueWork) {
-        alert(message)
-        return redirect("/dashboard/admins")
-    }
+  if (continueWork) {
+    alert(message);
+    return redirect("/dashboard/admins");
+  }
 
-    if (!continueWork) return alert(message)
-}
+  if (!continueWork) return alert(message);
+};

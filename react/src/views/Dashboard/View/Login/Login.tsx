@@ -4,27 +4,38 @@ import axios from 'axios';
 import Input from '../../UI/Input';
 
 export interface InputsList {
-  type: string
-  name: string
-  placeholder: string
-  autoComp: string
+  type: string;
+  name: string;
+  placeholder: string;
+  autoComp: string;
 }
 
 export const inputs: Array<InputsList> = [
-  { type: "text", name: "email", placeholder: "דואר אלקטרוני", autoComp: "email" },
-  { type: "password", name: "password", placeholder: "סיסמא", autoComp: "current-password" },
+  {
+    type: "text",
+    name: "email",
+    placeholder: "דואר אלקטרוני",
+    autoComp: "email",
+  },
+  {
+    type: "password",
+    name: "password",
+    placeholder: "סיסמא",
+    autoComp: "current-password",
+  },
 ];
 
 const Login: FC = () => {
   const [submitting, setSubmitting] = useState<boolean>(true);
-  const [userDetails, setUserDetails] = useState({ email: "", password: "" })
+  const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const navigation = useNavigation();
-
 
   useEffect(() => {
     (() => {
-      return setSubmitting(Object.values(userDetails).every((a) => a.length > 0));
-    })()
+      return setSubmitting(
+        Object.values(userDetails).every((a) => a.length > 0),
+      );
+    })();
   }, [userDetails]);
 
   return (
@@ -49,10 +60,10 @@ const Login: FC = () => {
         </main>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
 
 const handleLoginUser = async ({ email, password }: IUser) => {
   const { data } = await axios.post(
@@ -63,7 +74,8 @@ const handleLoginUser = async ({ email, password }: IUser) => {
 };
 
 export interface IUser {
-  email: string, password: string
+  email: string;
+  password: string;
 }
 
 export const formLoginAction = async ({ request }: any) => {
@@ -71,15 +83,15 @@ export const formLoginAction = async ({ request }: any) => {
 
   const user = {
     email: formData.get("email"),
-    password: formData.get("password")
+    password: formData.get("password"),
   };
 
   const { continueWork, token, message } = await handleLoginUser(user);
 
   if (continueWork) {
-    await sessionStorage.setItem('token', token)
+    await sessionStorage.setItem("token", token);
     return redirect("/dashboard");
   }
 
-  if (!continueWork) return alert(message)
-}
+  if (!continueWork) return alert(message);
+};

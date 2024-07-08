@@ -1,16 +1,17 @@
-import { useState } from "react";
 import { CandleType } from "../../../utils/types/candles";
 
-const FragranceMenu = ({ currentCandle }: { currentCandle: CandleType }) => {
-  const [currentCandleFragrance, setCurrentCandleFragrance] = useState(
-    currentCandle.fragrances[0],
-  );
-  const chooseCandleFragrance = (fragrance: string) => {
-    setCurrentCandleFragrance(fragrance);
-  };
+const FragranceMenu = ({
+  currentCandle,
+  chooseCandleFragrance,
+  currentCandleFragrance,
+}: {
+  currentCandle: CandleType;
+  chooseCandleFragrance: (fragrance: string) => void;
+  currentCandleFragrance: string;
+}) => {
   return (
     <div className="flex flex-col items-center gap-3 sm:text-[38.49px] sm:leading-[76.98px]">
-      <span className="sm:text-[38.49px] sm:leading-[76.98px]">
+      <span className="text-lg leading-[36px] sm:text-[38.49px]  sm:leading-[76.98px]">
         ריח: {currentCandleFragrance}
       </span>
       <div className="flex gap-3">

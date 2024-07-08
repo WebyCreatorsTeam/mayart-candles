@@ -5,19 +5,20 @@ import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
-import Contact from "./views/Contact";
 import ErrorComponent from "./Components/Error";
 import MainDashboard from "./views/Dashboard/MainDashboard";
 import LayoutDashboard from "./views/Dashboard/LayoutDashboard";
 import Candle from "./views/Candles/[id]/page";
-import CandlesAll from "./views/Candles/CandlesAll/CandlesAll";
+import AllCandles from "./views/Candles/AllCandles/AllCandles";
 import {
   aboutLoader,
-  candleCatagoriesLoader,
+  candleCategoriesLoader,
   candleLoader,
   candlesLoader,
   candlesLoaderBySize,
   candlesLoaderByType,
+  checkout,
+  checkoutPageInfoLoader,
 } from "./utils/serverActions";
 import "./views/Dashboard/style/global.scss";
 import Login, { formLoginAction } from "./views/Dashboard/View/Login/Login";
@@ -34,21 +35,19 @@ import ProtectedRoute from "./views/Dashboard/ProtectedRoute/ProtectedRoute";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorComponent />,
-    loader: candleCatagoriesLoader,
+    loader: candleCategoriesLoader,
     children: [
       { path: "/", element: <Home />, loader: candlesLoader },
       { path: "/about", element: <About />, loader: aboutLoader },
-      { path: "/contact", element: <Contact /> },
       {
         path: "/candles",
         children: [
-          { index: true, element: <CandlesAll />, loader: candlesLoader },
+          { index: true, element: <AllCandles />, loader: candlesLoader },
           {
             path: "/candles/candle/:id",
             element: <Candle />,
@@ -56,19 +55,33 @@ const router = createBrowserRouter([
           },
           {
             path: "/candles/sized/:size",
-            element: <CandlesAll />,
+            element: <AllCandles />,
             loader: candlesLoaderBySize,
           },
           {
             path: "/candles/:type",
-            element: <CandlesAll />,
+            element: <AllCandles />,
             loader: candlesLoaderByType,
+          },
+          {
+            path: "/candles/list",
+            children: [
+              {
+                path: "/candles/list/shoppingCart",
+                element: <ShoppingCartPage />,
+                loader: checkoutPageInfoLoader,
+                action: checkout,
+              },
+              {
+                path: "/candles/list/favorites",
+                element: <FavoritesPage />,
+              },
+            ],
           },
         ],
       },
     ],
   },
-  { path: "login", element: <Login />, action: formLoginAction, errorElement: <ErrorComponent />, },
   {
     path: "dashboard", element:
       <ProtectedRoute>

@@ -1,17 +1,16 @@
-import { FC, useState } from 'react'
-import PriceEdit from '../EditComponents/PriceEdit/PriceEdit'
-import EditIcon from '@mui/icons-material/Edit';
-
+import { FC, useState } from "react";
+import PriceEdit from "../EditComponents/PriceEdit/PriceEdit";
+import EditIcon from "@mui/icons-material/Edit";
 
 interface ICandlePrice {
-    price: number,
-    salePrice: number
+  price: number;
+  salePrice: number;
 }
 
 const CandlePrice: FC<ICandlePrice> = ({ price, salePrice }) => {
-    const [popUpPriceEdit, setPopUpPriceEdit] = useState<boolean>(false)
-    const [candlePrice, setCandlePrice] = useState<number>(price)
-    const [candleSalePrice, setCandleSalePrice] = useState<number>(salePrice)
+  const [popUpPriceEdit, setPopUpPriceEdit] = useState<boolean>(false);
+  const [candlePrice, setCandlePrice] = useState<number>(price);
+  const [candleSalePrice, setCandleSalePrice] = useState<number>(salePrice);
 
     return (
         <section className='candleItem__costs'>
@@ -33,4 +32,4 @@ const CandlePrice: FC<ICandlePrice> = ({ price, salePrice }) => {
     )
 }
 
-export default CandlePrice
+export default CandlePrice;

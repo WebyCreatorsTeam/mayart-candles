@@ -7,13 +7,13 @@ import { useCandleIdContext } from '../Context/CandleContext';
 import { red } from '@mui/material/colors';
 
 interface ICandleFrag {
-    fragrances: [string]
+  fragrances: [string];
 }
 const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
-    const [loader, setLoader] = useState<boolean>(false)
-    const id = useCandleIdContext()
-    const [popUpEditFrag, setPopUpEditFrag] = useState<boolean>(false)
-    const [allFragrances, setAllFragrances] = useState<[string]>(fragrances)
+  const [loader, setLoader] = useState<boolean>(false);
+  const id = useCandleIdContext();
+  const [popUpEditFrag, setPopUpEditFrag] = useState<boolean>(false);
+  const [allFragrances, setAllFragrances] = useState<[string]>(fragrances);
 
     const handleDeleteFragColor = async (frg: string) => {
         try {
@@ -32,28 +32,35 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
             setLoader(false)
         }
     }
+  };
 
-    return (
-        <section className='candleItem__fragr'>
-            ריח:
-            {allFragrances.map((frg, idx) => (
-                <div
-                    className='candleItem__fragr--item'
-                    key={idx}
-                >{frg}
-                <button
-                    disabled={loader}
-                    title='מחק ריח מהרשימה'
-                    onClick={() => handleDeleteFragColor(frg)}
-                ><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }}/></button></div>
-            ))}
-            <button onClick={() => setPopUpEditFrag(true)}><EditIcon color="primary" /></button>
-            {popUpEditFrag && (<FragEdit
-                setPopUpEditFrag={setPopUpEditFrag}
-                setAllFragrances={setAllFragrances}
-                allFragrances={allFragrances} />)}
-        </section>
-    )
-}
+  return (
+    <section className="candleItem__fragr">
+      ריח:
+      {allFragrances.map((frg, idx) => (
+        <div className="candleItem__fragr--item" key={idx}>
+          {frg}
+          <button
+            disabled={loader}
+            title="מחק ריח מהרשימה"
+            onClick={() => handleDeleteFragColor(frg)}
+          >
+            <DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} />
+          </button>
+        </div>
+      ))}
+      <button onClick={() => setPopUpEditFrag(true)}>
+        <EditIcon color="primary" />
+      </button>
+      {popUpEditFrag && (
+        <FragEdit
+          setPopUpEditFrag={setPopUpEditFrag}
+          setAllFragrances={setAllFragrances}
+          allFragrances={allFragrances}
+        />
+      )}
+    </section>
+  );
+};
 
-export default CandleFrag
+export default CandleFrag;

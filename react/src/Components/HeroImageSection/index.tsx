@@ -7,6 +7,7 @@ const HeroImageSection = () => {
         src="/images/hero-image.webp"
         alt="hero"
         className="-mb-3 object-cover 2xl:w-full"
+        loading="lazy"
       />
       <div
         dir="rtl"

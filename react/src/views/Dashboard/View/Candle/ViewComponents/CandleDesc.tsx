@@ -1,13 +1,13 @@
-import { FC, useState } from 'react'
-import EditIcon from '@mui/icons-material/Edit';
-import DescEdit from '../EditComponents/DescEdit/DescEdit';
+import { FC, useState } from "react";
+import EditIcon from "@mui/icons-material/Edit";
+import DescEdit from "../EditComponents/DescEdit/DescEdit";
 
 interface ICandleDesc {
-    description: string
+  description: string;
 }
 const CandleDesc: FC<ICandleDesc> = ({ description }) => {
-    const [popUpDescEdit, setPopUpDescEdit] = useState<boolean>(false)
-    const [candleDesc, setCandleDesc] = useState<string>(description)
+  const [popUpDescEdit, setPopUpDescEdit] = useState<boolean>(false);
+  const [candleDesc, setCandleDesc] = useState<string>(description);
 
     return (
         <section className='candleItem__candleDesc'>
@@ -31,4 +31,4 @@ const CandleDesc: FC<ICandleDesc> = ({ description }) => {
     )
 }
 
-export default CandleDesc
+export default CandleDesc;
