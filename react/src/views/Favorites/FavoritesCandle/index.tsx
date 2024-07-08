@@ -29,7 +29,7 @@ const FavoritesCandle = ({ candle }: { candle: CandleType }) => {
             <Title candle={candle} />
             <PricingSystem candle={candle} />
           </div>
-          <div
+          {/* <div
             dir="rtl"
             className="flex w-full flex-col justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] lg:flex-row lg:text-[32px] lg:font-normal  lg:leading-none lg:~gap-24/32 xl:justify-start"
           >
@@ -47,7 +47,7 @@ const FavoritesCandle = ({ candle }: { candle: CandleType }) => {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         <Link
           to={`/candles/candle/${candle._id}`}
