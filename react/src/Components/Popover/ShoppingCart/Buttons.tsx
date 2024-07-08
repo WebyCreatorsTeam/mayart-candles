@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ShoppingCartPopoverButtons = ({
   closeShoppingCartPopover,
@@ -8,9 +9,9 @@ const ShoppingCartPopoverButtons = ({
   shoppingCartArrayActualLength: number;
 }) => {
   return (
-    <span className="lg:*-[ flex h-fit w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center lg:max-w-[589px]">
+    <span onClick={closeShoppingCartPopover} className="flex h-fit w-full flex-col gap-[15px] text-xl font-semibold leading-[26.6px] *:w-full *:p-[23px] *:text-center lg:max-w-[589px]">
       {shoppingCartArrayActualLength > 0 && (
-        <button className="bg-black text-white">תשלום</button>
+        <Link to="/candles/list/shoppingCart" className="bg-black text-white">תשלום</Link>
       )}
       <button
         onClick={closeShoppingCartPopover}

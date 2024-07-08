@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { CandleType, CandleColorT } from "../../../utils/types/candles";
+import { CandleColorT } from "../../../utils/types/candles";
 
 const ColorsMenu = ({
   chooseCandleColor,
@@ -21,6 +20,7 @@ const ColorsMenu = ({
             key={color._id}
             color={color}
             chooseCandleColor={chooseCandleColor}
+            currentCandleColor={currentCandleColor}
           />
         ))}
       </div>
@@ -31,14 +31,16 @@ const ColorsMenu = ({
 const ColorOption = ({
   color,
   chooseCandleColor,
+  currentCandleColor,
 }: {
   color: CandleColorT;
   chooseCandleColor: (color: CandleColorT["_id"]) => void;
+  currentCandleColor: CandleColorT;
 }) => {
   return (
     <div
       onClick={() => chooseCandleColor(color._id)}
-      className={`h-16 w-16 rounded-full border-[0.88px] border-[#121515] sm:h-32 sm:w-32`}
+      className={`h-16 w-16 rounded-full  border-[#121515] sm:h-32 sm:w-32 ${currentCandleColor._id === color._id ? "border-2" : "border-[0.88px]"}`}
       style={{ background: `${color.hexCode}` }}
     ></div>
   );

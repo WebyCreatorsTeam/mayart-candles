@@ -9,7 +9,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
     setCurrentCandlePicture(picture);
   };
   return (
-    <div className="flex flex-col">
+    <div className="flex self-start flex-col">
       <img
         src={currentCandlePicture}
         alt={currentCandle.name}
