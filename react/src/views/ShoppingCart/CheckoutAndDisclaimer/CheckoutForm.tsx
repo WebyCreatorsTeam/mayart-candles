@@ -6,6 +6,7 @@ import CheckoutButton from "./CheckoutButton";
 const CheckoutForm = () => {
   const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
   const shoppingCartItems = getShoppingCartItems();
+  console.log(shoppingCartItems)
   const candlesArrayTrue: boolean = shoppingCartItems
     ? shoppingCartItems.length > 0
       ? true

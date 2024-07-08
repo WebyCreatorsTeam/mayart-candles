@@ -160,13 +160,13 @@ export const checkout = async ({ request }: any) => {
     telNumber: checkoutInfo.telPhone,
     candles: sentCandlesArray,
   };
-  // const {data} = await axios.post(
-  //   `https://whattsap-sending-message.vercel.app/send-message`,
-  //   checkoutInfoAndArray,
-  // );
-  // const { continueWork, message } = data;
+  const { data } = await axios.post(
+    `https://whattsap-sending-message.vercel.app/send-message`,
+    // `http://localhost:8787/send-message`,
+    checkoutInfoAndArray,
+  );
+  const { continueWork, message } = data;
 
-  // if (continueWork)
-  return { message: "ההזמנה נקלטה בהצלחה" };
-  // if (!continueWork) return throw new Error(message);
+  if (continueWork) return { message };
+  if (!continueWork) throw new Error(message);
 };

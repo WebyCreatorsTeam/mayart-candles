@@ -84,6 +84,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "login", element: <Login />, action: formLoginAction, errorElement: <ErrorComponent />, },
   {
     path: "dashboard", element:
       <ProtectedRoute>
