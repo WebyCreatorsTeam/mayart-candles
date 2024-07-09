@@ -16,8 +16,11 @@ const NavBar = ({
   const [navBarMenuIsOpen, setNavBarMenuIsOpen] = React.useState(false);
   const [searchBarIsOpen, setSearchBarIsOpen] = React.useState(false);
   const toggleNavBarMenu = () => setNavBarMenuIsOpen(!navBarMenuIsOpen);
-  const openSearchBar = () => setSearchBarIsOpen(true);
-  const closeSearchBar = (e:SyntheticEvent) => {
+  const openSearchBar = (e: SyntheticEvent) => {
+    e.stopPropagation();
+    setSearchBarIsOpen(true);
+  };
+  const closeSearchBar = (e: SyntheticEvent) => {
     e.stopPropagation();
     setSearchInfo("");
     setSearchBarIsOpen(false);

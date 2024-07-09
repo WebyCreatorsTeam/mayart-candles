@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useMemo } from "react";
+import React, { Dispatch, SetStateAction, SyntheticEvent, useMemo } from "react";
 // import ActionButtons from "../ActionButtons";
 import Logo from "../Logo";
 import MenuToggle from "../MenuToggle";
@@ -54,7 +54,7 @@ const Header = ({
   setNavBarMenuIsOpen: Dispatch<SetStateAction<boolean>>;
   toggleNavBarMenu: () => void;
   favoritesArray: CandleType[];
-  openSearchBar: () => void;
+  openSearchBar: (e: SyntheticEvent) => void;
 }) => {
   const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
   const shoppingCartArray = getShoppingCartItems();

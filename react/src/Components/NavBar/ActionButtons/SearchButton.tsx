@@ -1,3 +1,4 @@
+import { SyntheticEvent } from "react";
 import GenericActionButton, { ActionButtonInfoT } from "./GenericActionButton";
 
 const SearchButton = ({
@@ -5,7 +6,7 @@ const SearchButton = ({
   openSearchBar,
 }: {
   actionButtonInfo: ActionButtonInfoT;
-  openSearchBar: () => void;
+  openSearchBar: (e: SyntheticEvent) => void;
 }) => {
   return (
     <GenericActionButton
