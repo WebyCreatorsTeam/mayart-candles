@@ -1,7 +1,7 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 import { ChosenCandleType } from "../../../utils/types/candles";
-import PopoverCandleActionButtons from "../../../Components/Popover/ShoppingCart/Candle/ActionButtons";
+import PopoverCandleQuantityToggle from "../../../Components/Popover/ShoppingCart/Candle/QuantityToggle";
 import { ContextType } from "../../../App";
 
 import Color from "./Color";
@@ -37,7 +37,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
             <p>ריח: {candle.fragrances}</p>
           </div>
           <span className="lg:hidden">
-            <PopoverCandleActionButtons
+            <PopoverCandleQuantityToggle
               handleAddToShoppingCartArray={handleAddToShoppingCartArray}
               handleRemoveOneFromShoppingCartArray={
                 handleRemoveOneFromShoppingCartArray
@@ -47,7 +47,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
           </span>
         </div>
         <span className="hidden h-[304px] flex-col items-end justify-between lg:flex">
-          <PopoverCandleActionButtons
+          <PopoverCandleQuantityToggle
             handleAddToShoppingCartArray={handleAddToShoppingCartArray}
             handleRemoveOneFromShoppingCartArray={
               handleRemoveOneFromShoppingCartArray

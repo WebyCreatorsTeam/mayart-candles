@@ -17,7 +17,7 @@ const AmountToggle = ({
   ) => void;
 }) => {
   return (
-    <div className="flex w-full items-center py-3   *:grow *:text-center">
+    <div className="flex *:rounded-full w-96 items-center py-3 *:grow *:text-center">
       <button
         onClick={(e) => handleAddToShoppingCartArray(e, candleIsInShoppingCart)}
         className="border-[3px] border-primary-pink py-[12.5px] text-xl font-semibold leading-[13.3px] active:bg-primary-pink active:text-white"

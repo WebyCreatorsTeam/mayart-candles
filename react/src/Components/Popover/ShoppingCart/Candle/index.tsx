@@ -1,6 +1,6 @@
 import React from "react";
 import { ChosenCandleType } from "../../../../utils/types/candles";
-import PopoverCandleActionButtons from "./ActionButtons";
+import PopoverCandleQuantityToggle from "./QuantityToggle";
 import PopoverCandleInfo from "./Info";
 
 const ShoppingCartPopoverCandleThumbnail = ({
@@ -33,7 +33,7 @@ const ShoppingCartPopoverCandleThumbnail = ({
           <PopoverCandleInfo candle={candle} />
         </div>
       </div>
-      <PopoverCandleActionButtons
+      <PopoverCandleQuantityToggle
         candle={candle}
         handleRemoveOneFromShoppingCartArray={
           handleRemoveOneFromShoppingCartArray

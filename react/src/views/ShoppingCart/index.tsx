@@ -19,11 +19,11 @@ const ShoppingCartPage = () => {
         <h1 className="w-fit border-b border-b-[#B0C4B14D] px-[30px] py-[21.5px] text-center text-xl font-semibold leading-[26.6px]  sm:border-b-2 sm:px-[64.15px] sm:py-[46.35] sm:text-[42.77px] sm:leading-[56.89px] lg:border-none lg:p-0 lg:text-[64px] lg:font-normal lg:leading-[85.13px]">
           סל קניות
         </h1>
-        {candles && candles.length && (
+        {candles && candles.length ? (
           <h2 className="text-lg leading-9 sm:text-[38.49px] sm:leading-[76.98px]">
             פריטים שנבחרו ({candles.length})
           </h2>
-        )}
+        ) : null}
       </div>
       {!candles || !candles.length ? (
         <EmptyArrayPrompt />

@@ -10,7 +10,7 @@ const DesktopMenu = () => {
     categories: Array<candleCategoryType>;
   };
   return (
-    <nav className="absolute top-full hidden w-full flex-row-reverse items-center justify-evenly bg-white/50 py-[51px] backdrop-blur-sm xl:flex">
+    <nav className="absolute top-full hidden w-full flex-row-reverse items-center justify-evenly bg-white/50 py-2.5 backdrop-blur-sm xl:flex">
       <DesktopNavLink
         to="/"
         text="ראשי"
