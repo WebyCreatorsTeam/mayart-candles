@@ -5,14 +5,14 @@ import {
   CandleColorT,
   ChosenCandleType,
 } from "../../../utils/types/candles";
-import CandlePrices from "../CandlePrices";
 import ColorsMenu from "../menus/ColorMenu";
 import FragranceMenu from "../menus/FragranceMenu";
 import { ContextType } from "../../../App";
 import AmountToggle from "./AmountToggle";
 import AddToCartButton from "./AddToCartButton";
+import CandlePrices from "./CandlePrices";
 
-const MobileTabletCandleInfo = ({
+const CandleInfo = ({
   children,
   currentCandle,
 }: {
@@ -69,10 +69,10 @@ const MobileTabletCandleInfo = ({
     );
   }, [chosenCandle, shoppingCartArray]);
   return (
-    <div className="flex w-full flex-col items-center gap-7 px-[34px]">
+    <div className="flex w-full flex-col items-center gap-7 px-[34px] xl:items-start xl:gap-[70px]">
       {/* name and price */}
-      <div className="flex flex-col items-center gap-2">
-        <h1 className="text-xl font-semibold sm:text-[42.77px] sm:leading-[56.89px]">
+      <div className="flex flex-col items-center gap-2 xl:w-full xl:items-start xl:gap-[70.7px]">
+        <h1 className="text-xl font-semibold leading-[85.13px] sm:text-[42.77px] sm:leading-[56.89px] xl:w-full xl:border-b xl:border-b-[#CFCFCF] xl:pb-[68px] xl:text-[64px] xl:leading-[85.13px]">
           {currentCandle.name}
         </h1>
         <CandlePrices currentCandle={currentCandle} />
@@ -106,4 +106,4 @@ const MobileTabletCandleInfo = ({
   );
 };
 
-export default MobileTabletCandleInfo;
+export default CandleInfo;
