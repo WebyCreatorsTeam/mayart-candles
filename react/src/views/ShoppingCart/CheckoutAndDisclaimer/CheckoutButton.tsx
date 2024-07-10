@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useActionData, } from "react-router-dom";
+import { useActionData } from "react-router-dom";
 
 const CheckoutButton = ({
   candlesArrayTrue,

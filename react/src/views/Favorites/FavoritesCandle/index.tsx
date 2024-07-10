@@ -27,7 +27,6 @@ const FavoritesCandle = ({ candle }: { candle: CandleType }) => {
             <Title candle={candle} />
             <PricingSystem candle={candle} />
           </div>
-
         </div>
         <Link
           to={`/candles/candle/${candle._id}`}

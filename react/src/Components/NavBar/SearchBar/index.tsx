@@ -12,7 +12,7 @@ const SearchBar = ({
   return (
     <span
       onClick={(e: any) => e.stopPropagation()}
-      className="absolute top-full w-full flex-row-reverse items-center justify-evenly bg-white/50 py-2.5 backdrop-blur-sm flex"
+      className="absolute top-full flex w-full flex-row-reverse items-center justify-evenly bg-white/50 py-2.5 backdrop-blur-sm"
     >
       <div className="relative w-3/4">
         <input

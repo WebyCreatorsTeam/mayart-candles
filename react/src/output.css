@@ -1193,6 +1193,12 @@ video {
   scroll-behavior: smooth;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -1556,6 +1562,11 @@ video {
 .py-\[25px\] {
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.py-\[51px\] {
+  padding-top: 51px;
+  padding-bottom: 51px;
 }
 
 .pb-14 {
@@ -2175,6 +2186,10 @@ code {
     height: 868.22px;
   }
 
+  .sm\:h-32 {
+    height: 8rem;
+  }
+
   .sm\:max-h-\[429\.83px\] {
     max-height: 429.83px;
   }
@@ -2223,6 +2238,10 @@ code {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+  }
+
+  .sm\:w-32 {
+    width: 8rem;
   }
 
   .sm\:max-w-\[352\.85px\] {
@@ -2410,6 +2429,11 @@ code {
   .sm\:py-\[46\.35\] {
     padding-top: 46.35;
     padding-bottom: 46.35;
+  }
+
+  .sm\:py-14 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .sm\:pb-\[121\.68px\] {

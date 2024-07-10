@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Error = () => {
   const navigate = useNavigate();
@@ -10,7 +10,6 @@ const Error = () => {
         className="flex h-fit w-full  flex-col items-center xl:gap-8"
       >
         <h1 className="text-nowrap text-2xl font-semibold">
-          {" "}
           הראה שגיאה, הנר המבוקש אינו קיים.
         </h1>
         <button

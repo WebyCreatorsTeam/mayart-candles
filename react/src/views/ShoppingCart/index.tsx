@@ -1,9 +1,8 @@
 import React, { useMemo } from "react";
-import { useLocalShoppingCartCandlesStorage } from "../../utils/localCandleStorage";
 import { ChosenCandleType } from "../../utils/types/candles";
 import ShoppingCartCandle from "./ShoppingCartCandle";
 import CheckoutAndDisclaimer from "./CheckoutAndDisclaimer";
-import { Link, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import { ContextType } from "../../App";
 import EmptyArrayPrompt from "../../Components/ListComponents/EmptyArrayPrompt";
 const ShoppingCartPage = () => {

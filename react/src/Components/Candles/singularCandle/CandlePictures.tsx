@@ -18,7 +18,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
         // to achieve w of 530px, add xl:min-w-[530px] xl:max-w-[530px]
         className="aspect-square h-[508px] w-full object-cover xl:h-[840px]"
       />
-        <AddToFavoritesButton candle={currentCandle} />
+      <AddToFavoritesButton candle={currentCandle} />
       <div className="flex justify-center gap-3 py-5 xl:justify-start">
         {useMemo(
           () =>

@@ -19,7 +19,7 @@ const AddToFavoritesButton = ({ candle }: { candle: CandleType }) => {
   return (
     <button
       onClick={() => handleAddToFavoritesArray(candle)}
-      className="hidden xl:absolute top-[718px] left-0 xl:block items-center justify-center p-[35px] hover:*:fill-black active:*:fill-black sm:p-[21.38px] lg:p-[15px] "
+      className="left-0 top-[718px] hidden items-center justify-center p-[35px] hover:*:fill-black active:*:fill-black sm:p-[21.38px] lg:p-[15px] xl:absolute xl:block "
     >
       <svg
         className={`hidden size-[91px] lg:block ${isFavoriteCandle ? "fill-black" : ""}`}
