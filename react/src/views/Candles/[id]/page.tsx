@@ -8,7 +8,7 @@ const Candle = () => {
   const { candle } = useLoaderData() as { candle: CandleType };
   if (!candle) return <Error />;
   return (
-    <div className="h-fit w-full px-5 xl:mt-40 xl:px-32 xl:py-10">
+    <div className="h-fit w-full px-5 xl:mt-40 xl:gap-[106px] flex flex-col xl:mb-[450px] xl:px-32 xl:py-10">
       <div
         dir="rtl"
         className="flex h-fit w-full  flex-col items-center xl:flex-row xl:items-start xl:gap-8"
@@ -27,7 +27,7 @@ const Candle = () => {
       <div>
         <span
           dir="rtl"
-          className="hidden text-balance text-start text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:block"
+          className="hidden text-balance xl:gap-[120px] xl:text-[40px] xl:leading-[70px] text-start text-lg font-normal leading-9 sm:text-[38.49px] sm:leading-[76.98px] xl:flex flex-col"
         >
           <h4 className="font-semibold">תיאור מוצר:</h4>
           <p>{candle.description}</p>

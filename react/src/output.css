@@ -3035,6 +3035,10 @@ code {
     margin-top: 13rem;
   }
 
+  .xl\:mb-\[450px\] {
+    margin-bottom: 450px;
+  }
+
   .xl\:block {
     display: block;
   }
@@ -3133,6 +3137,22 @@ code {
     gap: 70px;
   }
 
+  .xl\:gap-\[120x\] {
+    gap: 120x;
+  }
+
+  .xl\:gap-\[120px\] {
+    gap: 120px;
+  }
+
+  .xl\:gap-\[10\] {
+    gap: 10;
+  }
+
+  .xl\:gap-\[106px\] {
+    gap: 106px;
+  }
+
   .xl\:self-start {
     align-self: flex-start;
   }
@@ -3217,6 +3237,10 @@ code {
 
   .xl\:leading-\[85\.13px\] {
     line-height: 85.13px;
+  }
+
+  .xl\:leading-\[70px\] {
+    line-height: 70px;
   }
 
   .xl\:hover\:underline:hover {
