@@ -161,7 +161,8 @@ export const checkout = async ({ request }: any) => {
     candles: sentCandlesArray,
   };
   const { data } = await axios.post(
-    `https://whattsap-sending-message.vercel.app/send-message`,
+    // `https://whattsap-sending-message.vercel.app/send-message`,
+    `http://localhost:7575/orders/send-order`,
     // `http://localhost:8787/send-message`,
     checkoutInfoAndArray,
   );

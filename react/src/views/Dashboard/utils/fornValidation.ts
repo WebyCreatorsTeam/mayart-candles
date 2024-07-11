@@ -20,6 +20,7 @@ export const validateValues = (
       const passwordRegEx: RegExp = new RegExp(
         "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$",
       );
+      //add validation that the value is eglish alfabet
       const validPass = passwordRegEx.test(inputValue);
 
       if (!validPass)

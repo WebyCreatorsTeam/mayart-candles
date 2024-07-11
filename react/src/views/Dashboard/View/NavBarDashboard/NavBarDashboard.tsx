@@ -9,6 +9,7 @@ const dashboardLinks = [
   { url: "/dashboard/categories", title: "קטגוריות" },
   { url: "/dashboard/payment", title: "עמוד תשלום" },
   { url: "/dashboard/about", title: "אודות" },
+  { url: "/dashboard/orders", title: "הזמנות" },
   { url: "/dashboard/admins", title: "משתמשים" },
 ];
 

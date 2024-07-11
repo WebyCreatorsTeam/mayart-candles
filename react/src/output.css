@@ -690,6 +690,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .grid {
   display: grid;
 }
@@ -1193,12 +1197,6 @@ video {
   scroll-behavior: smooth;
 }
 
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -1562,11 +1560,6 @@ video {
 .py-\[25px\] {
   padding-top: 25px;
   padding-bottom: 25px;
-}
-
-.py-\[51px\] {
-  padding-top: 51px;
-  padding-bottom: 51px;
 }
 
 .pb-14 {
@@ -2186,10 +2179,6 @@ code {
     height: 868.22px;
   }
 
-  .sm\:h-32 {
-    height: 8rem;
-  }
-
   .sm\:max-h-\[429\.83px\] {
     max-height: 429.83px;
   }
@@ -2238,10 +2227,6 @@ code {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .sm\:w-32 {
-    width: 8rem;
   }
 
   .sm\:max-w-\[352\.85px\] {
@@ -2429,11 +2414,6 @@ code {
   .sm\:py-\[46\.35\] {
     padding-top: 46.35;
     padding-bottom: 46.35;
-  }
-
-  .sm\:py-14 {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
   }
 
   .sm\:pb-\[121\.68px\] {
@@ -3023,6 +3003,10 @@ code {
     position: absolute;
   }
 
+  .xl\:mb-\[450px\] {
+    margin-bottom: 450px;
+  }
+
   .xl\:mt-40 {
     margin-top: 10rem;
   }
@@ -3033,10 +3017,6 @@ code {
 
   .xl\:mt-52 {
     margin-top: 13rem;
-  }
-
-  .xl\:mb-\[450px\] {
-    margin-bottom: 450px;
   }
 
   .xl\:block {
@@ -3121,6 +3101,14 @@ code {
     gap: 2rem;
   }
 
+  .xl\:gap-\[106px\] {
+    gap: 106px;
+  }
+
+  .xl\:gap-\[120px\] {
+    gap: 120px;
+  }
+
   .xl\:gap-\[23px\] {
     gap: 23px;
   }
@@ -3135,22 +3123,6 @@ code {
 
   .xl\:gap-\[70px\] {
     gap: 70px;
-  }
-
-  .xl\:gap-\[120x\] {
-    gap: 120x;
-  }
-
-  .xl\:gap-\[120px\] {
-    gap: 120px;
-  }
-
-  .xl\:gap-\[10\] {
-    gap: 10;
-  }
-
-  .xl\:gap-\[106px\] {
-    gap: 106px;
   }
 
   .xl\:self-start {
@@ -3231,16 +3203,16 @@ code {
     line-height: 47.88px;
   }
 
+  .xl\:leading-\[70px\] {
+    line-height: 70px;
+  }
+
   .xl\:leading-\[80px\] {
     line-height: 80px;
   }
 
   .xl\:leading-\[85\.13px\] {
     line-height: 85.13px;
-  }
-
-  .xl\:leading-\[70px\] {
-    line-height: 70px;
   }
 
   .xl\:hover\:underline:hover {
