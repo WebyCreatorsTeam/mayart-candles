@@ -25,8 +25,8 @@ const index = () => {
             שמרו על קשר!
           </h3>
           <TelBtn />
-          <div className="flex flex-row ">
-            <IconBtn href={"https://instagram.com"}>
+          <div className="flex flex-row">
+            <IconBtn href={"https://www.instagram.com/mayart__designs?igsh=MW55ejU4ejNzeGdvYw%3D%3D"}>
               <img
                 src={"/icons/instagram-icon.svg"}
                 alt="instagram-icon"
@@ -34,7 +34,7 @@ const index = () => {
               />
               Instagram
             </IconBtn>
-            <IconBtn href="https://whatsapp.com">
+            <IconBtn href="https://wa.me/972508122000">
               <img
                 src={"/icons/whatsapp-icon.svg"}
                 alt="whatsapp-icon"
@@ -42,7 +42,7 @@ const index = () => {
               />
               Whatsapp
             </IconBtn>
-            <IconBtn href="https://gmail.com">
+            <IconBtn href="mailto:mayashahar777@gmail.com">
               <img
                 src={"/icons/mail-icon.svg"}
                 alt="mail-icon"

@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 const MailLogo = () => {
   return (
-    <Link
+    <a
+      href="mailto:mayashahar777@gmail.com"
+      rel="noreferrer"
+      target="_blank"
       className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] lg:size-[34px]"
-      to="mail.com"
     >
       <svg
         className="h-[14.59px] w-[18.06px] sm:h-[31.19px] sm:w-[38.62px] lg:h-[25.5px] lg:w-[31.57px]"
@@ -28,7 +30,7 @@ const MailLogo = () => {
           strokeLinejoin="round"
         />
       </svg>
-    </Link>
+    </a>
   );
 };
 

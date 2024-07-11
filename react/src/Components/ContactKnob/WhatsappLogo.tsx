@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 const WhatsappLogo = () => {
   return (
-    <Link
+    <a href="https://wa.me/972508122000"
+      rel="noreferrer"
+      target="_blank"
       className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] lg:size-[34px]"
-      to="whatsapp.com"
     >
       <svg
         className="h-[16.68px] w-[16.68px] sm:h-[35.67px] sm:w-[35.67px] lg:h-[29.75px] lg:w-[29.75px]"
@@ -28,7 +29,7 @@ const WhatsappLogo = () => {
           strokeLinejoin="round"
         />
       </svg>
-    </Link>
+    </a>
   );
 };
 
