@@ -10,6 +10,7 @@ import {
 } from "./utils/localCandleStorage";
 import ContactKnob from "./Components/ContactKnob";
 import ShoppingCartPopover from "./Components/Popover/ShoppingCart";
+import ScrollToTop from "./Components/utils/ScrollToTop";
 
 export type ContextType = {
   favoritesArray: CandleType[];
@@ -23,16 +24,12 @@ export type ContextType = {
     event: React.MouseEvent,
     candle: ChosenCandleType,
   ) => void;
+  searchInfo: string;
+  setSearchInfo: React.Dispatch<React.SetStateAction<string>>;
 };
 function App() {
+  const [searchInfo, setSearchInfo] = useState<string>("");
   const [showShoppingCart, setShowShoppingCart] = useState(false);
-  const openShoppingCart = () => {
-    setShowShoppingCart(true);
-  };
-  const closeShoppingCartPopover = (event?: React.MouseEvent) => {
-    event && event.stopPropagation();
-    setShowShoppingCart(false);
-  };
   const { getFavoriteItems, addItemToFavorites } =
     useLocalFavoriteCandlesStorage();
   const { getShoppingCartItems, addItemToCart, removeItemFromCart } =
@@ -45,6 +42,13 @@ function App() {
   const [shoppingCartArray, setShoppingCartArray] = useState<
     ChosenCandleType[]
   >(initialShoppingCartArray || []);
+  const openShoppingCart = () => {
+    setShowShoppingCart(true);
+  };
+  const closeShoppingCartPopover = (event?: React.MouseEvent) => {
+    event && event.stopPropagation();
+    setShowShoppingCart(false);
+  };
   const handleAddToShoppingCartArray = (
     event: React.MouseEvent,
     value: ChosenCandleType,
@@ -124,10 +128,14 @@ function App() {
   };
 
   return (
-    <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip">
+    <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip scroll-smooth">
+      <ScrollToTop />
       <div className="h-full ">
-        <NavBar favoritesArray={favoritesArray} />
-
+        <NavBar
+          setSearchInfo={setSearchInfo}
+          searchInfo={searchInfo}
+          favoritesArray={favoritesArray}
+        />
         <ShoppingCartPopover
           showShoppingCart={showShoppingCart}
           closeShoppingCartPopover={closeShoppingCartPopover}
@@ -140,6 +148,8 @@ function App() {
         <div className="flex h-fit w-full flex-col">
           <Outlet
             context={{
+              searchInfo,
+              setSearchInfo,
               shoppingCartArray,
               handleAddToShoppingCartArray,
               handleRemoveOneFromShoppingCartArray,

@@ -16,7 +16,7 @@ const AddToCartButton = ({
       onClick={(e: React.MouseEvent) =>
         handleAddToShoppingCartArray(e, chosenCandle)
       }
-      className="w-full  border-[6px] border-primary-pink py-[25px] text-xl font-semibold leading-[26.6px]"
+      className="text-nowrap border-[6px] border-primary-pink py-[25px] text-xl font-semibold leading-[26.6px] max-xl:w-full sm:text-3xl xl:flex xl:h-[98px] xl:items-center xl:justify-center  xl:px-[203px] xl:text-4xl xl:leading-[47.88px]"
     >
       הוספה לסל
     </button>

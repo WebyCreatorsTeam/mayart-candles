@@ -49,7 +49,12 @@ const router = createBrowserRouter([
       {
         path: "/candles",
         children: [
-          { index: true, element: <AllCandles />, loader: candlesLoader },
+          {
+            index: true,
+            id: "AllCandles",
+            element: <AllCandles />,
+            loader: candlesLoader,
+          },
           {
             path: "/candles/candle/:id",
             element: <Candle />,

@@ -1,4 +1,9 @@
-import React, { Dispatch, SetStateAction, useMemo } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  SyntheticEvent,
+  useMemo,
+} from "react";
 // import ActionButtons from "../ActionButtons";
 import Logo from "../Logo";
 import MenuToggle from "../MenuToggle";
@@ -48,11 +53,13 @@ const Header = ({
   setNavBarMenuIsOpen,
   toggleNavBarMenu,
   favoritesArray,
+  openSearchBar,
 }: {
   navBarMenuIsOpen: boolean;
   setNavBarMenuIsOpen: Dispatch<SetStateAction<boolean>>;
   toggleNavBarMenu: () => void;
   favoritesArray: CandleType[];
+  openSearchBar: (e: SyntheticEvent) => void;
 }) => {
   const { getShoppingCartItems } = useLocalShoppingCartCandlesStorage();
   const shoppingCartArray = getShoppingCartItems();
@@ -72,9 +79,12 @@ const Header = ({
   }, [shoppingCartArray]);
 
   return (
-    <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-[10.5px]  py-[13.5px] sm:px-11 sm:py-14">
+    <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-[10.5px]  py-[13.5px] sm:px-11 sm:py-7">
       <div className="flex gap-7 sm:gap-[29.93px]">
-        <SearchButton actionButtonInfo={searchActionButtonInfo} />
+        <SearchButton
+          openSearchBar={openSearchBar}
+          actionButtonInfo={searchActionButtonInfo}
+        />
         <FavoritesButton
           favoritesAmount={favoritesAmount}
           favoritesArray={favoritesArray}

@@ -1,7 +1,8 @@
-import { CandleType } from "../../utils/types/candles";
+import { CandleType } from "../../../utils/types/candles";
+
 const CandlePrices = ({ currentCandle }: { currentCandle: CandleType }) => {
   return (
-    <span className="flex flex-row-reverse gap-2 text-base font-normal sm:gap-4 sm:text-[34.22px] sm:leading-[45.51px]">
+    <span className="flex flex-row-reverse gap-2 text-base font-normal sm:gap-4 sm:text-[34.22px] sm:leading-[45.51px] xl:text-[32px] xl:leading-[42.56px]">
       {currentCandle.salePrice ? (
         <>
           {currentCandle.salePrice}₪
