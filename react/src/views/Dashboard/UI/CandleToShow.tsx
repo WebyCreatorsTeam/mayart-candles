@@ -47,7 +47,7 @@ const CandleToShow: FC<ICandleToShow> = ({ cdl, setAllCandles }) => {
                 <div className='price-details'>
                     <h2>{cdl.name} בצורת {cdl.shape}</h2>
                     <div className='price-details__costs'>
-                        {cdl.salePrice && <p className='salePrice'>{cdl.salePrice}&#x20AA;</p>}
+                        {cdl.salePrice > 0 && <p className='salePrice'>{cdl.salePrice}&#x20AA;</p>}
                         <p className={cdl.salePrice ? "priceBefore" : "regularPrice"}>{cdl.price}&#x20AA;</p>
                     </div>
                 </div>

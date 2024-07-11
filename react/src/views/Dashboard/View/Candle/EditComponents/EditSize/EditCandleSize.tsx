@@ -15,7 +15,8 @@ const EditCandleSize: FC<IEditCandleSize> = ({ candleSize }) => {
     const handleChangeType = async () => {
         try {
             setLoader(true)
-            const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/edit-size-candle`, { id, size })
+            const token = sessionStorage.getItem('token')
+            const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/edit-size-candle?token=${token}`, { id, size })
             if (continueWork) {
                 alert(message)
                 setEditType(false)

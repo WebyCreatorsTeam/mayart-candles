@@ -81,7 +81,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             if (!confirm) return;
             setLoader(true)
             const token = sessionStorage.getItem('token')
-            const { data: { continueWork, message, pictures } } = await axios.delete(`http://localhost:7575/candles/delete-image?token=${token}`, { data: { id, imageId, img } })
+            const { data: { continueWork, message, pictures } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/delete-image?token=${token}`, { data: { id, imageId, img } })
             if (continueWork) {
                 alert(message)
                 return setImagesOfCandle(pictures)
