@@ -130,7 +130,7 @@ const OrdersPage = () => {
         const confirm = window.confirm("למחוק את ההזמנה?")
         if(!confirm) return;
         const token = sessionStorage.getItem('token')
-        const { data } = await axios.delete(`http://localhost:7575/orders/delete-order?token=${token}`, { data: { id } })
+        const { data } = await axios.delete(`https://mayart-candles-api.vercel.app/orders/delete-order?token=${token}`, { data: { id } })
         const { continueWork, message } = data;
         console.log(data)
         if (continueWork) {
@@ -176,7 +176,7 @@ export default OrdersPage
 
 const hendleGetOrders = async () => {
     const token = sessionStorage.getItem('token')
-    const { data } = await axios.get(`http://localhost:7575/orders/get-orders?token=${token}`)
+    const { data } = await axios.get(`https://mayart-candles-api.vercel.app/orders/get-orders?token=${token}`)
     const { continueWork, order } = data;
     if (continueWork) return order
     if (!continueWork) return alert("הראה שגיאה, נסה שנית")

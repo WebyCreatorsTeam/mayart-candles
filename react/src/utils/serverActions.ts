@@ -162,7 +162,7 @@ export const checkout = async ({ request }: any) => {
   };
   const { data } = await axios.post(
     // `https://whattsap-sending-message.vercel.app/send-message`,
-    `http://localhost:7575/orders/send-order`,
+    `https://mayart-candles-api.vercel.app/orders/send-order`,
     // `http://localhost:8787/send-message`,
     checkoutInfoAndArray,
   );
