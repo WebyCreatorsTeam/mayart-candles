@@ -11,6 +11,7 @@ import adminRout from './routers/admin/index.admin.route'
 import categoriesRoute from './routers/category/category.index.route'
 import aboutRoute from './routers/about/about.index.route'
 import paymentRoute from './routers/payment/payment.index.route';
+import orderRoute from './routers/order/order.router';
 import { v2 as cloudinary } from "cloudinary";
 import { userIsAdmin } from './middlewares/admin.user.mw';
 
@@ -51,6 +52,7 @@ app
     .use('/categories', categoriesRoute)
     .use('/about', aboutRoute)
     .use('/payment', paymentRoute)
+    .use('/orders', orderRoute)
 
 // status check points
 app.get('/status', (req: Request, res: Response) => res.sendStatus(200))

@@ -33,6 +33,7 @@ import Payment, { paymentDashLoader } from "./views/Dashboard/View/Payment/Payme
 import ProtectedRoute from "./views/Dashboard/ProtectedRoute/ProtectedRoute";
 import ShoppingCartPage from "./views/ShoppingCart";
 import FavoritesPage from "./views/Favorites";
+import OrdersPage, { ordersLoader } from "./views/Dashboard/View/OrderPage/OrdersPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -106,6 +107,7 @@ const router = createBrowserRouter([
       { path: "admins", element: <Users />, loader: adminsLoader },
       { path: "regist", element: <Regist />, action: formRegistAction },
       { path: "payment", element: <Payment />, loader: paymentDashLoader },
+      { path: "orders", element: <OrdersPage />, loader: ordersLoader },
     ],
   },
 ]);
