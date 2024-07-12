@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const WhatsappLogo = () => {
   return (
     <Link
-      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] lg:size-[34px]"
+      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
       to="whatsapp.com"
     >
       <svg
-        className="h-[16.68px] w-[16.68px] sm:h-[35.67px] sm:w-[35.67px] lg:h-[29.75px] lg:w-[29.75px]"
+        className="h-[16.68px] w-[16.68px] sm:h-[35.67px] sm:w-[35.67px] xl:h-[29.75px] xl:w-[29.75px]"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

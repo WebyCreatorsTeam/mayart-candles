@@ -6,7 +6,7 @@ const ColorsAndFrag = ({ candle }: { candle: CandleType }) => {
   return (
     <div
       dir="rtl"
-      className="flex w-full flex-col justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] lg:flex-row lg:text-[32px] lg:font-normal  lg:leading-none lg:~gap-24/32 xl:justify-start"
+      className="flex w-full flex-col justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] xl:flex-row xl:justify-start xl:text-[32px]  xl:font-normal xl:leading-none xl:~gap-24/32"
     >
       <Colors colors={candle.colors} />
       <div className="flex flex-col items-center sm:gap-3">

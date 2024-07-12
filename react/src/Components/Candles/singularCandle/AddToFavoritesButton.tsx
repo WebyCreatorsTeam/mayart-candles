@@ -19,10 +19,10 @@ const AddToFavoritesButton = ({ candle }: { candle: CandleType }) => {
   return (
     <button
       onClick={() => handleAddToFavoritesArray(candle)}
-      className="left-0 top-[718px] hidden items-center justify-center p-[35px] hover:*:fill-black active:*:fill-black sm:p-[21.38px] lg:p-[15px] xl:absolute xl:block "
+      className="left-0 top-[718px] hidden items-center justify-center p-[35px] hover:*:fill-black active:*:fill-black sm:p-[21.38px] xl:absolute xl:block xl:p-[15px] "
     >
       <svg
-        className={`hidden size-[91px] lg:block ${isFavoriteCandle ? "fill-black" : ""}`}
+        className={`hidden size-[91px] xl:block ${isFavoriteCandle ? "fill-black" : ""}`}
         viewBox="0 0 34 34"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const AddToFavoritesButton = ({ candle }: { candle: CandleType }) => {
       </svg>
 
       <svg
-        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] lg:hidden ${isFavoriteCandle ? "fill-black" : ""}`}
+        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] xl:hidden ${isFavoriteCandle ? "fill-black" : ""}`}
         viewBox="0 0 34 29"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

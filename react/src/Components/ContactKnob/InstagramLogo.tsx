@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const InstagramLogo = () => {
   return (
     <Link
-      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] lg:size-[34px]"
+      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
       to="instagram.com"
     >
       <svg
-        className="h-[17.01px] w-[17.01px] sm:h-[36.39px] sm:w-[36.39px] lg:h-[29.16px] lg:w-[29.16px]"
+        className="h-[17.01px] w-[17.01px] sm:h-[36.39px] sm:w-[36.39px] xl:h-[29.16px] xl:w-[29.16px]"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

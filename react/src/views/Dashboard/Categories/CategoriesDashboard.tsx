@@ -88,7 +88,7 @@ const CategoriesDashboard: FC = () => {
 
 export default CategoriesDashboard;
 
-const hendleGetCategories = async () => {
+const handleGetCategories = async () => {
   const token = sessionStorage.getItem("token");
   const { data } = await axios.get(
     `${BASE_API}/categories/get-categories?token=${token}`,
@@ -100,6 +100,6 @@ const hendleGetCategories = async () => {
 
 export const categoriesLoader = async () => {
   return defer({
-    categories: await hendleGetCategories(),
+    categories: await handleGetCategories(),
   });
 };

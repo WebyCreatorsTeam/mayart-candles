@@ -17,21 +17,21 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
       key={ChosenCandleId}
       className="flex w-full flex-col gap-3 text-center"
     >
-      <div className="flex flex-col items-center gap-3 sm:gap-[25.66px] lg:flex-row lg:items-start lg:gap-[59px]">
+      <div className="flex flex-col items-center gap-3 sm:gap-[25.66px] xl:flex-row xl:items-start xl:gap-[59px]">
         {/* candle image */}
         <img
-          className="w-full object-cover max-sm:max-h-[475px] lg:h-[304px] lg:max-h-[304px] lg:w-[301px] lg:max-w-[301px]"
+          className="w-full object-cover max-sm:max-h-[475px] xl:h-[304px] xl:max-h-[304px] xl:w-[301px] xl:max-w-[301px]"
           src={candle.pictures[0].img}
           alt={candle.name}
         />
-        <div className="flex  w-full flex-col items-center gap-3 sm:gap-[25.66px] lg:items-start lg:items-start lg:gap-9 lg:*:items-start">
+        <div className="flex  w-full flex-col items-center gap-3 sm:gap-[25.66px] xl:items-start xl:items-start xl:gap-9 xl:*:items-start">
           <div className="flex flex-col gap-2.5 text-base leading-[21.28px] sm:gap-[21.38px]">
             <Title candle={candle} />
             <PricingSystem candle={candle} />
           </div>
           <div
             dir="rtl"
-            className="flex w-full flex-col justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] lg:gap-[21px] lg:text-[32px] lg:font-normal lg:leading-none"
+            className="flex w-full flex-col justify-center gap-[15px] text-lg leading-9 sm:gap-8 sm:text-[38.49px] sm:leading-[76.98px] xl:gap-[21px] xl:text-[32px] xl:font-normal xl:leading-none"
           >
             <Color color={candle.colors} />
             <p>ריח: {candle.fragrances}</p>
@@ -46,7 +46,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
             />
           </span>
         </div>
-        <span className="hidden h-[304px] flex-col items-end justify-between lg:flex">
+        <span className="hidden h-[304px] flex-col items-end justify-between xl:flex">
           <PopoverCandleQuantityToggle
             handleAddToShoppingCartArray={handleAddToShoppingCartArray}
             handleRemoveOneFromShoppingCartArray={

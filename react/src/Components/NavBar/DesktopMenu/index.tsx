@@ -6,9 +6,10 @@ import { Await, useLoaderData } from "react-router-dom";
 import { candleCategoryType } from "../../../utils/types/categories";
 
 const DesktopMenu = () => {
-  const { categories } = useLoaderData() as {
+  const loaderData = useLoaderData() as {
     categories: Array<candleCategoryType>;
   };
+  const { categories } = loaderData;
   return (
     <nav className="absolute top-full hidden w-full flex-row-reverse items-center justify-evenly bg-white/50 py-2.5 backdrop-blur-sm xl:flex">
       <DesktopNavLink

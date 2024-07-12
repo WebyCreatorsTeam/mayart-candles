@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, defer } from "react-router-dom";
 import Home from "./views";
 import About from "./views/About";
 import ErrorComponent from "./Components/Error";
@@ -39,6 +39,8 @@ import "./views/Dashboard/style/global.scss";
 import Payment from "./views/Dashboard/Payment/Payment";
 import ShoppingCartPage from "./views/ShoppingCart";
 import FavoritesPage from "./views/Favorites";
+import { candleCategoryType } from "./utils/types/categories";
+import { CandleType } from "./utils/types/candles";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -48,9 +50,20 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorComponent />,
-    loader: candleCategoriesLoader,
+    loader: async () => {
+      const candlesCategoriesData = await candleCategoriesLoader();
+      const { categories } = candlesCategoriesData as {
+        categories: candleCategoryType[];
+      };
+      const { data } = await candlesLoader();
+      const { candles } = data as unknown as { candles: CandleType[] };
+      return defer({
+        categories,
+        candles,
+      });
+    },
     children: [
-      { path: "/", element: <Home />, loader: candlesLoader },
+      { path: "/", id: "Home", element: <Home />, loader: candlesLoader },
       { path: "/about", element: <About />, loader: aboutLoader },
       {
         path: "/candles",

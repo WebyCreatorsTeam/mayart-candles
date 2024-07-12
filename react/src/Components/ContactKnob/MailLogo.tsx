@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const MailLogo = () => {
   return (
     <Link
-      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] lg:size-[34px]"
+      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
       to="mail.com"
     >
       <svg
-        className="h-[14.59px] w-[18.06px] sm:h-[31.19px] sm:w-[38.62px] lg:h-[25.5px] lg:w-[31.57px]"
+        className="h-[14.59px] w-[18.06px] sm:h-[31.19px] sm:w-[38.62px] xl:h-[25.5px] xl:w-[31.57px]"
         viewBox="0 0 34 28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

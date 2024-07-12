@@ -4,7 +4,7 @@ import fluid, { extract, screens } from "fluid-tailwind";
 const config: Config = {
   content: { files: ["./src/**/*.{js,ts,jsx,tsx}"], extract },
   theme: {
-    screens,
+    screens: { mb: "90rem", ...screens },
     extend: {
       colors: {
         "primary-pink": "#F06CBB",

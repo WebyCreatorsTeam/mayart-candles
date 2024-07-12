@@ -21,7 +21,7 @@ const ShoppingCartList = ({
 }) => {
   return shoppingCartArrayActualLength > 0 ? (
     <>
-      <div className="scrollbar-none flex h-full w-full flex-col items-center overflow-y-scroll border-[#B0C4B1] pb-5 max-lg:border-y max-sm:max-h-[276px] lg:min-h-full lg:gap-2  lg:py-0">
+      <div className="scrollbar-none flex h-full w-full flex-col items-center overflow-y-scroll border-[#B0C4B1] pb-5 max-lg:border-y max-sm:max-h-[276px] xl:min-h-full xl:gap-2  xl:py-0">
         {shoppingCartArray.map((candle, index) => (
           <ShoppingCartPopoverCandleThumbnail
             key={`${candle._id}${index}${candle.colors._id}${candle.fragrances}`}

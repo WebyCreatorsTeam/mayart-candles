@@ -40,7 +40,7 @@ const GenericActionButton = ({
       />
     </Link>
   ) : (
-    <a onClick={openSearchBar} href="#all_candles_list" className="relative">
+    <button onClick={openSearchBar} className="relative">
       {candles && (
         <span className="absolute  hidden items-center justify-center rounded-full bg-black text-center text-sm text-white ~size-4/6 sm:flex">
           {candles.length}
@@ -56,7 +56,7 @@ const GenericActionButton = ({
         src={actionButtonInfo.tablet.src}
         alt={actionButtonInfo.tablet.alt}
       />
-    </a>
+    </button>
   );
 };
 

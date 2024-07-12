@@ -3,7 +3,7 @@ import { CandleColorT } from "../../../utils/types/candles";
 
 const Color = ({ color }: { color: CandleColorT }) => {
   return (
-    <div className="flex w-full items-start justify-center gap-[18px] sm:gap-[38.49px] lg:justify-start">
+    <div className="flex w-full items-start justify-center gap-[18px] sm:gap-[38.49px] xl:justify-start">
       <h2>צבע: {color.color}</h2>
       <div
         aria-description={`צבע ${color.color}`}
