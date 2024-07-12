@@ -11,6 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteOrder = exports.getOrder = exports.saveOrder = void 0;
 const order_model_1 = require("../../model/order/order.model");
+const mail_1 = require("../../utils/nodemailer/mail");
+// import moment from "moment";
 //  /orders/send-message
 const saveOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -21,6 +23,23 @@ const saveOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function
         // Order.index
         // console.log(Order.getIndexes())
         yield newOrder.save();
+        yield new Promise((resolve, reject) => {
+            console.log(`befote mail`);
+            mail_1.transporter.sendMail((0, mail_1.mailOptions)(newOrder), (error, info) => {
+                console.log(`email transporter enter`);
+                if (error) {
+                    console.log(`email transporter enter error`);
+                    console.error("Error sending email: ", error);
+                    reject(error);
+                }
+                else {
+                    console.log("Email sent: ", info.response);
+                    console.log(`email transporter enter sent`);
+                    resolve(info.response);
+                }
+            });
+            console.log(`after mail`);
+        });
         return res.json({ continueWork: true, message: "הזמנה נשלחה, נחזור בהקדם" });
     }
     catch (error) {
