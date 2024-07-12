@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { Order } from "../../model/order/order.model";
-import moment from "moment";
+import {transporter, mailOptions} from "../../utils/nodemailer/mail"
+// import moment from "moment";
 
 //  /orders/send-message
 
@@ -13,6 +14,24 @@ export const saveOrder = async (req: Request, res: Response, next: NextFunction)
         // Order.index
         // console.log(Order.getIndexes())
         await newOrder.save()
+
+        await new Promise((resolve, reject) => {
+            console.log(`befote mail`)
+            transporter.sendMail(mailOptions(newOrder), (error, info) => {
+                console.log(`email transporter enter`)
+                if (error) {
+                    console.log(`email transporter enter error`)
+                    console.error("Error sending email: ", error);
+                    reject(error)
+                } else {
+                    console.log("Email sent: ", info.response);
+                    console.log(`email transporter enter sent`)
+                    resolve(info.response)
+                }
+            });
+            console.log(`after mail`)
+        })
+
         return res.json({ continueWork: true, message: "הזמנה נשלחה, נחזור בהקדם" })
     } catch (error) {
         next(error)
