@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const InstagramLogo = () => {
+const InstagramLogo = ({ link }: { link: string }) => {
+
   return (
     <Link
       className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
-      to="instagram.com"
+      to={link}
     >
       <svg
         className="h-[17.01px] w-[17.01px] sm:h-[36.39px] sm:w-[36.39px] xl:h-[29.16px] xl:w-[29.16px]"

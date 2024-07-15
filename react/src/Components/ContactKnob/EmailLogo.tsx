@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MailLogo = () => {
+const EmailLogo = ({ link }: { link: string }) => {
   return (
     <Link
       className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
-      to="mail.com"
+      to={link}
     >
       <svg
         className="h-[14.59px] w-[18.06px] sm:h-[31.19px] sm:w-[38.62px] xl:h-[25.5px] xl:w-[31.57px]"
@@ -32,4 +32,4 @@ const MailLogo = () => {
   );
 };
 
-export default MailLogo;
+export default EmailLogo;

@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const WhatsappLogo = () => {
+const WhatsappLogo = ({ link }: {link :string }) => {
   return (
     <Link
       className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
-      to="whatsapp.com"
+      to={link}
     >
       <svg
         className="h-[16.68px] w-[16.68px] sm:h-[35.67px] sm:w-[35.67px] xl:h-[29.75px] xl:w-[29.75px]"
