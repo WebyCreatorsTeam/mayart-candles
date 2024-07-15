@@ -1,8 +1,5 @@
-// // const nodemailer = require("nodemailer");
 import nodemailer from "nodemailer";
 
-console.log(process.env.MAIL)
-console.log(process.env.MAIL_PASS)
 export const transporter = nodemailer.createTransport({
     service: "Gmail",
     host: "smtp.gmail.com",

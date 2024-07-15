@@ -4,10 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mailOptions = exports.transporter = void 0;
-// // const nodemailer = require("nodemailer");
 const nodemailer_1 = __importDefault(require("nodemailer"));
-console.log(process.env.MAIL);
-console.log(process.env.MAIL_PASS);
 exports.transporter = nodemailer_1.default.createTransport({
     service: "Gmail",
     host: "smtp.gmail.com",
