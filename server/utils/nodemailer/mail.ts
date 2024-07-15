@@ -30,8 +30,6 @@ const renderOrderCandles = (candles: any) => {
 }
 
 export const mailOptions = (order: any) => {
-    console.log(order)
-
     const orderNumber = order._id.toString().slice(-5, order._id.length)
     const orderCandles = renderOrderCandles(order.candles)
 

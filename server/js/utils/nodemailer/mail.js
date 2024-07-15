@@ -32,7 +32,6 @@ const renderOrderCandles = (candles) => {
     return html;
 };
 const mailOptions = (order) => {
-    console.log(order);
     const orderNumber = order._id.toString().slice(-5, order._id.length);
     const orderCandles = renderOrderCandles(order.candles);
     const totalPay = (order) => {
