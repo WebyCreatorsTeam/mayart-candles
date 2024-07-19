@@ -3072,6 +3072,22 @@ error - Start and end values are both `0.25rem`
     width: 100%;
   }
 
+  .xl\:w-\[660px\] {
+    width: 660px;
+  }
+
+  .xl\:w-\[460px\] {
+    width: 460px;
+  }
+
+  .xl\:w-\[560px\] {
+    width: 560px;
+  }
+
+  .xl\:w-\[760px\] {
+    width: 760px;
+  }
+
   .xl\:min-w-\[530px\] {
     min-width: 530px;
   }
@@ -3671,6 +3687,10 @@ error - Start and end values are both `0.25rem`
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+  }
+
+  .\32xl\:w-\[660px\] {
+    width: 660px;
   }
 
   .\32xl\:min-w-\[530px\] {
