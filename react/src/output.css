@@ -993,6 +993,10 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -2202,6 +2206,10 @@ error - Start and end values are both `0.25rem`
     width: 100%;
   }
 
+  .max-xl\:gap-\[25\.66px\] {
+    gap: 25.66px;
+  }
+
   .max-xl\:px-14 {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
@@ -2479,6 +2487,14 @@ error - Start and end values are both `0.25rem`
 
   .sm\:gap-\[89\.82px\] {
     gap: 89.82px;
+  }
+
+  .sm\:gap-\[56\.98px\] {
+    gap: 56.98px;
+  }
+
+  .sm\:gap-\[36\.98px\] {
+    gap: 36.98px;
   }
 
   .sm\:rounded-2xl {
@@ -2807,8 +2823,43 @@ error - Start and end values are both `0.25rem`
     display: none;
   }
 
+  .lg\:size-\[34px\] {
+    width: 34px;
+    height: 34px;
+  }
+
   .lg\:ps-\[30px\] {
     padding-inline-start: 30px;
+  }
+
+  @media not all and (min-width: 96rem) {
+    .lg\:max-2xl\:gap-\[25\.66px\] {
+      gap: 25.66px;
+    }
+
+    .lg\:max-2xl\:gap-2 {
+      gap: 0.5rem;
+    }
+
+    .lg\:max-2xl\:pb-3 {
+      padding-bottom: 0.75rem;
+    }
+
+    .lg\:max-2xl\:text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .lg\:max-2xl\:text-lg {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  @media not all and (min-width: 80rem) {
+    .lg\:max-xl\:gap-\[25\.66px\] {
+      gap: 25.66px;
+    }
   }
 }
 
