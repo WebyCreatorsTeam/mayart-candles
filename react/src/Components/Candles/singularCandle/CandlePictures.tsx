@@ -16,7 +16,7 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
         alt={currentCandle.name}
         // not actual square, to achieve close to 1:1 aspect ratio, like the figma design, add xl:min-w-[776px].
         // to achieve w of 530px, add xl:min-w-[530px] xl:max-w-[530px]
-        className="aspect-square h-[508px] w-full object-cover xl:h-[840px]"
+        className="aspect-square h-[508px] w-full object-cover xl:max-2xl:min-h-[700px] 2xl:h-[840px]"
       />
       <AddToFavoritesButton candle={currentCandle} />
       <div className="flex justify-center gap-3 py-5 xl:justify-start">
@@ -26,8 +26,8 @@ const CandlePictures = ({ currentCandle }: { currentCandle: CandleType }) => {
               return (
                 <button
                   key={index}
-                  className={`h-[98px] w-[68px] xl:h-fit xl:w-[153px]`}
-                  onClick={() => chooseCandlePicture(picture.img)}
+                  className={`h-[98px] w-[68px] xl:h-fit 2xl:w-[153px] xl:max-2xl:w-[80px] `}
+                  onMouseEnter={() => chooseCandlePicture(picture.img)}
                 >
                   <img
                     src={picture.img}

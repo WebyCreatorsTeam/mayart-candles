@@ -17,19 +17,19 @@ const AmountToggle = ({
   ) => void;
 }) => {
   return (
-    <div className="flex w-96 items-center py-3 *:grow *:rounded-full *:text-center">
+    <div className="flex w-96 items-center max-xl:py-3 max-xl:*:grow *:rounded-full *:text-center xl:max-2xl:text-3xl xl:max-2xl:leading-[42.56px] 2xl:text-4xl 2xl:leading-[47.88px]">
       <button
         onClick={(e) => handleAddToShoppingCartArray(e, candleIsInShoppingCart)}
-        className="border-[3px] border-primary-pink py-[12.5px] text-xl font-semibold leading-[13.3px] active:bg-primary-pink active:text-white"
+        className="border-[3px] xl:size-[98px] border-primary-pink py-[12.5px] text-xl font-semibold leading-[13.3px] active:bg-primary-pink active:text-white"
       >
         +
       </button>
-      <span>{candleIsInShoppingCart.quantity}</span>
+      <span className="grow">{candleIsInShoppingCart.quantity}</span>
       <button
         onClick={(e) =>
           handleRemoveOneFromShoppingCartArray(e, candleIsInShoppingCart)
         }
-        className="border-[3px] border-primary-pink py-[12.5px] text-xl font-semibold leading-[13.3px] active:bg-primary-pink active:text-white"
+        className="border-[3px] xl:size-[98px] border-primary-pink py-[12.5px] text-xl font-semibold leading-[13.3px] active:bg-primary-pink active:text-white"
       >
         -
       </button>
