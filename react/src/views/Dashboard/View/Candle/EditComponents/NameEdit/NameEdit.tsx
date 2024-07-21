@@ -1,6 +1,9 @@
 import { FC, useState } from 'react'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface INameEdit {
     name: string;
@@ -17,7 +20,7 @@ const NameEdit: FC<INameEdit> = ({ name, setCandleName, candleName, setPopUpName
         try {
             setLoader(true)
             if (candleName.length === 0) return alert("שם הנר לא יכול להיות ריק")
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/change-candle-name?token=${token}`, { id, name: candleName })
             if (continueWork) {
                 alert(message)

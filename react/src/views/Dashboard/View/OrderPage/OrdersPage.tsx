@@ -7,6 +7,9 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { red } from '@mui/material/colors';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface ICandles {
     name: string,
@@ -25,7 +28,6 @@ interface IOrders {
     candles: Array<ICandles>
     createdAt: string
 }
-
 
 interface IRow {
     order: IOrders
@@ -129,7 +131,7 @@ const OrdersPage = () => {
     const hendleDeleteOrder = async (id: string) => {
         const confirm = window.confirm("למחוק את ההזמנה?")
         if(!confirm) return;
-        const token = sessionStorage.getItem('token')
+        const token = cookies.get('token')
         const { data } = await axios.delete(`https://mayart-candles-api.vercel.app/orders/delete-order?token=${token}`, { data: { id } })
         const { continueWork, message } = data;
         console.log(data)
@@ -175,7 +177,7 @@ const OrdersPage = () => {
 export default OrdersPage
 
 const hendleGetOrders = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = cookies.get('token')
     const { data } = await axios.get(`https://mayart-candles-api.vercel.app/orders/get-orders?token=${token}`)
     const { continueWork, order } = data;
     if (continueWork) return order

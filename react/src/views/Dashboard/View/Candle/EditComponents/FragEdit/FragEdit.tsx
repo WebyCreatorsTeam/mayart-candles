@@ -2,6 +2,9 @@ import { FC, useState } from 'react'
 import axios from 'axios'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import PopUp from '../../../../UI/PopUp/PopUp'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IFragEdit {
     setPopUpEditFrag: Function
@@ -19,7 +22,7 @@ const FragEdit: FC<IFragEdit> = ({ setPopUpEditFrag, setAllFragrances, allFragra
             setLoader(true)
             const filterFrag = allFragrances.filter(fgr => fgr === newFrag)
             if (filterFrag.length > 0) return alert(`ריח ${newFrag} כבר קיים ברשימה`)
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message, fragrances } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-frag?token=${token}`, { id, newFrag })
             if (continueWork) {
                 alert(message)

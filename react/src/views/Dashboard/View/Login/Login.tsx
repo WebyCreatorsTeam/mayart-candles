@@ -2,6 +2,9 @@ import { FC, useEffect, useState } from 'react'
 import { Form, redirect, useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import Input from '../../UI/Input';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export interface InputsList {
   type: string;
@@ -79,6 +82,7 @@ export interface IUser {
 }
 
 export const formLoginAction = async ({ request }: any) => {
+
   const formData = await request.formData();
 
   const user = {
@@ -89,9 +93,9 @@ export const formLoginAction = async ({ request }: any) => {
   const { continueWork, token, message } = await handleLoginUser(user);
 
   if (continueWork) {
-    await sessionStorage.setItem("token", token);
+    await cookies.set("token", token, { path: "/", expires: new Date(Date.now() + 1000 * 60 * 60 * 3)});
     return redirect("/dashboard");
   }
-
+  
   if (!continueWork) return alert(message);
 };

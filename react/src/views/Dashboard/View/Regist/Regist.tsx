@@ -3,6 +3,9 @@ import { IUser, InputsList } from '../Login/Login';
 import { Form, redirect, useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import Input from '../../UI/Input';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export const inputs: Array<InputsList> = [
     { type: "text", name: "name", placeholder: "שם (רק את רואה איך קראת למשתמש)", autoComp: "nickname" },
@@ -56,7 +59,7 @@ const Regist: FC = () => {
 export default Regist;
 
 const hendleRegistUser = async ({ name, email, password }: IUserReg) => {
-    const token = sessionStorage.getItem('token')
+  const token = cookies.get('token')
     const { data } = await axios.post(`https://mayart-candles-api.vercel.app/admin/reg-admin?token=${token}`, { name, email, password })
     return data
 }

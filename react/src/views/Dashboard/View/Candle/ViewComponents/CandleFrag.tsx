@@ -5,6 +5,9 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
 import { useCandleIdContext } from '../Context/CandleContext';
 import { red } from '@mui/material/colors';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface ICandleFrag {
   fragrances: [string];
@@ -20,7 +23,7 @@ const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
       const confirm = window.confirm(`האם אתה בטוח שברצונך למחוק את הריח ${frg}?`)
       if (!confirm) return;
       setLoader(true)
-      const token = sessionStorage.getItem('token')
+      const token = cookies.get('token')
       const { data: { continueWork, message, fragrances } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/remove-frag?token=${token}`, { data: { id, frg } })
       if (continueWork) {
         alert(message)

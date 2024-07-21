@@ -13,6 +13,9 @@ import axios from 'axios'
 import { ICandles } from '../../MainDashboard'
 import NewCandleImages from './NewImagesCandle/NewCandleImages'
 import { validateNewCandleBeforeSend } from '../../utils/validateNewCandle'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const AddNewCandle: FC = () => {
   const { categories }: any = useLoaderData() as { admins: Array<ICategories> }
@@ -51,7 +54,7 @@ const AddNewCandle: FC = () => {
 
       data.append("candle", JSON.stringify(newCandle))
 
-      const token = sessionStorage.getItem('token')
+      const token = cookies.get('token')
       const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/save-candle?token=${token}`, data, {
         headers: {
           'content-type': "mulpipart/form-data"

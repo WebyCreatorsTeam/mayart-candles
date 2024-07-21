@@ -1,6 +1,9 @@
 import { FC, useState } from 'react'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IShapeEdit {
     shape: string
@@ -16,7 +19,7 @@ const ShapeEdit: FC<IShapeEdit> = ({ shape, candleShape, setCandleShape, setPopU
         try {
             setLoader(true)
             if (candleShape.length === 0) return alert("צורת הנר לא יכול להיות ריק")
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/change-candle-shape?token=${token}`, { id, shape: candleShape })
             if (continueWork) {
                 alert(message)

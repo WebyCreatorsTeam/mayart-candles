@@ -2,6 +2,9 @@ import axios from 'axios'
 import { FC, Suspense, useState } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IAdmins {
     name: string,
@@ -19,7 +22,7 @@ const Users: FC = () => {
             const confirm = window.confirm(`למחוק משתמש השם ${name}`)
             if (!confirm) return;
             setLoader(true)
-            const token = sessionStorage.getItem('token')
+            const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/admin/remove-admin?token=${token}`, { data: { id } })
             if (continueWork) {
                 setAllUser(allUser.filter(us => { return us._id !== id }))
@@ -66,7 +69,7 @@ const Users: FC = () => {
 export default Users
 
 const hendleGetAdmins = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = cookies.get('token')
     const { data } = await axios.get(`https://mayart-candles-api.vercel.app/admin/all-admins?token=${token}`)
     const { continueWork, admins } = data;
     if (continueWork) return admins

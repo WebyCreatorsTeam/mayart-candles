@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react'
-// import { getImageSize } from 'react-image-size';
 import axios from 'axios';
 import { useCandleIdContext } from '../Context/CandleContext';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -7,6 +6,9 @@ import { red } from '@mui/material/colors';
 import PopUp from '../../../UI/PopUp/PopUp';
 import UploadFile from '../../../UI/UploadFile';
 import { loadImage } from '../../../utils/getImageSize';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface ICandleImages {
     images: Array<candlePic>
@@ -52,7 +54,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             setLoader(true);
             const data = new FormData()
             data.append("my_file", file!)
-            const token = sessionStorage.getItem('token')
+           const token = cookies.get('token')
             const res = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-candle-image?token=${token}&id=${id}`, data, {
                 headers: {
                     'content-type': "mulpipart/form-data"
@@ -80,7 +82,7 @@ const CandleImages: FC<ICandleImages> = ({ images, candleName }) => {
             const confirm = window.confirm("למוק את התמונה?")
             if (!confirm) return;
             setLoader(true)
-            const token = sessionStorage.getItem('token')
+           const token = cookies.get('token')
             const { data: { continueWork, message, pictures } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/delete-image?token=${token}`, { data: { id, imageId, img } })
             if (continueWork) {
                 alert(message)

@@ -4,6 +4,9 @@ import PopUp from '../../UI/PopUp/PopUp';
 import UploadFile from '../../UI/UploadFile';
 import axios from 'axios';
 import { getImageSize } from 'react-image-size';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IAboutImage {
     id: string
@@ -40,7 +43,7 @@ const AboutImage: FC<IAboutImage> = ({ id, img, idx }) => {
             setLoader(true);
             const data = new FormData()
             data.append("my_file", file!)
-            const token = sessionStorage.getItem('token')
+            const token = cookies.get('token')
             const res = await axios.patch(`https://mayart-candles-api.vercel.app/about/update-about-image?token=${token}&id=${id}&oldURL=${img.img}&oldId=${img._id}`, data, {
                 headers: {
                     'content-type': "mulpipart/form-data"

@@ -1,18 +1,24 @@
-import { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+
 
 interface IProtectedRoute {
     children: ReactNode
 }
 
 const ProtectedRoute: FC<IProtectedRoute> = ({ children }) => {
+    const cookies = useMemo(() => {
+        return new Cookies();
+    }, [])
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = sessionStorage.getItem('token')
-
+        const token = cookies.get('token')
         if (!token) return navigate('/login', { replace: true })
-    }, [navigate])
+    }, [cookies, navigate])
 
     return <>{children}</>
 }

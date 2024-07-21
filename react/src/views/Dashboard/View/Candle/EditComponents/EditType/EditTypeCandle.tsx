@@ -3,6 +3,9 @@ import { ICategories } from '../../../Categories/CategoriesDashboard'
 import EditIcon from '@mui/icons-material/Edit';
 import { useCandleIdContext } from '../../Context/CandleContext';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IEditTypeCandle {
     candleType: string
@@ -17,7 +20,7 @@ const EditTypeCandle: FC<IEditTypeCandle> = ({ candleType, categoryOption }) => 
     const handleChangeType = async () => {
         try {
             setLoader(true)
-            const token = sessionStorage.getItem('token')
+            const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/edit-type-candle?token=${token}`, { id, type })
             if (continueWork) {
                 alert(message)

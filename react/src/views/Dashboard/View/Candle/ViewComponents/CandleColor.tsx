@@ -5,6 +5,9 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useCandleIdContext } from '../Context/CandleContext';
 import axios from 'axios';
 import { red } from '@mui/material/colors';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface ICandleColor {
     colors: [{ color: string, hexCode: string, _id?: string }]
@@ -21,7 +24,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
             const confirm = window.confirm("למוק את הצבע?")
             if(!confirm ) return;
             setLoader(true)
-            const token = sessionStorage.getItem('token')
+            const token = cookies.get('token')
             const { data: { continueWork, message, colors } } = await axios.delete(`https://mayart-candles-api.vercel.app/candles/delete-color?token=${token}`, { data: { id, colorId } })
             if (continueWork) {
                 alert(message)

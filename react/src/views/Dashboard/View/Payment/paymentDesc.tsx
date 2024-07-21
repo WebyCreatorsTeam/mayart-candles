@@ -1,6 +1,9 @@
 import { FC, useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import axios from "axios";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IPaymentDesc {
   id: string;
@@ -16,7 +19,7 @@ const PaymentDesc: FC<IPaymentDesc> = ({ id, desc }) => {
     try {
       setLoader(true);
       if (paymentDesc.length === 0) return alert("שם הנר לא יכול להיות ריק");
-      const token = sessionStorage.getItem("token");
+      const token = cookies.get('token')
       const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/payment/update-payment-text?token=${token}`, { id, paymentDesc });
       if (continueWork) {
         alert(message);

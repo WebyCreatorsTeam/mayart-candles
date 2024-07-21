@@ -2,6 +2,9 @@ import axios from 'axios'
 import React, { FC, useState } from 'react'
 import { ICategories } from './CategoriesDashboard'
 import PopUp from '../../UI/PopUp/PopUp'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface ICategoryAdd {
   setOpenPopupAdd: Function;
@@ -19,7 +22,7 @@ const CategoryAdd: FC<ICategoryAdd> = ({
         try {
             setLoader(true)
             if (category.length === 0) return alert("השדה לא יכול להיות ריק")
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message, newCategory } } = await axios.post(`https://mayart-candles-api.vercel.app/categories/save-category?token=${token}`, { opt: category })
             if (continueWork) {
                 alert(message)

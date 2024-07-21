@@ -1,6 +1,9 @@
 import { FC, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IAboutHeader {
     id: string
@@ -15,7 +18,7 @@ const AboutHeader: FC<IAboutHeader> = ({ id, title }) => {
         try {
             setLoader(true)
             if (aboutTitle.length === 0) return alert("שם הנר לא יכול להיות ריק")
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/about/update-about-title?token=${token}`, { id, aboutTitle })
             if (continueWork) {
                 alert(message)

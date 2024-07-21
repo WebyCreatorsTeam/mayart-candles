@@ -1,8 +1,10 @@
 import axios from 'axios'
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import { ICategories } from './CategoriesDashboard'
 import PopUp from '../../UI/PopUp/PopUp'
+import Cookies from 'universal-cookie';
 
+const cookies = new Cookies();
 
 interface ICategoryRemove {
     ctgId: string;
@@ -22,7 +24,7 @@ const CategoryRemove: FC<ICategoryRemove> = ({
     const hendleRemoveCategory = async () => {
         try {
             setLoader(true)
-            const token = sessionStorage.getItem('token')
+            const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/categories/remove-category?token=${token}`, { data: { id: ctgId } })
             if (continueWork) {
                 alert(message)

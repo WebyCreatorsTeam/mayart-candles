@@ -2,6 +2,9 @@ import axios from 'axios'
 import { FC, Suspense, useState } from 'react'
 import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import CandleToShow from './UI/CandleToShow'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export interface ICandles {
   name: string,
@@ -52,7 +55,7 @@ const MainDashboard: FC = () => {
 export default MainDashboard;
 
 const hendleGetCandles = async () => {
-  const token = sessionStorage.getItem('token')
+  const token = cookies.get('token')
   const { data } = await axios.get(`https://mayart-candles-api.vercel.app/candles/get-candles?token=${token}`)
   const { continueWork, allCandles } = data;
   console.log(data)

@@ -1,7 +1,10 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import axios from 'axios'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import PopUp from '../../../../UI/PopUp/PopUp'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IColorEdit {
     setPopUpEditColors: Function
@@ -21,7 +24,7 @@ const ColorEdit: FC<IColorEdit> = ({ setPopUpEditColors, setCandleColors }) => {
             setLoader(true)
             if (newColor.color.length === 0) return alert("חייב לכלול שם הצבע")
             if (newColor.hexCode.length === 0) return alert("נא לבחור את הצבע הרצוי")
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message, colors } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-color?token=${token}`, { id, newColor })
             if (continueWork) {
                 alert(message)

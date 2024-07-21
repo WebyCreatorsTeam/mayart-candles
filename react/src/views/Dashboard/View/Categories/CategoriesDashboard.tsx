@@ -88,11 +88,10 @@ const CategoriesDashboard: FC = () => {
 export default CategoriesDashboard;
 
 const hendleGetCategories = async () => {
-    const token = sessionStorage.getItem('token')
-    const { data } = await axios.get(`https://mayart-candles-api.vercel.app/categories/get-categories?token=${token}`)
-    const { continueWork, categories } = data;
-    if (continueWork) return categories
-    if (!continueWork) return alert("הראה שגיאה, נסה שנית")
+  const { data } = await axios.get(`https://mayart-candles-api.vercel.app/categories/get-categories`)
+  const { continueWork, categories } = data;
+  if (continueWork) return categories
+  if (!continueWork) return alert("הראה שגיאה, נסה שנית")
 }
 
 export const categoriesLoader = async () => {

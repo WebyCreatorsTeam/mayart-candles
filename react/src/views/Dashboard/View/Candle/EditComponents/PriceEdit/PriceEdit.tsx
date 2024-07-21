@@ -1,6 +1,9 @@
 import { FC, useState } from 'react'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import axios from 'axios'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 interface IPriceEdit {
     price: number;
@@ -30,7 +33,7 @@ const PriceEdit: FC<IPriceEdit> = ({
             if (Number(candlePrice) === 0 && Number(candleSalePrice) > 0) return alert("לא ניתן לתת הנחה במידה והמחיר שווה לאפס")
             if (Number(candlePrice) < Number(candleSalePrice)) return alert("המחיר הרגיל לא יכול להיות יותר נמוך ממחיר הנחה")
             if (Number(candlePrice) === Number(candleSalePrice)) return alert("המחיר וההנחה לא יכולים להיות אותו הדבר")
-            const token = sessionStorage.getItem('token')
+                const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.patch(`https://mayart-candles-api.vercel.app/candles/change-candle-price?token=${token}`, { id, price: candlePrice, salePrice: candleSalePrice })
             if (continueWork) {
                 alert(message)
