@@ -2055,6 +2055,12 @@ code {
   width: clamp(4.75rem,2.17rem + 6.46vw,12.5rem)/* fluid from 4.75rem at 40rem to 12.5rem at 160rem */;
 }
 
+@media not all and (min-width: 160rem) {
+  .max-2xl\:max-h-none {
+    max-height: none;
+  }
+}
+
 @media not all and (min-width: 80rem) {
   .max-xl\:w-full {
     width: 100%;
@@ -3291,6 +3297,14 @@ code {
 
   .\32xl\:max-h-none {
     max-height: none;
+  }
+
+  .\32xl\:max-h-\[1500px\] {
+    max-height: 1500px;
+  }
+
+  .\32xl\:max-h-\[1200px\] {
+    max-height: 1200px;
   }
 
   .\32xl\:w-\[153px\] {
