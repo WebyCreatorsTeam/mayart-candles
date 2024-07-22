@@ -41,8 +41,8 @@ cloudinary.config({
 app.use(morgan('dev'))
 app.use(express.json());
 
-// database connection
-dbconnect()
+// database connectio
+dbconnect() 
 
 app.use(userIsAdmin)
 
