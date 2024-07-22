@@ -6,7 +6,7 @@ import FrameAddToCartButton from "./FrameAddToCartButton";
 
 const Frame = ({ candle }: { candle: CandleType }) => {
   return (
-    <div className="absolute bottom-0 left-0 w-fit justify-evenly text-xl font-semibold leading-[26.6px] lg:flex lg:w-full lg:translate-y-full lg:bg-white/50 lg:py-3.5 lg:backdrop-blur-sm lg:transition-transform lg:duration-500 lg:group-hover:translate-y-0">
+    <div className="absolute bottom-0 left-0 w-fit justify-evenly text-xl font-semibold leading-[26.6px] xl:flex xl:w-full xl:translate-y-full xl:bg-white/50 xl:py-3.5 xl:backdrop-blur-sm xl:transition-transform xl:duration-500 xl:group-hover:translate-y-0">
       <FrameAddToCartButton candle={candle} />
       <FrameAddToFavoriteButton candle={candle} />
     </div>

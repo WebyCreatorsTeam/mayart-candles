@@ -6,7 +6,7 @@ import { CandleType } from "../../../utils/types/candles";
 
 const Thumbnail = ({ candle }: { candle: CandleType }) => {
   return (
-    <div className="flex max-w-[165px] flex-col items-center text-[16px] font-normal leading-[21.28px] sm:max-w-[352.85px] sm:text-[32px] sm:leading-[42.56px] lg:max-w-[530px]">
+    <div className="flex max-w-[165px] flex-col items-center text-[16px] font-normal leading-[21.28px] sm:max-w-[352.85px] sm:text-[32px] sm:leading-[42.56px] xl:max-w-[530px]">
       <div className="group relative h-full w-full overflow-y-hidden">
         <Link
           to={`/candles/candle/${candle._id}`}
@@ -15,7 +15,7 @@ const Thumbnail = ({ candle }: { candle: CandleType }) => {
           <img
             src={candle.pictures[0].img}
             alt="candles"
-            className="flex cursor-pointer flex-nowrap gap-[4px] object-cover lg:max-h-[700px]"
+            className="flex cursor-pointer flex-nowrap gap-[4px] object-cover xl:max-h-[700px]"
           />
         </Link>
         <Frame candle={candle} />

@@ -21,7 +21,7 @@ const SideNavBarMenu = ({
   return (
     <nav
       dir="rtl"
-      className={`flex flex-col items-start divide-y-[1px] border-[[#B0C4B1]/30] text-center lg:items-center lg:pt-20`}
+      className={`flex flex-col items-start divide-y-[1px] border-[[#B0C4B1]/30] text-center xl:items-center xl:pt-20`}
     >
       <MenuNavLink onClick={closeMenus} to="/" text="ראשי" />
       <MenuNavLink onClick={closeMenus} to="/candles" text="כל הנרות" />

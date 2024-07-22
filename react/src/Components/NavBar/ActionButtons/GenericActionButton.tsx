@@ -24,7 +24,7 @@ const GenericActionButton = ({
   return type ? (
     <Link to={`/candles/list/${type}`} className="relative">
       {candles && candles.length > 0 && (
-        <div className="absolute hidden aspect-square items-center justify-center rounded-full bg-black text-center text-white ~sm/xl:~-top-1/2 ~sm/xl:~-right-2/4 ~sm/xl:~size-4/7  sm:flex sm:max-xl:top-2">
+        <div className="absolute hidden aspect-square items-center justify-center rounded-full bg-black text-center text-white sm:-right-2 sm:-top-1 sm:flex sm:size-4 xl:-right-1.5 md:-top-0.5 xl:-top-1 xl:size-5  2xl:-right-4 2xl:-top-3 2xl:size-7">
           {quantity}
         </div>
       )}
@@ -40,7 +40,7 @@ const GenericActionButton = ({
       />
     </Link>
   ) : (
-    <a onClick={openSearchBar} href="#all_candles_list" className="relative">
+    <button onClick={openSearchBar} className="relative">
       {candles && (
         <span className="absolute  hidden items-center justify-center rounded-full bg-black text-center text-sm text-white ~size-4/6 sm:flex">
           {candles.length}
@@ -56,7 +56,7 @@ const GenericActionButton = ({
         src={actionButtonInfo.tablet.src}
         alt={actionButtonInfo.tablet.alt}
       />
-    </a>
+    </button>
   );
 };
 

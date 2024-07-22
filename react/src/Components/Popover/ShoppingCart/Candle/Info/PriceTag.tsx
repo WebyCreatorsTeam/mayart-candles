@@ -8,7 +8,7 @@ const ShoppingCartPopoverPriceTag = ({
 }) => {
   return (
     <div
-      className={`${candle.salePrice ? "flex flex-row-reverse gap-1 lg:flex-row" : ""}`}
+      className={`${candle.salePrice ? "flex flex-row-reverse gap-1 xl:flex-row" : ""}`}
     >
       <span
         className={`${candle.salePrice ? "text-black/50 line-through" : ""}`}

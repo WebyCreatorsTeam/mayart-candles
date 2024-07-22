@@ -21,10 +21,10 @@ const ShoppingCartPopoverCandleThumbnail = ({
   ) => void;
 }) => {
   return (
-    <div className="relative flex h-fit w-44 flex-col items-center gap-5 lg:w-full lg:flex-row lg:justify-between lg:gap-0">
-      <div className="flex w-full flex-col items-center lg:w-6/12">
-        <div className="self-start leading-[36px] lg:hidden">{index + 1})</div>
-        <div className="flex flex-col gap-1 lg:w-full lg:flex-row">
+    <div className="relative flex h-fit w-44 flex-col items-center gap-5 xl:w-full xl:flex-row xl:justify-between xl:gap-0">
+      <div className="flex w-full flex-col items-center xl:w-6/12">
+        <div className="self-start leading-[36px] xl:hidden">{index + 1})</div>
+        <div className="flex flex-col gap-1 xl:w-full xl:flex-row">
           <img
             className="size-28 object-cover"
             src={candle.pictures[0].img}

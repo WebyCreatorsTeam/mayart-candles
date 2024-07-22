@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MailLogo = () => {
+const EmailLogo = ({ link }: { link: string }) => {
   return (
-    <a
-      href="mailto:mayashahar777@gmail.com"
+    <Link
+      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] xl:size-[34px]"
+      to={link}
+      // href="mailto:mayashahar777@gmail.com"
       rel="noreferrer"
       target="_blank"
-      className="flex size-[19.45px] items-center justify-center sm:size-[41.59px] lg:size-[34px]"
     >
       <svg
-        className="h-[14.59px] w-[18.06px] sm:h-[31.19px] sm:w-[38.62px] lg:h-[25.5px] lg:w-[31.57px]"
+        className="h-[14.59px] w-[18.06px] sm:h-[31.19px] sm:w-[38.62px] xl:h-[25.5px] xl:w-[31.57px]"
         viewBox="0 0 34 28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +31,8 @@ const MailLogo = () => {
           strokeLinejoin="round"
         />
       </svg>
-    </a>
+    </Link>
   );
 };
 
-export default MailLogo;
+export default EmailLogo;

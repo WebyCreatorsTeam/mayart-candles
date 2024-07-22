@@ -8,7 +8,7 @@ const TimesButton = ({
   return (
     <button onClick={onClick}>
       <svg
-        className="size-5 lg:size-[34px]"
+        className="size-5 xl:size-[34px]"
         width="20"
         height="20"
         viewBox="0 0 20 20"

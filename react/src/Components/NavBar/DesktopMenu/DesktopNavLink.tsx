@@ -22,7 +22,7 @@ const DesktopNavLink = ({
     <NavLink
       onClick={onClick}
       end
-      className={`group flex w-fit flex-col items-center py-5 text-center text-[32px] font-light`}
+      className={`group flex w-fit flex-col items-center py-3 2xl:py-5 text-center text-3xl 2xl:text-[32px] font-light`}
       to={to}
     >
       {imgsrc ? (

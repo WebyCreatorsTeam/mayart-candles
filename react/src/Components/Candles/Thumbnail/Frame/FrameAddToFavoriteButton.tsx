@@ -20,10 +20,10 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
   return (
     <button
       onClick={() => handleAddToFavoritesArray(candle)}
-      className="flex flex-col items-center justify-center p-2.5 hover:*:fill-black active:*:fill-black sm:p-[21.38px] lg:p-[15px]"
+      className="flex flex-col items-center justify-center p-2.5 hover:*:fill-black active:*:fill-black sm:p-[21.38px] xl:p-[15px]"
     >
       <svg
-        className={`hidden lg:block ${isFavoriteCandle ? "fill-black" : ""}`}
+        className={`hidden xl:block ${isFavoriteCandle ? "fill-black" : ""}`}
         width="34"
         height="34"
         viewBox="0 0 34 34"
@@ -40,7 +40,7 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
       </svg>
 
       <svg
-        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] lg:hidden ${isFavoriteCandle ? "fill-black" : ""}`}
+        className={`h-[27.6px] w-[32px] sm:h-[57.11px] sm:w-[68.43px] xl:hidden ${isFavoriteCandle ? "fill-black" : ""}`}
         viewBox="0 0 34 29"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ const FrameAddToFavoriteButton = ({ candle }: { candle: CandleType }) => {
         />
       </svg>
 
-      <span dir="rtl" className="hidden lg:block">
+      <span dir="rtl" className="hidden xl:block">
         אהבתי!
       </span>
     </button>

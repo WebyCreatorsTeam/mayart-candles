@@ -8,16 +8,16 @@ const index = () => {
       <img
         src={"/images/ellipse16.svg"}
         alt="ellipse16"
-        className="absolute bottom-0 right-0 -z-50 hidden h-full lg:block"
+        className="absolute bottom-0 right-0 -z-50 hidden h-full xl:block"
       />
       <img
         src={"/images/ellipse15.svg"}
         alt="ellipse15"
         id="image2"
-        className="absolute -bottom-0 left-0 -z-50 hidden h-full   lg:block"
+        className="absolute -bottom-0 left-0 -z-50 hidden h-full   xl:block"
       />
-      <div className="h-full w-full px-5 pb-3 pt-[46px] sm:px-[44.39px] sm:pb-[78.18px] sm:pt-[98.37px]">
-        <div className="flex flex-col items-center gap-9 sm:gap-[76.98px]">
+      <div className="h-full w-full px-5 pb-3 lg:max-2xl:pb-3 pt-[46px] sm:px-[44.39px] sm:pb-[78.18px] sm:pt-[98.37px]">
+        <div className="flex flex-col items-center gap-9 sm:gap-[76.98px] lg:max-2xl:gap-[25.66px]">
           <h3
             dir="rtl"
             className="flex text-lg leading-[42.56px] sm:text-[32px]"
@@ -30,7 +30,7 @@ const index = () => {
               <img
                 src={"/icons/instagram-icon.svg"}
                 alt="instagram-icon"
-                className="sm:h-9 sm:w-9 lg:size-[34px] "
+                className="sm:h-9 sm:w-9 xl:size-[34px] "
               />
               Instagram
             </IconBtn>
@@ -38,7 +38,7 @@ const index = () => {
               <img
                 src={"/icons/whatsapp-icon.svg"}
                 alt="whatsapp-icon"
-                className="h-5 w-5 sm:h-9 sm:w-9 lg:size-[34px]"
+                className="h-5 w-5 sm:h-9 sm:w-9 xl:size-[34px]"
               />
               Whatsapp
             </IconBtn>
@@ -46,13 +46,13 @@ const index = () => {
               <img
                 src={"/icons/mail-icon.svg"}
                 alt="mail-icon"
-                className="h-5 w-5 sm:h-9 sm:w-9 lg:size-[34px]"
+                className="h-5 w-5 sm:h-9 sm:w-9 xl:size-[34px]"
               />
               Email
             </IconBtn>
           </div>
 
-          <p className="text-xs sm:text-[25.66px] sm:leading-[34.13px] lg:text-xl">
+          <p className="text-xs sm:text-[25.66px] sm:leading-[34.13px] xl:text-xl">
             created by <a href="https://weby.team/">WEBY</a>
           </p>
         </div>

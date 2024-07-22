@@ -20,19 +20,19 @@ const CandlesBySizeMenu = ({
       toggleSizeMenu={toggleSizeMenu}
     >
       <MenuNavLink
-        className={`font-normal lg:text-2xl`}
+        className={`font-normal xl:text-2xl`}
         onClick={closeMenus}
         to="/candles/sized/נרות גדולים"
         text="נרות גדולים"
       />
       <MenuNavLink
-        className={`font-normal lg:text-2xl`}
+        className={`font-normal xl:text-2xl`}
         onClick={closeMenus}
         to="/candles/sized/נרות בינוניים"
         text="נרות בינוניים"
       />
       <MenuNavLink
-        className={`font-normal lg:text-2xl`}
+        className={`font-normal xl:text-2xl`}
         onClick={closeMenus}
         to="/candles/sized/נרות קטנים"
         text="נרות קטנים"

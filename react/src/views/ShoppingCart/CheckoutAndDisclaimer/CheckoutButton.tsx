@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useActionData } from "react-router-dom";
 
 const CheckoutButton = ({
@@ -6,7 +5,6 @@ const CheckoutButton = ({
 }: {
   candlesArrayTrue: boolean;
 }) => {
-  const [sent, setSent] = useState(false);
   const actionData: any = useActionData();
   if (!actionData) {
     return (
@@ -21,21 +19,6 @@ const CheckoutButton = ({
       </button>
     );
   }
-  // else
-  // if (!actionData) {
-  //   console.log("here 2");
-  //   return (
-  //     <button
-  //       className="w-full bg-primary-pink p-[23px] text-center  text-white transition-colors duration-300 active:bg-secondary-pink sm:w-fit sm:px-[100px] sm:py-10"
-  //       name={candlesArrayTrue ? "candlesArrayTrue" : "candlesArrayFalse"}
-  //       id={candlesArrayTrue ? "candlesArrayTrue" : "candlesArrayFalse"}
-  //       type="button"
-  //       disabled
-  //     >
-  //       סיום ושליחה
-  //     </button>
-  //   );
-  // }
   else {
     if (!actionData.message) return null;
     return (

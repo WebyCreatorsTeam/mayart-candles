@@ -1,18 +1,11 @@
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import DesktopMenu from "./DesktopMenu";
 import Header from "./Header";
 import { CandleType } from "../../utils/types/candles";
 import SearchBar from "./SearchBar";
 
-const NavBar = ({
-  favoritesArray,
-  searchInfo,
-  setSearchInfo,
-}: {
-  favoritesArray: CandleType[];
-  searchInfo: string;
-  setSearchInfo: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+const NavBar = ({ favoritesArray }: { favoritesArray: CandleType[] }) => {
+  const [searchInfo, setSearchInfo] = useState<string>("");
   const [navBarMenuIsOpen, setNavBarMenuIsOpen] = React.useState(false);
   const [searchBarIsOpen, setSearchBarIsOpen] = React.useState(false);
   const toggleNavBarMenu = () => setNavBarMenuIsOpen(!navBarMenuIsOpen);

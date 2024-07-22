@@ -24,11 +24,8 @@ export type ContextType = {
     event: React.MouseEvent,
     candle: ChosenCandleType,
   ) => void;
-  searchInfo: string;
-  setSearchInfo: React.Dispatch<React.SetStateAction<string>>;
 };
 function App() {
-  const [searchInfo, setSearchInfo] = useState<string>("");
   const [showShoppingCart, setShowShoppingCart] = useState(false);
   const { getFavoriteItems, addItemToFavorites } =
     useLocalFavoriteCandlesStorage();
@@ -130,10 +127,8 @@ function App() {
   return (
     <div className="scrollbar-none relative flex h-fit min-h-svh flex-col justify-between overflow-x-clip scroll-smooth">
       <ScrollToTop />
-      <div className="h-full ">
+      <div className="h-full">
         <NavBar
-          setSearchInfo={setSearchInfo}
-          searchInfo={searchInfo}
           favoritesArray={favoritesArray}
         />
         <ShoppingCartPopover
@@ -148,8 +143,6 @@ function App() {
         <div className="flex h-fit w-full flex-col">
           <Outlet
             context={{
-              searchInfo,
-              setSearchInfo,
               shoppingCartArray,
               handleAddToShoppingCartArray,
               handleRemoveOneFromShoppingCartArray,

@@ -7,7 +7,7 @@ const FrameAddToCartButton = ({ candle }: { candle: CandleType }) => {
     <Link
       to={`/candles/candle/${candle._id}`}
       // onClick={() => handleAddToFavoritesArray(candle)}
-      className="hidden flex-col items-center justify-center p-2.5 sm:p-[21.38px] lg:flex lg:p-[15px]"
+      className="hidden flex-col items-center justify-center p-2.5 sm:p-[21.38px] xl:flex xl:p-[15px]"
     >
       <svg
         width="34"
@@ -38,7 +38,7 @@ const FrameAddToCartButton = ({ candle }: { candle: CandleType }) => {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="hidden lg:block">הוספה לסל</span>
+      <span className="hidden xl:block">הוספה לסל</span>
     </Link>
   );
 };
