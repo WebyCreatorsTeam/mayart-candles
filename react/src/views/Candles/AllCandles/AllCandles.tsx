@@ -22,7 +22,7 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
             {type ? type : size ? size : "כל הנרות"}
           </h1>
           <FilterSort home={home} />
-          <div className=" grid w-full grid-flow-row grid-cols-2 items-center justify-center justify-items-center gap-5 2xl:grid-cols-3 xl:gap-[47px]">
+          <div className=" grid w-full grid-flow-row grid-cols-2 items-center justify-center justify-items-center gap-5 xl:grid-cols-3 xl:gap-[47px]">
             {candles.map((candle) => (
               <Thumbnail key={candle._id} candle={candle} />
             ))}
