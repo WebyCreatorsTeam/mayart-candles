@@ -5,12 +5,12 @@ import Thumbnail from "../../../Components/Candles/Thumbnail";
 import { V6FilterSort } from "../../../Components/shadcn/components/v6-filter-sort";
 
 export enum TypeOfSortEnum {
-  AZ = "a-z",
-  ZA = "z-a",
-  LTH = "low-high",
-  HTL = "high-low",
-  NF = "new-old",
-  OF = "old-new",
+  AZ = "A-Z",
+  ZA = "Z-A",
+  LTH = "Low-High",
+  HTL = "High-Low",
+  NF = "New-Old",
+  OF = "Old-New",
 }
 
 const AllCandles = ({ home = false }: { home?: boolean }) => {
@@ -24,24 +24,23 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
   // const [filterSet, setFilterSet] = React.useState({});
   const [sortType, setSortType] = React.useState(TypeOfSortEnum.NF);
   const sortedCandles = React.useMemo(() => {
-    switch (sortType) {
-      case TypeOfSortEnum.AZ:
-        return candles.sort((a, b) => (a.name > b.name ? 1 : -1));
-      case TypeOfSortEnum.ZA:
-        return candles.sort((a, b) => (a.name < b.name ? 1 : -1));
-      case TypeOfSortEnum.LTH:
-        return candles.sort((a, b) =>
-          returnCurrentPrice(a) > returnCurrentPrice(b) ? 1 : -1,
-        );
-      case TypeOfSortEnum.HTL:
-        return candles.sort((a, b) =>
-          returnCurrentPrice(a) < returnCurrentPrice(b) ? 1 : -1,
-        );
-      case TypeOfSortEnum.NF:
-        return Array(...candles).reverse();
-      case TypeOfSortEnum.OF:
-        return candles;
-    }
+    if (!candles) return [];
+    if (!sortType) return candles;
+    if (sortType === TypeOfSortEnum.OF) return [...candles];
+    if (sortType === TypeOfSortEnum.NF) return [...candles].reverse();
+    if (sortType === TypeOfSortEnum.AZ)
+      return [...candles].sort((a, b) => a.name.localeCompare(b.name));
+    if (sortType === TypeOfSortEnum.ZA)
+      return [...candles].sort((a, b) => b.name.localeCompare(a.name));
+    if (sortType === TypeOfSortEnum.LTH)
+      return [...candles].sort(
+        (a, b) => returnCurrentPrice(a) - returnCurrentPrice(b),
+      );
+    if (sortType === TypeOfSortEnum.HTL)
+      return [...candles].sort(
+        (a, b) => returnCurrentPrice(b) - returnCurrentPrice(a),
+      );
+    return candles;
   }, [candles, sortType]);
   return (
     <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
@@ -60,7 +59,10 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
             // setFilterSet={}
             setSortType={setSortType}
           />
-          <div dir="rtl" className="grid w-full grid-flow-row grid-cols-2 items-center justify-center justify-items-center gap-5 xl:grid-cols-3 xl:gap-[47px]">
+          <div
+            dir="rtl"
+            className="grid w-full grid-flow-row grid-cols-2 items-center justify-center justify-items-center gap-5 xl:grid-cols-3 xl:gap-[47px]"
+          >
             {sortedCandles.map((candle) => (
               <Thumbnail key={candle._id} candle={candle} />
             ))}
