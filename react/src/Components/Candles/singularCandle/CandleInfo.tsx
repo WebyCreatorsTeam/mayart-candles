@@ -5,12 +5,13 @@ import {
   CandleColorT,
   ChosenCandleType,
 } from "../../../utils/types/candles";
-import ColorsMenu from "../menus/ColorMenu";
-import FragranceMenu from "../menus/FragranceMenu";
+
 import { ContextType } from "../../../App";
 import AmountToggle from "./AmountToggle";
 import AddToCartButton from "./AddToCartButton";
 import CandlePrices from "./CandlePrices";
+import ColorsMenu from "./menus/ColorMenu";
+import FragranceMenu from "./menus/FragranceMenu";
 
 const CandleInfo = ({
   children,
@@ -72,7 +73,7 @@ const CandleInfo = ({
     <div className="flex w-full flex-col items-center gap-7 px-[34px] xl:items-start xl:max-2xl:gap-[60px] 2xl:gap-[70px] ">
       {/* name and price */}
       <div className="flex flex-col items-center gap-2 xl:w-full xl:items-start xl:max-2xl:gap-[60px] 2xl:gap-[70.7px] ">
-        <h1 className="text-xl font-semibold leading-[85.13px] sm:text-[42.77px] sm:leading-[56.89px] xl:w-full xl:border-b xl:border-b-[#CFCFCF] xl:max-2xl:pb-[40px] 2xl:pb-[68px] xl:max-2xl:text-[48px] xl:max-2xl:leading-[64px] 2xl:text-[64px] 2xl:leading-[85.13px]">
+        <h1 className="text-xl font-semibold leading-[85.13px] sm:text-[42.77px] sm:leading-[56.89px] xl:w-full xl:border-b xl:border-b-[#CFCFCF] xl:max-2xl:pb-[40px] xl:max-2xl:text-[48px] xl:max-2xl:leading-[64px] 2xl:pb-[68px] 2xl:text-[64px] 2xl:leading-[85.13px]">
           {currentCandle.name}
         </h1>
         <CandlePrices currentCandle={currentCandle} />
