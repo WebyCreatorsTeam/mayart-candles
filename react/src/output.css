@@ -2111,6 +2111,41 @@ body {
   animation-duration: 500ms;
 }
 
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.font-source-serif-4 {
+  font-family: "Source Serif 4", serif;
+}
+
+.font-pacifico {
+  font-family: "Pacifico", cursive;
+}
+
 .\*\:w-full > * {
   width: 100%;
 }
@@ -2403,28 +2438,16 @@ body {
     top: -0.25rem;
   }
 
+  .sm\:top-44 {
+    top: 11rem;
+  }
+
   .sm\:top-\[604\.37px\] {
     top: 604.37px;
   }
 
   .sm\:top-\[76\.51px\] {
     top: 76.51px;
-  }
-
-  .sm\:top-48 {
-    top: 12rem;
-  }
-
-  .sm\:top-40 {
-    top: 10rem;
-  }
-
-  .sm\:top-4 {
-    top: 1rem;
-  }
-
-  .sm\:top-44 {
-    top: 11rem;
   }
 
   .sm\:mb-\[164\.49px\] {
@@ -2861,12 +2884,6 @@ body {
     padding-bottom: 12.14px;
   }
 
-  @media not all and (min-width: 80rem) {
-    .sm\:max-xl\:top-44 {
-      top: 11rem;
-    }
-  }
-
   @media not all and (min-width: 64rem) {
     .sm\:max-lg\:max-h-\[635px\] {
       max-height: 635px;
@@ -2911,18 +2928,6 @@ body {
 }
 
 @media (min-width: 64rem) {
-  .lg\:top-1 {
-    top: 0.25rem;
-  }
-
-  .lg\:top-40 {
-    top: 10rem;
-  }
-
-  .lg\:top-48 {
-    top: 12rem;
-  }
-
   .lg\:flex {
     display: flex;
   }
@@ -2984,28 +2989,12 @@ body {
     left: 118.5px;
   }
 
-  .xl\:top-48 {
-    top: 12rem;
-  }
-
-  .xl\:top-3 {
-    top: 0.75rem;
-  }
-
-  .xl\:top-36 {
-    top: 9rem;
-  }
-
-  .xl\:top-32 {
-    top: 8rem;
-  }
-
-  .xl\:top-28 {
-    top: 7rem;
-  }
-
   .xl\:top-24 {
     top: 6rem;
+  }
+
+  .xl\:top-48 {
+    top: 12rem;
   }
 
   .xl\:mb-\[200px\] {
