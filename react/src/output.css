@@ -1922,6 +1922,14 @@ body {
   line-height: 1;
 }
 
+.leading-4 {
+  line-height: 1rem;
+}
+
+.leading-8 {
+  line-height: 2rem;
+}
+
 .text-\[\#12151580\] {
   color: #12151580;
 }
@@ -3088,6 +3096,14 @@ code {
     height: 100%;
   }
 
+  .xl\:h-\[260px\] {
+    height: 260px;
+  }
+
+  .xl\:h-\[250px\] {
+    height: 250px;
+  }
+
   .xl\:max-h-\[304px\] {
     max-height: 304px;
   }
@@ -3102,6 +3118,14 @@ code {
 
   .xl\:max-h-\[calc\(100\%-484px\)\] {
     max-height: calc(100% - 484px);
+  }
+
+  .xl\:max-h-\[260px\] {
+    max-height: 260px;
+  }
+
+  .xl\:max-h-\[250px\] {
+    max-height: 250px;
   }
 
   .xl\:min-h-full {
@@ -3158,6 +3182,14 @@ code {
     width: 100%;
   }
 
+  .xl\:w-\[260px\] {
+    width: 260px;
+  }
+
+  .xl\:w-\[250px\] {
+    width: 250px;
+  }
+
   .xl\:min-w-\[530px\] {
     min-width: 530px;
   }
@@ -3176,6 +3208,10 @@ code {
 
   .xl\:max-w-\[589px\] {
     max-width: 589px;
+  }
+
+  .xl\:max-w-\[250px\] {
+    max-width: 250px;
   }
 
   .xl\:translate-y-full {
@@ -3453,6 +3489,26 @@ code {
     line-height: 1.75rem;
   }
 
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .xl\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .xl\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
   .xl\:font-normal {
     font-weight: 400;
   }
@@ -3633,8 +3689,16 @@ code {
     height: 840px;
   }
 
+  .\32xl\:h-\[304px\] {
+    height: 304px;
+  }
+
   .\32xl\:max-h-\[1200px\] {
     max-height: 1200px;
+  }
+
+  .\32xl\:max-h-\[304px\] {
+    max-height: 304px;
   }
 
   .\32xl\:w-\[153px\] {
@@ -3643,6 +3707,14 @@ code {
 
   .\32xl\:w-\[960px\] {
     width: 960px;
+  }
+
+  .\32xl\:w-\[301px\] {
+    width: 301px;
+  }
+
+  .\32xl\:max-w-\[301px\] {
+    max-width: 301px;
   }
 
   .\32xl\:gap-\[106px\] {
