@@ -1,4 +1,4 @@
-import { CandleColorT } from "../../../utils/types/candles";
+import { CandleColorT } from "../../../../utils/types/candles";
 
 const ColorsMenu = ({
   chooseCandleColor,
@@ -11,7 +11,7 @@ const ColorsMenu = ({
 }) => {
   return (
     <div className="flex flex-col items-center gap-3 xl:items-start xl:gap-[26px]">
-      <span className="text-lg leading-[36px] sm:text-[38.49px] sm:leading-[76.98px] xl:max-2xl:text-[30px] 2xl:text-[32px] xl:max-2xl:leading-[31.92px] 2xl:leading-[42.56px]">
+      <span className="text-lg leading-[36px] sm:text-[38.49px] sm:leading-[76.98px] xl:max-2xl:text-[30px] xl:max-2xl:leading-[31.92px] 2xl:text-[32px] 2xl:leading-[42.56px]">
         צבע: {currentCandleColor.color}
       </span>
       <div className="flex w-64 flex-wrap justify-center gap-6 sm:w-fit xl:gap-[23px]">

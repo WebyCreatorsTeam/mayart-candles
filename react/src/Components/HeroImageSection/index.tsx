@@ -2,11 +2,11 @@ import React from "react";
 
 const HeroImageSection = () => {
   return (
-    <header className="relative flex max-h-[201px] items-center justify-center overflow-hidden text-center sm:max-h-[429.83px] xl:max-h-[859px] 2xl:max-h-none">
+    <header className="relative flex max-h-[201px] items-center justify-center overflow-hidden text-center sm:max-h-[429.83px] xl:max-h-[859px] 2xl:max-h-[1200px]">
       <img
         src="/images/hero-image.webp"
         alt="hero"
-        className="-mb-3 object-cover 2xl:w-full"
+        className="-mb-3 object-cover xl:w-full"
         loading="lazy"
       />
       <div
