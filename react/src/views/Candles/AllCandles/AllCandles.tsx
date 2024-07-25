@@ -5,12 +5,12 @@ import Thumbnail from "../../../Components/Candles/Thumbnail";
 import { V6FilterSort } from "../../../Components/shadcn/components/v6-filter-sort";
 
 export enum TypeOfSortEnum {
-  AZ = "A-Z",
-  ZA = "Z-A",
-  LTH = "Low-High",
-  HTL = "High-Low",
-  NF = "New-Old",
-  OF = "Old-New",
+  AZ = "A-Z", // שם: א-ת
+  ZA = "Z-A", // שם: ת-א
+  LTH = "Low-High", //מחיר: מהנמוך לגבוה
+  HTL = "High-Low", //מחיר: מהגבוה
+  NF = "New-Old", // מוצר: מהחדש לישן
+  OF = "Old-New", // מוצר : מהישן לחדש
 }
 
 const AllCandles = ({ home = false }: { home?: boolean }) => {
