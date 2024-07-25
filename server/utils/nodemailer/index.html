@@ -1,35 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
 </head>
-
-<body>
-    <h1 dir="rtl"></h1>
-    <h2 style="color: 	rgb(34,139,34)">התקבלה הזמנה חדשה מהאתר</h2>
+<div style="text-align: center;" dir="rtl">
+    <h1 style="color: rgb(34,139,34)">${mailTitle}</h1>
     <div>
-        <p> שם המזמין: <b>${userName}</b></p>
-        <p>מספר טלפון: <a href="tel:${userPhone}"><b>${userPhone}</b></a></p>
-        <p>אימייל: <b>${userEmail}</b></p>
-        <div>
-            <ul>
-                <h2>פירוט הזמנה</h2>
-                <li>
-                    <h3>פריט</h3>
-                    <p>wefwef</p>
-                </li>
-                <li>
-                    <h3>מחיר</h3>
-                    <p>sdfsdf</p>
-                </li>
-                <li>eer</li>
-                <li>eer</li>
-            </ul>
-        </div>
+        ${details}
     </div>
-</body>
-
-</html>
+    <h2>פירוט הזמנה</h2>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <td><b>מוצר</b></td>
+                <td><b>צבע</b></td>
+                <td><b>ריח</b></td>
+                <td><b>כמות</b></td>
+                <td><b>מחיר</b></td>
+                <td><b>לתשלום</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            ${orderCandles}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="total"><b>סה"כ לתשלום</b></td>
+                <td><b>${totalPay(order)} ש"ח</b></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

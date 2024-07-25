@@ -755,6 +755,10 @@ body {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .grid {
   display: grid;
 }
@@ -2936,8 +2940,25 @@ code {
     display: none;
   }
 
+  .lg\:h-\[29\.16px\] {
+    height: 29.16px;
+  }
+
+  .lg\:w-\[29\.16px\] {
+    width: 29.16px;
+  }
+
   .lg\:ps-\[30px\] {
     padding-inline-start: 30px;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:leading-\[65\.81px\] {
+    line-height: 65.81px;
   }
 
   @media not all and (min-width: 160rem) {
@@ -3431,11 +3452,6 @@ code {
     line-height: 2.5rem;
   }
 
-  .xl\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
   .xl\:text-\[32px\] {
     font-size: 32px;
   }
@@ -3467,10 +3483,6 @@ code {
 
   .xl\:leading-\[42\.56px\] {
     line-height: 42.56px;
-  }
-
-  .xl\:leading-\[65\.81px\] {
-    line-height: 65.81px;
   }
 
   .xl\:leading-\[80px\] {

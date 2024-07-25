@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { Order } from "../../model/order/order.model";
-import {transporter, mailOptions} from "../../utils/nodemailer/mail"
+import { transporter, mailOptions, customerMail } from "../../utils/nodemailer/mail"
 // import moment from "moment";
 
 //  /orders/send-message
@@ -8,28 +8,44 @@ import {transporter, mailOptions} from "../../utils/nodemailer/mail"
 export const saveOrder = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const data = req.body;
-        // console.log(data)
+
+        console.log(data.email)
         const newOrder = new Order({ ...data })
-        // console.log(moment().format())
-        // Order.index
-        // console.log(Order.getIndexes())
         await newOrder.save()
 
+
         await new Promise((resolve, reject) => {
-            console.log(`befote mail`)
+            // console.log(`befote mail`)
             transporter.sendMail(mailOptions(newOrder), (error, info) => {
-                console.log(`email transporter enter`)
+                // console.log(`email transporter enter`)
                 if (error) {
-                    console.log(`email transporter enter error`)
+                    // console.log(`email transporter enter error`)
                     console.error("Error sending email: ", error);
                     reject(error)
                 } else {
                     console.log("Email sent: ", info.response);
-                    console.log(`email transporter enter sent`)
+                    // console.log(`email transporter enter sent`)
                     resolve(info.response)
                 }
             });
-            console.log(`after mail`)
+            transporter.close();
+            // console.log(`after mail`)
+        })
+        await new Promise((resolve, reject) => {
+            // console.log(`before customer mail`)
+            transporter.sendMail(customerMail(newOrder), (error, info) => {
+                if (error) {
+                    // console.log(`email transporter enter error`)
+                    console.error("Error sending email: ", error);
+                    reject(error)
+                } else {
+                    console.log("Email sent: ", info.response);
+                    // console.log(`email transporter enter sent`)
+                    resolve(info.response)
+                }
+            })
+            transporter.close();
+            // console.log(`after mail`)
         })
 
         return res.json({ continueWork: true, message: "הזמנה נשלחה, נחזור בהקדם" })
@@ -38,7 +54,7 @@ export const saveOrder = async (req: Request, res: Response, next: NextFunction)
     }
 }
 
-//      /orders/get-orders
+//  /orders/get-orders
 
 export const getOrder = async (req: Request, res: Response, next: NextFunction) => {
     try {

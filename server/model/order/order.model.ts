@@ -9,6 +9,10 @@ const OrderSchema = new Schema({
         type: String,
         require: [true, "נא למלא מספר טלפון"],
     },
+    email: {
+        type: String,
+        require: [true, "נא למלא אימייל"],
+    },
     candles: [{
         name: { type: String },
         color: { type: String },
