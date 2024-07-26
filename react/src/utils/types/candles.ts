@@ -60,6 +60,7 @@ export interface ICandles {
 export type CheckoutInfoType = {
   name: string;
   telNumber: string;
+  email: string;
 };
 export type CheckoutInfoAndArrayType = CheckoutInfoType & {
   candles: SentCandleType[];

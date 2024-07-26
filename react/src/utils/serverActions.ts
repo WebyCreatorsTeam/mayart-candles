@@ -135,6 +135,7 @@ export const checkout = async ({ request }: any) => {
   const checkoutInfo = {
     fullName: formData.get("fullName"),
     telPhone: formData.get("telPhone"),
+    email: formData.get("email"),
     candlesArrayTrue: formData.get("candlesArrayTrue"),
   };
   const candles = localStorage.getItem("shoppingCartCandles");
@@ -158,15 +159,18 @@ export const checkout = async ({ request }: any) => {
   const checkoutInfoAndArray: CheckoutInfoAndArrayType = {
     name: checkoutInfo.fullName,
     telNumber: checkoutInfo.telPhone,
+    email: checkoutInfo.email,
     candles: sentCandlesArray,
   };
-  // const {data} = await axios.post(
-  //   `https://whattsap-sending-message.vercel.app/send-message`,
-  //   checkoutInfoAndArray,
-  // );
-  // const { continueWork, message } = data;
+  const { data } = await axios.post(
+    `https://whattsap-sending-message.vercel.app/send-message`,
+    checkoutInfoAndArray,
+  );
+  const { continueWork, message } = data;
 
-  // if (continueWork)
-  return { message: "ההזמנה נקלטה בהצלחה" };
-  // if (!continueWork) return throw new Error(message);
+  if (continueWork) {
+    localStorage.removeItem("shoppingCartCandles");
+    return { message: "ההזמנה נקלטה בהצלחה" };
+  }
+  if (!continueWork) throw new Error(message);
 };
