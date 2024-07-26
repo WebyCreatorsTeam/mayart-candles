@@ -16,8 +16,8 @@ const index = () => {
         id="image2"
         className="absolute -bottom-0 left-0 -z-50 hidden h-full   xl:block"
       />
-      <div className="h-full w-full px-5 pb-3 pt-[46px] sm:px-[44.39px] sm:pb-[78.18px] sm:pt-[98.37px]">
-        <div className="flex flex-col items-center gap-9 sm:gap-[76.98px]">
+      <div className="h-full w-full px-5 pb-3 lg:max-2xl:pb-3 pt-[46px] sm:px-[44.39px] sm:pb-[78.18px] sm:pt-[98.37px]">
+        <div className="flex flex-col items-center gap-9 sm:gap-[76.98px] lg:max-2xl:gap-[25.66px]">
           <h3
             dir="rtl"
             className="flex text-lg leading-[42.56px] sm:text-[32px]"

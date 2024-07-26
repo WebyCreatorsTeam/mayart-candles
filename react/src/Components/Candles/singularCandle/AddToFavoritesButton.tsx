@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useOutletContext } from "react-router-dom";
 import { ContextType } from "../../../App";
 import { CandleType } from "../../../utils/types/candles";
@@ -19,7 +19,7 @@ const AddToFavoritesButton = ({ candle }: { candle: CandleType }) => {
   return (
     <button
       onClick={() => handleAddToFavoritesArray(candle)}
-      className="left-0 top-[718px] hidden items-center justify-center p-[35px] hover:*:fill-black active:*:fill-black sm:p-[21.38px] xl:absolute xl:block xl:p-[15px] "
+      className="left-0 top-[578px] hidden items-center justify-center p-[35px] hover:*:fill-black active:*:fill-black sm:p-[21.38px] xl:absolute xl:block xl:p-[15px] "
     >
       <svg
         className={`hidden size-[91px] xl:block ${isFavoriteCandle ? "fill-black" : ""}`}

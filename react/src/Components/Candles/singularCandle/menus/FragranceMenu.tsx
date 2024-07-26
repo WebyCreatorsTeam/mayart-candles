@@ -1,4 +1,4 @@
-import { CandleType } from "../../../utils/types/candles";
+import { CandleType } from "../../../../utils/types/candles";
 
 const FragranceMenu = ({
   currentCandle,
@@ -11,10 +11,10 @@ const FragranceMenu = ({
 }) => {
   return (
     <div className="flex flex-col items-center gap-3 sm:text-[38.49px] sm:leading-[76.98px] xl:items-start xl:gap-[26px]">
-      <span className="text-lg leading-[36px] sm:text-[38.49px]  sm:leading-[76.98px] xl:text-[32px]  xl:leading-[42.56px]">
+      <span className="text-lg leading-[36px] sm:text-[38.49px]  sm:leading-[76.98px] xl:leading-[42.56px]  xl:max-2xl:text-[30px] xl:max-2xl:leading-[31.92px] 2xl:text-[32px]">
         ריח: {currentCandleFragrance}
       </span>
-      <div className="flex gap-3 xl:gap-14 xl:text-2xl xl:leading-[31.92px]">
+      <div className="flex gap-3 xl:gap-14 xl:max-2xl:text-[30px] xl:max-2xl:leading-[31.92px] 2xl:text-2xl 2xl:leading-[31.92px]">
         {currentCandle.fragrances.map((fragrance) => (
           <div
             onClick={() => chooseCandleFragrance(fragrance)}

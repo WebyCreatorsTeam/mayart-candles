@@ -8,7 +8,7 @@ const Disclaimer = () => {
   if (!data) return null;
   const { paymentText } = data;
   return (
-    <p className="px-[13.5px] text-center text-lg leading-9 sm:px-[28.87px] sm:text-[32px] sm:leading-[64px]">
+    <p className="px-[13.5px] text-center text-lg leading-9 sm:px-[28.87px] sm:text-[32px] sm:leading-[64px] xl:max-2xl:text-3xl">
       {paymentText.text}
     </p>
   );

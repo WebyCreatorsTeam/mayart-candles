@@ -14,7 +14,7 @@ const FavoritesCandle = ({ candle }: { candle: CandleType }) => {
         {/* candle image */}
         <div className="relative">
           <img
-            className="w-full object-cover max-sm:max-h-[475px] xl:h-[304px] xl:max-h-[304px] xl:w-[301px] xl:max-w-[301px]"
+            className="w-full object-cover max-sm:max-h-[475px] xl:h-[250px] xl:max-h-[250px] xl:w-[250px] xl:max-w-[250px] 2xl:h-[304px] 2xl:max-h-[304px] 2xl:w-[301px] 2xl:max-w-[301px]"
             src={candle.pictures[0].img}
             alt={candle.name}
           />
@@ -30,7 +30,7 @@ const FavoritesCandle = ({ candle }: { candle: CandleType }) => {
         </div>
         <Link
           to={`/candles/candle/${candle._id}`}
-          className="left-0 hidden h-fit flex-col justify-end text-nowrap bg-black py-[25px] text-4xl font-semibold leading-[47.88px] text-white ~lg/2xl:~px-10/[12.25rem] xl:absolute  xl:flex [@media(min-width:1825px)]:bottom-0"
+          className="left-0 hidden h-fit flex-col justify-end text-nowrap bg-black py-[25px] font-semibold text-3xl leading-9 text-white ~lg/2xl:~px-10/[12.25rem] xl:absolute xl:flex 2xl:text-4xl  2xl:leading-[47.88px] [@media(min-width:1825px)]:bottom-0"
         >
           צפייה במוצר
         </Link>

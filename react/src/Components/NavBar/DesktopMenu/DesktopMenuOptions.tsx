@@ -19,7 +19,7 @@ const DesktopMenuOptions = ({
     >
       <button
         onClick={toggleSizeMenu}
-        className={`group flex h-fit w-fit flex-col items-center px-6 py-2.5 text-center text-4xl font-light hover:bg-primary-pink hover:text-white`}
+        className={`group flex h-fit w-fit flex-col items-center px-6 py-2.5 text-center py-3 2xl:py-5 text-3xl 2xl:text-[32px] font-light hover:bg-primary-pink hover:text-white`}
       >
         <div className="z-40 flex flex-row-reverse items-center justify-center gap-2  transition-all duration-150">
           <p className="">{text}</p>
