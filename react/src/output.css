@@ -923,6 +923,10 @@ body {
   height: 100vh;
 }
 
+.h-\[254px\] {
+  height: 254px;
+}
+
 .max-h-\[201px\] {
   max-height: 201px;
 }
@@ -1930,6 +1934,18 @@ body {
   line-height: 2rem;
 }
 
+.leading-5 {
+  line-height: 1.25rem;
+}
+
+.leading-6 {
+  line-height: 1.5rem;
+}
+
+.leading-7 {
+  line-height: 1.75rem;
+}
+
 .text-\[\#12151580\] {
   color: #12151580;
 }
@@ -2382,6 +2398,13 @@ code {
   width: clamp(4.75rem,2.17rem + 6.46vw,12.5rem)/* fluid from 4.75rem at 40rem to 12.5rem at 160rem */;
 }
 
+@media not all and (min-width: 160rem) {
+  .max-2xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
 @media not all and (min-width: 80rem) {
   .max-xl\:w-full {
     width: 100%;
@@ -2395,6 +2418,26 @@ code {
   .max-xl\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+  }
+
+  .max-xl\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .max-xl\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .max-xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .max-xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .max-xl\:\*\:grow > * {
@@ -2418,6 +2461,19 @@ code {
 
   .max-lg\:p-5 {
     padding: 1.25rem;
+  }
+
+  .max-lg\:px-\[28\.87px\] {
+    padding-left: 28.87px;
+    padding-right: 28.87px;
+  }
+
+  .max-lg\:text-\[32px\] {
+    font-size: 32px;
+  }
+
+  .max-lg\:leading-\[64px\] {
+    line-height: 64px;
   }
 }
 
@@ -3104,6 +3160,10 @@ code {
     height: 250px;
   }
 
+  .xl\:h-\[254px\] {
+    height: 254px;
+  }
+
   .xl\:max-h-\[304px\] {
     max-height: 304px;
   }
@@ -3126,6 +3186,10 @@ code {
 
   .xl\:max-h-\[250px\] {
     max-height: 250px;
+  }
+
+  .xl\:max-h-\[254px\] {
+    max-height: 254px;
   }
 
   .xl\:min-h-full {
@@ -3313,6 +3377,22 @@ code {
 
   .xl\:gap-\[70px\] {
     gap: 70px;
+  }
+
+  .xl\:gap-7 {
+    gap: 1.75rem;
+  }
+
+  .xl\:gap-6 {
+    gap: 1.5rem;
+  }
+
+  .xl\:gap-x-72 {
+    column-gap: 18rem;
+  }
+
+  .xl\:gap-x-7 {
+    column-gap: 1.75rem;
   }
 
   .xl\:self-start {
@@ -3623,6 +3703,21 @@ code {
       gap: 60px;
     }
 
+    .xl\:max-2xl\:px-24 {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    .xl\:max-2xl\:px-96 {
+      padding-left: 24rem;
+      padding-right: 24rem;
+    }
+
+    .xl\:max-2xl\:px-72 {
+      padding-left: 18rem;
+      padding-right: 18rem;
+    }
+
     .xl\:max-2xl\:pb-\[40px\] {
       padding-bottom: 40px;
     }
@@ -3649,6 +3744,11 @@ code {
       font-size: 48px;
     }
 
+    .xl\:max-2xl\:text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
     .xl\:max-2xl\:leading-\[31\.92px\] {
       line-height: 31.92px;
     }
@@ -3659,6 +3759,23 @@ code {
 
     .xl\:max-2xl\:leading-\[64px\] {
       line-height: 64px;
+    }
+  }
+
+  @media not all and (min-width: 80rem) {
+    .xl\:max-xl\:px-24 {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    .xl\:max-xl\:text-lg {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+
+    .xl\:max-xl\:text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
     }
   }
 }
@@ -3731,6 +3848,10 @@ code {
 
   .\32xl\:gap-\[70px\] {
     gap: 70px;
+  }
+
+  .\32xl\:gap-9 {
+    gap: 2.25rem;
   }
 
   .\32xl\:px-\[95px\] {
