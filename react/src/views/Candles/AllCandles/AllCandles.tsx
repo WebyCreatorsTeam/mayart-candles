@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
-import { CandleType } from "../../../utils/types/candles";
+import { CandleFiltersType, CandleType } from "../../../utils/types/candles";
 import Thumbnail from "../../../Components/Candles/Thumbnail";
 import { V6FilterSort } from "../../../Components/shadcn/components/v6-filter-sort";
+import { returnCurrentPrice } from "../../../utils/types/helpers";
 
 export enum TypeOfSortEnum {
   AZ = "שם: א-ת",
@@ -19,10 +20,48 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
     type?: string;
     size?: string;
   };
-  const returnCurrentPrice = (candle: CandleType) =>
-    candle.salePrice ? candle.salePrice : candle.price;
-  // const [filterSet, setFilterSet] = React.useState({});
+
+  const getCandlesFilterOptions = (
+    candles: Array<CandleType>,
+  ): CandleFiltersType => {
+    const filters: CandleFiltersType = {
+      shape: [],
+      colors: [],
+      size: [],
+      fragrances: [],
+      type: [],
+      price: { min: Infinity, max: 0 },
+    };
+    if (!candles) return filters;
+    candles.forEach((candle) => {
+      const currentPrice = returnCurrentPrice(candle);
+      !filters.shape.includes(candle.shape) && filters.shape.push(candle.shape);
+      !filters.size.includes(candle.size) && filters.size.push(candle.size);
+      !filters.type.includes(candle.type) && filters.type.push(candle.type);
+      candle.fragrances.forEach((frag) => {
+        !filters.fragrances.includes(frag) && filters.fragrances.push(frag);
+      });
+      candle.colors.forEach((color) => {
+        !filters.colors.includes(color) && filters.colors.push(color);
+      });
+      if (filters.price) {
+        if (currentPrice < filters.price.min) filters.price.min = currentPrice;
+        if (currentPrice > filters.price.max) filters.price.max = currentPrice;
+      } else {
+        filters.price = {
+          min: currentPrice,
+          max: currentPrice,
+        };
+      }
+    });
+    return filters;
+  };
+  const filterOptions = getCandlesFilterOptions(candles);
+  const [filterSet, setFilterSet] = React.useState<Partial<CandleFiltersType>>(
+    {},
+  );
   const [sortType, setSortType] = React.useState(TypeOfSortEnum.NF);
+
   const sortedCandles = React.useMemo(() => {
     if (!candles) return [];
     if (!sortType) return candles;
@@ -54,9 +93,9 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
           </h1>
 
           <V6FilterSort
-            // filterSet={}
             sortType={sortType}
-            // setFilterSet={}
+            filterOptions={filterOptions}
+            setFilterSet={setFilterSet}
             setSortType={setSortType}
           />
           <div
