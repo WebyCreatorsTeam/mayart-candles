@@ -53,12 +53,12 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
             {type ? type : size ? size : "כל הנרות"}
           </h1>
 
-          <V6FilterSort
+          {/* <V6FilterSort
             // filterSet={}
             sortType={sortType}
             // setFilterSet={}
             setSortType={setSortType}
-          />
+          /> */}
           <div
             dir="rtl"
             className="grid w-full grid-flow-row grid-cols-2 items-center justify-center justify-items-center gap-5 xl:grid-cols-3 xl:gap-[47px]"
