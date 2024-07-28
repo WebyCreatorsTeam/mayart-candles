@@ -91,7 +91,7 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
           <h1 className="mb-10 border-b-[0.5px] border-[#B0C4B1] px-[30px] py-[21.5px] text-xl font-semibold sm:px-[64.15px] sm:py-[46.345px] sm:text-[42.77px] sm:leading-[56.89px]  xl:border-none xl:p-0 xl:text-[64px] xl:leading-[85.13px]">
             {type ? type : size ? size : "כל הנרות"}
           </h1>
-
+          
           <V6FilterSort
             sortType={sortType}
             filterOptions={filterOptions}

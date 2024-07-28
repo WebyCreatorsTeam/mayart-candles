@@ -26,7 +26,7 @@ export function V6FilterSort({
   setFilterSet: Dispatch<SetStateAction<Partial<CandleFiltersType>>>;
 }) {
   console.log(filterOptions);
-  
+
   return (
     <div className="absolute top-16 z-40 flex w-full space-x-4 p-4 *:flex-1 sm:top-44 xl:top-24">
       <Accordion type="single" collapsible>
@@ -128,6 +128,7 @@ export function V6FilterSort({
                   {Object.values(TypeOfSortEnum).map((value) => (
                     <Label key={value} className="flex items-center space-x-2">
                       <input
+                        id={value}
                         name="sort_radio"
                         type="radio"
                         value={value}
@@ -135,7 +136,7 @@ export function V6FilterSort({
                         checked={value === sortType}
                         onChange={() => setSortType(value)}
                       />
-                      <label>{value}</label>
+                      <label htmlFor={value}>{value}</label>
                     </Label>
                   ))}
                 </div>
