@@ -5,7 +5,7 @@ import NewNameCandle from './NameCandle/NewNameCandle'
 import NewCandlePrice from './NewCandlePrice/NewCandlePrice'
 import NewDescCandle from './NewDesc/NewDescCandle'
 import NewCandleColor, { getAllColors } from './NewColor/NewCandleColor'
-import AddNewCandleFrg from './AddNewFrag/AddNewCandleFrg'
+import AddNewCandleFrg, { getAllFrags } from './AddNewFrag/AddNewCandleFrg'
 import NewCandleShape from './NewShape/NewCandleShape'
 import NewCandleType from './NewCandleType/NewCandleType'
 import NewCandleSize from './NewCandleSize/NewCandleSize'
@@ -118,6 +118,7 @@ export default AddNewCandle;
 export const addNewCandleLoader = async () => {
   return defer({
     categories: await hendleGetCategories(),
-    colorsArray: await getAllColors()
+    colorsArray: await getAllColors(),
+    fragsArray: await getAllFrags()
   });
 };

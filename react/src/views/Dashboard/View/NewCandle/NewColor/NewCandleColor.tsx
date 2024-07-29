@@ -66,6 +66,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
             colorChoose: { value: string }
         }
 
+        if(target.colorChoose.value === "בחר צבע") return alert("נא לבחור צבע")
         const color = allColorsOfCandles.find((color) => color.color === target.colorChoose.value)
         if (!handleChackIfExist(color!.hexCode)) {
             setColors([...colors, { color: color!.color, hexCode: color!.hexCode }])
@@ -97,12 +98,12 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
                 <ErrorMessega errorText={error} />
             </div>
             <section>
-                <Suspense fallback={<h1 className="no_data_text">Loading...</h1>}>
+                <Suspense fallback={<h1 className="no_data_text">בטעינה...</h1>}>
                     <Await resolve={colorsArray}>
-                        <button
-                            onClick={() => setOpenPopup(true)}
-                        ><EditIcon color="primary" /></button>
                         <form onSubmit={handleAddColor}>
+                            <button type="button"
+                                onClick={() => setOpenPopup(true)}
+                            ><EditIcon color="primary" /></button>
                             <select defaultValue="בחר צבע" name="colorChoose">
                                 <option selected disabled defaultValue="בחר צבע">בחר צבע</option>
                                 {allColorsOfCandles.map((color, index) => (
@@ -117,37 +118,41 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
                 </Suspense>
                 {openPopup && (
                     <PopUp>
-                        <form onSubmit={handleAddColor} className='colorDisplay__form-section'>
-                            <h2>הוספת צבע חדש</h2>
-                            <div>
-                                <div>
-                                    <label htmlFor="color">שם הצבע:</label>
-                                </div>
-                                <div className='colorDisplay__form-section--color-name'>
-                                    <input type="text" id="color" name="color" onChange={handeValidColorsName} />
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <label htmlFor="hexCode">צבע של מוצר:</label>
-                                </div>
-                                <div className='colorDisplay__form-section--color-hex'>
-                                    <input type="color" id="hexCode" name="hexCode" onChange={handleValidColorCode} />
-                                </div>
-                            </div>
-                            <div className="aboutDash__editTitle--editWindow--btns">
-                                <button
-                                    type='submit'
-                                    className={loader ? "action-loading" : "agree-btn"}
-                                    onClick={handleAddColorToArrColor}
-                                >הוסף צבע</button>
-                                <button
-                                    type='button'
-                                    className={loader ? "action-loading" : "cancel-btn"}
-                                    onClick={() => setOpenPopup(false)}
-                                >בטל</button>
-                            </div>
-                        </form>
+                        <h2>עריכת צבעים</h2>
+                        <div className="aboutDash__editTitle--editWindow--btns">
+                            <button
+                                onClick={() => {
+                                    setShawAddColor(true)
+                                    setDeleteColor(false)
+                                }}
+                                className={`loginRegBtn ${loader ? "form-btn_disable" : "form-btn_active"}`}
+                            >הוספת צבע חדש</button>
+                            <button
+                                onClick={() => {
+                                    setShawAddColor(false)
+                                    setDeleteColor(true)
+                                }}
+                                className={`loginRegBtn ${loader ? "form-btn_disable" : "form-btn_active"}`}
+                            >מחיקת צבע</button>
+                        </div>
+                        {showAddColor && (<AddNewColor
+                            handeValidColorsName={handeValidColorsName}
+                            handleValidColorCode={handleValidColorCode}
+                            loader={loader}
+                            handleAddColorToArrColor={handleAddColorToArrColor}
+                        />
+                        )}
+                        {showDeleteColor && (
+                            <DeleteColor
+                                allColorsOfCandles={allColorsOfCandles}
+                                handleDeleteColorFromArray={handleDeleteColorFromArray}
+                            />
+                        )}
+                        <button
+                            type='button'
+                            className={loader ? "action-loading" : "cancel-btn"}
+                            onClick={() => setOpenPopup(false)}
+                        >סגירת חלון</button>
                     </PopUp>)}
                 <div>
                     {colors.length === 0 && <p>אין צבעים שנבחרו</p>}

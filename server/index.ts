@@ -13,6 +13,7 @@ import aboutRoute from './routers/about/about.index.route'
 import paymentRoute from './routers/payment/payment.index.route';
 import orderRoute from './routers/order/order.router';
 import colorRoute from './routers/colors/color.index.route';
+import fragRoute from './routers/frag/frag.index.route';
 import { v2 as cloudinary } from "cloudinary";
 import { userIsAdmin } from './middlewares/admin.user.mw';
 
@@ -55,6 +56,7 @@ app
     .use('/payment', paymentRoute)
     .use('/orders', orderRoute)
     .use('/colors', colorRoute)
+    .use('/frags', fragRoute)
 
 // status check points
 app.get('/status', (req: Request, res: Response) => res.sendStatus(200))
