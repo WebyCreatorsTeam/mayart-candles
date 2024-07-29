@@ -9,14 +9,17 @@ import { Await, useLoaderData } from 'react-router-dom';
 import PopUp from '../../../UI/PopUp/PopUp';
 import EditIcon from '@mui/icons-material/Edit';
 import Cookies from 'universal-cookie';
+import AddNewColor from './AddNewColor';
+import DeleteColor from './DeleteColor';
 
 export interface INewCandleProps {
     setNewCandle: Function
 }
 
-interface IColor {
+export interface IColor {
     color: string,
     hexCode: string
+    _id?: string
 }
 const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const cookies = new Cookies();
@@ -28,6 +31,8 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const [hexCode, setHexCode] = useState<string>("")
     const [colors, setColors] = useState<Array<{ color: string, hexCode: string }>>([])
     const [error, setError] = useState<string>("")
+    const [showAddColor, setShawAddColor] = useState<boolean>(false)
+    const [showDeleteColor, setDeleteColor] = useState<boolean>(false)
 
     const handleChackIfExist = (hexCode: string) => {
         if (colors.find((color: IColor) => color.hexCode === hexCode)) {
@@ -51,12 +56,12 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
             setAllColorsOfCandles([...allColorsOfCandles, newColor])
             setColorName("")
             setHexCode("")
-            setOpenPopup(false)
             return alert(message)
         } catch (error) {
             alert(error)
         } finally {
             setLoader(false)
+            setOpenPopup(false)
         }
     }
 
@@ -90,6 +95,22 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
         return setColors(colors.filter((color, index) => index !== indx))
     }
 
+    const handleDeleteColorFromArray = async (id: string | undefined) => {
+        try {
+            const token = cookies.get('token')
+            const { data: { continueWork, message } } = await axios.delete(`http://localhost:7575/colors/delete-color?token=${token}`, { data: { id } })
+            if (continueWork) {
+                setAllColorsOfCandles(allColorsOfCandles.filter((color) => color._id !== id))
+                return alert(message)
+            }
+        } catch (error) {
+            alert(error)
+        } finally {
+            setLoader(false)
+            setOpenPopup(false)
+        }
+    }
+
     return (
         <section className='colorDisplay'>
             <div className='label-error-text-display'>
@@ -117,37 +138,43 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
                 </Suspense>
                 {openPopup && (
                     <PopUp>
-                        <form onSubmit={handleAddColor} className='colorDisplay__form-section'>
-                            <h2>הוספת צבע חדש</h2>
-                            <div>
-                                <div>
-                                    <label htmlFor="color">שם הצבע:</label>
-                                </div>
-                                <div className='colorDisplay__form-section--color-name'>
-                                    <input type="text" id="color" name="color" onChange={handeValidColorsName} />
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <label htmlFor="hexCode">צבע של מוצר:</label>
-                                </div>
-                                <div className='colorDisplay__form-section--color-hex'>
-                                    <input type="color" id="hexCode" name="hexCode" onChange={handleValidColorCode} />
-                                </div>
-                            </div>
-                            <div className="aboutDash__editTitle--editWindow--btns">
-                                <button
-                                    type='submit'
-                                    className={loader ? "action-loading" : "agree-btn"}
-                                    onClick={handleAddColorToArrColor}
-                                >הוסף צבע</button>
-                                <button
-                                    type='button'
-                                    className={loader ? "action-loading" : "cancel-btn"}
-                                    onClick={() => setOpenPopup(false)}
-                                >בטל</button>
-                            </div>
-                        </form>
+                        <h2>עריכת צבעים</h2>
+                        <div className="aboutDash__editTitle--editWindow--btns">
+                            <button
+                                onClick={() => {
+                                    setShawAddColor(true)
+                                    setDeleteColor(false)
+                                }}
+                                className={`loginRegBtn ${loader ? "form-btn_disable" : "form-btn_active"}`}
+                            >הוספת צבע חדש</button>
+                            <button
+                                onClick={() => {
+                                    setShawAddColor(false)
+                                    setDeleteColor(true)
+                                }}
+                                className={`loginRegBtn ${loader ? "form-btn_disable" : "form-btn_active"}`}
+                            >מחיקת צבע</button>
+                        </div>
+                        {showAddColor && (<AddNewColor
+                            handleAddColor={handleAddColor}
+                            handeValidColorsName={handeValidColorsName}
+                            handleValidColorCode={handleValidColorCode}
+                            loader={loader}
+                            handleAddColorToArrColor={handleAddColorToArrColor}
+                            setOpenPopup={setOpenPopup}
+                        />
+                        )}
+                        {showDeleteColor && (
+                            <DeleteColor
+                                allColorsOfCandles={allColorsOfCandles}
+                                handleDeleteColorFromArray={handleDeleteColorFromArray}
+                            />
+                        )}
+                        <button
+                            type='button'
+                            className={loader ? "action-loading" : "cancel-btn"}
+                            onClick={() => setOpenPopup(false)}
+                        >סגירת חלון</button>
                     </PopUp>)}
                 <div>
                     {colors.length === 0 && <p>אין צבעים שנבחרו</p>}

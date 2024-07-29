@@ -755,6 +755,10 @@ body {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .grid {
   display: grid;
 }
@@ -1710,11 +1714,6 @@ body {
   padding-bottom: 25px;
 }
 
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
 .pb-14 {
   padding-bottom: 3.5rem;
 }
@@ -2423,10 +2422,6 @@ code {
 }
 
 @media not all and (min-width: 48rem) {
-  .max-md\:max-h-\[276px\] {
-    max-height: 276px;
-  }
-
   .max-md\:max-w-\[287px\] {
     max-width: 287px;
   }
@@ -2935,16 +2930,6 @@ code {
     height: fit-content;
   }
 
-  .md\:min-h-full {
-    min-height: 100%;
-  }
-
-  .md\:min-h-fit {
-    min-height: -webkit-fit-content;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-  }
-
   .md\:pb-5 {
     padding-bottom: 1.25rem;
   }
@@ -2969,8 +2954,25 @@ code {
     display: none;
   }
 
+  .lg\:h-\[29\.16px\] {
+    height: 29.16px;
+  }
+
+  .lg\:w-\[29\.16px\] {
+    width: 29.16px;
+  }
+
   .lg\:ps-\[30px\] {
     padding-inline-start: 30px;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:leading-\[65\.81px\] {
+    line-height: 65.81px;
   }
 
   @media not all and (min-width: 160rem) {
@@ -3484,11 +3486,6 @@ code {
     line-height: 2.5rem;
   }
 
-  .xl\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
   .xl\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -3525,10 +3522,6 @@ code {
 
   .xl\:leading-\[42\.56px\] {
     line-height: 42.56px;
-  }
-
-  .xl\:leading-\[65\.81px\] {
-    line-height: 65.81px;
   }
 
   .xl\:leading-\[80px\] {
