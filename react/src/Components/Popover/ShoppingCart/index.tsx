@@ -44,7 +44,7 @@ const ShoppingCartPopover = ({
     <Overlay showShoppingCart={showShoppingCart}>
       <div
         dir="rtl"
-        className="fixed left-0 top-0 z-[1000] flex h-[651px] w-[334px] flex-col gap-5 bg-white sm:h-[780px] 2xl:w-[960px] xl:h-full xl:w-[760px]"
+        className="fixed left-0 top-0 z-[1000] flex h-[651px] w-[334px] flex-col gap-5 bg-white sm:h-[780px] md:pb-5 md:h-fit 2xl:w-[960px] xl:h-full xl:w-[760px]"
       >
         <Title
           closeShoppingCartPopover={closeShoppingCartPopover}

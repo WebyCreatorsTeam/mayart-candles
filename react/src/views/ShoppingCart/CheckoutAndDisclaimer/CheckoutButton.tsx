@@ -1,4 +1,5 @@
-import { useActionData } from "react-router-dom";
+import React from "react";
+import { useActionData,  } from "react-router-dom";
 
 const CheckoutButton = ({
   candlesArrayTrue,
@@ -18,8 +19,7 @@ const CheckoutButton = ({
         סיום ושליחה
       </button>
     );
-  }
-  else {
+  } else {
     if (!actionData.message) return null;
     return (
       <div>
