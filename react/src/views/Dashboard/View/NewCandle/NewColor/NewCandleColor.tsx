@@ -9,15 +9,19 @@ import { Await, useLoaderData } from 'react-router-dom';
 import PopUp from '../../../UI/PopUp/PopUp';
 import EditIcon from '@mui/icons-material/Edit';
 import Cookies from 'universal-cookie';
+import AddNewColor from './AddNewColor';
+import DeleteColor from './DeleteColor';
 
 export interface INewCandleProps {
     setNewCandle: Function
 }
 
-interface IColor {
+export interface IColor {
     color: string,
     hexCode: string
+    _id?: string
 }
+
 const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const cookies = new Cookies();
     const { colorsArray }: any = useLoaderData() as { admins: Array<IColor> };
@@ -28,6 +32,8 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const [hexCode, setHexCode] = useState<string>("")
     const [colors, setColors] = useState<Array<{ color: string, hexCode: string }>>([])
     const [error, setError] = useState<string>("")
+    const [showAddColor, setShawAddColor] = useState<boolean>(false)
+    const [showDeleteColor, setDeleteColor] = useState<boolean>(false)
 
     const handleChackIfExist = (hexCode: string) => {
         if (colors.find((color: IColor) => color.hexCode === hexCode)) {
@@ -51,12 +57,12 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
             setAllColorsOfCandles([...allColorsOfCandles, newColor])
             setColorName("")
             setHexCode("")
-            setOpenPopup(false)
             return alert(message)
         } catch (error) {
             alert(error)
         } finally {
             setLoader(false)
+            setOpenPopup(false)
         }
     }
 
@@ -89,6 +95,22 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const handleDeleteColor = (indx: number) => {
         setNewCandle((candle: ICandles) => { return { ...candle, colors: [...colors.filter((color, index) => index !== indx)] } })
         return setColors(colors.filter((color, index) => index !== indx))
+    }
+
+    const handleDeleteColorFromArray = async (id: string | undefined) => {
+        try {
+            const token = cookies.get('token')
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/colors/delete-color?token=${token}`, { data: { id } })
+            if (continueWork) {
+                setAllColorsOfCandles(allColorsOfCandles.filter((color) => color._id !== id))
+                return alert(message)
+            }
+        } catch (error) {
+            alert(error)
+        } finally {
+            setLoader(false)
+            setOpenPopup(false)
+        }
     }
 
     return (

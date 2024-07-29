@@ -19,7 +19,7 @@ const socialsList = [
   },
   {
     name: "email",
-    url: "Mayashahar777@gmail.com",
+    url: "mailto:Mayashahar777@gmail.com",
     icon: "/icons/mail-icon.svg",
   },
 ];
