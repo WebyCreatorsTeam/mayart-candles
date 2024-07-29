@@ -2423,6 +2423,10 @@ code {
 }
 
 @media not all and (min-width: 48rem) {
+  .max-md\:max-h-\[276px\] {
+    max-height: 276px;
+  }
+
   .max-md\:max-w-\[287px\] {
     max-width: 287px;
   }
@@ -2923,6 +2927,26 @@ code {
 
   .md\:-top-0\.5 {
     top: -0.125rem;
+  }
+
+  .md\:h-fit {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
+  .md\:min-h-full {
+    min-height: 100%;
+  }
+
+  .md\:min-h-fit {
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+
+  .md\:pb-5 {
+    padding-bottom: 1.25rem;
   }
 
   .md\:\~text-xl\/3xl {
