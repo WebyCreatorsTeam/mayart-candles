@@ -21,6 +21,7 @@ export interface IColor {
     hexCode: string
     _id?: string
 }
+
 const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const cookies = new Cookies();
     const { colorsArray }: any = useLoaderData() as { admins: Array<IColor> };
