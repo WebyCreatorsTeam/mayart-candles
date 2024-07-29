@@ -1710,6 +1710,11 @@ body {
   padding-bottom: 25px;
 }
 
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .pb-14 {
   padding-bottom: 3.5rem;
 }
