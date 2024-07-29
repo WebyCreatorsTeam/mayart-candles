@@ -98,7 +98,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const handleDeleteColorFromArray = async (id: string | undefined) => {
         try {
             const token = cookies.get('token')
-            const { data: { continueWork, message } } = await axios.delete(`http://localhost:7575/colors/delete-color?token=${token}`, { data: { id } })
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/colors/delete-color?token=${token}`, { data: { id } })
             if (continueWork) {
                 setAllColorsOfCandles(allColorsOfCandles.filter((color) => color._id !== id))
                 return alert(message)
