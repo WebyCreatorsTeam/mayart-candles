@@ -1,10 +1,10 @@
 import { FC, Suspense, useState } from 'react'
-import { Await, useLoaderData, useNavigate } from 'react-router-dom'
-import { ICategories } from '../Categories/CategoriesDashboard'
+import { Await, defer, useLoaderData, useNavigate } from 'react-router-dom'
+import { hendleGetCategories, ICategories } from '../Categories/CategoriesDashboard'
 import NewNameCandle from './NameCandle/NewNameCandle'
 import NewCandlePrice from './NewCandlePrice/NewCandlePrice'
 import NewDescCandle from './NewDesc/NewDescCandle'
-import NewCandleColor from './NewColor/NewCandleColor'
+import NewCandleColor, { getAllColors } from './NewColor/NewCandleColor'
 import AddNewCandleFrg from './AddNewFrag/AddNewCandleFrg'
 import NewCandleShape from './NewShape/NewCandleShape'
 import NewCandleType from './NewCandleType/NewCandleType'
@@ -35,6 +35,7 @@ const AddNewCandle: FC = () => {
     size: ""
   })
 
+  console.log(newCandle)
   const hendleFillInput = (name: string, value: string) => {
     setNewCandle((candle: any) => { return { ...candle, [name]: value } })
   }
@@ -113,3 +114,10 @@ const AddNewCandle: FC = () => {
 }
 
 export default AddNewCandle;
+
+export const addNewCandleLoader = async () => {
+  return defer({
+    categories: await hendleGetCategories(),
+    colorsArray: await getAllColors()
+  });
+};

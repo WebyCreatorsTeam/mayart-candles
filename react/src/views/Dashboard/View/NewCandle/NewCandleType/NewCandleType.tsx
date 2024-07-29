@@ -20,9 +20,9 @@ const NewCandleType: FC<INewCandleType> = ({ categories, setNewCandle }) => {
                 נא לבחור קטגורית הנר*
             </h3>
             <select onChange={handleChooseType} className='selectDisplay'>
-                <option value="" selected disabled>קטגורית הנר</option>
+                <option defaultValue="" selected disabled>קטגורית הנר</option>
                 {categories.map((ctg: any) => (
-                    <option key={ctg._id} value={ctg.opt}>{ctg.opt}</option>
+                    <option key={ctg._id} defaultValue={ctg.opt}>{ctg.opt}</option>
                 ))}
             </select>
         </section>

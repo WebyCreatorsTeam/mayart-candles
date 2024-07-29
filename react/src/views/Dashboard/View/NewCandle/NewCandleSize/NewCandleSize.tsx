@@ -14,10 +14,10 @@ const NewCandleSize: FC<INewCandleSize> = ({ setNewCandle }) => {
         <section>
             <h3>נא לבחור גודל הנר*</h3>
             <select onChange={handleChooseType} className='selectDisplay'>
-                <option value="" selected disabled>גודל הנר</option>
-                <option value="נרות גדולים">נרות גדולים</option>
-                <option value="נרות בינוניים">נרות בינוניים</option>
-                <option value="נרות קטנים">נרות קטנים</option>
+                <option defaultValue="" selected disabled>גודל הנר</option>
+                <option defaultValue="נרות גדולים">נרות גדולים</option>
+                <option defaultValue="נרות בינוניים">נרות בינוניים</option>
+                <option defaultValue="נרות קטנים">נרות קטנים</option>
             </select>
         </section>
     )

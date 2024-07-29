@@ -23,7 +23,7 @@ import {
 import "./views/Dashboard/style/global.scss";
 import Login, { formLoginAction } from "./views/Dashboard/View/Login/Login";
 import DashcoardCandle, { getCandle } from "./views/Dashboard/View/Candle/DashcoardCandle";
-import AddNewCandle from "./views/Dashboard/View/NewCandle/AddNewCandle";
+import AddNewCandle, { addNewCandleLoader } from "./views/Dashboard/View/NewCandle/AddNewCandle";
 import CategoriesDashboard, { categoriesLoader } from "./views/Dashboard/View/Categories/CategoriesDashboard";
 import OneCategoryDashboard, { getCategoryLoader } from "./views/Dashboard/View/Categories/OneCategoryDashboard";
 import AboutDashboard, { aboutDashLoader } from "./views/Dashboard/View/About/AboutDashboard";
@@ -113,7 +113,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MainDashboard />, loader: candlesLoader },
       { path: "candle/:candleID", element: <DashcoardCandle />, loader: getCandle },
-      { path: "candle/add-new-candle", element: <AddNewCandle />, loader: categoriesLoader },
+      { path: "candle/add-new-candle", element: <AddNewCandle />, loader: addNewCandleLoader },
       { path: "categories", element: <CategoriesDashboard />, loader: categoriesLoader },
       { path: "categories/:categotyName", element: <OneCategoryDashboard />, loader: getCategoryLoader },
       { path: "about", element: <AboutDashboard />, loader: aboutDashLoader },

@@ -4,6 +4,7 @@ import { Await, Link, defer, useLoaderData } from 'react-router-dom'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import CategoryAdd from './CategoryAdd';
 import CategoryRemove from './CategoryRemove';
+import { getAllColors } from '../NewCandle/NewColor/NewCandleColor';
 
 export interface ICategories {
   _id: string;
@@ -87,7 +88,7 @@ const CategoriesDashboard: FC = () => {
 
 export default CategoriesDashboard;
 
-const hendleGetCategories = async () => {
+export const hendleGetCategories = async () => {
   const { data } = await axios.get(`https://mayart-candles-api.vercel.app/categories/get-categories`)
   const { continueWork, categories } = data;
   if (continueWork) return categories
@@ -97,5 +98,6 @@ const hendleGetCategories = async () => {
 export const categoriesLoader = async () => {
   return defer({
     categories: await hendleGetCategories(),
+    colors: getAllColors()
   });
 };
