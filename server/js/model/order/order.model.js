@@ -11,6 +11,10 @@ const OrderSchema = new mongoose_1.Schema({
         type: String,
         require: [true, "נא למלא מספר טלפון"],
     },
+    email: {
+        type: String,
+        require: [true, "נא למלא אימייל"],
+    },
     candles: [{
             name: { type: String },
             color: { type: String },

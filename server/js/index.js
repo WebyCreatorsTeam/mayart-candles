@@ -17,6 +17,7 @@ const category_index_route_1 = __importDefault(require("./routers/category/categ
 const about_index_route_1 = __importDefault(require("./routers/about/about.index.route"));
 const payment_index_route_1 = __importDefault(require("./routers/payment/payment.index.route"));
 const order_router_1 = __importDefault(require("./routers/order/order.router"));
+const color_index_route_1 = __importDefault(require("./routers/colors/color.index.route"));
 const cloudinary_1 = require("cloudinary");
 const admin_user_mw_1 = require("./middlewares/admin.user.mw");
 // middlewares
@@ -42,7 +43,7 @@ cloudinary_1.v2.config({
 });
 app.use((0, morgan_1.default)('dev'));
 app.use(express_1.default.json());
-// database connection
+// database connectio
 (0, dbconnect_1.dbconnect)();
 app.use(admin_user_mw_1.userIsAdmin);
 app
@@ -51,7 +52,8 @@ app
     .use('/categories', category_index_route_1.default)
     .use('/about', about_index_route_1.default)
     .use('/payment', payment_index_route_1.default)
-    .use('/orders', order_router_1.default);
+    .use('/orders', order_router_1.default)
+    .use('/colors', color_index_route_1.default);
 // status check points
 app.get('/status', (req, res) => res.sendStatus(200));
 // 404 handler

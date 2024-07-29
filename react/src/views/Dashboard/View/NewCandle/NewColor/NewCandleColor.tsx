@@ -46,7 +46,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
             if (color.length === 0) { return setError("נא לרשום שם הצבע") } else { setError("") }
             if (hexCode.length === 0) { return setError("נא לבחור צבע") } else { setError("") }
             const token = cookies.get('token')
-            const { data: { continueWork, message, newColor } } = await axios.post(`http://localhost:7575/colors/save-color?token=${token}`, { color, hexCode })
+            const { data: { continueWork, message, newColor } } = await axios.post(`https://mayart-candles-api.vercel.app/colors/save-color?token=${token}`, { color, hexCode })
             if (!continueWork) return alert(message)
             setAllColorsOfCandles([...allColorsOfCandles, newColor])
             setColorName("")
@@ -148,9 +148,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
                                 >בטל</button>
                             </div>
                         </form>
-                    </PopUp>
-                )
-                }
+                    </PopUp>)}
                 <div>
                     {colors.length === 0 && <p>אין צבעים שנבחרו</p>}
                     {colors.length > 0 && <p>צבעים שנבחרו:</p>}
@@ -171,7 +169,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
 export default NewCandleColor
 
 export const getAllColors = async () => {
-    const { data: { continueWork, colors } } = await axios.get("http://localhost:7575/colors/get-colors")
+    const { data: { continueWork, colors } } = await axios.get("https://mayart-candles-api.vercel.app/colors/get-colors")
     if (continueWork) return colors
     return alert("שגיאה בטעינת הצבעים")
 }

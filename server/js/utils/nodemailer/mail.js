@@ -3,8 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mailOptions = exports.transporter = void 0;
+exports.customerMail = exports.mailOptions = exports.transporter = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
+const mailText_1 = require("./mailText");
 exports.transporter = nodemailer_1.default.createTransport({
     service: "Gmail",
     host: "smtp.gmail.com",
@@ -31,7 +32,7 @@ const renderOrderCandles = (candles) => {
     });
     return html;
 };
-const mailOptions = (order) => {
+const detailsOrder = (order, mailTitle, details) => {
     const orderNumber = order._id.toString().slice(-5, order._id.length);
     const orderCandles = renderOrderCandles(order.candles);
     const totalPay = (order) => {
@@ -41,6 +42,13 @@ const mailOptions = (order) => {
         });
         return totalPrice;
     };
+    const htmlEmail = (0, mailText_1.mailText)(mailTitle, details, orderCandles, totalPay(order), orderNumber, order.name, order.telNumber);
+    return { htmlEmail };
+};
+const mailOptions = (order) => {
+    const mailTitle = "התקבלה הזמנה חדשה מהאתר";
+    const details = ``;
+    const { htmlEmail } = detailsOrder(order, mailTitle, details);
     return {
         from: process.env.MAIL,
         to: process.env.MAIL,
@@ -48,51 +56,24 @@ const mailOptions = (order) => {
             `"Maya Art Candles" <${process.env.MAIL_CC}>`
         ],
         subject: "✨✨MayaArt - הזמנה חדשה התקבלה ✨✨",
-        html: `
-        <head>
-            <style>
-                table, th, td {
-                    border:1px solid black;
-                    font-size: 18px;
-                }
-
-                p {
-                    font-size: 18px;
-                }
-            </style>
-        </head>
-        <div style="text-align: center;" dir="rtl">
-            <h1 style="color: rgb(34,139,34)">התקבלה הזמנה חדשה מהאתר</h1>
-                <div>
-                    <p>מספר הזמנה: <b>${orderNumber}</b></p>
-                    <p>שם המזמין: <b>${order.name}</b></p>
-                    <p>מספר טלפון: <a href="tel:${order.telNumber}"><b>${order.telNumber}</b></a></p>
-                <div>
-                <h2>פירוט הזמנה</h2>
-                <table style="width:100%">
-                    <thead>
-                        <tr>
-                            <td><b>מוצר</b></td>
-                            <td><b>צבע</b></td>
-                            <td><b>ריח</b></td>
-                            <td><b>כמות</b></td>
-                            <td><b>מחיר</b></td>
-                            <td><b>לתשלום</b></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${orderCandles}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="total"><b>סה"כ לתשלום</b></td>
-                            <td><b>${totalPay(order)} ש"ח</b></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div> 
-        </div>`
+        html: htmlEmail
     };
 };
 exports.mailOptions = mailOptions;
+const customerMail = (order) => {
+    console.log(order);
+    const mailTitle = "פירוט הזמנה חדשה מהאתר MAYAART";
+    const details = `
+     <p>מספר טלפון לבירורים: <a href="tel:0508122000"><b>0508122000</b></a></p>
+     <p>אימייל לבירורים: <a href="mailto:mayashahar777@gmail.com"><b>mayashahar777@gmail.com</b></a></p>
+     `;
+    const { htmlEmail } = detailsOrder(order, mailTitle, details);
+    return {
+        from: process.env.MAIL,
+        to: `${order.email}`,
+        subject: "✨✨MayaArt - ההזמנה שלכם התקבלה ✨✨",
+        html: htmlEmail
+    };
+};
+exports.customerMail = customerMail;
 //# sourceMappingURL=mail.js.map

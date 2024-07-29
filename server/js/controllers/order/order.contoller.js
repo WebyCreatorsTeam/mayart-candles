@@ -17,28 +17,43 @@ const mail_1 = require("../../utils/nodemailer/mail");
 const saveOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
-        // console.log(data)
+        console.log(data.email);
         const newOrder = new order_model_1.Order(Object.assign({}, data));
-        // console.log(moment().format())
-        // Order.index
-        // console.log(Order.getIndexes())
         yield newOrder.save();
         yield new Promise((resolve, reject) => {
-            console.log(`befote mail`);
+            // console.log(`befote mail`)
             mail_1.transporter.sendMail((0, mail_1.mailOptions)(newOrder), (error, info) => {
-                console.log(`email transporter enter`);
+                // console.log(`email transporter enter`)
                 if (error) {
-                    console.log(`email transporter enter error`);
+                    // console.log(`email transporter enter error`)
                     console.error("Error sending email: ", error);
                     reject(error);
                 }
                 else {
                     console.log("Email sent: ", info.response);
-                    console.log(`email transporter enter sent`);
+                    // console.log(`email transporter enter sent`)
                     resolve(info.response);
                 }
             });
-            console.log(`after mail`);
+            mail_1.transporter.close();
+            // console.log(`after mail`)
+        });
+        yield new Promise((resolve, reject) => {
+            // console.log(`before customer mail`)
+            mail_1.transporter.sendMail((0, mail_1.customerMail)(newOrder), (error, info) => {
+                if (error) {
+                    // console.log(`email transporter enter error`)
+                    console.error("Error sending email: ", error);
+                    reject(error);
+                }
+                else {
+                    console.log("Email sent: ", info.response);
+                    // console.log(`email transporter enter sent`)
+                    resolve(info.response);
+                }
+            });
+            mail_1.transporter.close();
+            // console.log(`after mail`)
         });
         return res.json({ continueWork: true, message: "הזמנה נשלחה, נחזור בהקדם" });
     }
@@ -47,7 +62,7 @@ const saveOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.saveOrder = saveOrder;
-//      /orders/get-orders
+//  /orders/get-orders
 const getOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const order = yield order_model_1.Order.find({});
