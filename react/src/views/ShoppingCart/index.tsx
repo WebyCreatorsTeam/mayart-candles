@@ -15,7 +15,7 @@ const ShoppingCartPage = () => {
     >
       {/* Title */}
       <div className="flex flex-col items-center gap-2 sm:gap-[17.11px] xl:gap-1.5">
-        <h1 className="w-fit border-b border-b-[#B0C4B14D] px-[30px] py-[21.5px] text-center text-xl font-semibold leading-[26.6px]  sm:border-b-2 sm:px-[64.15px] sm:py-[46.35] sm:text-[42.77px] sm:leading-[56.89px] xl:border-none xl:p-0 xl:text-[64px] xl:font-normal xl:leading-[85.13px]">
+        <h1 className="w-fit border-b border-b-[#B0C4B14D] px-[30px] py-[21.5px] text-center text-xl font-semibold leading-[26.6px]  sm:border-b-2 sm:px-[64.15px] sm:py-[46.35] sm:text-[42.77px] sm:leading-[56.89px] xl:border-none xl:p-0 xl:text-6xl xl:font-normal 2xl:text-[64px] 2xl:leading-[85.13px]">
           סל קניות
         </h1>
         {candles && candles.length ? (

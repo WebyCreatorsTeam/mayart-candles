@@ -135,6 +135,7 @@ export const checkout = async ({ request }: any) => {
   const checkoutInfo = {
     fullName: formData.get("fullName"),
     telPhone: formData.get("telPhone"),
+    email: formData.get("email"),
     candlesArrayTrue: formData.get("candlesArrayTrue"),
   };
   const candles = localStorage.getItem("shoppingCartCandles");
@@ -158,6 +159,7 @@ export const checkout = async ({ request }: any) => {
   const checkoutInfoAndArray: CheckoutInfoAndArrayType = {
     name: checkoutInfo.fullName,
     telNumber: checkoutInfo.telPhone,
+    email: checkoutInfo.email,
     candles: sentCandlesArray,
   };
   const { data } = await axios.post(
@@ -167,6 +169,9 @@ export const checkout = async ({ request }: any) => {
   );
   const { continueWork, message } = data;
 
-  if (continueWork) return { message };
+  if (continueWork) {
+    localStorage.removeItem("shoppingCartCandles");
+    return { message: "ההזמנה נקלטה בהצלחה" };
+  }
   if (!continueWork) throw new Error(message);
 };

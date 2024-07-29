@@ -28,6 +28,15 @@ export type CandleType = {
   __v: number;
 };
 
+export type CandleFiltersType = {
+  shape: string[];
+  colors: CandleColorT[];
+  size: string[];
+  fragrances: string[];
+  price: { min: number; max: number };
+  type: string[];
+}
+
 export type CandlePictureT = {
   img: string;
   _id: string;
@@ -60,6 +69,7 @@ export interface ICandles {
 export type CheckoutInfoType = {
   name: string;
   telNumber: string;
+  email: string;
 };
 export type CheckoutInfoAndArrayType = CheckoutInfoType & {
   candles: SentCandleType[];

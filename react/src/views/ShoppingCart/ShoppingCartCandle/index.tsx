@@ -20,11 +20,11 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
       <div className="flex flex-col items-center gap-3 sm:gap-[25.66px] xl:flex-row xl:items-start xl:gap-[59px]">
         {/* candle image */}
         <img
-          className="w-full object-cover max-sm:max-h-[475px] xl:h-[304px] xl:max-h-[304px] xl:w-[301px] xl:max-w-[301px]"
+          className="w-full object-cover max-sm:max-h-[475px]  xl:h-[254px] xl:max-h-[254px] xl:w-[301px] xl:max-w-[301px] 2xl:h-[304px] 2xl:max-h-[304px] 2xl:w-[301px] 2xl:max-w-[301px]"
           src={candle.pictures[0].img}
           alt={candle.name}
         />
-        <div className="flex  w-full flex-col items-center gap-3 sm:gap-[25.66px] xl:items-start xl:items-start xl:gap-9 xl:*:items-start">
+        <div className="flex  w-full flex-col items-center gap-3 sm:gap-[25.66px] xl:items-start 2xl:gap-9 xl:gap-6 xl:*:items-start">
           <div className="flex flex-col gap-2.5 text-base leading-[21.28px] sm:gap-[21.38px]">
             <Title candle={candle} />
             <PricingSystem candle={candle} />
@@ -46,7 +46,7 @@ const ShoppingCartCandle = ({ candle }: { candle: ChosenCandleType }) => {
             />
           </span>
         </div>
-        <span className="hidden h-[304px] flex-col items-end justify-between xl:flex">
+        <span className="hidden h-[254px] 2xl:h-[304px] flex-col items-end justify-between xl:flex">
           <PopoverCandleQuantityToggle
             handleAddToShoppingCartArray={handleAddToShoppingCartArray}
             handleRemoveOneFromShoppingCartArray={
