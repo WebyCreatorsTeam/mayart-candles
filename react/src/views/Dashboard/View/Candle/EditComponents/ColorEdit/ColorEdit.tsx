@@ -3,10 +3,11 @@ import axios from 'axios'
 import { useCandleIdContext } from '../../Context/CandleContext'
 import PopUp from '../../../../UI/PopUp/PopUp'
 import Cookies from 'universal-cookie';
-import { defer, useLoaderData } from 'react-router-dom';
-import { getAllColors, IColor } from '../../../NewCandle/NewColor/NewCandleColor';
-import AddNewColor from '../../../NewCandle/NewColor/AddNewColor';
+import { useLoaderData } from 'react-router-dom';
+import { IColor } from '../../../NewCandle/NewColor/NewCandleColor';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { validateNewCandle } from '../../../../utils/validateNewCandle';
+import { red } from '@mui/material/colors';
 
 const cookies = new Cookies();
 
@@ -20,18 +21,13 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
     const [candlesColors, setCandlesColors] = useState<Array<IColor>>(allCandleColors)
     const id = useCandleIdContext()
     const [loader, setLoader] = useState<boolean>(false)
-    const [newColor, setNewColor] = useState<{ color: string, hexCode: string }>({ color: "", hexCode: "" })
     const [editColor, setEditColor] = useState<boolean>(false)
     const [error, setError] = useState<string>("")
     const [color, setColorName] = useState<string>("")
     const [hexCode, setHexCode] = useState<string>("")
 
-    // const hendleFillInput = (ev: any) => {
-    //     setNewColor((color: any) => { return { ...color, [ev.target.name]: ev.target.value } })
-    // }
-
-    const handleChackIfExist = (hexCode: string) => {
-        if (colors.find((color: IColor) => color.hexCode === hexCode)) {
+    const handleChackIfExist = (colorname: string) => {
+        if (colors.find((color: IColor) => color.color === colorname)) {
             setError("צבע כבר קיים בנר")
             return true
         } else {
@@ -49,7 +45,7 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
 
             if (target.colorChoose.value === "בחר צבע") return alert("נא לבחור צבע")
             const color = candlesColors.find((color) => color.color === target.colorChoose.value)
-            if (!handleChackIfExist(color!.hexCode)) {
+            if (!handleChackIfExist(color!.color)) {
                 const token = cookies.get('token')
                 const { data: { continueWork, message, colors } } = await axios.post(`https://mayart-candles-api.vercel.app/candles/add-color?token=${token}`, { id, newColor: { color: color?.color, hexCode: color?.hexCode } })
                 if (continueWork) {
@@ -97,8 +93,25 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
         }
     }
 
+    const handleDeleteColorFromArray = async (id: string | undefined) => {
+        try {
+            setLoader(true)
+            const token = cookies.get('token')
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/colors/delete-color?token=${token}`, { data: { id } })
+            if (continueWork) {
+                setCandlesColors(candlesColors.filter((color) => color._id !== id))
+                return alert(message)
+            }
+        } catch (error) {
+            alert(error)
+        } finally {
+            setLoader(false)
+        }
+    }
+
     return (
-        <PopUp>
+        <PopUp >
+            {error && <div className="error">{error}</div>}
             <button
                 onClick={() => setEditColor(!editColor)}
                 className={loader ? "form-btn_disable" : "form-btn_active"}>
@@ -109,7 +122,7 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
                     editColor ?
                         (<>
                             <h1>עריכת צבע</h1>
-                            <form onSubmit={handleAddColorToArrColor }>
+                            <form onSubmit={handleAddColorToArrColor}>
                                 <div>
                                     <div>
                                         <label htmlFor="color">שם הצבע:</label>
@@ -129,35 +142,24 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
                                 <button
                                     type='submit'
                                     className={loader ? "action-loading" : "agree-btn"}
+
                                 >הוסף צבע</button>
                             </form>
-                            {/* 
-                            <div className='colorEdit__inputs'>
-                                <label htmlFor='color'>שם הצבע:</label>
-                                <input id="color" type='text' name="color" onChange={hendleFillInput} />
-                                <label htmlFor='hexCode'>צבע:</label>
-                                <input id="hexCode" type='color' name="hexCode" onChange={hendleFillInput} />
+                            <div className="candleAddPage">
+                                <div className='colorDisplay__colorsList'>
+                                    {candlesColors.map((color, index) => (
+                                        <div key={index} className='colorDisplay__colorsList--color-item'>
+                                            <div key={index} style={{ backgroundColor: color.hexCode }}>{color.color}</div>
+                                            <button onClick={() => handleDeleteColorFromArray(color!._id)}><DeleteOutlineIcon fontSize="large" sx={{ color: red[700] }} /></button>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                            <div className='colorEdit__editBtns'>
-                                <button
-                                    onClick={handleAddColor}
-                                    className={loader ? "action-loading" : "agree-btn"}
-                                >
-                                    {loader ? "מעדכן את הפרטים" : "הוסף צבע"}
-                                </button>
-                                <button
-                                    className={loader ? "action-loading" : "cancel-btn"}
-                                    onClick={() => {
-                                        setPopUpEditColors(false)
-                                        setNewColor({ color: "", hexCode: "" })
-                                    }}
-                                >בטל</button>
-                            </div> */}
                         </>)
                         :
                         (<>
                             <h1>הוספת צבע</h1>
-                            <form onSubmit={handleAddColor}>
+                            <form onSubmit={handleAddColor} style={{ display: 'flex', flexDirection: 'row' }}>
                                 <select defaultValue="בחר צבע" name="colorChoose">
                                     <option selected disabled defaultValue="בחר צבע">בחר צבע</option>
                                     {candlesColors.map((color, index) => (
@@ -166,7 +168,11 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
                                         </option>
                                     ))}
                                 </select>
-                                <button type='submit'>הוסף צבע לנר</button>
+                                <button
+                                    type='submit'
+                                    className={loader ? "action-loading" : "agree-btn"}
+                                    // style={{margin: "15px 0"}}
+                                >הוסף צבע לנר</button>
                             </form>
                         </>)}
             </div>
@@ -174,7 +180,6 @@ const ColorEdit: FC<IColorEdit> = ({ colors, setPopUpEditColors, setCandleColors
                 className={loader ? "action-loading" : "cancel-btn"}
                 onClick={() => {
                     setPopUpEditColors(false)
-                    setNewColor({ color: "", hexCode: "" })
                 }}
             >בטל</button>
         </PopUp >
