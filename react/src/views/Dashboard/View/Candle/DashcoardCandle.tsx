@@ -13,10 +13,11 @@ import EditTypeCandle from './EditComponents/EditType/EditTypeCandle'
 import EditCandleSize from './EditComponents/EditSize/EditCandleSize'
 import { ICandles } from '../../MainDashboard'
 import CandleShape from './ViewComponents/CandleShape'
+import { getAllColors } from '../NewCandle/NewColor/NewCandleColor'
 
 const DashcoardCandle = () => {
   const { candle, categories } = useLoaderData() as { candle: ICandles } & { categories: ICategories[] }
-
+console.log(candle.colors)
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={[candle, categories]}>
@@ -63,6 +64,7 @@ export const getCandle = async ({ params }: any) => {
   const { candleID } = params
   return defer({
     candle: await hendleGetCandle(candleID),
-    categories: await handleGetCategories()
+    categories: await handleGetCategories(),
+    allCandleColors: await getAllColors()
   })
 }

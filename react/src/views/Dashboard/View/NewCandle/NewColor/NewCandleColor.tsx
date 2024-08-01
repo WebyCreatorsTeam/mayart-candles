@@ -35,8 +35,8 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
     const [showAddColor, setShawAddColor] = useState<boolean>(false)
     const [showDeleteColor, setDeleteColor] = useState<boolean>(false)
 
-    const handleChackIfExist = (hexCode: string) => {
-        if (colors.find((color: IColor) => color.hexCode === hexCode)) {
+    const handleChackIfExist = (colorname: string) => {
+        if (colors.find((color: IColor) => color.color === colorname)) {
             setError("צבע כבר קיים בנר")
             return true
         } else {
@@ -74,7 +74,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
 
         if(target.colorChoose.value === "בחר צבע") return alert("נא לבחור צבע")
         const color = allColorsOfCandles.find((color) => color.color === target.colorChoose.value)
-        if (!handleChackIfExist(color!.hexCode)) {
+        if (!handleChackIfExist(color!.color)) {
             setColors([...colors, { color: color!.color, hexCode: color!.hexCode }])
             return setNewCandle((candle: ICandles) => { return { ...candle, colors: [...colors, { color: color?.color, hexCode: color?.hexCode }] } })
         }
@@ -99,6 +99,7 @@ const NewCandleColor: FC<INewCandleProps> = ({ setNewCandle }) => {
 
     const handleDeleteColorFromArray = async (id: string | undefined) => {
         try {
+            setLoader(true)
             const token = cookies.get('token')
             const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/colors/delete-color?token=${token}`, { data: { id } })
             if (continueWork) {

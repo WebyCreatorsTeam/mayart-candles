@@ -56,7 +56,7 @@ const CandleColor: FC<ICandleColor> = ({ colors }) => {
             <button
                 onClick={() => setPopUpEditColors(true)}
             ><EditIcon color="primary" /></button>
-            {popUpEditColors && (<ColorEdit setPopUpEditColors={setPopUpEditColors} setCandleColors={setCandleColors} />)}
+            {popUpEditColors && (<ColorEdit colors={colors} setPopUpEditColors={setPopUpEditColors} setCandleColors={setCandleColors} />)}
         </section >
     )
 }

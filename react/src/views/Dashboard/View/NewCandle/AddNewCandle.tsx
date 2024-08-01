@@ -96,8 +96,12 @@ const AddNewCandle: FC = () => {
           <hr />
           <section>
             <h2>קטגוריות</h2>
-            <NewCandleType categories={categories} setNewCandle={setNewCandle} />
-            <NewCandleSize setNewCandle={setNewCandle} />
+            <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
+              <Await resolve={categories}>
+                <NewCandleType categories={categories} setNewCandle={setNewCandle} />
+                <NewCandleSize setNewCandle={setNewCandle} />
+              </Await>
+            </Suspense>
           </section>
           <hr />
           <NewCandleImages loader={loader} setImages={setImages} />
