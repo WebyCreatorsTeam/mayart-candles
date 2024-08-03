@@ -14,6 +14,7 @@ import EditCandleSize from './EditComponents/EditSize/EditCandleSize'
 import { ICandles } from '../../MainDashboard'
 import CandleShape from './ViewComponents/CandleShape'
 import { getAllColors } from '../NewCandle/NewColor/NewCandleColor'
+import { getAllFrags } from '../NewCandle/AddNewFrag/AddNewCandleFrg'
 
 const DashcoardCandle = () => {
   const { candle, categories } = useLoaderData() as { candle: ICandles } & { categories: ICategories[] }
@@ -65,6 +66,7 @@ export const getCandle = async ({ params }: any) => {
   return defer({
     candle: await hendleGetCandle(candleID),
     categories: await handleGetCategories(),
-    allCandleColors: await getAllColors()
+    allCandleColors: await getAllColors(),
+    allCandleFrag: await getAllFrags()
   })
 }
