@@ -46,7 +46,7 @@ const AddNewCandleFrg: FC<INewCandleProps> = ({ setNewCandle }) => {
             ev.preventDefault()
             if (fragrance.length === 0) { return setError("נא לרשום שם הצבע") } else { setError("") }
             const token = cookies.get('token')
-            const { data: { continueWork, message, newFrag } } = await axios.post(`http://localhost:7575/frags/save-frag?token=${token}`, { fragrance })
+            const { data: { continueWork, message, newFrag } } = await axios.post(`https://mayart-candles-api.vercel.app/frags/save-frag?token=${token}`, { fragrance })
             if (!continueWork) return alert(message)
             setAllFragsOfCandles([...allFragsOfCandles, newFrag])
             return alert(message)
@@ -88,7 +88,7 @@ const AddNewCandleFrg: FC<INewCandleProps> = ({ setNewCandle }) => {
     const handleDeleteFragFromArray = async (id: string | undefined) => {
         try {
             const token = cookies.get('token')
-            const { data: { continueWork, message } } = await axios.delete(`http://localhost:7575/frags/delete-frag?token=${token}`, { data: { id } })
+            const { data: { continueWork, message } } = await axios.delete(`https://mayart-candles-api.vercel.app/frags/delete-frag?token=${token}`, { data: { id } })
             if (continueWork) {
                 setAllFragsOfCandles(allFragsOfCandles.filter((frag) => frag._id !== id))
                 return alert(message)
@@ -185,7 +185,7 @@ const AddNewCandleFrg: FC<INewCandleProps> = ({ setNewCandle }) => {
 export default AddNewCandleFrg;
 
 export const getAllFrags = async () => {
-    const { data: { continueWork, frags } } = await axios.get("http://localhost:7575/frags/get-frags")
+    const { data: { continueWork, frags } } = await axios.get("https://mayart-candles-api.vercel.app/frags/get-frags")
     if (continueWork) return frags
     return alert("שגיאה בטעינת הצבעים")
 }
