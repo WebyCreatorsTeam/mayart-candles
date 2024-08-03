@@ -12,6 +12,7 @@ const cookies = new Cookies();
 interface ICandleFrag {
   fragrances: [string];
 }
+
 const CandleFrag: FC<ICandleFrag> = ({ fragrances }) => {
   const [loader, setLoader] = useState<boolean>(false);
   const id = useCandleIdContext();
