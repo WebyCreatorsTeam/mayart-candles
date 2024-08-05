@@ -137,16 +137,11 @@ const validateInputsCheckout = (checkoutInfo: any) => {
   const phoneRegex = /^(?:(?:(\+?972|\(\+?972\)|\+?\(972\))(?:\s|\.|-)?([1-9]\d?))|(0[23489]{1})|(0[57]{1}[0-9]))(?:\s|\.|-)?([^0\D]{1}\d{2}(?:\s|\.|-)?\d{4})$/
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   const fullNameRegex = /^[א-תa-z]+$/i
-  
-  if (!fullNameRegex.test(fullName)) {
-    return { continueNext: false, validMessage: "שם מלא אינו תקין" }
-  }
-  if (!phoneRegex.test(telPhone)) {
-    return { continueNext: false, validMessage: "המספר הטלפון אינו תקין" }
-  }
-  if (!emailRegex.test(email.toLowerCase())) {
-    return { continueNext: false, validMessage: "אימייל אינו תקין" }
-  }
+
+  if (fullName.length < 3) return { continueNext: false, validMessage: "שם מלא קצר מדי" }
+  if (!fullNameRegex.test(fullName.replaceAll(" ", ""))) return { continueNext: false, validMessage: "שם מלא אינו תקין" }
+  if (!phoneRegex.test(telPhone)) return { continueNext: false, validMessage: "המספר הטלפון אינו תקין" }
+  if (!emailRegex.test(email.toLowerCase())) return { continueNext: false, validMessage: "אימייל אינו תקין" }
 
   return { continueNext: true, validMessage: "" }
 }
