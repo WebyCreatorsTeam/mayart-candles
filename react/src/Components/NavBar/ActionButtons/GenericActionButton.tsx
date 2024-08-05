@@ -23,13 +23,16 @@ const GenericActionButton = ({
 }) => {
   return type ? (
     <Link to={`/candles/list/${type}`} className="relative">
+      {/* //"absolute aspect-square items-center justify-center rounded-full bg-black text-center text-white right-0.5 top-0.5 flex size-4 " */}
       {candles && candles.length > 0 && (
-        <div className="absolute hidden aspect-square items-center justify-center rounded-full bg-black text-center text-white sm:-right-2 sm:-top-1 sm:flex sm:size-4 xl:-right-1.5 md:-top-0.5 xl:-top-1 xl:size-5  2xl:-right-4 2xl:-top-3 2xl:size-7">
+        <div className="absolute aspect-square items-center justify-center rounded-full bg-black text-center text-white flex top-0 right-0 size-3.5 xl:size-4 2xl:size-7 
+        ">
+          {/* // sm:-right-2 sm:-top-1 sm:flex sm:size-4 xl:-right-1.5 md:-top-0.5 xl:-top-1 xl:size-5  2xl:-right-4 2xl:-top-3 2xl:size-7 */}
           {quantity}
         </div>
       )}
       <img
-        className="sm:hidden"
+        className="block ~size-6/10 sm:hidden"
         src={actionButtonInfo.mobile.src}
         alt={actionButtonInfo.mobile.alt}
       />
