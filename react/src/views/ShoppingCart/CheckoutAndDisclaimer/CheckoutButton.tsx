@@ -1,5 +1,6 @@
-import { useActionData, } from "react-router-dom";
-import { useNavigation } from "react-router-dom";
+import { useEffect } from "react";
+// import { useActionData, } from "react-router-dom";
+import { useNavigation, useActionData } from "react-router-dom";
 
 const CheckoutButton = ({
   candlesArrayTrue,
@@ -7,11 +8,19 @@ const CheckoutButton = ({
   candlesArrayTrue: boolean;
 }) => {
   const navigation = useNavigation();
+
   const actionData = useActionData() as {
     next: boolean | undefined;
     message: string;
   };
 
+  useEffect(()=> {
+    if(actionData?.next === true) {
+      alert(actionData?.message)
+      window.location.reload();
+    }
+  },[actionData?.message, actionData?.next])
+  
   return (
     <>
       <div>
