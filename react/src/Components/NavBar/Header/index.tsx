@@ -79,7 +79,7 @@ const Header = ({
   }, [shoppingCartArray]);
 
   return (
-    <header className="relative ~min-h-[5rem]/[9.375rem] xl:max-2xl:min-h-fit z-10 flex w-full basis-1 items-center justify-between bg-white px-[10.5px]  py-[13.5px] sm:px-11  sm:py-7">
+    <header className="relative z-10 flex w-full basis-1 items-center justify-between bg-white px-[10.5px] py-[13.5px] ~min-h-[5rem]/[9.375rem]  sm:px-11 sm:py-7  xl:max-2xl:min-h-fit">
       <div className="flex gap-7 sm:gap-[29.93px]">
         <SearchButton
           openSearchBar={openSearchBar}
