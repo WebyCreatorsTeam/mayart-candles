@@ -25,6 +25,8 @@ export function V6FilterSort({
   filterOptions: CandleFiltersType;
   setFilterSet: Dispatch<SetStateAction<Partial<CandleFiltersType>>>;
 }) {
+  console.log(filterOptions);
+
   return (
     <div className="absolute top-16 z-40 flex w-full space-x-4 p-4 *:flex-1 sm:top-44 xl:top-24">
       <Accordion type="single" collapsible>
