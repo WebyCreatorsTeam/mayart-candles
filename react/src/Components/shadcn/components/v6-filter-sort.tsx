@@ -45,10 +45,10 @@ export function V6FilterSort({
                   צורה
                 </label>
                 <select className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                  <option>All</option>
-                  <option>Category 1</option>
-                  <option>Category 2</option>
-                  <option>Category 3</option>
+                  <option key="" defaultValue="">הכל</option>
+                  {filterOptions.shape.map((shape) => (
+                    <option key={shape}>{shape}</option>
+                  ))}
                 </select>
               </div>
               <div>
@@ -56,13 +56,13 @@ export function V6FilterSort({
                   צבע
                 </label>
                 <select className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                  <option>All</option>
-                  <option>Category 1</option>
-                  <option>Category 2</option>
-                  <option>Category 3</option>
+                  <option key="" defaultValue="">הכל</option>
+                  {filterOptions.colors.map((color) => (
+                    <option key={color}>{color}</option>
+                  ))}
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-gray-700">
                   גודל
                 </label>
@@ -72,19 +72,23 @@ export function V6FilterSort({
                   <option>Category 2</option>
                   <option>Category 3</option>
                 </select>
-              </div>
+              </div> */}
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   ריח
                 </label>
                 <select className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                  <option>All</option>
+                  <option key="" defaultValue="">הכל</option>
+                  {filterOptions.fragrances.map((fragrance) => (
+                    <option key={fragrance}>{fragrance}</option>
+                  ))}
+                  {/* <option>All</option>
                   <option>Category 1</option>
                   <option>Category 2</option>
-                  <option>Category 3</option>
+                  <option>Category 3</option> */}
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-gray-700">
                   סוג
                 </label>
@@ -94,7 +98,7 @@ export function V6FilterSort({
                   <option>Category 2</option>
                   <option>Category 3</option>
                 </select>
-              </div>
+              </div> */}
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   מחיר

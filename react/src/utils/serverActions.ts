@@ -115,6 +115,7 @@ export const candleCategoriesLoader = async () => {
   if (continueWork) return { categories };
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
+
 export const checkoutPageInfoLoader = async (): Promise<{
   paymentText: { _id: string; text: string };
 } | void> => {
@@ -129,6 +130,27 @@ export const checkoutPageInfoLoader = async (): Promise<{
   if (continueWork) return { paymentText };
   if (!continueWork) return alert("הראה שגיאה, נסה שנית");
 };
+
+const validateInputsCheckout = (checkoutInfo: any) => {
+  const { fullName, telPhone, email } = checkoutInfo;
+
+  const phoneRegex = /^(?:(?:(\+?972|\(\+?972\)|\+?\(972\))(?:\s|\.|-)?([1-9]\d?))|(0[23489]{1})|(0[57]{1}[0-9]))(?:\s|\.|-)?([^0\D]{1}\d{2}(?:\s|\.|-)?\d{4})$/
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const fullNameRegex = /^[א-תa-z]+$/i
+  
+  if (!fullNameRegex.test(fullName)) {
+    return { continueNext: false, validMessage: "שם מלא אינו תקין" }
+  }
+  if (!phoneRegex.test(telPhone)) {
+    return { continueNext: false, validMessage: "המספר הטלפון אינו תקין" }
+  }
+  if (!emailRegex.test(email.toLowerCase())) {
+    return { continueNext: false, validMessage: "אימייל אינו תקין" }
+  }
+
+  return { continueNext: true, validMessage: "" }
+}
+
 export const checkout = async ({ request }: any) => {
   const formData = await request.formData();
 
@@ -138,6 +160,11 @@ export const checkout = async ({ request }: any) => {
     email: formData.get("email"),
     candlesArrayTrue: formData.get("candlesArrayTrue"),
   };
+
+  const { continueNext, validMessage } = validateInputsCheckout(checkoutInfo)
+
+  if (!continueNext) { return { next: continueNext, message: validMessage } }
+
   const candles = localStorage.getItem("shoppingCartCandles");
   const candlesArray = JSON.parse(candles as string) as ChosenCandleType[];
   const sentCandlesArray: SentCandleType[] = candlesArray.map((candle) => {
@@ -156,6 +183,7 @@ export const checkout = async ({ request }: any) => {
   });
   if (checkoutInfo.candlesArrayTrue === false)
     return alert("הראה שגיאה, נסה שנית");
+
   const checkoutInfoAndArray: CheckoutInfoAndArrayType = {
     name: checkoutInfo.fullName,
     telNumber: checkoutInfo.telPhone,
@@ -170,7 +198,7 @@ export const checkout = async ({ request }: any) => {
 
   if (continueWork) {
     localStorage.removeItem("shoppingCartCandles");
-    return { message: "ההזמנה נקלטה בהצלחה" };
+    return { next: continueWork, message: "ההזמנה נקלטה בהצלחה" };
   }
   if (!continueWork) throw new Error(message);
 };

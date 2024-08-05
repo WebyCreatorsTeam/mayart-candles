@@ -32,6 +32,8 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
       type: [],
       price: { min: Infinity, max: 0 },
     };
+
+
     if (!candles) return filters;
     candles.forEach((candle) => {
       const currentPrice = returnCurrentPrice(candle);
@@ -39,10 +41,10 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
       !filters.size.includes(candle.size) && filters.size.push(candle.size);
       !filters.type.includes(candle.type) && filters.type.push(candle.type);
       candle.fragrances.forEach((frag) => {
-        !filters.fragrances.includes(frag) && filters.fragrances.push(frag);
+        if (!filters.fragrances.includes(frag)) { return filters.fragrances.push(frag) }
       });
       candle.colors.forEach((color) => {
-        !filters.colors.includes(color) && filters.colors.push(color);
+        if(!filters.colors.includes(color.color)) return filters.colors.push(color.color)
       });
       if (filters.price) {
         if (currentPrice < filters.price.min) filters.price.min = currentPrice;
@@ -93,9 +95,6 @@ const AllCandles = ({ home = false }: { home?: boolean }) => {
           </h1>
 
           {/* <V6FilterSort
-            // filterSet={}
-          
-          <V6FilterSort
             sortType={sortType}
             filterOptions={filterOptions}
             setFilterSet={setFilterSet}

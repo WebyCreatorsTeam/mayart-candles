@@ -30,7 +30,7 @@ export type CandleType = {
 
 export type CandleFiltersType = {
   shape: string[];
-  colors: CandleColorT[];
+  colors: string[];
   size: string[];
   fragrances: string[];
   price: { min: number; max: number };

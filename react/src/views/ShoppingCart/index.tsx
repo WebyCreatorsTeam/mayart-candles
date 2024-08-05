@@ -5,6 +5,7 @@ import CheckoutAndDisclaimer from "./CheckoutAndDisclaimer";
 import { useOutletContext } from "react-router-dom";
 import { ContextType } from "../../App";
 import EmptyArrayPrompt from "../../Components/ListComponents/EmptyArrayPrompt";
+
 const ShoppingCartPage = () => {
   const { shoppingCartArray } = useOutletContext<ContextType>();
   const candles = useMemo(() => shoppingCartArray, [shoppingCartArray]);
