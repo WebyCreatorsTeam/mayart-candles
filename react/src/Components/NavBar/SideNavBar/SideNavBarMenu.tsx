@@ -43,7 +43,7 @@ const SideNavBarMenu = ({
         </Await>
       </Suspense>
       <MenuNavLink onClick={closeMenus} to="/about" text="אודות" />
-      <MenuNavLink onClick={closeMenus} to="/contact" text="צור קשר" />
+      <MenuNavLink onClick={closeMenus} to="#contact_us" text="צור קשר" />
       <NavBarMenuSocials />
     </nav>
   );
