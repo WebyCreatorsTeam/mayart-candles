@@ -18,7 +18,7 @@ import { getAllFrags } from '../NewCandle/AddNewFrag/AddNewCandleFrg'
 
 const DashcoardCandle = () => {
   const { candle, categories } = useLoaderData() as { candle: ICandles } & { categories: ICategories[] }
-console.log(candle.colors)
+// console.log(candle.colors)
   return (
     <Suspense fallback={<h1 className='no_data_text'>Loading...</h1>}>
       <Await resolve={[candle, categories]}>
